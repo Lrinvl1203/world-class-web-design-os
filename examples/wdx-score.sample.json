@@ -1,0 +1,31 @@
+{
+  "scores": {
+    "art_direction_originality": 12,
+    "brand_distinctiveness": 8,
+    "composition": 11,
+    "typography": 9,
+    "color_materiality": 5,
+    "spatial_rhythm": 7,
+    "imagery": 7,
+    "content_copy": 5,
+    "ux_navigation": 8,
+    "interaction": 4,
+    "motion": 5,
+    "responsive": 5,
+    "accessibility": 3,
+    "performance": 3
+  },
+  "hard_gates": {
+    "functional": true,
+    "critical_accessibility": true,
+    "responsive_matrix": true,
+    "reduced_motion": true,
+    "no_horizontal_overflow": true,
+    "no_console_errors": true,
+    "core_web_vitals": {
+      "lcp_ms": 2100,
+      "inp_ms": 160,
+      "cls": 0.05
+    }
+  }
+}

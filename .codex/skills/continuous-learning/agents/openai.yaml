@@ -1,0 +1,6 @@
+interface:
+  display_name: "Continuous Learning"
+  short_description: "Turn web-design defects into validated OS improvements"
+  default_prompt: "Use $continuous-learning to help with this web design task."
+policy:
+  allow_implicit_invocation: true

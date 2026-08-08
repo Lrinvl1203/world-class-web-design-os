@@ -1,0 +1,6 @@
+interface:
+  display_name: "Ai Smell Detector"
+  short_description: "Detect generic AI design patterns and visual slop"
+  default_prompt: "Use $ai-smell-detector to help with this web design task."
+policy:
+  allow_implicit_invocation: true

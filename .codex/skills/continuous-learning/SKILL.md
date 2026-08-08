@@ -1,0 +1,27 @@
+---
+name: continuous-learning
+description: Use after substantial web projects or repeated design defects to convert evidence into reusable skill improvements through root-cause analysis, regression scenarios, and controlled proposals without silently changing the core OS.
+metadata:
+  short-description: Turn web-design defects into validated OS improvements
+---
+
+# Continuous Learning
+
+## Lean-style learning loop
+
+For each meaningful defect or success:
+
+1. Observation — what happened in the rendered/user-tested result?
+2. Impact — what user/business/design quality did it affect?
+3. Root cause — project exception, execution error, missing rule, bad rule, tool-selection error, or QA blind spot?
+4. Generalizability — would the lesson apply to multiple unrelated projects?
+5. Countermeasure — smallest skill/rubric/router change that prevents recurrence.
+6. Regression examples — at least one case the new rule should improve and one case it must not damage.
+7. Proposal — exact file/section change.
+8. Validation — run skill validation and forward-test realistic prompts before adopting.
+
+## Governance
+
+Never mutate core skills merely because one critic disliked an aesthetic choice. Design rules need repeated evidence or a clear failure mode. Keep project-specific tastes in the project design system.
+
+Read `references/learning-record.md` for the record shape.

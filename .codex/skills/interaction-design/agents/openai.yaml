@@ -1,0 +1,6 @@
+interface:
+  display_name: "Interaction Design"
+  short_description: "Design states, feedback, gestures and signature interactions"
+  default_prompt: "Use $interaction-design to help with this web design task."
+policy:
+  allow_implicit_invocation: true

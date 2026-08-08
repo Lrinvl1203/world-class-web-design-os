@@ -1,0 +1,6 @@
+interface:
+  display_name: "Design Critic"
+  short_description: "Independently critique and score rendered web design"
+  default_prompt: "Use $design-critic to help with this web design task."
+policy:
+  allow_implicit_invocation: true

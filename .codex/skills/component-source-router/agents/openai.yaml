@@ -1,0 +1,6 @@
+interface:
+  display_name: "Component Source Router"
+  short_description: "Choose accessible primitives and component sources"
+  default_prompt: "Use $component-source-router to help with this web design task."
+policy:
+  allow_implicit_invocation: true

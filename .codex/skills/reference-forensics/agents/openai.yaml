@@ -1,0 +1,6 @@
+interface:
+  display_name: "Reference Forensics"
+  short_description: "Extract and remix design DNA from visual references"
+  default_prompt: "Use $reference-forensics to help with this web design task."
+policy:
+  allow_implicit_invocation: true

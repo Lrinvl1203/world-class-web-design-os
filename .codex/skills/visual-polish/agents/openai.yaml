@@ -1,0 +1,6 @@
+interface:
+  display_name: "Visual Polish"
+  short_description: "Refine typography, spacing, imagery and micro-details"
+  default_prompt: "Use $visual-polish to help with this web design task."
+policy:
+  allow_implicit_invocation: true

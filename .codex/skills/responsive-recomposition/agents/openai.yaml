@@ -1,0 +1,6 @@
+interface:
+  display_name: "Responsive Recomposition"
+  short_description: "Recompose layouts and priorities across devices"
+  default_prompt: "Use $responsive-recomposition to help with this web design task."
+policy:
+  allow_implicit_invocation: true

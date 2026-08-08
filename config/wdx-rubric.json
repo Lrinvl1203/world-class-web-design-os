@@ -1,0 +1,76 @@
+{
+  "version": "1.0",
+  "release_threshold": 92,
+  "categories": {
+    "art_direction_originality": {
+      "max": 12,
+      "floor": 9
+    },
+    "brand_distinctiveness": {
+      "max": 8,
+      "floor": 6
+    },
+    "composition": {
+      "max": 12,
+      "floor": 9
+    },
+    "typography": {
+      "max": 10,
+      "floor": 8
+    },
+    "color_materiality": {
+      "max": 6,
+      "floor": 4
+    },
+    "spatial_rhythm": {
+      "max": 8,
+      "floor": 6
+    },
+    "imagery": {
+      "max": 8,
+      "floor": 6
+    },
+    "content_copy": {
+      "max": 6,
+      "floor": 4
+    },
+    "ux_navigation": {
+      "max": 8,
+      "floor": 7
+    },
+    "interaction": {
+      "max": 5,
+      "floor": 3
+    },
+    "motion": {
+      "max": 6,
+      "floor": 4
+    },
+    "responsive": {
+      "max": 5,
+      "floor": 4
+    },
+    "accessibility": {
+      "max": 3,
+      "floor": 2
+    },
+    "performance": {
+      "max": 3,
+      "floor": 2
+    }
+  },
+  "hard_gates": {
+    "functional": true,
+    "critical_accessibility": true,
+    "responsive_matrix": true,
+    "reduced_motion": true,
+    "no_horizontal_overflow": true,
+    "no_console_errors": true,
+    "core_web_vitals": {
+      "lcp_ms_max": 2500,
+      "inp_ms_max": 200,
+      "cls_max": 0.1,
+      "field_percentile": 75
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "world-class-web-design-os",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "python3 scripts/validate_skills.py && python3 scripts/validate_wdx_score.py examples/wdx-score.sample.json",
+    "qa:install": "npx playwright install chromium",
+    "qa:capture": "node scripts/capture-screenshots.mjs",
+    "qa:visual": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.0"
+  }
+}

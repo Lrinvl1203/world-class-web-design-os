@@ -1,0 +1,34 @@
+{
+  "viewports": [
+    {
+      "name": "edge-mobile",
+      "width": 320,
+      "height": 568
+    },
+    {
+      "name": "mobile",
+      "width": 375,
+      "height": 812
+    },
+    {
+      "name": "mobile-wide",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "name": "wide",
+      "width": 1920,
+      "height": 1080
+    }
+  ]
+}

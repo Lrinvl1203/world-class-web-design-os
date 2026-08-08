@@ -1,0 +1,58 @@
+{
+  "principle": "Choose by interaction intent and capability gap; prefer the simplest sufficient engine.",
+  "routes": [
+    {
+      "intent": "simple hover/focus/press/keyframe",
+      "prefer": "native-css-waapi"
+    },
+    {
+      "intent": "simple scroll-linked compositor-friendly effect",
+      "prefer": "css-scroll-driven",
+      "fallback": "motion-or-gsap"
+    },
+    {
+      "intent": "route/state visual continuity",
+      "prefer": "view-transitions",
+      "fallback": "motion"
+    },
+    {
+      "intent": "react state/layout/shared-layout/gesture",
+      "prefer": "motion"
+    },
+    {
+      "intent": "precise timeline/stagger/svg/text choreography",
+      "prefer": "animejs"
+    },
+    {
+      "intent": "complex pin/scrub/scroll/text/path/flip choreography",
+      "prefer": "gsap"
+    },
+    {
+      "intent": "smooth-scroll feel or normalized scroll signal",
+      "prefer": "lenis",
+      "only_if_justified": true
+    },
+    {
+      "intent": "3d scene",
+      "prefer": "three-or-r3f"
+    },
+    {
+      "intent": "interactive vector state machine",
+      "prefer": "rive"
+    },
+    {
+      "intent": "designer-authored 3d embed",
+      "prefer": "spline"
+    },
+    {
+      "intent": "timeline-authoring-across-3d-dom",
+      "prefer": "theatrejs"
+    }
+  ],
+  "constraints": [
+    "respect-prefers-reduced-motion",
+    "avoid-overlapping-libraries-without-justification",
+    "coordinate-a-single-raf-loop-when-multiple-engines-run",
+    "critical-content-must-not-depend-on-motion"
+  ]
+}
