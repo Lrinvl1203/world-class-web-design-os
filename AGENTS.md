@@ -2,6 +2,10 @@
 
 These instructions apply to the entire repository.
 
+## Continuation handoff
+
+When `CODEX_HANDOFF.md` exists, read it before substantive continuation work. It records inherited state, completed research/experiments, pending milestones, and non-negotiable decisions. Preserve that context unless the user explicitly changes direction.
+
 ## Mission
 
 Produce web experiences that are distinctive, coherent, usable, accessible, fast, and technically maintainable. Optimize for design intent and user outcomes rather than fashionable effects or component-library assembly.
