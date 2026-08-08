@@ -22,7 +22,7 @@
       <a href="#inside">Inside</a>
       <a href="#neighborhood">Nearby</a>
     </nav>
-    <button class="language" type="button" aria-label="언어 전환">KO <span>/ EN</span></button>
+    <span class="language" aria-label="한국어 및 영어 지원">KO <span>/ EN</span></span>
   </header>
 
   <main id="main">
@@ -99,20 +99,20 @@
         <h2 id="inside-title">Everything important,<br><span>one gesture away.</span></h2>
       </div>
       <div class="guide-grid">
-        <article class="guide-feature reveal">
+        <article class="guide-feature reveal" aria-live="polite">
           <div class="guide-orbit" aria-hidden="true"><span></span><i></i></div>
           <div>
-            <p class="micro">MOST USED / NIGHT</p>
-            <h3>“보일러가<br>조금 추워요.”</h3>
-            <p>현재 화면에서 바로 온도 설정 순서와 가장 편안한 권장 범위를 확인합니다.</p>
+            <p class="micro" data-guide-label>MOST USED / NIGHT</p>
+            <h3 data-guide-title>“보일러가<br>조금 추워요.”</h3>
+            <p data-guide-copy>현재 화면에서 바로 온도 설정 순서와 가장 편안한 권장 범위를 확인합니다.</p>
           </div>
-          <a href="#" class="inline-link">Heating guide <span>↗</span></a>
+          <button type="button" class="inline-link" data-guide="heating">Heating guide <span>↗</span></button>
         </article>
         <div class="guide-list">
-          <a href="#" class="guide-row reveal"><span>Wi‑Fi</span><small>Connect in 10 sec</small><b>↗</b></a>
-          <a href="#" class="guide-row reveal"><span>Air conditioner</span><small>Cool / dry / sleep</small><b>↗</b></a>
-          <a href="#" class="guide-row reveal"><span>Waste</span><small>Simple sorting guide</small><b>↗</b></a>
-          <a href="#" class="guide-row reveal"><span>Checkout</span><small>3 things before leaving</small><b>↗</b></a>
+          <button type="button" class="guide-row reveal" data-guide="wifi"><span>Wi‑Fi</span><small>Connect in 10 sec</small><b>↗</b></button>
+          <button type="button" class="guide-row reveal" data-guide="air"><span>Air conditioner</span><small>Cool / dry / sleep</small><b>↗</b></button>
+          <button type="button" class="guide-row reveal" data-guide="waste"><span>Waste</span><small>Simple sorting guide</small><b>↗</b></button>
+          <button type="button" class="guide-row reveal" data-guide="checkout"><span>Checkout</span><small>3 things before leaving</small><b>↗</b></button>
         </div>
       </div>
     </section>
