@@ -35,6 +35,10 @@ Create a reference DNA matrix. Assign sources to *principles*, for example:
 
 Then recombine them through the current brand and user job. Explicitly state what will not be copied.
 
+## Award / creative benchmark lens
+
+Read `references/award-pattern-atlas.md` when selecting or comparing high-end benchmark patterns. Respect its A/B/C evidence levels; never infer a specific mechanic from an award listing alone.
+
 ## Meng To / Design+Code lens
 
 Read `references/designcode-methodology.md` when the task calls for stronger design-to-code polish, reference remixing, components, typography/color craft or responsive refinement.

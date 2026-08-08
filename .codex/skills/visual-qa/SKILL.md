@@ -18,10 +18,11 @@ Do not critique only source code. Render the real interface.
 3. inspect full-page composition and first viewport separately;
 4. test critical interactive states;
 5. inspect keyboard focus and sticky/fixed overlays;
-6. test reduced-motion mode;
-7. check horizontal overflow and console/page errors;
-8. use Playwright visual baselines for stable views;
-9. hand screenshots to `$design-critic` without implementation justification.
+6. inspect utility/micro text at native screenshot scale—technically present text can still be functionally illegible;
+7. test reduced-motion mode;
+8. check horizontal overflow and console/page errors;
+9. use Playwright visual baselines for stable views;
+10. hand screenshots to `$design-critic` without implementation justification.
 
 ## Defect format
 

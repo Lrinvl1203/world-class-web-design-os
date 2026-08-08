@@ -13,7 +13,7 @@ Creative technology must communicate product meaning, spatial information, mater
 
 ## Router
 
-Read `references/three-r3f.md` for programmable 3D and `references/rive-spline-theatre.md` for authored interactive assets/timelines.
+Read `references/capability-matrix-2026.md` first. Read `references/three-r3f.md` for programmable 3D and `references/rive-spline-theatre.md` for authored interactive assets/timelines.
 
 - Three.js: low-level scene/render/shader control.
 - React Three Fiber: React-native Three.js scene architecture.

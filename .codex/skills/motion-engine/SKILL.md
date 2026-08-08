@@ -9,7 +9,7 @@ metadata:
 
 ## Rule: intent first, engine second
 
-Read `references/tool-router.md` and choose the smallest engine that cleanly implements the interaction.
+Read `references/tool-router.md` and `references/capability-matrix-2026.md` and choose the smallest engine that cleanly implements the interaction.
 
 ### Native first
 Use CSS transitions/keyframes, WAAPI, CSS Scroll-Driven Animations or View Transitions when they cover the behavior cleanly.

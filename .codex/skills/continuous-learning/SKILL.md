@@ -22,6 +22,6 @@ For each meaningful defect or success:
 
 ## Governance
 
-Never mutate core skills merely because one critic disliked an aesthetic choice. Design rules need repeated evidence or a clear failure mode. Keep project-specific tastes in the project design system.
+Never mutate core skills merely because one critic disliked an aesthetic choice. Design rules need repeated project evidence, documented external evidence, or a clear reproducible failure mode. Record provenance and evidence level for benchmark-derived rules. Keep project-specific tastes in the project design system.
 
 Read `references/learning-record.md` for the record shape.

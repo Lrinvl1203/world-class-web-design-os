@@ -1,0 +1,77 @@
+{
+  "browser": "Chromium system binary via Playwright Python",
+  "method": "self-contained page.set_content; no external network",
+  "viewports": [
+    {
+      "viewport": "320x568",
+      "horizontal_overflow": false,
+      "console_errors": [],
+      "guide_updated": true,
+      "panel_opened": true,
+      "panel_closed_escape": true,
+      "dead_hash_links": 0
+    },
+    {
+      "viewport": "375x812",
+      "horizontal_overflow": false,
+      "console_errors": [],
+      "guide_updated": true,
+      "panel_opened": true,
+      "panel_closed_escape": true,
+      "dead_hash_links": 0
+    },
+    {
+      "viewport": "390x844",
+      "horizontal_overflow": false,
+      "console_errors": [],
+      "guide_updated": true,
+      "panel_opened": true,
+      "panel_closed_escape": true,
+      "dead_hash_links": 0
+    },
+    {
+      "viewport": "768x1024",
+      "horizontal_overflow": false,
+      "console_errors": [],
+      "guide_updated": true,
+      "panel_opened": true,
+      "panel_closed_escape": true,
+      "dead_hash_links": 0
+    },
+    {
+      "viewport": "1440x900",
+      "horizontal_overflow": false,
+      "console_errors": [],
+      "guide_updated": true,
+      "panel_opened": true,
+      "panel_closed_escape": true,
+      "dead_hash_links": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "horizontal_overflow": false,
+      "console_errors": [],
+      "guide_updated": true,
+      "panel_opened": true,
+      "panel_closed_escape": true,
+      "dead_hash_links": 0
+    }
+  ],
+  "reduced_motion": [
+    {
+      "viewport": "390x844",
+      "media": true,
+      "revealOpacity": "1",
+      "revealTransform": "none",
+      "htmlScroll": "auto"
+    },
+    {
+      "viewport": "1440x900",
+      "media": true,
+      "revealOpacity": "1",
+      "revealTransform": "none",
+      "htmlScroll": "auto"
+    }
+  ],
+  "field_core_web_vitals": "not measured; requires real deployment/field or representative URL lab run"
+}

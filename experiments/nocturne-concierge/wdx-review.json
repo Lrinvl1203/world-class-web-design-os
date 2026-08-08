@@ -1,0 +1,50 @@
+{
+  "project": "Nocturne 24 — Digital Stay Concierge",
+  "review_type": "first real WDX experiment, screenshot-led",
+  "wdx_total": 89.4,
+  "release_threshold": 92,
+  "release_decision": "HOLD",
+  "scores": {
+    "art_direction_originality": 10.8,
+    "brand_distinctiveness": 7.3,
+    "composition": 11.2,
+    "typography": 9.0,
+    "color_materiality": 5.6,
+    "spatial_rhythm": 7.3,
+    "imagery": 6.5,
+    "content_copy": 5.2,
+    "ux_navigation": 7.4,
+    "interaction": 4.0,
+    "motion": 4.5,
+    "responsive": 4.8,
+    "accessibility": 2.8,
+    "performance": 3.0
+  },
+  "hard_gates": {
+    "functional": "PASS",
+    "critical_accessibility_browser_smoke": "PASS",
+    "responsive_matrix": "PASS",
+    "reduced_motion": "PASS",
+    "no_horizontal_overflow": "PASS",
+    "no_console_errors": "PASS",
+    "field_core_web_vitals": "PENDING_REAL_DEPLOYMENT"
+  },
+  "strengths": [
+    "Clear quiet-editorial hospitality point of view instead of generic SaaS UI.",
+    "Strong asymmetric composition and page energy curve with a deliberate dark focal section.",
+    "Mobile is recomposed rather than merely scaled and preserves fast task access via a bottom dock.",
+    "Motion is restrained and native; interaction does not depend on animation to remain usable.",
+    "The guide interaction and Today panel now have meaningful functional states rather than decorative controls."
+  ],
+  "top_root_causes_blocking_92": [
+    "Imagery is intentionally abstract and CSS-generated; it does not yet carry enough real hospitality/place specificity for an exceptional art-direction score.",
+    "The signature interaction is useful but not yet memorable enough to become a proprietary brand behavior.",
+    "Micro labels and utility typography are highly editorial but approach the lower edge of comfortable real-device legibility; final production would need native-device inspection and content stress tests."
+  ],
+  "next_countermeasures": [
+    "Introduce one project-specific photographic or spatial asset system, not a generic stock-image layer.",
+    "Turn one real guest task—arrival path, room control, or neighborhood curation—into the single signature interaction.",
+    "Run real-device typography review and field/lab Core Web Vitals after deployment before release."
+  ],
+  "note": "The score is intentionally below the OS release threshold. The experiment demonstrates that the critic is allowed to reject a visually strong build rather than inflating the score to validate the system."
+}

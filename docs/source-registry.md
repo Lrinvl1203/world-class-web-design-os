@@ -62,3 +62,14 @@ Last reviewed: **2026-08-08**. This repository distills public documentation and
 ### Source-use rule
 
 Use these sources to understand capabilities, principles and current APIs. Do not imitate a single reference so closely that the project loses its own brand or composition. Verify APIs against current primary documentation before coding when the library surface may have changed.
+
+## 2026 benchmark research pass
+
+- Codrops 2026 case-study index: https://tympanus.net/codrops/tag/case-study/
+- Codrops 2026 demo index: https://tympanus.net/codrops/hub/all/codrops/
+- Awwwards 2026 case-study index: https://www.awwwards.com/blog/?tag=case-study&text=web+design
+- Three.js WebGPURenderer guide: https://threejs.org/manual/en/webgpurenderer
+- Rive web state-machine playback: https://rive.app/docs/runtimes/web/state-machines
+- Anime.js timeline docs: https://animejs.com/documentation/timeline/
+
+The operational 40-reference synthesis lives in `.codex/skills/reference-forensics/references/award-pattern-atlas.md`. Evidence level A/B/C distinguishes documented case studies/demos from award-list benchmark targets.
