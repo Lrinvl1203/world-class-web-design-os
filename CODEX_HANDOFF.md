@@ -12,6 +12,22 @@ Primary remote target:
 
 The user wants all future work on this project to continue in Codex with no loss of context.
 
+### Continuation state — 2026-08-09
+
+This section is authoritative when older historical descriptions below differ.
+
+- Phase A is complete. Cross-platform validation now works on Windows, all 17 skills validate, the sample WDX report validates at 92, and six Win32 Playwright baselines are established.
+- Phase B is complete. `origin` is `https://github.com/Lrinvl1203/world-class-web-design-os.git`; `main` tracks `origin/main` and coherent milestones have been pushed without force.
+- Phase C is complete as an **internal** gate: Nocturne 24 now scores 92.8 with hard gates green. Field Core Web Vitals remain pending, so this is not an external quality claim.
+- Phase D is complete at 100 evidence records: 47 level-A case studies, 46 level-B primary technical sources, and 7 level-C benchmark records. The 60 newly added direct URLs were checked successfully on 2026-08-09.
+- Phase E adopted one evidence-backed Visual QA correction: settle media and prove critical-content visibility before accepting pixel baselines. The defect, regression scenarios, and validation are recorded in `docs/learning-records.md`.
+- Next substantive milestone is Phase F: validate the system on a materially different archetype, beginning with industrial/manufacturing B2B unless the user changes priority.
+
+Latest published milestones before this handoff update:
+
+- `8d1eb4f raise Nocturne experiment above WDX gate`
+- `556d05f fix cross-platform validation and add QA baselines`
+
 ---
 
 ## 1. Non-negotiable design philosophy
@@ -427,12 +443,13 @@ Do not discard the existing research.
 Important files:
 
 - `.codex/skills/reference-forensics/references/award-pattern-atlas.md`
+- `docs/reference-study-100.md`
 - `docs/reference-study-40.md`
 - `.codex/skills/motion-engine/references/capability-matrix-2026.md`
 - `.codex/skills/creative-web/references/capability-matrix-2026.md`
 - `docs/source-registry.md`
 
-The existing 40-reference study separates evidence quality roughly as:
+The current 100-reference study separates evidence quality as:
 
 - A — implementation/design intent supported by case-study evidence;
 - B — interaction/technology supported by demo evidence;
@@ -462,22 +479,21 @@ Current files include:
 
 This experiment intentionally used a restrained “quiet luxury digital concierge” direction rather than gratuitous 3D/GSAP.
 
-Current WDX result:
+Current WDX result after the evidence-backed improvement pass:
 
-- **89.4 / 100 — HOLD**
+- **92.8 / 100 — INTERNAL PASS; FIELD VALIDATION PENDING**
 
-Do not retroactively mark it as passed.
+Do not present the internal score as field validation or an external award-level judgment.
 
-Known reasons it did not reach 92:
+Known remaining limits:
 
-- imagery/visual system lacks enough proprietary/place-specific character;
-- signature interaction is not yet memorable enough;
-- some micro-typography / real-device nuance could be stronger;
-- the experiment demonstrates the workflow but is not yet an award-level artifact.
+- place imagery is original and project-specific but still synthetic rather than commissioned documentary photography;
+- performance evidence is local laboratory data, not field Core Web Vitals;
+- the experiment demonstrates the workflow but is not an external award-level artifact.
 
 Browser QA already addressed defects such as dead `#` links and meaningless interaction states. Preserve those fixes.
 
-The next improvement pass should increase actual design quality, not manipulate WDX scoring.
+Any future improvement pass must increase actual design quality rather than manipulate WDX scoring.
 
 ---
 
@@ -647,4 +663,3 @@ Use this exact instruction:
 ```text
 Read AGENTS.md and CODEX_HANDOFF.md in full. Treat the existing repository, commits, 17 Codex skills, research atlas, and Nocturne experiment as inherited work that must be preserved. Do not redesign the architecture from scratch. First perform the Phase A integrity audit and report concrete findings. Then continue Phase B onward autonomously, making best-effort progress without asking me to repeat context already present in the repository. Use $web-design-orchestrator as the governing workflow for web-design work, keep builder and critic passes separate, verify current external/library facts against primary sources when they may have changed, and never game WDX thresholds. Commit coherent milestones with concise messages.
 ```
-

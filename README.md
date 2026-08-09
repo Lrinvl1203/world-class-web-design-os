@@ -64,6 +64,10 @@ A release candidate should satisfy both:
 
 See `config/wdx-rubric.json`.
 
+## Design DNA evidence
+
+The reference-forensics skill includes a 100-reference atlas spanning creator-authored case studies, official interaction/creative-web documentation, and clearly labeled award benchmarks. Use it as a problem router, never as a template gallery. See `.codex/skills/reference-forensics/references/award-pattern-atlas.md` and `docs/reference-study-100.md`.
+
 ## Philosophy
 
 - Reference, do not clone.

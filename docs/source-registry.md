@@ -1,6 +1,6 @@
 # Verified Source Registry
 
-Last reviewed: **2026-08-08**. This repository distills public documentation and public course descriptions; it does not reproduce proprietary course content.
+Last reviewed: **2026-08-09**. This repository distills public documentation and public course descriptions; it does not reproduce proprietary course content.
 
 ## Codex / skill architecture
 
@@ -72,4 +72,4 @@ Use these sources to understand capabilities, principles and current APIs. Do no
 - Rive web state-machine playback: https://rive.app/docs/runtimes/web/state-machines
 - Anime.js timeline docs: https://animejs.com/documentation/timeline/
 
-The operational 40-reference synthesis lives in `.codex/skills/reference-forensics/references/award-pattern-atlas.md`. Evidence level A/B/C distinguishes documented case studies/demos from award-list benchmark targets.
+The operational 100-reference synthesis lives in `.codex/skills/reference-forensics/references/award-pattern-atlas.md`; the research summary lives in `docs/reference-study-100.md`. Evidence level A/B/C distinguishes creator-authored case studies, official capability references, and award-list benchmark targets. Entries 41–100 link directly to the supporting primary or case-study page.

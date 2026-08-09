@@ -1,5 +1,7 @@
 # 40-Reference Design Study — WDX Knowledge Upgrade
 
+> Historical baseline: this second-pass study is preserved for provenance. The current 100-reference synthesis and third-pass findings live in `docs/reference-study-100.md` and `.codex/skills/reference-forensics/references/award-pattern-atlas.md`.
+
 This document records the second research pass used to strengthen the World-Class Web Design OS. The reusable operational version lives at `.codex/skills/reference-forensics/references/award-pattern-atlas.md`.
 
 ## Research design

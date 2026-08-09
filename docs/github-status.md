@@ -1,28 +1,28 @@
 # GitHub Publish Status
 
-Date: 2026-08-08
+Date: 2026-08-09
 
 ## Local repository
 
 - branch: `main`
-- latest commit at packaging time: see `git log -1 --oneline`
-- working tree should be clean before publishing
+- remote: `https://github.com/Lrinvl1203/world-class-web-design-os.git`
+- upstream: `origin/main`
+- latest published milestone before this update: `8d1eb4f raise Nocturne experiment above WDX gate`
 
 ## Connected GitHub identity
 
 The active connector resolves to GitHub user `Lrinvl1203`.
 
-## Current blocker
+## Publish status
 
-The available GitHub connector can read/write files, trees, commits, branches and pull requests **inside an existing repository**, but it does not expose a create-repository action. No repository named `Lrinvl1203/world-class-web-design-os` currently exists or is accessible.
+The repository now exists, the `origin` remote is configured, and `main` has been pushed successfully. There is no remaining repository-creation blocker.
 
-## Minimal continuation
+## Safe continuation
 
-Create an empty **private** repository named `world-class-web-design-os` under `Lrinvl1203` without initializing README, license or .gitignore. Once that repository exists, the project can be populated through the connected GitHub tools or from this local git history.
-
-If using local git after creating the repo:
+Publish coherent milestones with:
 
 ```bash
-git remote add origin https://github.com/Lrinvl1203/world-class-web-design-os.git
-git push -u origin main
+git push origin main
 ```
+
+Preserve the four known Windows mode-only working-tree changes unless an intentional permission-normalization decision is made.
