@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "validate": "python3 scripts/validate_skills.py && python3 scripts/validate_wdx_score.py examples/wdx-score.sample.json",
+    "validate": "node scripts/validate.mjs",
     "qa:install": "npx playwright install chromium",
     "qa:capture": "node scripts/capture-screenshots.mjs",
     "qa:visual": "playwright test"

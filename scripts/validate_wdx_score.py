@@ -3,9 +3,9 @@ from pathlib import Path
 import json, sys
 
 root = Path(__file__).resolve().parents[1]
-rubric = json.loads((root/'config/wdx-rubric.json').read_text())
+rubric = json.loads((root/'config/wdx-rubric.json').read_text(encoding='utf-8'))
 report_path = Path(sys.argv[1]) if len(sys.argv) > 1 else root/'examples/wdx-score.sample.json'
-report = json.loads(report_path.read_text())
+report = json.loads(report_path.read_text(encoding='utf-8'))
 errors=[]
 total=0
 for name, rule in rubric['categories'].items():
