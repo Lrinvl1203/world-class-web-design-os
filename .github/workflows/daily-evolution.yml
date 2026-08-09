@@ -33,7 +33,7 @@ jobs:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           THREADS_POST_IDS: ${{ vars.THREADS_POST_IDS }}
       - name: Upload review-only evidence
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: design-evolution-${{ github.run_id }}
           path: |
