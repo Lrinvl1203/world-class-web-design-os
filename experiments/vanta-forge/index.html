@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VANTA Forge is a fictional precision-manufacturing partner for critical rotating components.">
+  <title>VANTA Forge — Parts that hold the line</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="VANTA Forge home">
+      <span>VANTA</span><span>FORGE / 04</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#quality">Quality</a>
+      <a href="#process">Process</a>
+    </nav>
+    <a class="header-cta" href="#rfq">Build an RFQ <span aria-hidden="true">↘</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>Critical rotating components</span><span>Incheon / KR</span></p>
+        <h1 id="hero-title">Parts that<br><em>hold the line.</em></h1>
+        <p class="hero-deck">Five-axis machining and inspection evidence for programs where the drawing is only the beginning.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#rfq">Start with the drawing <span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="#capabilities">Verify process fit <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="assets/forge-floor.webp" width="1586" height="992" alt="Engineer inspecting a large machined turbine component beside a five-axis machining center" fetchpriority="high">
+        <figcaption><span>Bay 04 / Five-axis cell</span><span>Ø 1,600 mm capacity</span></figcaption>
+      </figure>
+      <aside class="hero-proof" aria-label="Core manufacturing evidence">
+        <div><strong>±0.008</strong><span>mm verified tolerance</span></div>
+        <div><strong>99.3%</strong><span>on-time lots / trailing 12 months</span></div>
+        <div><strong>48 h</strong><span>drawing review target</span></div>
+      </aside>
+      <div class="hero-datum" aria-hidden="true"><span></span></div>
+    </section>
+
+    <section class="proof-strip" aria-label="Program standards">
+      <p>Built around evidence</p>
+      <ul>
+        <li>AS9100D workflow</li>
+        <li>Full material trace</li>
+        <li>FAI + CMM report</li>
+        <li>Serialized lot records</li>
+      </ul>
+    </section>
+
+    <section class="capabilities" id="capabilities" aria-labelledby="capability-title">
+      <header class="section-head">
+        <p class="section-index">01 / Process fit</p>
+        <h2 id="capability-title">Select the work.<br>Read the limit.</h2>
+        <p>Representative planning ranges for first-pass supplier evaluation. Final capability follows drawing and material review.</p>
+      </header>
+
+      <div class="capability-selector" role="group" aria-label="Production family">
+        <button type="button" data-family="aero" aria-pressed="true"><span>01</span>Aerospace rotation</button>
+        <button type="button" data-family="energy" aria-pressed="false"><span>02</span>Energy flow</button>
+        <button type="button" data-family="robotics" aria-pressed="false"><span>03</span>Robotics motion</button>
+      </div>
+
+      <div class="capability-stage" data-position="0">
+        <div class="datum-scale" aria-hidden="true">
+          <span>0</span><span>25</span><span>50</span><span>75</span><span>100</span>
+          <i></i>
+        </div>
+        <div class="capability-copy" aria-live="polite">
+          <p class="kicker" data-family-kicker>High-load concentric geometry</p>
+          <h3 data-family-title>Impellers + blisks</h3>
+          <p data-family-description>Five-axis roughing and finishing with controlled datum transfer for nickel, titanium, and stainless rotating parts.</p>
+        </div>
+        <dl class="spec-grid">
+          <div><dt>Typical envelope</dt><dd data-family-envelope>Ø 80–1,600 mm</dd></div>
+          <div><dt>Profile tolerance</dt><dd data-family-tolerance>±0.008 mm</dd></div>
+          <div><dt>Inspection</dt><dd data-family-inspection>5-axis CMM + scan</dd></div>
+          <div><dt>Lot pattern</dt><dd data-family-lot>1–24 serialized</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="quality" id="quality" aria-labelledby="quality-title">
+      <figure class="quality-media">
+        <img src="assets/inspection-bench.webp" width="1536" height="1024" alt="Quality engineer measuring a machined impeller with a micrometer" loading="lazy" decoding="async">
+        <figcaption>Inspection bench / final dimensional verification</figcaption>
+      </figure>
+      <div class="quality-copy">
+        <p class="section-index">02 / Evidence chain</p>
+        <h2 id="quality-title">A tolerance claim is not a report.</h2>
+        <p>Every critical characteristic is linked to material identity, operation, instrument, operator, and revision. You receive the evidence package your release process needs—not a folder of unlabeled PDFs.</p>
+        <dl class="quality-ledger">
+          <div><dt>Material</dt><dd>Heat + lot trace</dd><span>Linked</span></div>
+          <div><dt>Geometry</dt><dd>Ballooned drawing</dd><span>Mapped</span></div>
+          <div><dt>Measurement</dt><dd>CMM raw + report</dd><span>Versioned</span></div>
+          <div><dt>Release</dt><dd>FAI / CoC package</dd><span>Signed</span></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="process" id="process" aria-labelledby="process-title">
+      <header class="section-head compact">
+        <p class="section-index">03 / Controlled handoff</p>
+        <h2 id="process-title">Four gates.<br>One accountable record.</h2>
+      </header>
+      <ol class="process-list">
+        <li><span>01</span><div><h3>Drawing review</h3><p>CTQs, datum strategy, material, and inspection scope returned with open questions.</p></div><b>Target 48 h</b></li>
+        <li><span>02</span><div><h3>Process proof</h3><p>Tool access, workholding, deformation risk, and measurement method locked before release.</p></div><b>DFM record</b></li>
+        <li><span>03</span><div><h3>First article</h3><p>Operation-level trace and dimensional evidence reviewed against the approved revision.</p></div><b>FAI package</b></li>
+        <li><span>04</span><div><h3>Repeat control</h3><p>Serialized records and change history stay connected across every production lot.</p></div><b>Lot archive</b></li>
+      </ol>
+    </section>
+
+    <section class="rfq" id="rfq" aria-labelledby="rfq-title">
+      <header>
+        <p class="section-index">04 / Prepare the handoff</p>
+        <h2 id="rfq-title">Make the first review useful.</h2>
+        <p>Build a local brief before sharing controlled files. This prototype does not upload or transmit data.</p>
+      </header>
+      <form class="rfq-form" data-rfq-form>
+        <label>Part family
+          <select name="part">
+            <option>Rotating component</option>
+            <option>Flow-path component</option>
+            <option>Motion housing</option>
+            <option>Other precision part</option>
+          </select>
+        </label>
+        <label>Primary material
+          <select name="material">
+            <option>Nickel alloy</option>
+            <option>Titanium</option>
+            <option>Stainless steel</option>
+            <option>Aluminum</option>
+          </select>
+        </label>
+        <label>First lot quantity
+          <input name="quantity" type="number" min="1" max="500" value="4" inputmode="numeric">
+        </label>
+        <label>Tightest tolerance
+          <select name="tolerance">
+            <option>±0.010 mm or tighter</option>
+            <option>±0.025 mm</option>
+            <option>±0.050 mm</option>
+            <option>Review from drawing</option>
+          </select>
+        </label>
+        <button class="button button-primary" type="submit">Build RFQ brief <span aria-hidden="true">↘</span></button>
+      </form>
+      <aside class="rfq-output" aria-live="polite" aria-label="RFQ brief" tabindex="-1">
+        <p class="kicker">Review input / local only</p>
+        <h3 data-rfq-heading>Ready for drawing context</h3>
+        <p data-rfq-summary>Select the planning inputs, then build a concise review brief. No file or contact data is collected here.</p>
+        <ul>
+          <li>Include drawing revision + neutral CAD</li>
+          <li>Mark critical-to-quality dimensions</li>
+          <li>State inspection and documentation needs</li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand footer-brand"><span>VANTA</span><span>FORGE / 04</span></div>
+    <p>Fictional manufacturing-system experiment<br>Incheon, Republic of Korea</p>
+    <a href="#top">Back to datum <span aria-hidden="true">↑</span></a>
+  </footer>
+</body>
+</html>

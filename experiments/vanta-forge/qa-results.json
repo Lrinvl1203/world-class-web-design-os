@@ -1,0 +1,39 @@
+{
+  "browser": "Chromium via Playwright 1.62",
+  "method": "Local static server, real asset loading, reduced-motion deterministic baselines, task-state checks, and screenshot inspection",
+  "viewports": [
+    { "viewport": "320x568", "horizontal_overflow": false, "console_errors": [], "visual_baseline": "PASS" },
+    { "viewport": "375x812", "horizontal_overflow": false, "console_errors": [], "visual_baseline": "PASS" },
+    { "viewport": "390x844", "horizontal_overflow": false, "console_errors": [], "visual_baseline": "PASS" },
+    { "viewport": "768x1024", "horizontal_overflow": false, "console_errors": [], "visual_baseline": "PASS" },
+    { "viewport": "1440x900", "horizontal_overflow": false, "console_errors": [], "visual_baseline": "PASS" },
+    { "viewport": "1920x1080", "horizontal_overflow": false, "console_errors": [], "visual_baseline": "PASS" }
+  ],
+  "critical_paths_each_viewport": {
+    "dead_hash_links": 0,
+    "critical_content_visible_reduced_motion": true,
+    "critical_pointer_targets_44px": true,
+    "production_family_pressed_state_updated": true,
+    "production_family_evidence_updated": true,
+    "rfq_brief_generated_locally": true,
+    "rfq_output_focus_received": true
+  },
+  "contrast_checks": {
+    "carbon_on_signal": 5.10,
+    "steel_on_paper": 5.96,
+    "steel_on_paper_deep": 5.08,
+    "inspection_green_on_carbon": 11.27,
+    "footer_utility_on_carbon": 8.81
+  },
+  "lab_performance": [
+    { "viewport": "390x844", "lcp_ms": 208, "cls": 0, "task_response_proxy_ms": 1, "resource_transfer_kb": 265 },
+    { "viewport": "1440x900", "lcp_ms": 180, "cls": 0, "task_response_proxy_ms": 9, "resource_transfer_kb": 265 }
+  ],
+  "field_core_web_vitals": "not measured; requires representative deployment and field population",
+  "performance_note": "The response proxy measures production-family click to next animation frame and must not be represented as field INP.",
+  "defects_found_and_fixed": [
+    "Phone-width horizontal overflow caused by an unbreakable oversized process heading.",
+    "Low-contrast steel utility text was darkened, with explicit overrides on orange and carbon surfaces.",
+    "The mobile process heading was recomposed to preserve whole words rather than clipping or arbitrary word breaks."
+  ]
+}

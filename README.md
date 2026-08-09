@@ -68,6 +68,13 @@ See `config/wdx-rubric.json`.
 
 The reference-forensics skill includes a 100-reference atlas spanning creator-authored case studies, official interaction/creative-web documentation, and clearly labeled award benchmarks. Use it as a problem router, never as a template gallery. See `.codex/skills/reference-forensics/references/award-pattern-atlas.md` and `docs/reference-study-100.md`.
 
+## Validation experiments
+
+- `experiments/nocturne-concierge/` — bilingual hospitality concierge; WDX 92.8 internal pass, field validation pending.
+- `experiments/vanta-forge/` — industrial/manufacturing B2B supplier evaluation; WDX 91.8 hold, buyer and field validation pending.
+
+The scores are internal workflow evidence, not external awards or production guarantees.
+
 ## Philosophy
 
 - Reference, do not clone.

@@ -1,0 +1,68 @@
+{
+  "project": "VANTA Forge — Industrial B2B supplier evaluation",
+  "review_type": "independent screenshot-led Phase F generalization review",
+  "wdx_total": 91.8,
+  "release_threshold": 92,
+  "release_decision": "HOLD — BUYER AND FIELD VALIDATION PENDING",
+  "scores": {
+    "art_direction_originality": 11.4,
+    "brand_distinctiveness": 7.4,
+    "composition": 11.3,
+    "typography": 9.0,
+    "color_materiality": 5.6,
+    "spatial_rhythm": 7.3,
+    "imagery": 7.4,
+    "content_copy": 5.5,
+    "ux_navigation": 7.5,
+    "interaction": 4.5,
+    "motion": 4.4,
+    "responsive": 4.7,
+    "accessibility": 2.8,
+    "performance": 3.0
+  },
+  "hard_gates": {
+    "functional": true,
+    "critical_accessibility": true,
+    "responsive_matrix": true,
+    "reduced_motion": true,
+    "no_horizontal_overflow": true,
+    "no_console_errors": true,
+    "core_web_vitals": {
+      "lcp_ms": 208,
+      "inp_ms": 9,
+      "cls": 0,
+      "measurement_scope": "Local Chromium diagnostic. inp_ms is a task-linked next-frame response proxy, not field INP."
+    },
+    "field_core_web_vitals": "PENDING_REAL_DEPLOYMENT"
+  },
+  "strengths": [
+    "The datum-line idea ties art direction, capability comparison, process language, and RFQ preparation to the actual supplier-evaluation job.",
+    "Original plant-scale and inspection imagery establishes a coherent manufacturing world without sparks, neon, holograms, or decorative 3D.",
+    "The production-family selector updates tolerance, envelope, inspection, and lot evidence through semantic pressed states.",
+    "Mobile is recomposed into a buyer sequence with readable evidence pairs, a visible tab overflow cue, and linear RFQ preparation.",
+    "The static build has a 265 KB local resource transfer, dimensioned imagery, reduced-motion support, and no animation dependency."
+  ],
+  "remaining_limits": [
+    "The oversized black/orange industrial-editorial language is well executed but recognizable; real brand heritage or proprietary process artifacts are needed for stronger distinctiveness.",
+    "Capability numbers, certification language, and service workflow are fictional and have not been validated with manufacturing buyers or an operating supplier.",
+    "The RFQ builder demonstrates information architecture but deliberately does not cover secure drawing transfer, revision control, identity, or backend confirmation.",
+    "Field Core Web Vitals and native-device behavior remain unverified."
+  ],
+  "ai_smell_review": {
+    "keep": [
+      "task-linked tolerance datum",
+      "shared-border evidence ledger",
+      "documentary two-scale image system"
+    ],
+    "adapt": [
+      "oversized condensed uppercase should absorb real brand or process artifacts before production",
+      "signal orange should be calibrated against an actual identity rather than treated as an automatic industrial color"
+    ],
+    "replace": [],
+    "remove": [
+      "generic innovation claims",
+      "decorative sparks, glass, neon, gradients, and 3D machinery"
+    ],
+    "blocking_smells": []
+  }
+}

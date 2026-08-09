@@ -21,10 +21,12 @@ This section is authoritative when older historical descriptions below differ.
 - Phase C is complete as an **internal** gate: Nocturne 24 now scores 92.8 with hard gates green. Field Core Web Vitals remain pending, so this is not an external quality claim.
 - Phase D is complete at 100 evidence records: 47 level-A case studies, 46 level-B primary technical sources, and 7 level-C benchmark records. The 60 newly added direct URLs were checked successfully on 2026-08-09.
 - Phase E adopted one evidence-backed Visual QA correction: settle media and prove critical-content visibility before accepting pixel baselines. The defect, regression scenarios, and validation are recorded in `docs/learning-records.md`.
-- Next substantive milestone is Phase F: validate the system on a materially different archetype, beginning with industrial/manufacturing B2B unless the user changes priority.
+- Phase F has started with `experiments/vanta-forge/`, an industrial/manufacturing B2B supplier-evaluation artifact. Six viewports and hard gates pass; the independent score is 91.8 and remains an honest HOLD pending buyer and field validation.
+- Next substantive milestone is a second materially different Phase F archetype or a real-content/buyer validation pass for VANTA Forge; do not raise its score without artifact evidence.
 
 Latest published milestones before this handoff update:
 
+- `91d2bcc expand design evidence and harden visual QA`
 - `8d1eb4f raise Nocturne experiment above WDX gate`
 - `556d05f fix cross-platform validation and add QA baselines`
 
