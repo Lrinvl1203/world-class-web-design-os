@@ -7,22 +7,20 @@ const updateProgress = () => {
 window.addEventListener('scroll', updateProgress, { passive: true });
 updateProgress();
 
-const reveals = [...document.querySelectorAll('.reveal')];
-if (prefersReduced) {
-  reveals.forEach(el => el.classList.add('is-visible'));
-} else {
+const motionTargets = [...document.querySelectorAll('.hero .reveal, .inside-head.reveal, .place-stage.reveal, .closing-grid .reveal')];
+if (!prefersReduced && 'IntersectionObserver' in window && Element.prototype.animate) {
   const io = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
+        entry.target.animate(
+          [{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'translateY(0)' }],
+          { duration: 720, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'both' }
+        );
         io.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-  reveals.forEach((el, i) => {
-    el.style.transitionDelay = `${Math.min((i % 4) * 70, 210)}ms`;
-    io.observe(el);
-  });
+  motionTargets.forEach(el => io.observe(el));
 }
 
 const panel = document.querySelector('.today-panel');
@@ -33,7 +31,10 @@ let lastFocused = null;
 
 function setPanel(open) {
   if (open) lastFocused = document.activeElement;
+  panel.inert = !open;
   panel.setAttribute('aria-hidden', String(!open));
+  openButton.setAttribute('aria-expanded', String(open));
+  openButton.querySelector('[aria-hidden]').textContent = open ? '−' : '+';
   scrim.classList.toggle('open', open);
   document.body.style.overflow = open ? 'hidden' : '';
   if (open) closeButton.focus();
@@ -45,6 +46,64 @@ scrim.addEventListener('click', () => setPanel(false));
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && panel.getAttribute('aria-hidden') === 'false') setPanel(false);
 });
+
+const arrivalData = {
+  door: {
+    label: 'STREET / 01',
+    title: 'Find the terracotta door.',
+    copy: '편의점 맞은편, 조명이 들어온 벽돌 문이 첫 번째 표식입니다.',
+    time: '07 SEC',
+    meta: 'STREET → DOOR',
+    progress: '0%'
+  },
+  floor: {
+    label: 'BUILDING / 02',
+    title: 'Third floor, then turn right.',
+    copy: '엘리베이터에서 내리면 바닥의 작은 N°24 표식이 방 방향을 가리킵니다.',
+    time: '18 SEC',
+    meta: 'DOOR → 3F',
+    progress: '50%'
+  },
+  room: {
+    label: 'ROOM / 03',
+    title: '302 is the number with light.',
+    copy: '키패드를 손으로 가린 뒤 안내받은 6자리를 입력하고, 마지막에 잠금 표시를 누르세요.',
+    time: '32 SEC',
+    meta: '3F → ROOM',
+    progress: '100%'
+  }
+};
+const arrivalPreview = document.querySelector('.arrival-preview');
+const arrivalButtons = [...document.querySelectorAll('[data-arrival]')];
+const arrivalPoints = [...document.querySelectorAll('.route-point')];
+const arrivalLabel = document.querySelector('[data-arrival-label]');
+const arrivalTitle = document.querySelector('[data-arrival-title]');
+const arrivalCopy = document.querySelector('[data-arrival-copy]');
+const arrivalTime = document.querySelector('[data-arrival-time]');
+const arrivalMeta = document.querySelector('[data-arrival-meta]');
+
+function selectArrival(key, source) {
+  const data = arrivalData[key];
+  if (!data) return;
+  const index = arrivalButtons.indexOf(source);
+  arrivalPreview.dataset.arrivalStage = key;
+  arrivalPreview.querySelector('.arrival-route').style.setProperty('--route-progress', data.progress);
+  arrivalLabel.textContent = data.label;
+  arrivalTitle.textContent = data.title;
+  arrivalCopy.textContent = data.copy;
+  arrivalTime.textContent = data.time;
+  arrivalMeta.textContent = data.meta;
+  arrivalButtons.forEach(button => button.setAttribute('aria-pressed', String(button === source)));
+  arrivalPoints.forEach((point, pointIndex) => point.classList.toggle('is-active', pointIndex <= index));
+
+  if (!prefersReduced && arrivalPreview.animate) {
+    arrivalPreview.animate(
+      [{ opacity: .72, transform: 'translateY(4px)' }, { opacity: 1, transform: 'translateY(0)' }],
+      { duration: 320, easing: 'cubic-bezier(.2,.7,.2,1)' }
+    );
+  }
+}
+arrivalButtons.forEach(button => button.addEventListener('click', () => selectArrival(button.dataset.arrival, button)));
 
 
 const guideData = {

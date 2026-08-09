@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#efe9df" />
   <title>Nocturne 24 — Digital Stay Concierge</title>
-  <meta name="description" content="A premium bilingual digital concierge concept for an urban stay." />
+  <meta name="description" content="서울의 밤과 숙소 안내를 하나의 동선으로 엮은 모바일 디지털 콘시어지." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -22,7 +22,7 @@
       <a href="#inside">Inside</a>
       <a href="#neighborhood">Nearby</a>
     </nav>
-    <span class="language" aria-label="한국어 및 영어 지원">KO <span>/ EN</span></span>
+    <span class="language" aria-label="한국어와 영어 병기">KO <span>+ EN</span></span>
   </header>
 
   <main id="main">
@@ -39,23 +39,21 @@
         <p class="hero-ko reveal">낯선 숙소에서도, 필요한 순간에 필요한 정보만.</p>
         <div class="hero-actions reveal">
           <a class="primary-action" href="#arrival">체크인 정보 보기 <span aria-hidden="true">↘</span></a>
-          <button class="ghost-action" type="button" data-panel-trigger>오늘의 안내 <span aria-hidden="true">+</span></button>
+          <button class="ghost-action" type="button" data-panel-trigger aria-expanded="false" aria-controls="today-panel">오늘의 안내 <span aria-hidden="true">+</span></button>
         </div>
       </div>
 
-      <div class="hero-visual reveal" aria-label="서울의 밤과 창문에서 영감을 받은 추상 그래픽">
-        <div class="moon"></div>
+      <figure class="hero-visual reveal">
+        <img src="assets/seoul-night-window.webp" width="1536" height="1024" fetchpriority="high" decoding="async" alt="비가 그친 밤, 아치형 창 너머로 보이는 서울 언덕길과 작은 로스터리" />
+        <div class="hero-shade" aria-hidden="true"></div>
         <div class="window-frame">
-          <div class="city-line city-line-a"></div>
-          <div class="city-line city-line-b"></div>
-          <div class="city-line city-line-c"></div>
           <div class="window-note">
-            <span>37.5665° N</span>
-            <span>126.9780° E</span>
+            <span>N24 HILLSIDE</span>
+            <span>SEOUL / AFTER RAIN</span>
           </div>
         </div>
-        <p class="visual-caption">Soft city light / quiet room / useful information</p>
-      </div>
+        <figcaption class="visual-caption">One window / three turns / your room is lit</figcaption>
+      </figure>
       <p class="scroll-note" aria-hidden="true">SCROLL TO SETTLE IN <span>↓</span></p>
     </section>
 
@@ -63,7 +61,7 @@
       <div><span class="label">CHECK-IN</span><strong>16:00</strong></div>
       <div><span class="label">CHECK-OUT</span><strong>11:00</strong></div>
       <div><span class="label">WIFI</span><strong>NOCTURNE_5G</strong></div>
-      <div><span class="label">HOST</span><strong>1 TAP AWAY</strong></div>
+      <div><span class="label">HOST</span><strong>24 / 7</strong></div>
     </section>
 
     <section class="arrival section-pad" id="arrival" aria-labelledby="arrival-title">
@@ -72,22 +70,45 @@
         <div class="section-title-wrap reveal">
           <h2 id="arrival-title">Three steps.<br><em>No guessing.</em></h2>
           <p>공항에서 문을 여는 순간까지, 가장 많이 찾는 정보만 먼저 보여줍니다.</p>
+          <div class="arrival-preview" data-arrival-stage="door" aria-live="polite">
+            <div class="arrival-preview-image">
+              <img src="assets/seoul-night-window.webp" width="1536" height="1024" loading="lazy" decoding="async" alt="Nocturne 24 숙소로 이어지는 서울 언덕길" />
+              <div class="arrival-route" aria-hidden="true">
+                <span class="route-line"><i></i></span>
+                <span class="route-point is-active">01</span>
+                <span class="route-point">02</span>
+                <span class="route-point">03</span>
+              </div>
+            </div>
+            <div class="arrival-preview-copy">
+              <p class="micro" data-arrival-label>STREET / 01</p>
+              <h3 data-arrival-title>Find the terracotta door.</h3>
+              <p data-arrival-copy>편의점 맞은편, 조명이 들어온 벽돌 문이 첫 번째 표식입니다.</p>
+              <p class="arrival-proof"><span data-arrival-time>07 SEC</span><span data-arrival-meta>STREET → DOOR</span></p>
+            </div>
+          </div>
         </div>
         <ol class="steps">
           <li class="reveal">
-            <span class="step-no">01</span>
-            <div><h3>Find the door</h3><p>건물 입구, 층수, 엘리베이터 위치를 하나의 동선으로.</p></div>
-            <span class="step-arrow" aria-hidden="true">↗</span>
+            <button class="arrival-step" type="button" data-arrival="door" aria-pressed="true">
+              <span class="step-no">01</span>
+              <span><strong>Find the door</strong><small>테라코타 벽·밝은 창이 보이는 입구.</small></span>
+              <span class="step-arrow" aria-hidden="true">↗</span>
+            </button>
           </li>
           <li class="reveal">
-            <span class="step-no">02</span>
-            <div><h3>Enter calmly</h3><p>도어락 입력 순서와 비상 시 대체 방법까지 바로 확인.</p></div>
-            <span class="step-arrow" aria-hidden="true">↗</span>
+            <button class="arrival-step" type="button" data-arrival="floor" aria-pressed="false">
+              <span class="step-no">02</span>
+              <span><strong>Take the quiet lift</strong><small>3층에서 내린 뒤 오른쪽, 딱 열 걸음.</small></span>
+              <span class="step-arrow" aria-hidden="true">↗</span>
+            </button>
           </li>
           <li class="reveal">
-            <span class="step-no">03</span>
-            <div><h3>Feel at home</h3><p>Wi‑Fi, 냉난방, 조명. 도착 후 3분 안에 정착하도록.</p></div>
-            <span class="step-arrow" aria-hidden="true">↗</span>
+            <button class="arrival-step" type="button" data-arrival="room" aria-pressed="false">
+              <span class="step-no">03</span>
+              <span><strong>Follow the lit number</strong><small>302호 키패드를 가린 뒤 6자리 입력.</small></span>
+              <span class="step-arrow" aria-hidden="true">↗</span>
+            </button>
           </li>
         </ol>
       </div>
@@ -124,12 +145,10 @@
         <p>검색 결과를 늘어놓는 대신, 지금 시간과 걸어서 갈 수 있는 거리를 기준으로 큐레이션합니다.</p>
       </div>
       <div class="place-stage reveal">
-        <div class="place-image" aria-hidden="true">
-          <span class="place-glow"></span>
-          <span class="place-line one"></span>
-          <span class="place-line two"></span>
-          <span class="place-line three"></span>
-        </div>
+        <figure class="place-image">
+          <img src="assets/late-roastery.webp" width="1536" height="1024" loading="lazy" decoding="async" alt="비에 젖은 서울 언덕길의 작은 심야 로스터리" />
+          <figcaption>FIELD EDIT 01 / AFTER RAIN</figcaption>
+        </figure>
         <div class="place-info">
           <span class="micro">TONIGHT / 8 MIN WALK</span>
           <h3>Late coffee,<br>quiet tables.</h3>
@@ -152,10 +171,10 @@
     </section>
   </main>
 
-  <aside class="today-panel" aria-hidden="true" aria-label="오늘의 안내">
+  <aside class="today-panel" id="today-panel" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="today-title" inert>
     <button class="panel-close" type="button" aria-label="오늘의 안내 닫기">×</button>
     <p class="micro">TONIGHT / SEOUL</p>
-    <h2>18° after rain.</h2>
+    <h2 id="today-title">18° after rain.</h2>
     <p>창가 쪽은 조금 서늘합니다. 실내는 22–23°C가 가장 편안해요.</p>
     <hr>
     <p><strong>22:00 이후</strong><br>공용 복도에서는 소리를 낮춰 주세요.</p>

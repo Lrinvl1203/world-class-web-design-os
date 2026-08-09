@@ -1,77 +1,69 @@
 {
-  "browser": "Chromium system binary via Playwright Python",
-  "method": "self-contained page.set_content; no external network",
+  "browser": "Chromium via Playwright 1.62",
+  "method": "Local static server, real asset loading, reduced-motion deterministic baselines, and task-state checks",
   "viewports": [
     {
       "viewport": "320x568",
       "horizontal_overflow": false,
       "console_errors": [],
-      "guide_updated": true,
-      "panel_opened": true,
-      "panel_closed_escape": true,
-      "dead_hash_links": 0
+      "visual_baseline": "PASS"
     },
     {
       "viewport": "375x812",
       "horizontal_overflow": false,
       "console_errors": [],
-      "guide_updated": true,
-      "panel_opened": true,
-      "panel_closed_escape": true,
-      "dead_hash_links": 0
+      "visual_baseline": "PASS"
     },
     {
       "viewport": "390x844",
       "horizontal_overflow": false,
       "console_errors": [],
-      "guide_updated": true,
-      "panel_opened": true,
-      "panel_closed_escape": true,
-      "dead_hash_links": 0
+      "visual_baseline": "PASS"
     },
     {
       "viewport": "768x1024",
       "horizontal_overflow": false,
       "console_errors": [],
-      "guide_updated": true,
-      "panel_opened": true,
-      "panel_closed_escape": true,
-      "dead_hash_links": 0
+      "visual_baseline": "PASS"
     },
     {
       "viewport": "1440x900",
       "horizontal_overflow": false,
       "console_errors": [],
-      "guide_updated": true,
-      "panel_opened": true,
-      "panel_closed_escape": true,
-      "dead_hash_links": 0
+      "visual_baseline": "PASS"
     },
     {
       "viewport": "1920x1080",
       "horizontal_overflow": false,
       "console_errors": [],
-      "guide_updated": true,
-      "panel_opened": true,
-      "panel_closed_escape": true,
-      "dead_hash_links": 0
+      "visual_baseline": "PASS"
     }
   ],
-  "reduced_motion": [
+  "critical_paths_each_viewport": {
+    "dead_hash_links": 0,
+    "critical_content_visible_reduced_motion": true,
+    "arrival_stage_selected": true,
+    "arrival_pressed_state_updated": true,
+    "guide_updated": true,
+    "panel_opened": true,
+    "panel_initial_focus": true,
+    "panel_closed_escape": true,
+    "panel_focus_returned": true
+  },
+  "lab_performance": [
     {
       "viewport": "390x844",
-      "media": true,
-      "revealOpacity": "1",
-      "revealTransform": "none",
-      "htmlScroll": "auto"
+      "lcp_ms": 188,
+      "cls": 0,
+      "max_task_response_proxy_ms": 10
     },
     {
       "viewport": "1440x900",
-      "media": true,
-      "revealOpacity": "1",
-      "revealTransform": "none",
-      "htmlScroll": "auto"
+      "lcp_ms": 208,
+      "cls": 0,
+      "max_task_response_proxy_ms": 10
     }
   ],
-  "field_core_web_vitals": "not measured; requires real deployment/field or representative URL lab run"
+  "field_core_web_vitals": "not measured; requires representative deployment and field population",
+  "performance_note": "The response proxy measures click-to-next-animation-frame for three task controls and must not be represented as field INP."
 }

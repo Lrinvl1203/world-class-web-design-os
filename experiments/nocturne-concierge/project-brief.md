@@ -6,5 +6,5 @@
 - Audience: domestic and international guests, tired/mobile/one-handed use assumed.
 - Design POV: quiet editorial hospitality, urban night light, useful before impressive.
 - Anti-direction: generic SaaS, hotel-booking marketplace, card dashboard, neon-tech concierge, motion showcase.
-- Signature idea: an abstract "window at night" visual language that connects city, calm, coordinates and information hierarchy.
+- Signature idea: a property-specific "window after rain" image system paired with a three-stop check-in lightpath that connects street, building, and room.
 - Motion choice: native CSS + IntersectionObserver only; no dependency because the intended motion does not justify one.

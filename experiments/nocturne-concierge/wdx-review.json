@@ -1,50 +1,67 @@
 {
   "project": "Nocturne 24 — Digital Stay Concierge",
-  "review_type": "first real WDX experiment, screenshot-led",
-  "wdx_total": 89.4,
+  "review_type": "post-improvement independent screenshot-led review",
+  "wdx_total": 92.8,
   "release_threshold": 92,
-  "release_decision": "HOLD",
+  "release_decision": "INTERNAL PASS — FIELD VALIDATION PENDING",
   "scores": {
-    "art_direction_originality": 10.8,
-    "brand_distinctiveness": 7.3,
-    "composition": 11.2,
-    "typography": 9.0,
-    "color_materiality": 5.6,
-    "spatial_rhythm": 7.3,
-    "imagery": 6.5,
-    "content_copy": 5.2,
-    "ux_navigation": 7.4,
-    "interaction": 4.0,
-    "motion": 4.5,
+    "art_direction_originality": 11.2,
+    "brand_distinctiveness": 7.6,
+    "composition": 11.3,
+    "typography": 9.2,
+    "color_materiality": 5.7,
+    "spatial_rhythm": 7.5,
+    "imagery": 7.4,
+    "content_copy": 5.4,
+    "ux_navigation": 7.6,
+    "interaction": 4.5,
+    "motion": 4.7,
     "responsive": 4.8,
-    "accessibility": 2.8,
+    "accessibility": 2.9,
     "performance": 3.0
   },
   "hard_gates": {
-    "functional": "PASS",
-    "critical_accessibility_browser_smoke": "PASS",
-    "responsive_matrix": "PASS",
-    "reduced_motion": "PASS",
-    "no_horizontal_overflow": "PASS",
-    "no_console_errors": "PASS",
+    "functional": true,
+    "critical_accessibility": true,
+    "responsive_matrix": true,
+    "reduced_motion": true,
+    "no_horizontal_overflow": true,
+    "no_console_errors": true,
+    "core_web_vitals": {
+      "lcp_ms": 208,
+      "inp_ms": 10,
+      "cls": 0,
+      "measurement_scope": "Local Chromium diagnostic. inp_ms is the maximum task-linked next-frame response proxy, not field INP."
+    },
     "field_core_web_vitals": "PENDING_REAL_DEPLOYMENT"
   },
   "strengths": [
-    "Clear quiet-editorial hospitality point of view instead of generic SaaS UI.",
-    "Strong asymmetric composition and page energy curve with a deliberate dark focal section.",
-    "Mobile is recomposed rather than merely scaled and preserves fast task access via a bottom dock.",
-    "Motion is restrained and native; interaction does not depend on animation to remain usable.",
-    "The guide interaction and Today panel now have meaningful functional states rather than decorative controls."
+    "The late-arrival field-guide POV now carries through photography, copy, composition, and interaction.",
+    "The three-stop arrival lightpath is useful, keyboard-operable, one-thumb friendly, and specific to the Nocturne window concept.",
+    "Mobile is authored as a compact guest sequence rather than a mechanically stacked desktop page.",
+    "Critical content is visible by default; motion is native, limited to focal moments, and fully optional.",
+    "Two compressed, dimensioned WebP assets add place character without introducing a heavy media or animation stack."
   ],
-  "top_root_causes_blocking_92": [
-    "Imagery is intentionally abstract and CSS-generated; it does not yet carry enough real hospitality/place specificity for an exceptional art-direction score.",
-    "The signature interaction is useful but not yet memorable enough to become a proprietary brand behavior.",
-    "Micro labels and utility typography are highly editorial but approach the lower edge of comfortable real-device legibility; final production would need native-device inspection and content stress tests."
+  "remaining_limits": [
+    "The stay and imagery are fictional; a real property launch must replace concept data with verified operational content and owned photography.",
+    "Utility labels remain intentionally compact and still warrant native-device review at the 320 px edge case.",
+    "Field Core Web Vitals and real network behavior cannot be claimed from the local static-server lab run."
   ],
-  "next_countermeasures": [
-    "Introduce one project-specific photographic or spatial asset system, not a generic stock-image layer.",
-    "Turn one real guest task—arrival path, room control, or neighborhood curation—into the single signature interaction.",
-    "Run real-device typography review and field/lab Core Web Vitals after deployment before release."
-  ],
-  "note": "The score is intentionally below the OS release threshold. The experiment demonstrates that the critic is allowed to reject a visually strong build rather than inflating the score to validate the system."
+  "ai_smell_review": {
+    "keep": [
+      "asymmetric editorial hero",
+      "restrained acid and terracotta accents",
+      "single task-linked signature interaction"
+    ],
+    "adapt": [
+      "three small place-meta pills are retained only as grounded distance/open/price facts"
+    ],
+    "replace": [
+      "abstract CSS-only city imagery was replaced by a coherent property and neighborhood field set"
+    ],
+    "remove": [
+      "repetitive fade-up treatment on every list row"
+    ],
+    "blocking_smells": []
+  }
 }

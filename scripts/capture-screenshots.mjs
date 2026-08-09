@@ -18,6 +18,10 @@ try {
     page.on('console', m => { if (m.type()==='error') errors.push(m.text()); });
     await page.goto(target, { waitUntil: 'networkidle' });
     await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.locator('img').evaluateAll(async images => {
+      images.forEach(image => { image.loading = 'eager'; });
+      await Promise.all(images.map(image => image.decode().catch(() => undefined)));
+    });
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
     await page.screenshot({ path: path.join(out, `${vp.name}-${vp.width}x${vp.height}.png`), fullPage: true });
     const result = { viewport: vp, overflow, consoleErrors: errors };
