@@ -16,6 +16,7 @@ test('VANTA Forge visual baseline and supplier-evaluation paths', async ({ page 
   await expect(page.locator('#capabilities')).toBeVisible();
   await expect(page.locator('#quality')).toBeVisible();
   await expect(page.locator('#rfq')).toBeVisible();
+  await expect(page.locator('nav[aria-label="Primary navigation"]')).toBeVisible();
 
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
   expect(overflow, 'horizontal overflow detected').toBeFalsy();

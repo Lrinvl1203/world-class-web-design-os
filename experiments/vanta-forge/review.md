@@ -28,6 +28,7 @@ More importantly, all capability claims, standards language, and workflow detail
 Playwright passes at 320×568, 375×812, 390×844, 768×1024, 1440×900, and 1920×1080. Every viewport verifies:
 
 - no horizontal overflow, dead hash links, or console/page errors;
+- persistent primary section navigation on tablet and phone widths;
 - critical content visibility under reduced motion;
 - 44 px minimum critical pointer targets;
 - production-family `aria-pressed` state and linked evidence changes;

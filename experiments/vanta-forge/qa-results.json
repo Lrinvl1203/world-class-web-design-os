@@ -32,6 +32,8 @@
   "field_core_web_vitals": "not measured; requires representative deployment and field population",
   "performance_note": "The response proxy measures production-family click to next animation frame and must not be represented as field INP.",
   "defects_found_and_fixed": [
+    "Tablet and phone layouts originally removed the primary section navigation; a compact persistent navigation row now preserves direct access.",
+    "Fictional AS9100D wording was revised from an implied workflow claim to clearly qualified alignment language.",
     "Phone-width horizontal overflow caused by an unbreakable oversized process heading.",
     "Low-contrast steel utility text was darkened, with explicit overrides on orange and carbon surfaces.",
     "The mobile process heading was recomposed to preserve whole words rather than clipping or arbitrary word breaks."
