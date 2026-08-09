@@ -1,0 +1,12 @@
+[
+  {"input":"Build a responsive SaaS landing page in React","mustInclude":["web-design-orchestrator","frontend-implementation","responsive-recomposition"],"mustExclude":["creative-web"]},
+  {"input":"Analyze these screenshots and extract reusable design principles","mustInclude":["reference-forensics"],"mustExclude":["frontend-implementation"]},
+  {"input":"Add an accessible GSAP scroll animation with reduced motion","mustInclude":["motion-engine","a11y-performance"],"mustExclude":["creative-web"]},
+  {"input":"Create a WebGL shader hero that communicates the material process","mustInclude":["creative-web"],"mustExclude":[]},
+  {"input":"Review this website for generic AI smell and WDX quality","mustInclude":["design-critic","ai-smell-detector"],"mustExclude":[]},
+  {"input":"모바일 반응형 레이아웃의 오버플로를 테스트해줘","mustInclude":["responsive-recomposition","visual-qa"],"mustExclude":["creative-web"]},
+  {"input":"고객과 전환 목표를 바탕으로 정보구조를 잡아줘","mustInclude":["design-discovery"],"mustExclude":["motion-engine"]},
+  {"input":"폼의 로딩 오류 빈 상태와 키보드 피드백을 설계해줘","mustInclude":["interaction-design"],"mustExclude":["creative-web"]},
+  {"input":"타이포와 간격을 정교하게 다듬어 완성도를 높여줘","mustInclude":["visual-polish"],"mustExclude":["creative-web"]},
+  {"input":"브랜드 컨셉과 안티 디렉션을 포함한 아트디렉션 세 안을 만들어줘","mustInclude":["art-direction"],"mustExclude":["frontend-implementation"]}
+]

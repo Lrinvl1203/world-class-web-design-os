@@ -24,6 +24,17 @@ This section is authoritative when older historical descriptions below differ.
 - Phase F has started with `experiments/vanta-forge/`, an industrial/manufacturing B2B supplier-evaluation artifact. Six viewports and hard gates pass; the independent score is 91.8 and remains an honest HOLD pending buyer and field validation.
 - Next substantive milestone is a second materially different Phase F archetype or a real-content/buyer validation pass for VANTA Forge; do not raise its score without artifact evidence.
 
+### Benchmark and controlled-evolution milestone — 2026-08-09
+
+- Public-repository advantages were integrated without replacing the 17-skill architecture: searchable Design DNA, phase-limited routing, project-context setup, cross-agent installation mapping, asset protocol, product edge cases, eval fixtures, and browser CI. See `docs/benchmark-integration.md`.
+- `wdx` now supports `route`, `search`, `setup`, `install`, `evolve`, and `eval`. The npm package remains private/unpublished; do not claim npm availability.
+- A daily GitHub Actions workflow runs at 03:00 Asia/Seoul. It accepts Codrops RSS, curated links, official YouTube API data when `YOUTUBE_API_KEY` exists, and authorized Threads post insights when `THREADS_ACCESS_TOKEN` plus `THREADS_POST_IDS` exist.
+- Popularity is discovery evidence only. Remote content is untrusted, not executed, and not stored wholesale. Automation writes review artifacts; it never edits skills, changes WDX, pushes to `main`, or self-merges.
+- Proposal generation requires recurrence across at least three independent sources and the configured score threshold; adoption still requires a prior/new regression pair and an intentional review.
+- Routing evals currently pass 10/10 and evolution tests pass 6/6. A live RSS run collected 11 signals and correctly produced zero proposals.
+- Playwright + axe CI exposed inherited defects. Nocturne small-text contrast, VANTA dual-role orange contrast, and VANTA definition-list semantics were corrected. Both archetypes pass serious/critical axe, overflow, console, dead-link, and reduced-motion checks at 320 and 1440 widths; all six existing visual suites pass for each archetype.
+- Four inherited Windows executable-mode-only changes remain intentionally unstaged: `scripts/install-into-project.sh`, `scripts/publish-github.sh`, `scripts/validate_skills.py`, `scripts/validate_wdx_score.py`.
+
 Latest published milestones before this handoff update:
 
 - `91d2bcc expand design evidence and harden visual QA`

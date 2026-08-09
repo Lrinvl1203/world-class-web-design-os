@@ -1,0 +1,8 @@
+{
+  "codex": ".codex/skills",
+  "agents": ".agents/skills",
+  "claude": ".claude/skills",
+  "cursor": ".cursor/skills",
+  "copilot": ".github/skills",
+  "opencode": ".opencode/skills"
+}

@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "maxActiveSpecialists": 3,
+  "alwaysStartForFullBuild": "web-design-orchestrator",
+  "routes": [
+    {
+      "skill": "design-discovery",
+      "keywords": ["brief", "goal", "audience", "conversion", "ia", "content", "cta", "요구사항", "목표", "고객", "전환", "정보구조"]
+    },
+    {
+      "skill": "reference-forensics",
+      "keywords": ["reference", "screenshot", "inspiration", "benchmark", "clone", "레퍼런스", "스크린샷", "벤치마크", "참고"]
+    },
+    {
+      "skill": "art-direction",
+      "keywords": ["art direction", "brand", "concept", "visual direction", "mood", "아트디렉션", "브랜드", "컨셉", "무드"]
+    },
+    {
+      "skill": "design-system",
+      "keywords": ["design system", "token", "component rules", "typography", "color system", "디자인시스템", "토큰", "타이포", "색상"]
+    },
+    {
+      "skill": "interaction-design",
+      "keywords": ["interaction", "state", "feedback", "gesture", "hover", "focus", "loading", "error", "empty", "form", "인터랙션", "상태", "피드백", "폼", "로딩", "오류"]
+    },
+    {
+      "skill": "motion-engine",
+      "keywords": ["motion", "animation", "scroll", "transition", "gsap", "anime", "lenis", "모션", "애니메이션", "스크롤", "화면 전환"]
+    },
+    {
+      "skill": "creative-web",
+      "keywords": ["3d", "webgl", "webgpu", "shader", "three.js", "rive", "spline", "canvas", "3D", "셰이더", "캔버스"]
+    },
+    {
+      "skill": "frontend-implementation",
+      "keywords": ["implement", "build", "code", "react", "html", "css", "frontend", "구현", "개발", "코드", "프론트엔드"]
+    },
+    {
+      "skill": "responsive-recomposition",
+      "keywords": ["responsive", "mobile", "tablet", "breakpoint", "반응형", "모바일", "태블릿", "브레이크포인트"]
+    },
+    {
+      "skill": "visual-qa",
+      "keywords": ["qa", "screenshot", "playwright", "regression", "overflow", "테스트", "스크린샷", "회귀", "오버플로"]
+    },
+    {
+      "skill": "a11y-performance",
+      "keywords": ["accessibility", "accessible", "performance", "reduced motion", "wcag", "lcp", "inp", "cls", "접근성", "성능", "모션 감소"]
+    },
+    {
+      "skill": "design-critic",
+      "keywords": ["critique", "review", "score", "wdx", "비평", "검토", "평가", "점수"]
+    },
+    {
+      "skill": "ai-smell-detector",
+      "keywords": ["generic", "ai smell", "slop", "template", "제네릭", "AI티", "템플릿"]
+    },
+    {
+      "skill": "visual-polish",
+      "keywords": ["polish", "spacing", "surface", "micro interaction", "다듬기", "완성도", "간격", "디테일"]
+    }
+  ]
+}

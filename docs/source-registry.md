@@ -59,6 +59,16 @@ Last reviewed: **2026-08-09**. This repository distills public documentation and
 - Awwwards: https://www.awwwards.com/
 - Codrops: https://tympanus.net/codrops/
 
+## Daily signal collection APIs
+
+- Threads API official workspace and post-insights reference: https://www.postman.com/meta/threads/documentation/dht3nzz/threads-api
+- Threads insights help: https://www.facebook.com/help/instagram/3675908612671136/
+- YouTube Data API video list and statistics: https://developers.google.com/youtube/v3/docs/videos/list
+- YouTube video resource statistics: https://developers.google.com/youtube/v3/docs/videos
+- Codrops RSS: https://tympanus.net/codrops/feed/
+
+Only official/API-permitted metrics are automated. Platform-wide Threads discovery is not simulated through logged-in scraping; public links can be curated manually until approved API access supports the desired discovery scope.
+
 ### Source-use rule
 
 Use these sources to understand capabilities, principles and current APIs. Do not imitate a single reference so closely that the project loses its own brand or composition. Verify APIs against current primary documentation before coding when the library surface may have changed.

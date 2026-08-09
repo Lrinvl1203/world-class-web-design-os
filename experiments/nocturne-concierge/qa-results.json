@@ -1,6 +1,6 @@
 {
   "browser": "Chromium via Playwright 1.62",
-  "method": "Local static server, real asset loading, reduced-motion deterministic baselines, and task-state checks",
+  "method": "Local static server, real asset loading, reduced-motion deterministic baselines, task-state checks, and axe serious/critical audit",
   "viewports": [
     {
       "viewport": "320x568",
@@ -49,6 +49,12 @@
     "panel_initial_focus": true,
     "panel_closed_escape": true,
     "panel_focus_returned": true
+  },
+  "automated_accessibility": {
+    "tool": "axe-core via Playwright",
+    "viewports": ["320x568", "1440x900"],
+    "serious_or_critical_violations": 0,
+    "documented_exception": "aria-hidden oversized footer watermark excluded from text contrast because it is decorative artwork"
   },
   "lab_performance": [
     {

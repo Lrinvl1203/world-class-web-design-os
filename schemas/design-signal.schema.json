@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Lrinvl1203/world-class-web-design-os/schemas/design-signal.schema.json",
+  "title": "WDX design signal",
+  "type": "object",
+  "required": ["id", "sourceId", "platform", "url", "title", "observedAt", "metrics", "provenance", "score", "status"],
+  "properties": {
+    "id": {"type": "string"},
+    "sourceId": {"type": "string"},
+    "platform": {"type": "string"},
+    "url": {"type": "string", "format": "uri"},
+    "title": {"type": "string", "maxLength": 500},
+    "author": {"type": "string", "maxLength": 200},
+    "publishedAt": {"type": ["string", "null"], "format": "date-time"},
+    "observedAt": {"type": "string", "format": "date-time"},
+    "untrustedExcerpt": {"type": "string", "maxLength": 1000},
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "views": {"type": "number", "minimum": 0},
+        "likes": {"type": "number", "minimum": 0},
+        "comments": {"type": "number", "minimum": 0},
+        "reposts": {"type": "number", "minimum": 0},
+        "quotes": {"type": "number", "minimum": 0},
+        "shares": {"type": "number", "minimum": 0},
+        "saves": {"type": "number", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["method", "retrievedAt", "contentHash"],
+      "properties": {
+        "method": {"enum": ["official-api", "rss", "manual"]},
+        "retrievedAt": {"type": "string", "format": "date-time"},
+        "contentHash": {"type": "string"}
+      }
+    },
+    "score": {"type": "number", "minimum": 0, "maximum": 100},
+    "status": {"enum": ["signal", "candidate", "proposal-ready", "rejected"]}
+  },
+  "additionalProperties": true
+}

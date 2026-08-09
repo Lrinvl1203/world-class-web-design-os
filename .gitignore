@@ -5,3 +5,6 @@ artifacts/
 .DS_Store
 .env
 .env.*
+evolution/inbox/*.json
+evolution/reports/*.md
+evolution/proposals/*.md

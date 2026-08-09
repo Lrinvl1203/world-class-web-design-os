@@ -46,3 +46,5 @@ Design one interaction that expresses the brand or product concept. Make it opti
 ## Accessibility
 
 Never make hover the only way to discover essential content. Drag-only functionality requires a non-drag single-pointer alternative where required by the accessibility baseline.
+
+For product flows, read `references/product-edge-cases.md` before release and cover the states that apply; a polished happy path is not a complete interaction model.

@@ -1,0 +1,44 @@
+name: daily-design-evolution
+
+on:
+  schedule:
+    # 03:00 Asia/Seoul (18:00 UTC on the previous date)
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  collect-and-evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Restore the rolling evidence window
+        uses: actions/cache@v4
+        with:
+          path: evolution/inbox
+          key: design-signals-${{ github.run_id }}
+          restore-keys: |
+            design-signals-
+      - run: npm install --ignore-scripts --package-lock=false
+      - run: npm run eval:skills
+      - name: Collect official and curated design signals
+        run: npm run evolve:daily
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_POST_IDS: ${{ vars.THREADS_POST_IDS }}
+      - name: Upload review-only evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-evolution-${{ github.run_id }}
+          path: |
+            evolution/inbox/*.json
+            evolution/reports/*.md
+            evolution/proposals/*.md
+          retention-days: 30
+          if-no-files-found: error

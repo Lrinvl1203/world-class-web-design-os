@@ -7,8 +7,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - run: python3 scripts/validate_skills.py
-      - run: python3 scripts/validate_wdx_score.py examples/wdx-score.sample.json
+      - run: npm install --ignore-scripts --package-lock=false
+      - run: npm run validate
+      - run: npm run eval:skills
+  browser-hard-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --package-lock=false
+      - run: npx playwright install --with-deps chromium
+      - name: Nocturne accessibility and browser gates
+        run: npx playwright test tests/release-gates.spec.ts --project=edge-mobile --project=desktop
+        env:
+          TARGET_URL: http://127.0.0.1:4173
+          STATIC_DIR: experiments/nocturne-concierge
+          STATIC_PORT: '4173'
+      - name: VANTA accessibility and browser gates
+        run: npx playwright test tests/release-gates.spec.ts --project=edge-mobile --project=desktop
+        env:
+          TARGET_URL: http://127.0.0.1:4174
+          STATIC_DIR: experiments/vanta-forge
+          STATIC_PORT: '4174'

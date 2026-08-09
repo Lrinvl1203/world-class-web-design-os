@@ -1,6 +1,6 @@
 {
   "browser": "Chromium via Playwright 1.62",
-  "method": "Local static server, real asset loading, reduced-motion deterministic baselines, task-state checks, and screenshot inspection",
+  "method": "Local static server, real asset loading, reduced-motion deterministic baselines, task-state checks, screenshot inspection, and axe serious/critical audit",
   "viewports": [
     { "viewport": "320x568", "horizontal_overflow": false, "console_errors": [], "visual_baseline": "PASS" },
     { "viewport": "375x812", "horizontal_overflow": false, "console_errors": [], "visual_baseline": "PASS" },
@@ -20,10 +20,16 @@
   },
   "contrast_checks": {
     "carbon_on_signal": 5.10,
+    "signal_ink_on_paper": 4.53,
     "steel_on_paper": 5.96,
     "steel_on_paper_deep": 5.08,
     "inspection_green_on_carbon": 11.27,
     "footer_utility_on_carbon": 8.81
+  },
+  "automated_accessibility": {
+    "tool": "axe-core via Playwright",
+    "viewports": ["320x568", "1440x900"],
+    "serious_or_critical_violations": 0
   },
   "lab_performance": [
     { "viewport": "390x844", "lcp_ms": 208, "cls": 0, "task_response_proxy_ms": 1, "resource_transfer_kb": 265 },
@@ -37,5 +43,7 @@
     "Phone-width horizontal overflow caused by an unbreakable oversized process heading.",
     "Low-contrast steel utility text was darkened, with explicit overrides on orange and carbon surfaces.",
     "The mobile process heading was recomposed to preserve whole words rather than clipping or arbitrary word breaks."
+    ,"One orange token was incorrectly reused as both light-surface text and dark-text background; separate signal and signal-ink roles now pass contrast."
+    ,"The quality ledger used non-definition span children inside a dl group; statuses are now semantic dd elements."
   ]
 }

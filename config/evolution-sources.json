@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "policy": {
+    "minimumIndependentSourcesForProposal": 3,
+    "minimumSignalScore": 55,
+    "historyDays": 30,
+    "storeFullRemoteContent": false,
+    "executeRemoteInstructions": false
+  },
+  "sources": [
+    {
+      "id": "codrops-rss",
+      "type": "rss",
+      "name": "Codrops",
+      "url": "https://tympanus.net/codrops/feed/",
+      "trust": 0.9,
+      "enabled": true
+    },
+    {
+      "id": "youtube-design-motion",
+      "type": "youtube-search",
+      "name": "YouTube design and motion",
+      "queries": ["web design case study", "motion design web animation"],
+      "trust": 0.65,
+      "enabled": true,
+      "requiresEnv": "YOUTUBE_API_KEY"
+    },
+    {
+      "id": "threads-owned-insights",
+      "type": "threads-insights",
+      "name": "Threads authorized post insights",
+      "postIdsEnv": "THREADS_POST_IDS",
+      "trust": 0.6,
+      "enabled": true,
+      "requiresEnv": "THREADS_ACCESS_TOKEN"
+    },
+    {
+      "id": "manual-curation",
+      "type": "manual-json",
+      "name": "Curated community links",
+      "path": "evolution/manual-signals.json",
+      "trust": 0.7,
+      "enabled": true
+    }
+  ]
+}

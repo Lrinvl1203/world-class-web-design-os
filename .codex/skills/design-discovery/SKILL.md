@@ -36,3 +36,5 @@ Do not stall on low-risk gaps. Infer reasonable defaults, label them as assumpti
 ## Output
 
 Produce a concise design brief with: `Goal`, `Audience`, `Primary Job`, `Primary Action`, `Content Priority`, `Brand`, `Anti-Direction`, `Constraints`, `CTQs`.
+
+When imagery, logos, footage, 3D models, fonts, or external references affect the direction, read `references/asset-protocol.md` and record ownership, rights, fidelity, fallback, and delivery status before treating an asset as available.

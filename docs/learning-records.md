@@ -13,3 +13,17 @@
 - **Negative regression:** Purpose-built loading, skeleton, and empty-state tests remain valid when that incomplete state is explicitly the intended capture state.
 - **Validation:** The new visibility assertion would fail the prior hidden-content state; the media-settling change removed the reproduced 1920 px diff; six viewports then passed twice consecutively.
 - **Decision:** adopted in `$visual-qa`; no new skill or architecture branch required.
+
+## Automated accessibility must exercise real archetypes
+
+- **Date / project:** 2026-08-09 / daily-evolution and benchmark integration
+- **Evidence:** Adding axe to real Chromium runs exposed small-text contrast failures in Nocturne and both token-role contrast plus invalid definition-list structure in VANTA, although prior visual/task checks were green.
+- **Severity:** major
+- **Classification:** release-gate coverage gap
+- **Root cause:** Manual contrast samples and interaction tests did not cover every rendered text role or semantic container. VANTA also reused one orange value for foreground-on-paper and background-behind-carbon, two incompatible contrast jobs.
+- **Generalizable principle:** Automated accessibility checks must run against representative rendered archetypes, and color tokens must encode surface role when one value cannot satisfy both foreground and background contrast relationships.
+- **Countermeasure:** Add Playwright + axe serious/critical checks at edge-mobile and desktop to CI; preserve the existing visual matrix; split incompatible color roles; require semantic structure fixes rather than audit exclusions. Allow only narrow documented exclusions for truly decorative, hidden-from-AT artwork.
+- **Positive regression:** Nocturne and VANTA must both pass axe, overflow, console, dead-link, reduced-motion, and heading visibility gates at 320 and 1440 widths.
+- **Negative regression:** Decorative aria-hidden watermark artwork may retain low-contrast material treatment when it is excluded narrowly; information-bearing text and controls may not use that exception.
+- **Validation:** The gate failed on both inherited archetypes, the source defects were corrected, and all four browser runs passed. Routing evals 10/10, evolution tests 6/6, all 17 skills, and the sample WDX report also passed.
+- **Decision:** adopted in CI and `$a11y-performance`/`$visual-qa` execution; no WDX threshold or weight changed.
