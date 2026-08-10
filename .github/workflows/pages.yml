@@ -39,7 +39,7 @@ jobs:
           cp -R experiments/nocturne-concierge _site/experiments/
           cp -R experiments/vanta-forge _site/experiments/
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
       - name: Deploy
