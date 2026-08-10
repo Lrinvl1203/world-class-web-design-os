@@ -53,6 +53,8 @@ Anti-direction: vague AI hype, award-equivalent claims, bought engagement, autom
 | 2026-08-11 | GitHub Discussion update | https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6#discussioncomment-17965481 | Demo / benchmark / release assets | Published |
 | 2026-08-11 | Reddit r/OpenAIcodex | https://www.reddit.com/r/OpenaiCodex/comments/1vkpgyr/i_turned_my_webdesign_workflow_into_17_codex/ | Architecture, limitations, and request for critique | Published |
 | 2026-08-11 | Threads | https://www.threads.com/@lrinvl1203/post/Db3bx0OkuRD | Korean evidence-led launch with repository preview | Published |
+| 2026-08-11 | X | https://x.com/lrinvl1203/status/2086859489001738289 | Concise workflow, browser-gate, and same-brief challenge announcement | Published |
+| 2026-08-11 | Product Hunt | https://www.producthunt.com/products/world-class-web-design-os?launch=world-class-web-design-os | Open-source product page, maker comment, and earliest available launch slot | Scheduled for 2026-08-11 12:01 PT |
 | 2026-08-11 | Awesome Codex CLI | https://github.com/RoggeOhta/awesome-codex-cli/pull/192 | Codex-specific 17-skill collection | PR open |
 | 2026-08-11 | Awesome Agent Skills | https://github.com/kodustech/awesome-agent-skills/pull/76 | Web-design orchestrator skill | PR open |
 
@@ -70,4 +72,4 @@ Record at day 14 and day 30:
 
 ## Authentication handoff
 
-Chrome is currently logged out of Hacker News, X, and Product Hunt. The launch copy is ready in `marketing/launch-kit.md`; post only after the owner signs in. Product Hunt may create a new account through GitHub sign-in, so do not consent or create the account without the owner present.
+X and Product Hunt authentication are complete. The X announcement is public and the Product Hunt launch is scheduled. Hacker News remains pending because account creation requires an owner-chosen password; continue from the open submit/login tab after the owner enters it.

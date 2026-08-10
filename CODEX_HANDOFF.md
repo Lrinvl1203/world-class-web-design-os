@@ -730,8 +730,10 @@ External distribution completed on 2026-08-11:
 
 - Reddit r/OpenAIcodex: `https://www.reddit.com/r/OpenaiCodex/comments/1vkpgyr/i_turned_my_webdesign_workflow_into_17_codex/`
 - Threads: `https://www.threads.com/@lrinvl1203/post/Db3bx0OkuRD`
+- X: `https://x.com/lrinvl1203/status/2086859489001738289`
+- Product Hunt page: `https://www.producthunt.com/products/world-class-web-design-os?launch=world-class-web-design-os` (scheduled for 2026-08-11 12:01 PT / 16:01 Asia/Seoul)
 - Awesome Codex CLI PR: `https://github.com/RoggeOhta/awesome-codex-cli/pull/192`
 - Awesome Agent Skills PR: `https://github.com/kodustech/awesome-agent-skills/pull/76`
 - Discussion update: `https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6#discussioncomment-17965481`
 
-Hacker News, X, and Product Hunt remain blocked only by signed-out Chrome sessions. Leave their channel-specific copy in `marketing/launch-kit.md`; the owner must sign in before posting. Product Hunt GitHub sign-in may create a new account and must not be accepted autonomously.
+X and Product Hunt authentication are complete. The X announcement is public, and the Product Hunt product page, maker comment, required metadata, and launch schedule are in place. Hacker News is the remaining distribution blocker because its account form requires an owner-chosen password; resume from the open HN submit/login tab after the owner enters it.
