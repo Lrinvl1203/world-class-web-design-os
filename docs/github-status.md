@@ -17,7 +17,7 @@ The active connector resolves to GitHub user `Lrinvl1203`.
 
 The repository is public at `https://github.com/Lrinvl1203/world-class-web-design-os`. GitHub Pages is live at `https://lrinvl1203.github.io/world-class-web-design-os/`, and release `v0.2.0` is published.
 
-Issues, Discussions, vulnerability alerts, private vulnerability reporting, secret scanning, and push protection are enabled. Branch protection requires `validate` and `browser-hard-gates`; force pushes and branch deletion are disabled. Dependabot version-update PRs remain disabled to avoid unsolicited notification noise.
+Issues, Discussions, vulnerability alerts, private vulnerability reporting, secret scanning, and push protection are enabled. Branch protection requires `validate` and `browser-hard-gates`; force pushes and branch deletion are disabled. The 1280×640 social preview is uploaded, and the [start-here Discussion](https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6) is pinned. Dependabot version-update PRs remain disabled to avoid unsolicited notification noise.
 
 ## Safe continuation
 

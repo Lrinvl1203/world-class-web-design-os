@@ -692,7 +692,7 @@ Completed locally and pushed as the next coherent milestone:
 - MIT license draft, changelog, contributing, conduct, security, issue/PR templates, and public benchmark model;
 - manual GitHub Pages workflow that assembles the launch site plus both experiments;
 - launch-site hard gates at 320, 375, 768, 1440, and 1920 px, including axe, keyboard tab behavior, overflow, console, reduced motion, no-JavaScript survival, and a 500 KB transferred-resource budget;
-- GitHub description, topics, Issues, and Discussions configured while preserving private visibility.
+- GitHub description, topics, Issues, and Discussions were configured before the owner-approved public transition.
 
 Verification result:
 
@@ -704,6 +704,6 @@ Verification result:
 
 Before public launch, a name-collision audit found existing web/design businesses using the former short acronym and an exact existing service using the former industrial-demo name. Current public-facing branding was therefore changed to the descriptive `World-Class Web Design OS`, the CLI to `web-design-os`, the internal rubric label to `Design Quality`, and the industrial demo to `Linehold Forge`. Do not reintroduce the retired names as public brands.
 
-Public launch is complete: GitHub Pages and both experiments return HTTP 200, the repository homepage points to Pages, release `v0.2.0` is published, vulnerability reporting and secret protections are enabled, and branch protection requires `validate` plus `browser-hard-gates`. The only manual launch-setting follow-up is uploading `site/assets/social-preview.jpg` in repository settings because GitHub exposes no supported repository API for that image.
+Public launch is complete: GitHub Pages and both experiments return HTTP 200, the repository homepage points to Pages, release `v0.2.0` is published, vulnerability reporting and secret protections are enabled, and branch protection requires `validate` plus `browser-hard-gates`. The 1280×640 social preview was uploaded and visually verified in repository settings, and Discussion #6 is pinned as the start-here/show-your-build entry point.
 
 Dependabot version-update configuration was removed after it generated unsolicited PR/email noise. Keep version updates manual unless the owner explicitly opts back into automated dependency PRs; CI validation remains enabled.

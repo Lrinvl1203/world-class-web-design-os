@@ -18,7 +18,7 @@ The repository was made public with explicit owner approval on 2026-08-10. This 
 - [x] Enable secret scanning and push protection; keep noisy dependency-update PRs disabled.
 - [x] Enable Issues and Discussions if maintainers can respond.
 - [x] Enable Pages with **GitHub Actions** as the source, then run `deploy-pages` manually.
-- [ ] Upload `site/assets/social-preview.jpg` under repository social preview settings.
+- [x] Upload `site/assets/social-preview.jpg` under repository social preview settings and verify the rendered card.
 - [x] Set the homepage to `https://lrinvl1203.github.io/world-class-web-design-os/` after Pages is live.
 - [x] Create the `v0.2.0` release from `CHANGELOG.md`.
 - [x] Add branch protection requiring `validate` and `browser-hard-gates`, with force pushes and branch deletion disabled.
@@ -32,6 +32,6 @@ Topics: `agent-skills`, `web-design`, `design-system`, `accessibility`, `visual-
 ## After launch
 
 - [x] Verify the public Pages URL and both experiment links without repository authentication, and verify the packaged installer in a temporary home.
-- [ ] Pin a “Start here / show your build” Discussion.
+- [x] Publish and pin the [“Start here — install the OS and show your build” Discussion](https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6).
 - [ ] Publish the first reproducible external benchmark before making comparative quality claims.
 - [ ] Triage launch feedback into defects, feature ideas, and evidence proposals.
