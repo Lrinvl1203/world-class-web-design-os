@@ -16,6 +16,7 @@ jobs:
       - run: npm install --ignore-scripts --package-lock=false
       - run: npm run validate
       - run: npm run eval:skills
+      - run: npm run test:unit
   browser-hard-gates:
     runs-on: ubuntu-latest
     steps:

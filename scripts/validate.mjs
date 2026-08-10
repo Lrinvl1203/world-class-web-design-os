@@ -1,5 +1,10 @@
 import { spawnSync } from 'node:child_process';
 
+const distribution = spawnSync(process.execPath, ['scripts/validate-distribution.mjs'], {
+  stdio: 'inherit'
+});
+if ((distribution.status ?? 1) !== 0) process.exit(distribution.status ?? 1);
+
 const candidates = process.platform === 'win32'
   ? [['py', ['-3']], ['python3', []], ['python', []]]
   : [['python3', []], ['python', []], ['py', ['-3']]];

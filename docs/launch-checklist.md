@@ -36,6 +36,9 @@ Topics: `agent-skills`, `web-design`, `design-system`, `accessibility`, `visual-
 - [x] Add an 18-second demo, Same Brief Challenge, external-result issue form, and channel-specific launch kit.
 - [x] Add a daily growth snapshot workflow that uploads private artifacts without auto-posting or modifying the repository.
 - [x] Submit the project to a small set of relevant agent-skill/Codex curation lists and record each URL.
-- [ ] Publish channel-specific launch posts and respond to substantive feedback.
+- [x] Publish the X, Threads, and Reddit launch posts and schedule the Product Hunt launch.
+- [x] Add a machine-readable distribution manifest and validate it against the README and growth log in CI.
+- [ ] Publish Show HN after owner-controlled account setup and record the canonical item URL.
+- [ ] Respond to substantive launch feedback and record recurring questions.
 - [ ] Publish the first reproducible external benchmark before making comparative quality claims.
 - [ ] Triage launch feedback into defects, feature ideas, and evidence proposals.

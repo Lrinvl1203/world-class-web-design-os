@@ -4,6 +4,7 @@ import path from 'node:path';
 const repository = process.env.GITHUB_REPOSITORY || 'Lrinvl1203/world-class-web-design-os';
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 const output = path.resolve(process.env.GROWTH_SNAPSHOT_OUTPUT || 'artifacts/growth/latest.json');
+const distribution = JSON.parse(fs.readFileSync(path.resolve('config/distribution.json'), 'utf8'));
 const headers = {
   Accept: 'application/vnd.github+json',
   'X-GitHub-Api-Version': '2022-11-28',
@@ -36,6 +37,12 @@ const snapshot = {
     open_issues: repo.open_issues_count
   },
   traffic: { views, clones, referrers, popular_paths: paths },
+  distribution: {
+    updated_on: distribution.updated_on,
+    channels: distribution.channels.map(({ id, channel, status, url, published_on, scheduled_for, opened_on, blocker }) => ({
+      id, channel, status, url, published_on, scheduled_for, opened_on, blocker
+    }))
+  },
   discussions: Array.isArray(discussions)
     ? discussions.map(({ number, title, html_url, comments, upvote_count }) => ({ number, title, html_url, comments, upvote_count }))
     : discussions

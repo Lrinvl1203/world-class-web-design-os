@@ -2,6 +2,8 @@
 
 Use one channel at a time, answer every substantive reply, and record the final URL in `docs/growth-launch-plan.md`. Do not paste identical copy across communities or ask for empty upvotes.
 
+Canonical channel status lives in `config/distribution.json` and is validated against the growth log and README. X, Threads, Reddit, and the Product Hunt launch page are recorded there; Show HN remains pending until the owner completes account setup.
+
 ## Core facts
 
 - Open source, MIT licensed, version 0.2.0.
