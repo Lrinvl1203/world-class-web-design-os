@@ -35,7 +35,7 @@ Topics: `agent-skills`, `web-design`, `design-system`, `accessibility`, `visual-
 - [x] Publish and pin the [“Start here — install the OS and show your build” Discussion](https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6).
 - [x] Add an 18-second demo, Same Brief Challenge, external-result issue form, and channel-specific launch kit.
 - [x] Add a daily growth snapshot workflow that uploads private artifacts without auto-posting or modifying the repository.
-- [ ] Submit the project to a small set of relevant agent-skill/Codex curation lists and record each URL.
+- [x] Submit the project to a small set of relevant agent-skill/Codex curation lists and record each URL.
 - [ ] Publish channel-specific launch posts and respond to substantive feedback.
 - [ ] Publish the first reproducible external benchmark before making comparative quality claims.
 - [ ] Triage launch feedback into defects, feature ideas, and evidence proposals.

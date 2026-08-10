@@ -725,3 +725,13 @@ The owner authorized the complete launch-distribution pass. The repository now i
 The first growth snapshot recorded 0 stars, 0 forks, 0 traffic views, and 21 clones from 4 unique cloners; discovery and independent proof remain the bottlenecks. Launch-site browser QA passes 15/15 across 320, 375, 768, 1440, and 1920 px with the video set to `preload="none"` to preserve the initial transfer budget.
 
 Next external actions are to publish the committed assets, upload the MP4 to release `v0.2.0`, submit only to relevant curated lists that accept community PRs, and post channel-specific launch messages where the owner is authenticated. Never bypass CAPTCHA or impersonate engagement.
+
+External distribution completed on 2026-08-11:
+
+- Reddit r/OpenAIcodex: `https://www.reddit.com/r/OpenaiCodex/comments/1vkpgyr/i_turned_my_webdesign_workflow_into_17_codex/`
+- Threads: `https://www.threads.com/@lrinvl1203/post/Db3bx0OkuRD`
+- Awesome Codex CLI PR: `https://github.com/RoggeOhta/awesome-codex-cli/pull/192`
+- Awesome Agent Skills PR: `https://github.com/kodustech/awesome-agent-skills/pull/76`
+- Discussion update: `https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6#discussioncomment-17965481`
+
+Hacker News, X, and Product Hunt remain blocked only by signed-out Chrome sessions. Leave their channel-specific copy in `marketing/launch-kit.md`; the owner must sign in before posting. Product Hunt GitHub sign-in may create a new account and must not be accepted autonomously.
