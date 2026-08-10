@@ -689,7 +689,7 @@ Completed locally and pushed as the next coherent milestone:
 - optimized experiment previews and a 1280×640 social preview under `site/assets/`;
 - English and Korean onboarding with a one-line GitHub installer;
 - `wdx doctor`, package metadata, `npm pack` contents, and tarball install smoke test;
-- MIT license draft, changelog, contributing, conduct, security, issue/PR templates, Dependabot, and public benchmark model;
+- MIT license draft, changelog, contributing, conduct, security, issue/PR templates, and public benchmark model;
 - manual GitHub Pages workflow that assembles the launch site plus both experiments;
 - launch-site hard gates at 320, 375, 768, 1440, and 1920 px, including axe, keyboard tab behavior, overflow, console, reduced motion, no-JavaScript survival, and a 500 KB transferred-resource budget;
 - GitHub description, topics, Issues, and Discussions configured while preserving private visibility.
@@ -703,3 +703,5 @@ Verification result:
 - tarball smoke: version 0.2.0, install succeeds, `wdx doctor` reports 17/17 READY.
 
 Final owner-controlled launch steps are in `docs/launch-checklist.md`: confirm MIT ownership text, make the repository public, enable private vulnerability reporting and Pages, run `deploy-pages`, upload the social preview in repository settings, set the live homepage, create `v0.2.0`, and add branch protection. Do not perform the visibility change without explicit approval.
+
+Dependabot version-update configuration was removed after it generated unsolicited PR/email noise. Keep version updates manual unless the owner explicitly opts back into automated dependency PRs; CI validation remains enabled.
