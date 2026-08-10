@@ -6,6 +6,8 @@ import { routeSkills, root } from '../scripts/lib/routing.mjs';
 import { installSkills } from '../scripts/install-global.mjs';
 import { runEvolution } from '../scripts/evolution/run.mjs';
 
+const VERSION = '0.2.0';
+
 function value(flag, fallback) {
   const index = process.argv.indexOf(flag);
   return index >= 0 ? process.argv[index + 1] : fallback;
@@ -24,14 +26,29 @@ function positional(start = 3) {
 }
 
 function printHelp() {
-  console.log(`WDX CLI
+  console.log(`WDX CLI ${VERSION}
 
   wdx route "task description"             Route to at most three active specialists
   wdx search "editorial motion" [--limit 8] Search the evidence atlas
   wdx setup [target]                        Create .wdx/project-context.md
   wdx install --agent codex|all [--overwrite]
+  wdx doctor [--agent codex]                Verify a global skill installation
   wdx evolve [--offline] [--date YYYY-MM-DD]
-  wdx eval                                 Run routing and evolution regression tests`);
+  wdx eval                                  Run routing and evolution regression tests
+  wdx --version                             Print the CLI version`);
+}
+
+function doctor({ agent = 'codex', targetRoot } = {}) {
+  const targets = JSON.parse(fs.readFileSync(path.join(root, 'config', 'agent-targets.json'), 'utf8'));
+  if (!targets[agent]) throw new Error(`Unknown agent '${agent}'. Choose: ${Object.keys(targets).join(', ')}`);
+  const base = path.resolve(targetRoot || process.env.USERPROFILE || process.env.HOME || '.');
+  const destination = path.join(base, ...targets[agent].split('/'));
+  const expected = fs.readdirSync(path.join(root, '.codex', 'skills'), { withFileTypes: true }).filter(entry => entry.isDirectory()).length;
+  const installed = fs.existsSync(destination)
+    ? fs.readdirSync(destination, { withFileTypes: true }).filter(entry => entry.isDirectory() && fs.existsSync(path.join(destination, entry.name, 'SKILL.md'))).length
+    : 0;
+  const orchestrator = path.join(destination, 'web-design-orchestrator', 'SKILL.md');
+  return { agent, destination, expected, installed, ready: installed >= expected && fs.existsSync(orchestrator) };
 }
 
 function searchAtlas(query, limit = 8) {
@@ -49,7 +66,9 @@ function searchAtlas(query, limit = 8) {
 const command = process.argv[2];
 
 try {
-  if (!command || ['help', '--help', '-h'].includes(command)) {
+  if (['--version', '-v', 'version'].includes(command)) {
+    console.log(VERSION);
+  } else if (!command || ['help', '--help', '-h'].includes(command)) {
     printHelp();
   } else if (command === 'route') {
     const input = positional().join(' ');
@@ -75,6 +94,12 @@ try {
       overwrite: process.argv.includes('--overwrite')
     });
     installed.forEach(item => console.log(`${item.agent}: ${item.destination}`));
+    console.log('Run `wdx doctor` to verify the installation.');
+  } else if (command === 'doctor') {
+    const result = doctor({ agent: value('--agent', 'codex'), targetRoot: value('--root') });
+    console.log(`${result.ready ? 'READY' : 'NOT READY'}  ${result.agent}`);
+    console.log(`${result.installed}/${result.expected} WDX skills at ${result.destination}`);
+    if (!result.ready) process.exitCode = 1;
   } else if (command === 'evolve') {
     const result = await runEvolution({ offline: process.argv.includes('--offline'), date: value('--date') });
     console.log(`Collected ${result.signals.length} signals; ${result.proposals.length} proposal(s).`);

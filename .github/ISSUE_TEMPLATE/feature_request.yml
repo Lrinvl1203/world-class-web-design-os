@@ -1,0 +1,37 @@
+name: Feature request
+description: Propose a capability tied to a concrete user or agent job.
+title: "feature: "
+labels: [enhancement, needs-triage]
+body:
+  - type: textarea
+    id: job
+    attributes:
+      label: Job and user
+      description: Who needs this, in what situation, and what are they trying to accomplish?
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: Current capability gap
+      description: Show where the current system or workaround fails.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the smallest useful change, not only a preferred implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks and gates
+      description: Note accessibility, performance, licensing, maintenance, or compatibility concerns.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting evidence
+      description: Link primary documentation, reproducible examples, or representative scenarios.
+

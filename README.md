@@ -1,149 +1,142 @@
-# World-Class Web Design OS
+<div align="center">
+  <img src="site/assets/wdx-mark.svg" width="72" alt="WDX">
+  <h1>WDX — Web Design Operating System</h1>
+  <p><strong>Design with a point of view. Ship with evidence.</strong></p>
+  <p>An open operating system for distinctive, usable, accessible, and verifiable agent-made websites.</p>
+  <p>
+    <a href="docs/README.ko.md">한국어</a> ·
+    <a href="https://lrinvl1203.github.io/world-class-web-design-os/">Live overview</a> ·
+    <a href="CONTRIBUTING.md">Contribute</a>
+  </p>
+</div>
 
-A reusable design-production operating system for distinctive, accessible, fast web experiences. Codex is the canonical runtime; compatible skill folders can also be installed for other agents.
+![WDX: Design with a point of view. Ship with evidence.](site/assets/social-preview.jpg)
 
-This repository is not a component kit and not a single mega-prompt. It is a modular skill system:
+[![Validate](https://github.com/Lrinvl1203/world-class-web-design-os/actions/workflows/validate.yml/badge.svg)](https://github.com/Lrinvl1203/world-class-web-design-os/actions/workflows/validate.yml)
+[![MIT License](https://img.shields.io/badge/license-MIT-141411.svg)](LICENSE)
+[![17 skills](https://img.shields.io/badge/specialist_skills-17-ff4f20.svg)](.codex/skills)
+[![Node 20+](https://img.shields.io/badge/node-%3E%3D20-141411.svg)](package.json)
 
-- `AGENTS.md` — repository-level operating rules for Codex.
-- `.codex/skills/*/SKILL.md` — specialized skills with progressive disclosure.
-- `docs/` — architecture, implementation specification, master handoff prompt, and verified source registry.
-- `config/` — WDX quality rubric, viewport matrix, and motion/tool routing policy.
-- `scripts/` — deterministic validation, screenshot capture, installation, and GitHub publishing helpers.
-- `tests/` — Playwright visual QA starter.
+WDX routes an AI coding agent through a complete web-design process: discovery, reference analysis, art direction, design systems, interaction and motion decisions, semantic implementation, responsive recomposition, independent critique, accessibility, performance, and rendered visual QA.
 
-## Core idea
+It is not a component library or a list of style prompts. The output can look completely different from project to project because the system governs decisions and gates—not a house style.
 
-Design quality is produced by a controlled loop, not a one-shot prompt:
-
-`Discover → Analyze references → Art direct → Systemize → Build → Recompose → Render → Critique → Fix → Validate → Learn`
-
-The system deliberately separates **creation** from **critique** and separates **design intent** from **tool choice**.
-
-## Quick start in Codex
-
-1. Open this repository in Codex.
-2. Start with:
-
-```text
-Use $web-design-orchestrator to design and build this project.
-Business goal: ...
-Audience: ...
-Primary action: ...
-References: ...
-Assets: ...
-Constraints: ...
-```
-
-3. The orchestrator routes work to the smallest relevant skill set.
-4. Before calling the work finished, run quality gates and the independent design critic.
-
-One-sentence invocation:
-
-```text
-Use $web-design-orchestrator with the WDX hard gates to design and build this website: [brief].
-```
-
-Create a reusable project brief and inspect the initial skill route:
+## Install in one line
 
 ```bash
-npm run wdx -- setup /path/to/project
-npm run wdx -- route "Build a responsive editorial portfolio with purposeful motion"
+npx --yes github:Lrinvl1203/world-class-web-design-os install --agent codex
 ```
 
-## Installing into another repository
+Then ask normally:
+
+> Design and implement a distinctive website for this product.
+
+The repository-level rules route broad website work through `web-design-orchestrator`. To update an existing installation, append `--overwrite`. To install every declared agent target, use `--agent all`.
 
 ```bash
-./scripts/install-into-project.sh /path/to/target-repo
+npx --yes github:Lrinvl1203/world-class-web-design-os doctor --agent codex
 ```
 
-This copies `.codex/skills`. It does **not** overwrite the target repository's `AGENTS.md`; merge the guidance from `templates/AGENTS.snippet.md` intentionally.
+> The one-line GitHub install works after the repository is public. Until then, clone the repository and run `npm run wdx -- install --agent codex` locally.
 
-Cross-platform Node installer:
+## What changes in practice
+
+```mermaid
+flowchart LR
+    A[Intent<br/>audience · job · action] --> B[Direction<br/>POV · anti-direction]
+    B --> C[System<br/>tokens · states · sources]
+    C --> D[Build<br/>semantic · responsive]
+    D --> E[Challenge<br/>critic · AI smell]
+    E --> F[Prove<br/>screens · a11y · perf]
+    F --> G[Learn<br/>reviewed proposals]
+```
+
+- The business job and primary action are resolved before styling.
+- References are decomposed into principles instead of copied wholesale.
+- Three materially different art directions are considered when the direction is open.
+- Motion and component sources are chosen by communication intent, not fashion.
+- Mobile receives a deliberate hierarchy and composition.
+- Implementation and critique are separate passes.
+- Completion requires screenshots, keyboard and accessibility checks, overflow checks, and a clean console.
+- Daily learning produces evidence-backed proposals; it never silently rewrites core skills.
+
+## Proof, with labels
+
+| Experiment | Archetype | Internal WDX | Field evidence | Status |
+|---|---|---:|---|---|
+| [Nocturne Concierge](experiments/nocturne-concierge/) | Editorial hospitality | 92.8 | Pending | Internal target passed |
+| [VANTA Forge](experiments/vanta-forge/) | Industrial commerce | 91.8 | Pending | Hold; below 92 target |
+
+WDX scores are internal rubric evaluations. They are not user research, conversion data, award results, or external expert validation. See [public benchmark](docs/public-benchmark.md) for the evidence model.
+
+## The 17-skill stack
+
+The orchestrator keeps the active set small and activates specialists only when they have a job.
+
+| Layer | Skills |
+|---|---|
+| Frame | `design-discovery`, `reference-forensics` |
+| Direct | `art-direction`, `design-system`, `component-source-router` |
+| Experience | `interaction-design`, `motion-engine`, `creative-web` |
+| Build | `frontend-implementation`, `responsive-recomposition` |
+| Prove | `a11y-performance`, `visual-qa`, `design-critic`, `ai-smell-detector`, `visual-polish` |
+| Improve | `continuous-learning` |
+| Route | `web-design-orchestrator` |
+
+Read the [architecture](docs/architecture.md) or inspect any skill in [`.codex/skills`](.codex/skills).
+
+## CLI
 
 ```bash
-# Install into another project
-npm run wdx -- install --agent codex --root /path/to/project
-
-# Install into the current user's global agent directory
-npm run wdx -- install --agent codex
-
-# Supported targets: codex, agents, claude, cursor, copilot, opencode, all
-npm run wdx -- install --agent all --overwrite
+wdx route "editorial product site with scroll storytelling"
+wdx search "typography motion" --limit 8
+wdx setup .
+wdx install --agent codex
+wdx doctor --agent codex
+wdx evolve --offline
+wdx eval
 ```
 
-The package is currently private and unpublished. Running it through `npx` from npm is therefore not claimed; the included `wdx` bin is ready for local or GitHub-package use if the repository is later published intentionally.
+- `route` returns at most three active specialists in addition to the orchestrator.
+- `search` queries the 100-reference evidence atlas.
+- `setup` creates `.wdx/project-context.md` without overwriting an existing brief.
+- `evolve` runs the controlled learning pipeline; `--offline` uses cached and manual sources.
 
-## Searchable Design DNA
+## Daily evolution without silent drift
 
-Search the evidence-graded 100-reference atlas rather than loading it all into the model context:
+The scheduled workflow collects official APIs, RSS feeds, and reviewed manual signals into a dated report. A proposal needs three independent sources and survives a 30-day cache policy before it can be considered. The automation may write evidence and proposals; it may not modify core skill instructions.
 
-```bash
-npm run wdx -- search "editorial motion"
-npm run wdx -- search "WebGL performance" --limit 5
-```
+See [evolution model](evolution/README.md), [source registry](docs/source-registry.md), and [learning records](docs/learning-records.md).
 
-The router keeps at most three specialist skills active per phase. Full builds still begin with `$web-design-orchestrator`; later phases re-route instead of accumulating every skill in context.
+## Run locally
 
-## Daily controlled evolution
-
-The scheduled pipeline runs at 03:00 Asia/Seoul and collects only reviewable evidence from configured RSS, official APIs, and curated links. It ranks candidates using age-adjusted velocity, engagement depth, and source confidence. Popularity is not treated as quality.
-
-```bash
-npm run evolve:daily
-npm run wdx -- evolve --offline
-```
-
-Optional secrets enable official YouTube and authorized Threads post metrics. The pipeline never scrapes logged-in community pages, stores full copyrighted posts, executes remote instructions, edits core skills directly, changes WDX scoring, pushes to `main`, or self-merges. It may only create an inbox, report, and—after recurrence across three independent sources—a review-required proposal draft. See `evolution/README.md`.
-
-## Validation
+Requirements: Node.js 20+ and Python 3 for the full validation suite.
 
 ```bash
 npm install
 npm run validate
 npm run eval:skills
 npm run qa:install
-TARGET_URL=http://localhost:3000 npm run qa:capture
-TARGET_URL=http://localhost:3000 npm run qa:visual
+npm run qa:launch
 ```
 
-## Design quality target
+Preview the launch site:
 
-A release candidate should satisfy both:
+```bash
+node scripts/serve-static.mjs . 4173
+```
 
-- **WDX design score ≥ 92/100**, with category floors.
-- **Hard gates pass**: functionality, WCAG 2.2 AA critical checks, responsive QA, reduced-motion behavior, and Core Web Vitals targets.
+Open `http://127.0.0.1:4173/site/`.
 
-See `config/wdx-rubric.json`.
+## Boundaries
 
-## Design DNA evidence
+- WDX does not guarantee awards, conversion lifts, or “world-class” outcomes.
+- External libraries, references, and community signals remain subject to their own licenses and terms.
+- Automated checks are necessary evidence, not a replacement for representative-user research.
+- High-cost 3D, WebGL, smooth scrolling, or overlapping animation libraries require an explicit communication and performance case.
 
-The reference-forensics skill includes a 100-reference atlas spanning creator-authored case studies, official interaction/creative-web documentation, and clearly labeled award benchmarks. Use it as a problem router, never as a template gallery. See `.codex/skills/reference-forensics/references/award-pattern-atlas.md` and `docs/reference-study-100.md`.
+## Contributing and security
 
-## Benchmarked capabilities now included
+Start with [CONTRIBUTING.md](CONTRIBUTING.md). Use the design-quality issue form for evidence-backed improvements. Please report security concerns through the process in [SECURITY.md](SECURITY.md), not a public issue.
 
-- searchable Design DNA and deterministic skill routing;
-- a one-command project context scaffold and multi-agent skill installer;
-- a provenance/rights/performance asset protocol;
-- product edge-case state coverage;
-- routing and evolution eval fixtures;
-- Playwright + axe browser hard gates in CI;
-- a daily, poison-resistant evidence collector with proposal-only governance;
-- the existing builder/critic separation, evidence levels, WDX rubric, six-viewport visual QA, and controlled learning loop.
-
-## Validation experiments
-
-- `experiments/nocturne-concierge/` — bilingual hospitality concierge; WDX 92.8 internal pass, field validation pending.
-- `experiments/vanta-forge/` — industrial/manufacturing B2B supplier evaluation; WDX 91.8 hold, buyer and field validation pending.
-
-The scores are internal workflow evidence, not external awards or production guarantees.
-
-## Philosophy
-
-- Reference, do not clone.
-- Components are raw material, not design.
-- Motion must communicate state, hierarchy, continuity, or brand character.
-- Mobile is a recomposition, not a shrunken desktop.
-- Native platform capabilities are preferred when they solve the problem cleanly.
-- Add libraries only when their capability justifies their cost.
-- One memorable signature interaction is more valuable than twenty decorative effects.
-- Quality defects become inputs to the next standard, but core rules are never silently self-modified.
+MIT © 2026 Lrinvl1203

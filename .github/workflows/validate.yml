@@ -37,3 +37,9 @@ jobs:
           TARGET_URL: http://127.0.0.1:4174
           STATIC_DIR: experiments/vanta-forge
           STATIC_PORT: '4174'
+      - name: Launch site accessibility and browser gates
+        run: npx playwright test tests/release-gates.spec.ts tests/launch-site.spec.ts --project=edge-mobile --project=tablet --project=desktop
+        env:
+          TARGET_URL: http://127.0.0.1:4175
+          STATIC_DIR: site
+          STATIC_PORT: '4175'

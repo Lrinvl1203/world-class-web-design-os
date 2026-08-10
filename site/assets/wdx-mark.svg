@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">WDX mark</title>
+  <desc id="desc">A geometric W built from three connected paths.</desc>
+  <rect width="96" height="96" rx="4" fill="#141411"/>
+  <path d="M15 27 29 69 48 38 67 69 81 27" fill="none" stroke="#f1ede3" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M48 38v31" stroke="#ff4f20" stroke-width="6"/>
+</svg>
+

@@ -676,3 +676,30 @@ Use this exact instruction:
 ```text
 Read AGENTS.md and CODEX_HANDOFF.md in full. Treat the existing repository, commits, 17 Codex skills, research atlas, and Nocturne experiment as inherited work that must be preserved. Do not redesign the architecture from scratch. First perform the Phase A integrity audit and report concrete findings. Then continue Phase B onward autonomously, making best-effort progress without asking me to repeat context already present in the repository. Use $web-design-orchestrator as the governing workflow for web-design work, keep builder and critic passes separate, verify current external/library facts against primary sources when they may have changed, and never game WDX thresholds. Commit coherent milestones with concise messages.
 ```
+
+---
+
+## 23. Public-launch readiness milestone (2026-08-10)
+
+The repository has been prepared for public launch, but **visibility remains PRIVATE** pending explicit owner approval.
+
+Completed locally and pushed as the next coherent milestone:
+
+- proof-led WDX launch site under `site/`, with an instrumented editorial direction documented in `site/DESIGN.md`;
+- optimized experiment previews and a 1280×640 social preview under `site/assets/`;
+- English and Korean onboarding with a one-line GitHub installer;
+- `wdx doctor`, package metadata, `npm pack` contents, and tarball install smoke test;
+- MIT license draft, changelog, contributing, conduct, security, issue/PR templates, Dependabot, and public benchmark model;
+- manual GitHub Pages workflow that assembles the launch site plus both experiments;
+- launch-site hard gates at 320, 375, 768, 1440, and 1920 px, including axe, keyboard tab behavior, overflow, console, reduced motion, no-JavaScript survival, and a 500 KB transferred-resource budget;
+- GitHub description, topics, Issues, and Discussions configured while preserving private visibility.
+
+Verification result:
+
+- `npm run validate`: pass, 17 skills, configured WDX 92/100;
+- `npm run eval:skills`: routing 10/10 and evolution 6/6 pass;
+- `npm run test:unit`: 6/6 pass;
+- `npm run qa:launch`: 15/15 pass;
+- tarball smoke: version 0.2.0, install succeeds, `wdx doctor` reports 17/17 READY.
+
+Final owner-controlled launch steps are in `docs/launch-checklist.md`: confirm MIT ownership text, make the repository public, enable private vulnerability reporting and Pages, run `deploy-pages`, upload the social preview in repository settings, set the live homepage, create `v0.2.0`, and add branch protection. Do not perform the visibility change without explicit approval.

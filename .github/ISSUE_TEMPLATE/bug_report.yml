@@ -1,0 +1,50 @@
+name: Bug report
+description: Report a reproducible problem in the CLI, skills, workflows, or documentation.
+title: "bug: "
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: Please remove credentials, private project data, and licensed assets from examples.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [CLI / installer, Skill routing, Skill content, Visual QA, Daily evolution, Documentation, GitHub workflow]
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Observed behavior
+      description: What happened, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include commands, inputs, and the smallest safe sample that reproduces the problem.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: WDX, Node, and OS versions
+      placeholder: WDX 0.2.0 / Node 22 / Windows 11
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Logs, screenshots, or failing checks. Drag files here when useful.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed secrets, personal data, and non-shareable client material.
+          required: true
+

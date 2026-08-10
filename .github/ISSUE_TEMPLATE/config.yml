@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/Lrinvl1203/world-class-web-design-os/security/advisories/new
+    about: Report an unpatched vulnerability privately.
+

@@ -1,0 +1,41 @@
+name: Design-quality finding
+description: Propose an evidence-backed correction to a design rule, skill, or quality gate.
+title: "quality: "
+labels: [design-quality, evidence-needed]
+body:
+  - type: textarea
+    id: defect
+    attributes:
+      label: Generalizable defect
+      description: Describe the repeated failure pattern, not a one-off taste preference.
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Reproduction scenario
+      description: Provide the brief, route, artifact, viewport, and state that expose it.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and provenance
+      description: Include screenshots, measured results, user findings, or primary sources.
+    validations:
+      required: true
+  - type: textarea
+    id: countermeasure
+    attributes:
+      label: Proposed countermeasure
+      description: State the instruction, gate, or test that would prevent recurrence.
+    validations:
+      required: true
+  - type: textarea
+    id: regression
+    attributes:
+      label: Regression plan
+      description: Name one prior and one new scenario that should be tested before adoption.
+    validations:
+      required: true
+
