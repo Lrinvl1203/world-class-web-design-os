@@ -43,6 +43,18 @@ npx --yes github:Lrinvl1203/world-class-web-design-os doctor --agent codex
 
 Design Quality 점수는 내부 루브릭 평가입니다. 사용자 조사, 전환율, 어워드 결과, 외부 전문가 평가를 뜻하지 않습니다. 증거 체계는 [공개 벤치마크 문서](public-benchmark.md)를 참고하세요.
 
+## 공개 배포 현황
+
+다음 링크는 프로젝트가 실제로 소개된 채널의 기록이며 외부 품질 인증이나 추천을 뜻하지 않습니다.
+
+- [Product Hunt 출시 페이지](https://www.producthunt.com/products/world-class-web-design-os?launch=world-class-web-design-os)
+- [X 공개 글](https://x.com/lrinvl1203/status/2086859489001738289)
+- [Threads 공개 글](https://www.threads.com/@lrinvl1203/post/Db3bx0OkuRD)
+- [Reddit 아키텍처 토론](https://www.reddit.com/r/OpenaiCodex/comments/1vkpgyr/i_turned_my_webdesign_workflow_into_17_codex/)
+- [GitHub 시작·피드백 토론](https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6)
+
+배포 상태의 기준 데이터는 [`config/distribution.json`](../config/distribution.json)이며, 문서와 상태가 어긋나면 CI가 실패합니다.
+
 ## 주요 명령어
 
 ```bash

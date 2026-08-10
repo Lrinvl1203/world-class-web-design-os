@@ -13,6 +13,7 @@ What changed, and why is this the smallest coherent solution?
 - [ ] Relevant browser and accessibility gates
 - [ ] Desktop and mobile screenshots when rendering changed
 - [ ] Prior and new scenario checks when a core skill changed
+- [ ] `config/distribution.json` and the launch log agree when distribution status changed
 
 Paste results or link artifacts:
 
@@ -28,4 +29,3 @@ Paste results or link artifacts:
 
 - [ ] Internal scores, automated checks, field findings, and external recognition are labeled separately.
 - [ ] This change introduces no credentials, private data, or non-shareable client assets.
-

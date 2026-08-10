@@ -8,6 +8,8 @@ All notable changes to Web Design OS are documented here. The project follows [S
 - Added an 18-second product demonstration, a reproducible Same Brief Challenge, and a benchmark-result issue form.
 - Added a daily private growth snapshot workflow and channel-specific public launch kit.
 - Added proof-to-install-to-feedback conversion paths on the README and GitHub Pages overview.
+- Added a machine-readable distribution manifest, README launch trail, and CI checks that prevent launch-status drift.
+- Recorded the public X announcement and scheduled Product Hunt launch with explicit time zones.
 
 ## [0.2.0] - 2026-08-10
 

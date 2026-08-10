@@ -1,5 +1,19 @@
 # Continuous-learning records
 
+## Launch distribution needs one validated source of truth
+
+- **Date / project:** 2026-08-11 / World-Class Web Design OS public distribution
+- **Evidence:** After X and Product Hunt authentication completed, the public URLs were added to the growth log and handoff, while the launch checklist and launch kit still described those channels as pending. The Product Hunt time was also written as `12:01 PT`, which was ambiguous and inconsistent with the site's `12:01am PT` confirmation.
+- **Severity:** moderate operational trust risk
+- **Classification:** missing rule
+- **Root cause:** Channel state was maintained as prose in several files without a canonical machine-readable record or consistency gate.
+- **Generalizable principle:** Public distribution events need a single manifest with explicit status, canonical URL, date/time zone, and blocker fields; human-facing summaries should be validated projections of that record.
+- **Countermeasure:** Add `config/distribution.json`, validate active URLs against the growth log, require featured links in the README, allow pending channels only with an explicit blocker, and include the manifest in the private daily growth snapshot.
+- **Positive regression:** Publishing or scheduling a new channel while forgetting the README or growth log must fail CI with the missing location named.
+- **Negative regression:** A channel that is intentionally pending must remain valid without a fabricated URL when it records a concrete blocker and is not featured.
+- **Validation:** Repository-valid, duplicate-ID, and pending-without-blocker scenarios are covered by unit tests; the validator is part of `npm run validate`, and CI now runs the unit suite.
+- **Decision:** adopted as repository launch governance. No core design skill or scoring rule changed.
+
 ## Launch media must separate poster-first loading from playback evidence
 
 - **Date / project:** 2026-08-11 / World-Class Web Design OS distribution launch

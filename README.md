@@ -84,6 +84,20 @@ Run [The Same Brief Challenge](BENCHMARK.md): build once with your normal agent 
 
 [Submit a reproducible result](https://github.com/Lrinvl1203/world-class-web-design-os/issues/new?template=benchmark-result.yml) or [show what you built](https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6).
 
+## Public launch trail
+
+These links prove where the project was introduced; they are not endorsements or external quality validation.
+
+| Channel | Status | Link |
+|---|---|---|
+| Product Hunt | Scheduled for Aug 11, 2026 at 00:01 PT | [Launch page](https://www.producthunt.com/products/world-class-web-design-os?launch=world-class-web-design-os) |
+| X | Published | [Announcement](https://x.com/lrinvl1203/status/2086859489001738289) |
+| Threads | Published | [Launch post](https://www.threads.com/@lrinvl1203/post/Db3bx0OkuRD) |
+| Reddit | Published | [Architecture discussion](https://www.reddit.com/r/OpenaiCodex/comments/1vkpgyr/i_turned_my_webdesign_workflow_into_17_codex/) |
+| GitHub | Open for feedback | [Start-here discussion](https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6) |
+
+The machine-readable source of truth is [`config/distribution.json`](config/distribution.json); CI rejects stale or contradictory launch records.
+
 ## The 17-skill stack
 
 The orchestrator keeps the active set small and activates specialists only when they have a job.
