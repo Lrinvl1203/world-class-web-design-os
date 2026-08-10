@@ -26,16 +26,16 @@ function positional(start = 3) {
 }
 
 function printHelp() {
-  console.log(`WDX CLI ${VERSION}
+  console.log(`Web Design OS CLI ${VERSION}
 
-  wdx route "task description"             Route to at most three active specialists
-  wdx search "editorial motion" [--limit 8] Search the evidence atlas
-  wdx setup [target]                        Create .wdx/project-context.md
-  wdx install --agent codex|all [--overwrite]
-  wdx doctor [--agent codex]                Verify a global skill installation
-  wdx evolve [--offline] [--date YYYY-MM-DD]
-  wdx eval                                  Run routing and evolution regression tests
-  wdx --version                             Print the CLI version`);
+  web-design-os route "task description"             Route to at most three active specialists
+  web-design-os search "editorial motion" [--limit 8] Search the evidence atlas
+  web-design-os setup [target]                        Create .web-design-os/project-context.md
+  web-design-os install --agent codex|all [--overwrite]
+  web-design-os doctor [--agent codex]                Verify a global skill installation
+  web-design-os evolve [--offline] [--date YYYY-MM-DD]
+  web-design-os eval                                  Run routing and evolution regression tests
+  web-design-os --version                             Print the CLI version`);
 }
 
 function doctor({ agent = 'codex', targetRoot } = {}) {
@@ -43,12 +43,15 @@ function doctor({ agent = 'codex', targetRoot } = {}) {
   if (!targets[agent]) throw new Error(`Unknown agent '${agent}'. Choose: ${Object.keys(targets).join(', ')}`);
   const base = path.resolve(targetRoot || process.env.USERPROFILE || process.env.HOME || '.');
   const destination = path.join(base, ...targets[agent].split('/'));
-  const expected = fs.readdirSync(path.join(root, '.codex', 'skills'), { withFileTypes: true }).filter(entry => entry.isDirectory()).length;
-  const installed = fs.existsSync(destination)
-    ? fs.readdirSync(destination, { withFileTypes: true }).filter(entry => entry.isDirectory() && fs.existsSync(path.join(destination, entry.name, 'SKILL.md'))).length
-    : 0;
+  const expectedNames = fs.readdirSync(path.join(root, '.codex', 'skills'), { withFileTypes: true })
+    .filter(entry => entry.isDirectory())
+    .map(entry => entry.name);
+  const installedNames = expectedNames.filter(name => fs.existsSync(path.join(destination, name, 'SKILL.md')));
+  const missing = expectedNames.filter(name => !installedNames.includes(name));
+  const expected = expectedNames.length;
+  const installed = installedNames.length;
   const orchestrator = path.join(destination, 'web-design-orchestrator', 'SKILL.md');
-  return { agent, destination, expected, installed, ready: installed >= expected && fs.existsSync(orchestrator) };
+  return { agent, destination, expected, installed, missing, ready: missing.length === 0 && fs.existsSync(orchestrator) };
 }
 
 function searchAtlas(query, limit = 8) {
@@ -82,7 +85,7 @@ try {
     results.forEach(item => console.log(`[${item.evidence}] ${item.reference}\n  ${item.lesson}\n  Avoid: ${item.warning}`));
   } else if (command === 'setup') {
     const target = path.resolve(positional()[0] || process.cwd());
-    const destination = path.join(target, '.wdx', 'project-context.md');
+    const destination = path.join(target, '.web-design-os', 'project-context.md');
     if (fs.existsSync(destination)) throw new Error(`Will not overwrite ${destination}`);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
     fs.copyFileSync(path.join(root, 'templates', 'project-context.md'), destination);
@@ -94,11 +97,12 @@ try {
       overwrite: process.argv.includes('--overwrite')
     });
     installed.forEach(item => console.log(`${item.agent}: ${item.destination}`));
-    console.log('Run `wdx doctor` to verify the installation.');
+    console.log('Run `web-design-os doctor` to verify the installation.');
   } else if (command === 'doctor') {
     const result = doctor({ agent: value('--agent', 'codex'), targetRoot: value('--root') });
     console.log(`${result.ready ? 'READY' : 'NOT READY'}  ${result.agent}`);
-    console.log(`${result.installed}/${result.expected} WDX skills at ${result.destination}`);
+    console.log(`${result.installed}/${result.expected} Web Design OS skills at ${result.destination}`);
+    if (result.missing.length > 0) console.log(`Missing: ${result.missing.join(', ')}`);
     if (!result.ready) process.exitCode = 1;
   } else if (command === 'evolve') {
     const result = await runEvolution({ offline: process.argv.includes('--offline'), date: value('--date') });
@@ -114,9 +118,9 @@ try {
       if (result.status !== 0) process.exit(result.status ?? 1);
     }
   } else {
-    throw new Error(`Unknown command '${command}'. Run 'wdx help'.`);
+    throw new Error(`Unknown command '${command}'. Run 'web-design-os help'.`);
   }
 } catch (error) {
-  console.error(`wdx: ${error.message}`);
+  console.error(`web-design-os: ${error.message}`);
   process.exit(1);
 }

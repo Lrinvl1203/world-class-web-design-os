@@ -1,4 +1,4 @@
-# WDX rubric interpretation
+# Design Quality rubric interpretation
 
 A score of 92+ means the experience is release-level *under this internal rubric*, not an objective claim of being the world's best site.
 

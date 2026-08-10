@@ -73,7 +73,7 @@ Correct system causes before local symptoms. Cap broad redesign loops; once dire
 
 Produce:
 
-- final WDX score;
+- final Design Quality score;
 - hard-gate status;
 - unresolved tradeoffs;
 - generalizable learning proposal.

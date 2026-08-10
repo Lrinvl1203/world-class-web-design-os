@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('VANTA Forge visual baseline and supplier-evaluation paths', async ({ page }) => {
+test('Linehold Forge visual baseline and supplier-evaluation paths', async ({ page }) => {
   const errors: string[] = [];
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
   page.on('pageerror', error => errors.push(error.message));
@@ -28,7 +28,7 @@ test('VANTA Forge visual baseline and supplier-evaluation paths', async ({ page 
   }).length);
   expect(undersizedPrimaryTargets, 'critical pointer targets under 44px').toBe(0);
 
-  await expect(page).toHaveScreenshot('vanta-home.webp', { fullPage: true });
+  await expect(page).toHaveScreenshot('linehold-home.webp', { fullPage: true });
 
   const energy = page.locator('[data-family="energy"]');
   await energy.click();

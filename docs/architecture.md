@@ -23,7 +23,7 @@ RENDER / SCREENSHOT / FUNCTIONAL QA
         ↓
 INDEPENDENT DESIGN CRITIC + AI-SMELL DETECTOR
         ↓
-WDX SCORE + HARD GATES
+Web Design OS SCORE + HARD GATES
         ↓
 ROOT-CAUSE CORRECTION LOOP
         ↓
@@ -59,7 +59,7 @@ Runtime tools are selected *after* intent. The OS does not install all of them.
 Release is a conjunction, not an average:
 
 ```text
-Release = WDX score ≥ target
+Release = Design Quality score ≥ target
           AND category floors pass
           AND functional gate
           AND accessibility gate
@@ -68,7 +68,7 @@ Release = WDX score ≥ target
           AND performance gate
 ```
 
-The rubric lives in `config/wdx-rubric.json`.
+The rubric lives in `config/design-quality-rubric.json`.
 
 ## 5. Learning loop
 

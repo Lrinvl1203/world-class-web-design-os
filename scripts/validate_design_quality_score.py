@@ -3,8 +3,8 @@ from pathlib import Path
 import json, sys
 
 root = Path(__file__).resolve().parents[1]
-rubric = json.loads((root/'config/wdx-rubric.json').read_text(encoding='utf-8'))
-report_path = Path(sys.argv[1]) if len(sys.argv) > 1 else root/'examples/wdx-score.sample.json'
+rubric = json.loads((root/'config/design-quality-rubric.json').read_text(encoding='utf-8'))
+report_path = Path(sys.argv[1]) if len(sys.argv) > 1 else root/'examples/design-quality-score.sample.json'
 report = json.loads(report_path.read_text(encoding='utf-8'))
 errors=[]
 total=0
@@ -28,8 +28,8 @@ limits=rubric['hard_gates']['core_web_vitals']
 if metrics.get('lcp_ms', 10**9) > limits['lcp_ms_max']: errors.append('LCP gate failed')
 if metrics.get('inp_ms', 10**9) > limits['inp_ms_max']: errors.append('INP gate failed')
 if metrics.get('cls', 10**9) > limits['cls_max']: errors.append('CLS gate failed')
-print(f'WDX total: {total}/100')
+print(f'Design Quality total: {total}/100')
 if errors:
     for e in errors: print(' -', e)
     sys.exit(1)
-print('All configured WDX and hard gates pass.')
+print('All configured Design Quality and hard gates pass.')

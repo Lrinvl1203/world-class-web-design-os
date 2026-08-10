@@ -35,7 +35,7 @@ OPERATING RULES
 11. Render screenshots and test via $visual-qa.
 12. Run $design-critic and $ai-smell-detector as independent review passes. Do not defend implementation choices merely because you made them.
 13. Fix high-leverage root causes, re-render, and re-score.
-14. Run $a11y-performance. Release only when hard gates pass and WDX score meets the configured threshold.
+14. Run $a11y-performance. Release only when hard gates pass and the Design Quality score meets the configured threshold.
 15. Use $continuous-learning to propose reusable improvements discovered during the project; do not silently modify core skills.
 
 DESIGN STANDARD
@@ -52,7 +52,7 @@ FINAL RESPONSE
 Report:
 - selected design direction and why;
 - implementation/tool choices and why;
-- WDX score by category;
+- Design Quality score by category;
 - hard-gate results;
 - remaining tradeoffs;
 - files changed and validation commands run.

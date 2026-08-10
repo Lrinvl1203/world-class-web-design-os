@@ -1,4 +1,4 @@
-# 100-Reference Design DNA Study — WDX Knowledge Upgrade
+# 100-Reference Design DNA Study — Web Design OS Knowledge Upgrade
 
 This is the third evidence pass for the World-Class Web Design OS. The operational atlas lives at `.codex/skills/reference-forensics/references/award-pattern-atlas.md`; this document records why the expansion was made and how Codex should interpret it.
 

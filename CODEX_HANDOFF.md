@@ -16,29 +16,29 @@ The user wants all future work on this project to continue in Codex with no loss
 
 This section is authoritative when older historical descriptions below differ.
 
-- Phase A is complete. Cross-platform validation now works on Windows, all 17 skills validate, the sample WDX report validates at 92, and six Win32 Playwright baselines are established.
+- Phase A is complete. Cross-platform validation now works on Windows, all 17 skills validate, the sample Design Quality report validates at 92, and six Win32 Playwright baselines are established.
 - Phase B is complete. `origin` is `https://github.com/Lrinvl1203/world-class-web-design-os.git`; `main` tracks `origin/main` and coherent milestones have been pushed without force.
 - Phase C is complete as an **internal** gate: Nocturne 24 now scores 92.8 with hard gates green. Field Core Web Vitals remain pending, so this is not an external quality claim.
 - Phase D is complete at 100 evidence records: 47 level-A case studies, 46 level-B primary technical sources, and 7 level-C benchmark records. The 60 newly added direct URLs were checked successfully on 2026-08-09.
 - Phase E adopted one evidence-backed Visual QA correction: settle media and prove critical-content visibility before accepting pixel baselines. The defect, regression scenarios, and validation are recorded in `docs/learning-records.md`.
-- Phase F has started with `experiments/vanta-forge/`, an industrial/manufacturing B2B supplier-evaluation artifact. Six viewports and hard gates pass; the independent score is 91.8 and remains an honest HOLD pending buyer and field validation.
-- Next substantive milestone is a second materially different Phase F archetype or a real-content/buyer validation pass for VANTA Forge; do not raise its score without artifact evidence.
+- Phase F has started with `experiments/linehold-forge/`, an industrial/manufacturing B2B supplier-evaluation artifact. Six viewports and hard gates pass; the independent score is 91.8 and remains an honest HOLD pending buyer and field validation.
+- Next substantive milestone is a second materially different Phase F archetype or a real-content/buyer validation pass for Linehold Forge; do not raise its score without artifact evidence.
 
 ### Benchmark and controlled-evolution milestone — 2026-08-09
 
 - Public-repository advantages were integrated without replacing the 17-skill architecture: searchable Design DNA, phase-limited routing, project-context setup, cross-agent installation mapping, asset protocol, product edge cases, eval fixtures, and browser CI. See `docs/benchmark-integration.md`.
-- `wdx` now supports `route`, `search`, `setup`, `install`, `evolve`, and `eval`. The npm package remains private/unpublished; do not claim npm availability.
+- `web-design-os` supports `route`, `search`, `setup`, `install`, `evolve`, and `eval`. The npm package remains private/unpublished; installation uses the public GitHub repository.
 - A daily GitHub Actions workflow runs at 03:00 Asia/Seoul. It accepts Codrops RSS, curated links, official YouTube API data when `YOUTUBE_API_KEY` exists, and authorized Threads post insights when `THREADS_ACCESS_TOKEN` plus `THREADS_POST_IDS` exist.
-- Popularity is discovery evidence only. Remote content is untrusted, not executed, and not stored wholesale. Automation writes review artifacts; it never edits skills, changes WDX, pushes to `main`, or self-merges.
+- Popularity is discovery evidence only. Remote content is untrusted, not executed, and not stored wholesale. Automation writes review artifacts; it never edits skills, changes Web Design OS, pushes to `main`, or self-merges.
 - Proposal generation requires recurrence across at least three independent sources and the configured score threshold; adoption still requires a prior/new regression pair and an intentional review.
 - Routing evals currently pass 10/10 and evolution tests pass 6/6. A live RSS run collected 11 signals and correctly produced zero proposals.
-- Playwright + axe CI exposed inherited defects. Nocturne small-text contrast, VANTA dual-role orange contrast, and VANTA definition-list semantics were corrected. Both archetypes pass serious/critical axe, overflow, console, dead-link, and reduced-motion checks at 320 and 1440 widths; all six existing visual suites pass for each archetype.
-- Four inherited Windows executable-mode-only changes remain intentionally unstaged: `scripts/install-into-project.sh`, `scripts/publish-github.sh`, `scripts/validate_skills.py`, `scripts/validate_wdx_score.py`.
+- Playwright + axe CI exposed inherited defects. Nocturne small-text contrast, LINEHOLD dual-role orange contrast, and LINEHOLD definition-list semantics were corrected. Both archetypes pass serious/critical axe, overflow, console, dead-link, and reduced-motion checks at 320 and 1440 widths; all six existing visual suites pass for each archetype.
+- Four inherited Windows executable-mode-only changes remain intentionally unstaged: `scripts/install-into-project.sh`, `scripts/publish-github.sh`, `scripts/validate_skills.py`, and the renamed `scripts/validate_design_quality_score.py`. Preserve the score validator's executable bit in the committed tree.
 
 Latest published milestones before this handoff update:
 
 - `91d2bcc expand design evidence and harden visual QA`
-- `8d1eb4f raise Nocturne experiment above WDX gate`
+- `8d1eb4f raise Nocturne experiment above Web Design OS gate`
 - `556d05f fix cross-platform validation and add QA baselines`
 
 ---
@@ -71,9 +71,9 @@ This is deliberately analogous to built-in quality / PDCA rather than final-insp
 The current local history that must be preserved is:
 
 - `2ec5b43 record github publish handoff`
-- `d130d37 add 2026 benchmark atlas and WDX evidence`
+- `d130d37 add 2026 benchmark atlas and Web Design OS evidence`
 - `b05c615 fix concierge interaction and accessibility defects`
-- `3c82970 add first WDX concierge experiment`
+- `3c82970 add first Web Design OS concierge experiment`
 - `33b9c65 bootstrap world-class web design os`
 
 Before changing anything, run:
@@ -377,9 +377,9 @@ Do not claim field Core Web Vitals without actual field data. Lab checks and loc
 
 ---
 
-## 13. WDX scoring system
+## 13. Web Design OS scoring system
 
-The repository contains `config/wdx-rubric.json`. Keep the scoring transparent and resistant to gaming.
+The repository contains `config/design-quality-rubric.json`. Keep the scoring transparent and resistant to gaming.
 
 Current 100-point structure:
 
@@ -400,7 +400,7 @@ Current 100-point structure:
 
 Current internal release target:
 
-- overall WDX ≥ 92;
+- overall Web Design OS ≥ 92;
 - plus hard gates;
 - plus minimum critical-dimension floors where configured.
 
@@ -486,13 +486,13 @@ Current files include:
 - `styles.css`
 - `script.js`
 - `qa-results.json`
-- `wdx-review.json`
+- `design-quality-review.json`
 - `review.md`
 - screenshots for multiple desktop/tablet/mobile viewports.
 
 This experiment intentionally used a restrained “quiet luxury digital concierge” direction rather than gratuitous 3D/GSAP.
 
-Current WDX result after the evidence-backed improvement pass:
+Current Web Design OS result after the evidence-backed improvement pass:
 
 - **92.8 / 100 — INTERNAL PASS; FIELD VALIDATION PENDING**
 
@@ -506,7 +506,7 @@ Known remaining limits:
 
 Browser QA already addressed defects such as dead `#` links and meaningless interaction states. Preserve those fixes.
 
-Any future improvement pass must increase actual design quality rather than manipulate WDX scoring.
+Any future improvement pass must increase actual design quality rather than manipulate Web Design OS scoring.
 
 ---
 
@@ -559,7 +559,7 @@ https://github.com/Lrinvl1203/world-class-web-design-os
 
 ### Phase C — improve the Nocturne experiment honestly
 
-Goal: reach WDX ≥ 92 **through artifact improvement**, while keeping hard gates green.
+Goal: reach Web Design OS ≥ 92 **through artifact improvement**, while keeping hard gates green.
 
 Recommended priorities:
 
@@ -639,7 +639,7 @@ The purpose is to prove generalization and expose skill overfitting.
 - Do not add libraries simply because they are fashionable.
 - Do not copy Awwwards, Codrops, Design+Code, or paid-course material wholesale.
 - Do not claim “world-class” based only on a self-generated score.
-- Do not change the WDX rubric to manufacture passes.
+- Do not change the Design Quality rubric to manufacture passes.
 - Do not confuse responsive stacking with mobile design.
 - Do not treat accessibility/performance as cleanup after visual work.
 - Do not allow the builder’s intent to bias the critic into automatic approval.
@@ -661,7 +661,7 @@ The project succeeds when Codex can receive a business/product brief plus option
 7. deliberately recompose for mobile/tablet;
 8. render and test actual browser states;
 9. perform independent visual/AI-smell critique;
-10. meet WDX and hard gates without score gaming;
+10. meet Web Design OS and hard gates without score gaming;
 11. learn generalizable lessons into the OS;
 12. improve future projects rather than merely the current one.
 
@@ -674,7 +674,7 @@ The long-term target is an **AI Web Design Production System / Design Operating 
 Use this exact instruction:
 
 ```text
-Read AGENTS.md and CODEX_HANDOFF.md in full. Treat the existing repository, commits, 17 Codex skills, research atlas, and Nocturne experiment as inherited work that must be preserved. Do not redesign the architecture from scratch. First perform the Phase A integrity audit and report concrete findings. Then continue Phase B onward autonomously, making best-effort progress without asking me to repeat context already present in the repository. Use $web-design-orchestrator as the governing workflow for web-design work, keep builder and critic passes separate, verify current external/library facts against primary sources when they may have changed, and never game WDX thresholds. Commit coherent milestones with concise messages.
+Read AGENTS.md and CODEX_HANDOFF.md in full. Treat the existing repository, commits, 17 Codex skills, research atlas, and Nocturne experiment as inherited work that must be preserved. Do not redesign the architecture from scratch. First perform the Phase A integrity audit and report concrete findings. Then continue Phase B onward autonomously, making best-effort progress without asking me to repeat context already present in the repository. Use $web-design-orchestrator as the governing workflow for web-design work, keep builder and critic passes separate, verify current external/library facts against primary sources when they may have changed, and never game Web Design OS thresholds. Commit coherent milestones with concise messages.
 ```
 
 ---
@@ -685,10 +685,10 @@ The repository has been prepared for public launch, but **visibility remains PRI
 
 Completed locally and pushed as the next coherent milestone:
 
-- proof-led WDX launch site under `site/`, with an instrumented editorial direction documented in `site/DESIGN.md`;
+- proof-led Web Design OS launch site under `site/`, with an instrumented editorial direction documented in `site/DESIGN.md`;
 - optimized experiment previews and a 1280×640 social preview under `site/assets/`;
 - English and Korean onboarding with a one-line GitHub installer;
-- `wdx doctor`, package metadata, `npm pack` contents, and tarball install smoke test;
+- `web-design-os doctor`, package metadata, `npm pack` contents, and tarball install smoke test;
 - MIT license draft, changelog, contributing, conduct, security, issue/PR templates, and public benchmark model;
 - manual GitHub Pages workflow that assembles the launch site plus both experiments;
 - launch-site hard gates at 320, 375, 768, 1440, and 1920 px, including axe, keyboard tab behavior, overflow, console, reduced motion, no-JavaScript survival, and a 500 KB transferred-resource budget;
@@ -696,11 +696,13 @@ Completed locally and pushed as the next coherent milestone:
 
 Verification result:
 
-- `npm run validate`: pass, 17 skills, configured WDX 92/100;
+- `npm run validate`: pass, 17 skills, configured Web Design OS 92/100;
 - `npm run eval:skills`: routing 10/10 and evolution 6/6 pass;
 - `npm run test:unit`: 6/6 pass;
 - `npm run qa:launch`: 15/15 pass;
-- tarball smoke: version 0.2.0, install succeeds, `wdx doctor` reports 17/17 READY.
+- tarball smoke: version 0.2.0, install succeeds, `web-design-os doctor` reports 17/17 READY.
+
+Before public launch, a name-collision audit found existing web/design businesses using the former short acronym and an exact existing service using the former industrial-demo name. Current public-facing branding was therefore changed to the descriptive `World-Class Web Design OS`, the CLI to `web-design-os`, the internal rubric label to `Design Quality`, and the industrial demo to `Linehold Forge`. Do not reintroduce the retired names as public brands.
 
 Final owner-controlled launch steps are in `docs/launch-checklist.md`: confirm MIT ownership text, make the repository public, enable private vulnerability reporting and Pages, run `deploy-pages`, upload the social preview in repository settings, set the live homepage, create `v0.2.0`, and add branch protection. Do not perform the visibility change without explicit approval.
 

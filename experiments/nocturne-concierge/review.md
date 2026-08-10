@@ -1,6 +1,6 @@
-# WDX Review — Nocturne 24
+# Web Design OS Review — Nocturne 24
 
-**WDX:** 92.8 / 100<br>
+**Web Design OS:** 92.8 / 100<br>
 **Internal release threshold:** 92<br>
 **Decision:** INTERNAL PASS — FIELD VALIDATION PENDING
 

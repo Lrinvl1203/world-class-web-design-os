@@ -1,4 +1,4 @@
-# WDX Project Context
+# Web Design OS Project Context
 
 Complete only the fields that change design decisions. Leave uncertain items marked as assumptions.
 
@@ -19,4 +19,4 @@ Complete only the fields that change design decisions. Leave uncertain items mar
 
 ## Invocation
 
-`Use $web-design-orchestrator with .wdx/project-context.md and build this website through the WDX hard gates.`
+`Use $web-design-orchestrator with .web-design-os/project-context.md and build this website through the Design Quality hard gates.`

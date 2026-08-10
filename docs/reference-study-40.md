@@ -1,4 +1,4 @@
-# 40-Reference Design Study — WDX Knowledge Upgrade
+# 40-Reference Design Study — Web Design OS Knowledge Upgrade
 
 > Historical baseline: this second-pass study is preserved for provenance. The current 100-reference synthesis and third-pass findings live in `docs/reference-study-100.md` and `.codex/skills/reference-forensics/references/award-pattern-atlas.md`.
 

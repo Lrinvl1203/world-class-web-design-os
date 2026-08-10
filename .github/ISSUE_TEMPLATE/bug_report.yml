@@ -31,8 +31,8 @@ body:
   - type: input
     id: version
     attributes:
-      label: WDX, Node, and OS versions
-      placeholder: WDX 0.2.0 / Node 22 / Windows 11
+      label: Web Design OS, Node, and OS versions
+      placeholder: Web Design OS 0.2.0 / Node 22 / Windows 11
     validations:
       required: true
   - type: textarea

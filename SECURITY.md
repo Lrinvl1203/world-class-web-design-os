@@ -6,7 +6,7 @@ Security fixes target the latest release and the current `main` branch.
 
 ## Reporting a vulnerability
 
-Do not open a public issue for an unpatched vulnerability. Use GitHub's **Report a vulnerability** form under the repository Security tab when private vulnerability reporting is available. If it is not available, contact the repository owner through the private contact method shown on their GitHub profile and include “WDX security” in the subject.
+Do not open a public issue for an unpatched vulnerability. Use GitHub's **Report a vulnerability** form under the repository Security tab when private vulnerability reporting is available. If it is not available, contact the repository owner through the private contact method shown on their GitHub profile and include “Web Design OS security” in the subject.
 
 Include the affected command or component, reproduction steps, impact, and any safe mitigation you have identified. Do not include credentials, tokens, or unrelated private data.
 

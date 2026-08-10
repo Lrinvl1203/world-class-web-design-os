@@ -28,7 +28,7 @@ Use the specialist skills only when relevant:
 - `$responsive-recomposition` — redesign priority and composition across breakpoints.
 - `$a11y-performance` — accessibility and performance hard gates.
 - `$visual-qa` — Playwright screenshots, regressions, overflow/state/browser checks.
-- `$design-critic` — independent macro/meso/micro critique and WDX scoring.
+- `$design-critic` — independent macro/meso/micro critique and Design Quality scoring.
 - `$ai-smell-detector` — detect generic AI aesthetics and unjustified effects.
 - `$visual-polish` — focused high-craft typography, spacing, imagery, surface and micro-interaction polish.
 - `$continuous-learning` — convert defects and lessons into evidence-backed improvement proposals.

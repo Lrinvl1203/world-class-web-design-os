@@ -10,7 +10,7 @@ const installModes = {
   codex: {
     command: 'npx --yes github:Lrinvl1203/world-class-web-design-os install --agent codex',
     prompt: '“이 제품의 웹사이트를 디자인하고 구현해줘.”',
-    note: 'WDX is installed to your global Codex skills directory. Add --overwrite when updating an existing installation.'
+    note: 'The skill system is installed to your global Codex skills directory. Add --overwrite when updating an existing installation.'
   },
   all: {
     command: 'npx --yes github:Lrinvl1203/world-class-web-design-os install --agent all',
@@ -20,7 +20,7 @@ const installModes = {
   project: {
     command: 'npx --yes github:Lrinvl1203/world-class-web-design-os setup .',
     prompt: '“프로젝트 컨텍스트를 읽고 이 페이지를 리디자인해줘.”',
-    note: 'Creates .wdx/project-context.md in the current project without overwriting an existing brief.'
+    note: 'Creates .web-design-os/project-context.md in the current project without overwriting an existing brief.'
   }
 };
 

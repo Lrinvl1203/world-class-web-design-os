@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="site/assets/wdx-mark.svg" width="72" alt="WDX">
-  <h1>WDX — Web Design Operating System</h1>
+  <img src="site/assets/web-design-os-mark.svg" width="72" alt="Web Design OS">
+  <h1>World-Class Web Design OS</h1>
   <p><strong>Design with a point of view. Ship with evidence.</strong></p>
   <p>An open operating system for distinctive, usable, accessible, and verifiable agent-made websites.</p>
   <p>
@@ -10,14 +10,14 @@
   </p>
 </div>
 
-![WDX: Design with a point of view. Ship with evidence.](site/assets/social-preview.jpg)
+![World-Class Web Design OS: Design with a point of view. Ship with evidence.](site/assets/social-preview.jpg)
 
 [![Validate](https://github.com/Lrinvl1203/world-class-web-design-os/actions/workflows/validate.yml/badge.svg)](https://github.com/Lrinvl1203/world-class-web-design-os/actions/workflows/validate.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-141411.svg)](LICENSE)
 [![17 skills](https://img.shields.io/badge/specialist_skills-17-ff4f20.svg)](.codex/skills)
 [![Node 20+](https://img.shields.io/badge/node-%3E%3D20-141411.svg)](package.json)
 
-WDX routes an AI coding agent through a complete web-design process: discovery, reference analysis, art direction, design systems, interaction and motion decisions, semantic implementation, responsive recomposition, independent critique, accessibility, performance, and rendered visual QA.
+World-Class Web Design OS routes an AI coding agent through a complete web-design process: discovery, reference analysis, art direction, design systems, interaction and motion decisions, semantic implementation, responsive recomposition, independent critique, accessibility, performance, and rendered visual QA.
 
 It is not a component library or a list of style prompts. The output can look completely different from project to project because the system governs decisions and gates—not a house style.
 
@@ -37,7 +37,7 @@ The repository-level rules route broad website work through `web-design-orchestr
 npx --yes github:Lrinvl1203/world-class-web-design-os doctor --agent codex
 ```
 
-> The one-line GitHub install works after the repository is public. Until then, clone the repository and run `npm run wdx -- install --agent codex` locally.
+The command installs directly from this public GitHub repository; no npm publication is required.
 
 ## What changes in practice
 
@@ -62,12 +62,12 @@ flowchart LR
 
 ## Proof, with labels
 
-| Experiment | Archetype | Internal WDX | Field evidence | Status |
+| Experiment | Archetype | Internal score | Field evidence | Status |
 |---|---|---:|---|---|
 | [Nocturne Concierge](experiments/nocturne-concierge/) | Editorial hospitality | 92.8 | Pending | Internal target passed |
-| [VANTA Forge](experiments/vanta-forge/) | Industrial commerce | 91.8 | Pending | Hold; below 92 target |
+| [Linehold Forge](experiments/linehold-forge/) | Industrial commerce | 91.8 | Pending | Hold; below 92 target |
 
-WDX scores are internal rubric evaluations. They are not user research, conversion data, award results, or external expert validation. See [public benchmark](docs/public-benchmark.md) for the evidence model.
+Design Quality scores are internal rubric evaluations. They are not user research, conversion data, award results, or external expert validation. See [public benchmark](docs/public-benchmark.md) for the evidence model.
 
 ## The 17-skill stack
 
@@ -88,18 +88,18 @@ Read the [architecture](docs/architecture.md) or inspect any skill in [`.codex/s
 ## CLI
 
 ```bash
-wdx route "editorial product site with scroll storytelling"
-wdx search "typography motion" --limit 8
-wdx setup .
-wdx install --agent codex
-wdx doctor --agent codex
-wdx evolve --offline
-wdx eval
+web-design-os route "editorial product site with scroll storytelling"
+web-design-os search "typography motion" --limit 8
+web-design-os setup .
+web-design-os install --agent codex
+web-design-os doctor --agent codex
+web-design-os evolve --offline
+web-design-os eval
 ```
 
 - `route` returns at most three active specialists in addition to the orchestrator.
 - `search` queries the 100-reference evidence atlas.
-- `setup` creates `.wdx/project-context.md` without overwriting an existing brief.
+- `setup` creates `.web-design-os/project-context.md` without overwriting an existing brief.
 - `evolve` runs the controlled learning pipeline; `--offline` uses cached and manual sources.
 
 ## Daily evolution without silent drift
@@ -130,10 +130,12 @@ Open `http://127.0.0.1:4173/site/`.
 
 ## Boundaries
 
-- WDX does not guarantee awards, conversion lifts, or “world-class” outcomes.
+- World-Class Web Design OS does not guarantee awards, conversion lifts, or “world-class” outcomes.
 - External libraries, references, and community signals remain subject to their own licenses and terms.
 - Automated checks are necessary evidence, not a replacement for representative-user research.
 - High-cost 3D, WebGL, smooth scrolling, or overlapping animation libraries require an explicit communication and performance case.
+
+Third-party names identify sources only and do not imply affiliation. Experiment imagery and claims are fictional concept material. See [notices](NOTICE.md) and the [IP/provenance audit](docs/ip-provenance.md).
 
 ## Contributing and security
 

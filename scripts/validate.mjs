@@ -21,7 +21,7 @@ function runPython(script, args = []) {
 
 const validations = [
   ['scripts/validate_skills.py'],
-  ['scripts/validate_wdx_score.py', ['examples/wdx-score.sample.json']]
+  ['scripts/validate_design_quality_score.py', ['examples/design-quality-score.sample.json']]
 ];
 
 for (const [script, args] of validations) {

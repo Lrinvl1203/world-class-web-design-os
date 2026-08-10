@@ -1,8 +1,8 @@
-# WDX — 웹 디자인 운영체제
+# World-Class Web Design OS
 
 **관점이 있는 디자인. 증거가 있는 출시.**
 
-WDX는 AI 코딩 에이전트가 웹사이트를 만들 때 사용하는 17개 전문 스킬과 품질 게이트의 운영체제입니다. 스타일 프롬프트 모음이 아니라 발견 → 아트 디렉션 → 시스템 → 구현 → 독립 비평 → 접근성·성능 → 실제 렌더 QA까지의 의사결정 구조를 제공합니다.
+Web Design OS는 AI 코딩 에이전트가 웹사이트를 만들 때 사용하는 17개 전문 스킬과 품질 게이트의 운영체제입니다. 스타일 프롬프트 모음이 아니라 발견 → 아트 디렉션 → 시스템 → 구현 → 독립 비평 → 접근성·성능 → 실제 렌더 QA까지의 의사결정 구조를 제공합니다.
 
 [English README](../README.md) · [런치 페이지](https://lrinvl1203.github.io/world-class-web-design-os/) · [기여 안내](../CONTRIBUTING.md)
 
@@ -22,7 +22,7 @@ npx --yes github:Lrinvl1203/world-class-web-design-os install --agent codex
 npx --yes github:Lrinvl1203/world-class-web-design-os doctor --agent codex
 ```
 
-저장소가 비공개인 동안에는 로컬에서 `npm run wdx -- install --agent codex`를 실행해야 합니다.
+이 명령은 공개 GitHub 저장소에서 직접 설치하므로 별도의 npm 배포가 필요하지 않습니다.
 
 ## 무엇이 다른가
 
@@ -36,26 +36,25 @@ npx --yes github:Lrinvl1203/world-class-web-design-os doctor --agent codex
 
 ## 검증 결과의 정확한 의미
 
-| 실험 | 유형 | 내부 WDX | 현장 증거 | 상태 |
+| 실험 | 유형 | 내부 점수 | 현장 증거 | 상태 |
 |---|---|---:|---|---|
 | [Nocturne Concierge](../experiments/nocturne-concierge/) | 에디토리얼 호스피탈리티 | 92.8 | 대기 | 내부 목표 통과 |
-| [VANTA Forge](../experiments/vanta-forge/) | 산업형 커머스 | 91.8 | 대기 | 92 미만 보류 |
+| [Linehold Forge](../experiments/linehold-forge/) | 산업형 커머스 | 91.8 | 대기 | 92 미만 보류 |
 
-WDX 점수는 내부 루브릭 평가입니다. 사용자 조사, 전환율, 어워드 결과, 외부 전문가 평가를 뜻하지 않습니다. 증거 체계는 [공개 벤치마크 문서](public-benchmark.md)를 참고하세요.
+Design Quality 점수는 내부 루브릭 평가입니다. 사용자 조사, 전환율, 어워드 결과, 외부 전문가 평가를 뜻하지 않습니다. 증거 체계는 [공개 벤치마크 문서](public-benchmark.md)를 참고하세요.
 
 ## 주요 명령어
 
 ```bash
-wdx route "에디토리얼 제품 사이트와 스크롤 스토리텔링"
-wdx search "typography motion" --limit 8
-wdx setup .
-wdx install --agent codex
-wdx doctor --agent codex
-wdx evolve --offline
-wdx eval
+web-design-os route "에디토리얼 제품 사이트와 스크롤 스토리텔링"
+web-design-os search "typography motion" --limit 8
+web-design-os setup .
+web-design-os install --agent codex
+web-design-os doctor --agent codex
+web-design-os evolve --offline
+web-design-os eval
 ```
 
 전체 구조는 [아키텍처](architecture.md), 운영 원칙은 루트의 [`AGENTS.md`](../AGENTS.md), 개선 참여 방법은 [기여 안내](../CONTRIBUTING.md)에 있습니다.
 
 MIT © 2026 Lrinvl1203
-

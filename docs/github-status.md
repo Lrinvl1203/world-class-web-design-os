@@ -7,7 +7,7 @@ Date: 2026-08-09
 - branch: `main`
 - remote: `https://github.com/Lrinvl1203/world-class-web-design-os.git`
 - upstream: `origin/main`
-- latest published milestone before this update: `8d1eb4f raise Nocturne experiment above WDX gate`
+- latest published milestone before this update: `8d1eb4f raise Nocturne experiment above Web Design OS gate`
 
 ## Connected GitHub identity
 

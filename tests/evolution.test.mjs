@@ -33,7 +33,7 @@ test('proposal requires three independent sources', () => {
 });
 
 test('offline run writes only reviewable inbox and report artifacts', async () => {
-  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'wdx-evolution-'));
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'web-design-os-evolution-'));
   const result = await runEvolution({ offline: true, date: '2026-08-09', outputRoot: temp, now: new Date('2026-08-09T00:00:00Z') });
   assert.ok(fs.existsSync(result.inboxPath));
   assert.ok(fs.existsSync(result.reportPath));
@@ -41,7 +41,7 @@ test('offline run writes only reviewable inbox and report artifacts', async () =
 });
 
 test('history loader keeps only valid signals in the configured time window', () => {
-  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'wdx-history-'));
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'web-design-os-history-'));
   const inbox = path.join(temp, 'evolution', 'inbox');
   fs.mkdirSync(inbox, { recursive: true });
   fs.writeFileSync(path.join(inbox, '2026-08-08.json'), JSON.stringify({ signals: [

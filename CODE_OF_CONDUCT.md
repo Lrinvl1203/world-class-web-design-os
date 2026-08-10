@@ -1,6 +1,6 @@
 # Community conduct
 
-WDX is an open design and engineering project. Participation should make it easier for people with different backgrounds, abilities, identities, and levels of experience to contribute useful work.
+Web Design OS is an open design and engineering project. Participation should make it easier for people with different backgrounds, abilities, identities, and levels of experience to contribute useful work.
 
 ## Expected
 

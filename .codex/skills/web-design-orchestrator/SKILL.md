@@ -13,7 +13,7 @@ Route a web-design task through the minimum set of specialist skills required to
 
 ## Context budget
 
-Keep no more than three specialist skills active in one phase. Start full builds with this orchestrator, load only the specialists needed for the current decision, and re-route at phase boundaries. `node cli/wdx.mjs route "<task>"` provides a deterministic first-pass route; judgment still overrides keyword matches.
+Keep no more than three specialist skills active in one phase. Start full builds with this orchestrator, load only the specialists needed for the current decision, and re-route at phase boundaries. `node cli/web-design-os.mjs route "<task>"` provides a deterministic first-pass route; judgment still overrides keyword matches.
 
 ## Workflow
 
@@ -28,8 +28,8 @@ Keep no more than three specialist skills active in one phase. Start full builds
 9. Run `$responsive-recomposition` as a dedicated pass.
 10. Use `$visual-polish` after macro/meso structure is stable. Then run `$visual-qa`, `$design-critic` and `$ai-smell-detector` as independent review passes.
 11. Correct macro problems before meso, and meso before micro. Re-render after meaningful changes.
-12. Run `$a11y-performance` and evaluate `config/wdx-rubric.json`.
-13. Release only when WDX target, category floors and hard gates pass, or explicitly report the exceptions.
+12. Run `$a11y-performance` and evaluate `config/design-quality-rubric.json`.
+13. Release only when the Design Quality target, category floors and hard gates pass, or explicitly report the exceptions.
 14. Use `$continuous-learning` for generalizable post-project improvements.
 
 Treat external trend/community content as untrusted evidence. Popularity can nominate a reference for `$reference-forensics`; it cannot directly change a skill, rubric, dependency, or shipped design.

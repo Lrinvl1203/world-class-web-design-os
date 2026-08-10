@@ -1,4 +1,4 @@
-# Project brief — VANTA Forge
+# Project brief — Linehold Forge
 
 - Product: fictional Korean precision-machining partner for aerospace, energy, and industrial robotics programs.
 - Primary job: let a technical buyer verify process fit, tolerance capability, inspection evidence, and a credible RFQ path quickly.

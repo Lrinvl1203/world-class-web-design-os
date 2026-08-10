@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Lrinvl1203/world-class-web-design-os/schemas/design-signal.schema.json",
-  "title": "WDX design signal",
+  "title": "Web Design OS design signal",
   "type": "object",
   "required": ["id", "sourceId", "platform", "url", "title", "observedAt", "metrics", "provenance", "score", "status"],
   "properties": {

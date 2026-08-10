@@ -18,7 +18,7 @@ Daily runs may write an inbox record and report. They may create a proposal draf
 3. provenance and rights notes;
 4. a counterexample or misuse condition;
 5. one prior and one new regression scenario;
-6. skill/WDX patch as a reviewable diff;
+6. skill/Web Design OS patch as a reviewable diff;
 7. validator, accessibility, performance, and routing results.
 
 No workflow pushes directly to the default branch, edits a core skill, or self-merges a proposal.
@@ -29,7 +29,7 @@ GitHub Actions restores the most recent inbox cache so the collector can compare
 
 ```text
 npm run evolve:daily
-npm run wdx -- evolve --offline
+npm run web-design-os -- evolve --offline
 ```
 
 Optional environment variables:

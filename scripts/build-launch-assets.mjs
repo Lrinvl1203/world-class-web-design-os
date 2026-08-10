@@ -23,14 +23,37 @@ async function rasterizeImage(source, destination) {
   await page.close();
 }
 
+async function exportSnapshot(source, destination) {
+  const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
+  await page.goto(pathToFileURL(source).href, { waitUntil: 'load' });
+  const image = page.locator('img');
+  await image.evaluate(element => element.decode());
+  await image.screenshot({ path: destination, type: 'png' });
+  await page.close();
+}
+
 await rasterizeImage(
   path.join(root, 'tests', 'visual.spec.ts-snapshots', 'home-desktop-win32.webp'),
   path.join(root, 'site', 'assets', 'nocturne.jpg')
 );
 await rasterizeImage(
-  path.join(root, 'tests', 'vanta.spec.ts-snapshots', 'vanta-home-desktop-win32.webp'),
-  path.join(root, 'site', 'assets', 'vanta.jpg')
+  path.join(root, 'tests', 'linehold.spec.ts-snapshots', 'linehold-home-desktop-win32.webp'),
+  path.join(root, 'site', 'assets', 'linehold.jpg')
 );
+
+for (const [snapshot, screenshot] of [
+  ['linehold-home-edge-mobile-win32.webp', 'mobile-320.png'],
+  ['linehold-home-mobile-win32.webp', 'mobile-375.png'],
+  ['linehold-home-mobile-wide-win32.webp', 'mobile-390.png'],
+  ['linehold-home-tablet-win32.webp', 'tablet-768.png'],
+  ['linehold-home-desktop-win32.webp', 'desktop-1440.png'],
+  ['linehold-home-wide-win32.webp', 'desktop-1920.png']
+]) {
+  await exportSnapshot(
+    path.join(root, 'tests', 'linehold.spec.ts-snapshots', snapshot),
+    path.join(root, 'experiments', 'linehold-forge', 'screenshots', screenshot)
+  );
+}
 
 const social = await browser.newPage({ viewport: { width: 1280, height: 640 }, deviceScaleFactor: 1 });
 await social.goto(pathToFileURL(path.join(root, 'site', 'social-card.html')).href, { waitUntil: 'load' });

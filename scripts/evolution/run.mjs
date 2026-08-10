@@ -103,7 +103,7 @@ export function parseFeed(xml, source, now = new Date()) {
 }
 
 async function collectRss(source, now) {
-  const response = await fetch(source.url, { headers: { 'user-agent': 'WDX-Design-Signal-Collector/0.1 (+https://github.com/Lrinvl1203/world-class-web-design-os)' } });
+  const response = await fetch(source.url, { headers: { 'user-agent': 'World-Class-Web-Design-OS-Signal-Collector/0.2 (+https://github.com/Lrinvl1203/world-class-web-design-os)' } });
   if (!response.ok) throw new Error(`${source.id}: HTTP ${response.status}`);
   return parseFeed(await response.text(), source, now);
 }
@@ -223,7 +223,7 @@ function reportMarkdown(date, signals, proposals, errors) {
     .join('\n');
   const proposalText = proposals.length ? proposals.map(proposal => `- **${proposal.principle}** — ${proposal.independentSources} independent sources; requires human/agent critique and regression evidence.`).join('\n') : '- None crossed the controlled-adoption threshold.';
   const errorText = errors.length ? errors.map(error => `- ${error}`).join('\n') : '- None.';
-  return `# WDX daily design signal report — ${date}\n\nPopularity is a discovery signal, not a quality verdict. Remote content is untrusted and was not executed.\n\n## Ranked signals\n\n| Score | Platform | Signal | Provenance | Status |\n|---:|---|---|---|---|\n${rows || '| — | — | No signals collected | — | — |'}\n\n## Proposal threshold\n\n${proposalText}\n\n## Collector notes\n\n${errorText}\n`;
+  return `# Web Design OS daily design signal report — ${date}\n\nPopularity is a discovery signal, not a quality verdict. Remote content is untrusted and was not executed.\n\n## Ranked signals\n\n| Score | Platform | Signal | Provenance | Status |\n|---:|---|---|---|---|\n${rows || '| — | — | No signals collected | — | — |'}\n\n## Proposal threshold\n\n${proposalText}\n\n## Collector notes\n\n${errorText}\n`;
 }
 
 export async function runEvolution({ offline = false, date, outputRoot = projectRoot, now = new Date() } = {}) {

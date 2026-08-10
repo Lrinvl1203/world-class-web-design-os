@@ -1,6 +1,6 @@
-# Contributing to WDX
+# Contributing to Web Design OS
 
-WDX improves when a change is tied to an observed failure, a reproducible scenario, and a measurable gate. Contributions are welcome across skills, references, tooling, documentation, accessibility, and verification experiments.
+Web Design OS improves when a change is tied to an observed failure, a reproducible scenario, and a measurable gate. Contributions are welcome across skills, references, tooling, documentation, accessibility, and verification experiments.
 
 ## Before opening a change
 
@@ -38,7 +38,7 @@ Describe:
 
 ## Design contribution bar
 
-WDX does not accept novelty by decoration alone. A design or motion proposal should state its communication job, reduced-motion behavior, responsive composition, and failure mode. Avoid reproducing a reference wholesale.
+Web Design OS does not accept novelty by decoration alone. A design or motion proposal should state its communication job, reduced-motion behavior, responsive composition, and failure mode. Avoid reproducing a reference wholesale.
 
 ## Commit scope
 

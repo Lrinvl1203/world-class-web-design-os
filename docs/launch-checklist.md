@@ -4,8 +4,8 @@ The repository is prepared locally without making the irreversible visibility ch
 
 ## Before visibility changes
 
-- [ ] Confirm the owner name in `LICENSE` and the intended MIT license.
-- [ ] Review every tracked file for credentials, private URLs, personal data, and third-party assets.
+- [x] Confirm the owner name in `LICENSE` and the intended MIT license (`Lrinvl1203`).
+- [x] Review every tracked file for credentials, private URLs, personal data, third-party assets, and collision-prone names.
 - [ ] Confirm all checks pass from a clean clone or package tarball.
 - [ ] Confirm the one-line GitHub install in a temporary home directory.
 - [ ] Review the launch page at 320, 375, 768, 1440, and 1920 px.
@@ -34,4 +34,3 @@ Topics: `agent-skills`, `web-design`, `design-system`, `accessibility`, `visual-
 - [ ] Pin a “Start here / show your build” Discussion.
 - [ ] Publish the first reproducible external benchmark before making comparative quality claims.
 - [ ] Triage launch feedback into defects, feature ideas, and evidence proposals.
-

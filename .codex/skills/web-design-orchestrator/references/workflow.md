@@ -28,7 +28,7 @@ Capture real screenshots, inspect overflow, console errors, keyboard use, reduce
 Score screenshots without relying on implementation intent. Identify high-leverage root causes.
 
 ## Gate 9 — Release
-WDX threshold + category floors + hard gates.
+Web Design OS threshold + category floors + hard gates.
 
 ## Gate 10 — Learn
 Convert recurring defects into proposed changes and regression scenarios.

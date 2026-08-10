@@ -1,6 +1,6 @@
 ---
 name: design-critic
-description: Use as an independent design-review pass after rendering a website; evaluates macro, meso, micro craft, applies the WDX rubric, identifies root causes, and prioritizes changes without defending the implementation intent.
+description: Use as an independent design-review pass after rendering a website; evaluates macro, meso, micro craft, applies the Design Quality rubric, identifies root causes, and prioritizes changes without defending the implementation intent.
 metadata:
   short-description: Independently critique and score rendered web design
 ---
@@ -37,9 +37,9 @@ Review the rendered result as if you did not build it. Begin from screenshots an
 - animation easing/distance/timing;
 - image crop and optical alignment.
 
-## WDX scoring
+## Design Quality scoring
 
-Use `config/wdx-rubric.json`; read `references/wdx.md` for interpretation. Do not inflate scores to match effort spent.
+Use `config/design-quality-rubric.json`; read `references/design-quality.md` for interpretation. Do not inflate scores to match effort spent.
 
 ## Correction priority
 

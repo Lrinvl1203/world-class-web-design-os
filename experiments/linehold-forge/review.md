@@ -1,12 +1,12 @@
-# WDX Review — VANTA Forge
+# Web Design OS Review — Linehold Forge
 
-**WDX:** 91.8 / 100<br>
+**Web Design OS:** 91.8 / 100<br>
 **Internal release threshold:** 92<br>
 **Decision:** HOLD — BUYER AND FIELD VALIDATION PENDING
 
 ## Independent critic result
 
-VANTA Forge demonstrates that the OS can leave hospitality and produce a coherent technical B2B artifact without changing its core architecture. Its strongest decision is the tolerance datum: the line is not atmosphere alone, because it connects production-family selection to envelope, tolerance, inspection, and lot evidence. The page gives technical buyers a fast route from capability proof to a locally generated RFQ brief.
+Linehold Forge demonstrates that the OS can leave hospitality and produce a coherent technical B2B artifact without changing its core architecture. Its strongest decision is the tolerance datum: the line is not atmosphere alone, because it connects production-family selection to envelope, tolerance, inspection, and lot evidence. The page gives technical buyers a fast route from capability proof to a locally generated RFQ brief.
 
 The composition is disciplined and appropriately hard-edged. Original plant-scale and inspection imagery creates a two-level evidence system, while shared borders make the page read like one production record rather than a collection of cards. Mobile preserves the buyer sequence and keeps specification pairs legible instead of shrinking a desktop table.
 

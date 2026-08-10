@@ -17,13 +17,27 @@
 ## Automated accessibility must exercise real archetypes
 
 - **Date / project:** 2026-08-09 / daily-evolution and benchmark integration
-- **Evidence:** Adding axe to real Chromium runs exposed small-text contrast failures in Nocturne and both token-role contrast plus invalid definition-list structure in VANTA, although prior visual/task checks were green.
+- **Evidence:** Adding axe to real Chromium runs exposed small-text contrast failures in Nocturne and both token-role contrast plus invalid definition-list structure in LINEHOLD, although prior visual/task checks were green.
 - **Severity:** major
 - **Classification:** release-gate coverage gap
-- **Root cause:** Manual contrast samples and interaction tests did not cover every rendered text role or semantic container. VANTA also reused one orange value for foreground-on-paper and background-behind-carbon, two incompatible contrast jobs.
+- **Root cause:** Manual contrast samples and interaction tests did not cover every rendered text role or semantic container. LINEHOLD also reused one orange value for foreground-on-paper and background-behind-carbon, two incompatible contrast jobs.
 - **Generalizable principle:** Automated accessibility checks must run against representative rendered archetypes, and color tokens must encode surface role when one value cannot satisfy both foreground and background contrast relationships.
 - **Countermeasure:** Add Playwright + axe serious/critical checks at edge-mobile and desktop to CI; preserve the existing visual matrix; split incompatible color roles; require semantic structure fixes rather than audit exclusions. Allow only narrow documented exclusions for truly decorative, hidden-from-AT artwork.
-- **Positive regression:** Nocturne and VANTA must both pass axe, overflow, console, dead-link, reduced-motion, and heading visibility gates at 320 and 1440 widths.
+- **Positive regression:** Nocturne and LINEHOLD must both pass axe, overflow, console, dead-link, reduced-motion, and heading visibility gates at 320 and 1440 widths.
 - **Negative regression:** Decorative aria-hidden watermark artwork may retain low-contrast material treatment when it is excluded narrowly; information-bearing text and controls may not use that exception.
-- **Validation:** The gate failed on both inherited archetypes, the source defects were corrected, and all four browser runs passed. Routing evals 10/10, evolution tests 6/6, all 17 skills, and the sample WDX report also passed.
-- **Decision:** adopted in CI and `$a11y-performance`/`$visual-qa` execution; no WDX threshold or weight changed.
+- **Validation:** The gate failed on both inherited archetypes, the source defects were corrected, and all four browser runs passed. Routing evals 10/10, evolution tests 6/6, all 17 skills, and the sample Design Quality report also passed.
+- **Decision:** adopted in CI and `$a11y-performance`/`$visual-qa` execution; no Web Design OS threshold or weight changed.
+
+## Public-launch review must separate copyright provenance from naming clearance
+
+- **Date / project:** 2026-08-10 / World-Class Web Design OS public launch
+- **Evidence:** A current-tree provenance review found no bundled third-party screenshots, fonts, article copies, or stock assets, but exact and same-field searches found an active `Vanta Forge` site and existing web-design uses of `WDX`.
+- **Severity:** major public-launch risk
+- **Classification:** QA blind spot
+- **Root cause:** The launch checklist covered license ownership and tracked-file review but did not independently test public-facing names for source-confusion risk.
+- **Generalizable principle:** Copyright provenance, open-source licensing, and trademark/source-confusion are different gates. A clean content audit does not clear a product, CLI, metric, or fictional demo name.
+- **Countermeasure:** Rename material current-tree collisions, regenerate text baked into screenshots and launch assets, publish a concise `NOTICE.md` plus provenance record, and search exact and same-field uses before public exposure. Formal commercial trademark clearance remains outside this automated check.
+- **Positive regression:** A public repository with a fictional demo brand and a short CLI alias must flag an exact same-field name collision before visibility changes.
+- **Negative regression:** Common descriptive terms or unrelated technical acronyms should not trigger automatic renaming without related-goods, geography, and confusion context.
+- **Validation:** `WDX` became descriptive `Design Quality`/`World-Class Web Design OS`; `Vanta Forge` became `Linehold Forge`; all legacy-name searches are empty; the package smoke install is 17/17 READY; all validators, unit tests, 15 launch-browser cases, and both Linehold hard-gate cases pass.
+- **Decision:** adopted as launch process evidence and global project-management guidance; no autonomous core-skill rewrite.

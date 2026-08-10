@@ -1,4 +1,4 @@
-# Design system — VANTA Forge
+# Design system — Linehold Forge
 
 ## Tokens
 
