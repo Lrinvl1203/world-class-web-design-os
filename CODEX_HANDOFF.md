@@ -707,3 +707,21 @@ Before public launch, a name-collision audit found existing web/design businesse
 Public launch is complete: GitHub Pages and both experiments return HTTP 200, the repository homepage points to Pages, release `v0.2.0` is published, vulnerability reporting and secret protections are enabled, and branch protection requires `validate` plus `browser-hard-gates`. The 1280×640 social preview was uploaded and visually verified in repository settings, and Discussion #6 is pinned as the start-here/show-your-build entry point.
 
 Dependabot version-update configuration was removed after it generated unsolicited PR/email noise. Keep version updates manual unless the owner explicitly opts back into automated dependency PRs; CI validation remains enabled.
+
+---
+
+## 24. Distribution and external-proof milestone (2026-08-11)
+
+The owner authorized the complete launch-distribution pass. The repository now includes:
+
+- an 18-second, 1440×1080, 60 fps browser-only demo plus an optimized README preview and poster;
+- `BENCHMARK.md`, a public Same Brief Challenge that welcomes negative results and keeps unlike evidence signals separate;
+- a structured benchmark-result issue form and direct show-your-build path to Discussion #6;
+- `marketing/launch-kit.md` with distinct HN, Reddit, X, Threads, and Product Hunt copy;
+- `docs/growth-launch-plan.md` with the zero-traffic baseline, 30-day cadence, channel rules, and distribution log;
+- a scheduled `growth-pulse` workflow that stores traffic/referral snapshots as private artifacts and never auto-posts or commits metrics;
+- a proof → demo → benchmark → install → star/show-your-build path on the launch site and README.
+
+The first growth snapshot recorded 0 stars, 0 forks, 0 traffic views, and 21 clones from 4 unique cloners; discovery and independent proof remain the bottlenecks. Launch-site browser QA passes 15/15 across 320, 375, 768, 1440, and 1920 px with the video set to `preload="none"` to preserve the initial transfer budget.
+
+Next external actions are to publish the committed assets, upload the MP4 to release `v0.2.0`, submit only to relevant curated lists that accept community PRs, and post channel-specific launch messages where the owner is authenticated. Never bypass CAPTCHA or impersonate engagement.

@@ -1,0 +1,46 @@
+name: Same Brief Challenge result
+description: Submit a reproducible external comparison, including negative or partial findings.
+title: "[Benchmark]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for testing the system. Report raw evidence and limitations; do not collapse unlike signals into one score.
+  - type: input
+    id: artifact
+    attributes:
+      label: Public artifact
+      description: Link to the repository, brief, screenshots, and test data.
+      placeholder: https://github.com/...
+    validations:
+      required: true
+  - type: textarea
+    id: setup
+    attributes:
+      label: Reproducible setup
+      description: Include the exact brief, assets, references, agent/model, versions, commit SHA, and time budget.
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Results by signal
+      description: Report task success, accessibility, responsive defects, lab performance, blinded preference, elapsed time, and manual corrections separately.
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations and conflicts
+      description: Note missing data, reviewer relationship, sponsorship, or other factors that affect interpretation.
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Publication
+      options:
+        - label: I have the right to share these artifacts and anonymized results.
+          required: true
+        - label: I understand that unfavorable and partial findings may remain visible.
+          required: true
