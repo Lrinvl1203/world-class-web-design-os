@@ -1,13 +1,13 @@
 # GitHub Publish Status
 
-Date: 2026-08-09
+Date: 2026-08-10
 
 ## Local repository
 
 - branch: `main`
 - remote: `https://github.com/Lrinvl1203/world-class-web-design-os.git`
 - upstream: `origin/main`
-- latest published milestone before this update: `8d1eb4f raise Nocturne experiment above Web Design OS gate`
+- public-launch milestone: `5a880f5 clear public names and document provenance`
 
 ## Connected GitHub identity
 
@@ -15,7 +15,9 @@ The active connector resolves to GitHub user `Lrinvl1203`.
 
 ## Publish status
 
-The repository now exists, the `origin` remote is configured, and `main` has been pushed successfully. There is no remaining repository-creation blocker.
+The repository is public at `https://github.com/Lrinvl1203/world-class-web-design-os`. GitHub Pages is live at `https://lrinvl1203.github.io/world-class-web-design-os/`, and release `v0.2.0` is published.
+
+Issues, Discussions, vulnerability alerts, private vulnerability reporting, secret scanning, and push protection are enabled. Branch protection requires `validate` and `browser-hard-gates`; force pushes and branch deletion are disabled. Dependabot version-update PRs remain disabled to avoid unsolicited notification noise.
 
 ## Safe continuation
 

@@ -679,9 +679,9 @@ Read AGENTS.md and CODEX_HANDOFF.md in full. Treat the existing repository, comm
 
 ---
 
-## 23. Public-launch readiness milestone (2026-08-10)
+## 23. Public-launch milestone (2026-08-10)
 
-The repository has been prepared for public launch, but **visibility remains PRIVATE** pending explicit owner approval.
+The owner explicitly approved the visibility change, and the repository is now **PUBLIC** at `https://github.com/Lrinvl1203/world-class-web-design-os`.
 
 Completed locally and pushed as the next coherent milestone:
 
@@ -698,12 +698,12 @@ Verification result:
 
 - `npm run validate`: pass, 17 skills, configured Web Design OS 92/100;
 - `npm run eval:skills`: routing 10/10 and evolution 6/6 pass;
-- `npm run test:unit`: 6/6 pass;
+- `npm run test:unit`: 7/7 pass, including the CLI doctor regression;
 - `npm run qa:launch`: 15/15 pass;
 - tarball smoke: version 0.2.0, install succeeds, `web-design-os doctor` reports 17/17 READY.
 
 Before public launch, a name-collision audit found existing web/design businesses using the former short acronym and an exact existing service using the former industrial-demo name. Current public-facing branding was therefore changed to the descriptive `World-Class Web Design OS`, the CLI to `web-design-os`, the internal rubric label to `Design Quality`, and the industrial demo to `Linehold Forge`. Do not reintroduce the retired names as public brands.
 
-Final owner-controlled launch steps are in `docs/launch-checklist.md`: confirm MIT ownership text, make the repository public, enable private vulnerability reporting and Pages, run `deploy-pages`, upload the social preview in repository settings, set the live homepage, create `v0.2.0`, and add branch protection. Do not perform the visibility change without explicit approval.
+Public launch is complete: GitHub Pages and both experiments return HTTP 200, the repository homepage points to Pages, release `v0.2.0` is published, vulnerability reporting and secret protections are enabled, and branch protection requires `validate` plus `browser-hard-gates`. The only manual launch-setting follow-up is uploading `site/assets/social-preview.jpg` in repository settings because GitHub exposes no supported repository API for that image.
 
 Dependabot version-update configuration was removed after it generated unsolicited PR/email noise. Keep version updates manual unless the owner explicitly opts back into automated dependency PRs; CI validation remains enabled.
