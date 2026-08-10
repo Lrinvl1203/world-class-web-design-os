@@ -11,6 +11,8 @@ Web Design OS separates four kinds of evidence so a strong internal result is no
 
 ## External benchmark plan
 
+The executable public protocol is [The Same Brief Challenge](../BENCHMARK.md). Independent submissions may include unfavorable or partial results when inputs, raw evidence, and limitations are public.
+
 The first public evaluation should use the same brief across Web Design OS and at least two credible alternatives, with identity hidden from reviewers where practical. Record:
 
 - time from brief to shippable artifact;

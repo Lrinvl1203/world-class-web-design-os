@@ -12,6 +12,13 @@
 
 ![World-Class Web Design OS: Design with a point of view. Ship with evidence.](site/assets/social-preview.jpg)
 
+<div align="center">
+  <a href="https://lrinvl1203.github.io/world-class-web-design-os/assets/web-design-os-demo-4x3.mp4">
+    <img src="site/assets/web-design-os-demo.webp" width="960" alt="18-second demonstration of the Web Design OS launch site and two contrasting website experiments">
+  </a>
+  <p><strong>18 seconds:</strong> one operating system, two deliberately different outputs. <a href="https://lrinvl1203.github.io/world-class-web-design-os/">Explore the live proof</a>.</p>
+</div>
+
 [![Validate](https://github.com/Lrinvl1203/world-class-web-design-os/actions/workflows/validate.yml/badge.svg)](https://github.com/Lrinvl1203/world-class-web-design-os/actions/workflows/validate.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-141411.svg)](LICENSE)
 [![17 skills](https://img.shields.io/badge/specialist_skills-17-ff4f20.svg)](.codex/skills)
@@ -38,6 +45,8 @@ npx --yes github:Lrinvl1203/world-class-web-design-os doctor --agent codex
 ```
 
 The command installs directly from this public GitHub repository; no npm publication is required.
+
+Supported targets are Codex, Claude Code, Cursor, GitHub Copilot, OpenCode, the shared `.agents/skills` convention, or every declared target with `--agent all`.
 
 ## What changes in practice
 
@@ -68,6 +77,12 @@ flowchart LR
 | [Linehold Forge](experiments/linehold-forge/) | Industrial commerce | 91.8 | Pending | Hold; below 92 target |
 
 Design Quality scores are internal rubric evaluations. They are not user research, conversion data, award results, or external expert validation. See [public benchmark](docs/public-benchmark.md) for the evidence model.
+
+## Test the claim yourself
+
+Run [The Same Brief Challenge](BENCHMARK.md): build once with your normal agent workflow, then in a clean session with Web Design OS using the same brief, assets, model, and time budget. Publish the raw browser checks, reviewer rationale, manual corrections, and limitations. Negative and partial results are welcome.
+
+[Submit a reproducible result](https://github.com/Lrinvl1203/world-class-web-design-os/issues/new?template=benchmark-result.yml) or [show what you built](https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6).
 
 ## The 17-skill stack
 
@@ -140,5 +155,7 @@ Third-party names identify sources only and do not imply affiliation. Experiment
 ## Contributing and security
 
 Start with [CONTRIBUTING.md](CONTRIBUTING.md). Use the design-quality issue form for evidence-backed improvements. Please report security concerns through the process in [SECURITY.md](SECURITY.md), not a public issue.
+
+If this makes your next website more deliberate, [star the repository](https://github.com/Lrinvl1203/world-class-web-design-os) so other builders can find it—and share the artifact or failure that should improve the system next.
 
 MIT © 2026 Lrinvl1203
