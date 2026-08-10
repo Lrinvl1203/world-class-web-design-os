@@ -1,5 +1,19 @@
 # Continuous-learning records
 
+## Launch media must separate poster-first loading from playback evidence
+
+- **Date / project:** 2026-08-11 / World-Class Web Design OS distribution launch
+- **Evidence:** Adding an inline 18-second MP4 pushed two existing `loading="lazy"` experiment images farther below the fold. The launch test then timed out while calling `decode()` on images the browser had not yet promoted for loading. The first video configuration also used metadata preloading even though playback was not part of the initial-content path.
+- **Severity:** moderate
+- **Classification:** QA blind spot with an execution-level media-loading assumption
+- **Root cause:** The test assumed all lazy images would begin loading after navigation, and the page treated video metadata as initial content rather than user-requested enhancement.
+- **Generalizable principle:** A proof video should reserve space and expose an accessible poster without entering the initial transfer path; tests that require downstream lazy media must explicitly bring each asset into its loading range before decoding it.
+- **Countermeasure:** Set noncritical proof video to `preload="none"`, provide a poster and textual description, scroll each asserted lazy image into view before `decode()`, and keep playback validation separate from initial-load budgets.
+- **Positive regression:** A long launch page with an inline demo video and lazy case-study images must complete browser gates without downloading the MP4 before user intent or hanging on unrequested images.
+- **Negative regression:** A video whose first frame is itself critical instructional content must not be blindly deferred; its loading and alternative-content plan requires a task-specific decision.
+- **Validation:** The original five launch-site tests timed out; after the countermeasure, all 15 browser cases passed in 70 seconds across 320, 375, 768, 1440, and 1920 px, including the 500 KB initial transfer budget and no-JavaScript survival.
+- **Decision:** adopted in the launch implementation and regression test. No core-skill edit was needed because `$visual-qa` already requires lazy-media promotion and settled capture state.
+
 ## Visual baselines must prove capture readiness
 
 - **Date / project:** 2026-08-09 / Nocturne 24 Phase C
