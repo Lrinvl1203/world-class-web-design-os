@@ -167,7 +167,7 @@ The scheduled workflow collects official APIs, RSS feeds, and reviewed manual si
 
 See [evolution model](evolution/README.md), [source registry](docs/source-registry.md), and [learning records](docs/learning-records.md).
 
-Every Monday at 09:10 Asia/Seoul, `weekly-evidence-review` combines the latest repository traffic, star/fork signals, distribution state, external curation PR status, validation results, and controlled-learning output into a private 180-day artifact. It creates a review queue but never edits skills, posts, commits, opens PRs, or self-merges.
+Every Monday at 09:10 Asia/Seoul, `weekly-evidence-review` combines the latest repository traffic, star/fork signals, distribution state, external curation PR status, validation results, and controlled-learning output into a private 90-day artifact. It creates a review queue but never edits skills, posts, commits, opens PRs, or self-merges.
 
 ## Run locally
 

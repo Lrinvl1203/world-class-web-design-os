@@ -81,5 +81,6 @@ test('weekly workflow stays review-only and runs Monday morning in Seoul', () =>
   assert.match(workflow, /cron: '10 0 \* \* 1'/);
   assert.match(workflow, /permissions:\s+contents: read/);
   assert.match(workflow, /node scripts\/growth\/weekly-review\.mjs/);
+  assert.match(workflow, /retention-days: 90/);
   assert.doesNotMatch(workflow, /contents: write|pull-requests: write|issues: write|git push|gh pr create|gh pr merge/);
 });
