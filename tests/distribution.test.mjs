@@ -29,3 +29,22 @@ test('pending channels require an explicit blocker but no public URL', () => {
   const errors = validateDistribution({ manifest, plan: '', readme: '' });
   assert.ok(errors.some(error => error.includes('pending entries require a blocker')));
 });
+
+test('scheduled channels cannot remain stale after their launch time', () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, 'config', 'distribution.json'), 'utf8'));
+  manifest.channels.push({
+    id: 'future-launch',
+    channel: 'Future Launch',
+    status: 'scheduled',
+    url: 'https://example.com/future-launch',
+    scheduled_for: '2026-08-11T00:01:00-07:00',
+    featured: false
+  });
+  const errors = validateDistribution({
+    manifest,
+    plan: 'https://example.com/future-launch',
+    readme: '',
+    now: new Date('2026-08-11T08:02:00Z')
+  });
+  assert.ok(errors.some(error => error.includes('scheduled_for has passed')));
+});

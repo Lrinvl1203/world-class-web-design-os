@@ -6,11 +6,17 @@
   <p>
     <a href="docs/README.ko.md">한국어</a> ·
     <a href="https://lrinvl1203.github.io/world-class-web-design-os/">Live overview</a> ·
+    <a href="#start-in-60-seconds">60-second start</a> ·
+    <a href="BENCHMARK.md">Same Brief Challenge</a> ·
     <a href="CONTRIBUTING.md">Contribute</a>
   </p>
 </div>
 
-![World-Class Web Design OS: Design with a point of view. Ship with evidence.](site/assets/social-preview.jpg)
+[![GitHub stars](https://img.shields.io/github/stars/Lrinvl1203/world-class-web-design-os?style=flat-square&color=ff4f20&label=stars)](https://github.com/Lrinvl1203/world-class-web-design-os/stargazers)
+[![Latest release](https://img.shields.io/github/v/release/Lrinvl1203/world-class-web-design-os?style=flat-square&color=141411&label=release)](https://github.com/Lrinvl1203/world-class-web-design-os/releases/latest)
+[![Validate](https://github.com/Lrinvl1203/world-class-web-design-os/actions/workflows/validate.yml/badge.svg)](https://github.com/Lrinvl1203/world-class-web-design-os/actions/workflows/validate.yml)
+[![MIT License](https://img.shields.io/badge/license-MIT-141411.svg)](LICENSE)
+[![17 skills](https://img.shields.io/badge/specialist_skills-17-ff4f20.svg)](.codex/skills)
 
 <div align="center">
   <a href="https://lrinvl1203.github.io/world-class-web-design-os/assets/web-design-os-demo-4x3.mp4">
@@ -19,34 +25,47 @@
   <p><strong>18 seconds:</strong> one operating system, two deliberately different outputs. <a href="https://lrinvl1203.github.io/world-class-web-design-os/">Explore the live proof</a>.</p>
 </div>
 
-[![Validate](https://github.com/Lrinvl1203/world-class-web-design-os/actions/workflows/validate.yml/badge.svg)](https://github.com/Lrinvl1203/world-class-web-design-os/actions/workflows/validate.yml)
-[![MIT License](https://img.shields.io/badge/license-MIT-141411.svg)](LICENSE)
-[![17 skills](https://img.shields.io/badge/specialist_skills-17-ff4f20.svg)](.codex/skills)
-[![Node 20+](https://img.shields.io/badge/node-%3E%3D20-141411.svg)](package.json)
-
-World-Class Web Design OS routes an AI coding agent through a complete web-design process: discovery, reference analysis, art direction, design systems, interaction and motion decisions, semantic implementation, responsive recomposition, independent critique, accessibility, performance, and rendered visual QA.
+World-Class Web Design OS installs 17 routed specialist skills into Codex, Claude Code, Cursor, GitHub Copilot, OpenCode, or the shared `.agents/skills` convention. It guides a coding agent through discovery, art direction, implementation, independent critique, accessibility, performance, and rendered visual QA.
 
 It is not a component library or a list of style prompts. The output can look completely different from project to project because the system governs decisions and gates—not a house style.
 
-## Install in one line
+## Start in 60 seconds
+
+1. Install the skills:
 
 ```bash
 npx --yes github:Lrinvl1203/world-class-web-design-os install --agent codex
 ```
 
-Then ask normally:
+Or use the [universal Agent Skills CLI](https://github.com/vercel-labs/skills) for another compatible agent:
 
-> Design and implement a distinctive website for this product.
+```bash
+npx --yes skills add Lrinvl1203/world-class-web-design-os -g
+```
 
-The repository-level rules route broad website work through `web-design-orchestrator`. To update an existing installation, append `--overwrite`. To install every declared agent target, use `--agent all`.
+2. Start a new agent session so skill discovery refreshes.
+
+3. Ask in one sentence:
+
+> Design and implement a distinctive website for this product using the installed Web Design OS, then verify it at mobile and desktop widths.
+
+Broad website work routes through `web-design-orchestrator`; specialist skills load only when their job is relevant. To update an installation, append `--overwrite`. To install every declared target, use `--agent all`.
 
 ```bash
 npx --yes github:Lrinvl1203/world-class-web-design-os doctor --agent codex
 ```
 
-The command installs directly from this public GitHub repository; no npm publication is required.
+The doctor command confirms the expected 17 skills are discoverable. Both installers read this public GitHub repository directly; the universal CLI currently discovers all 17 skills without a duplicate `skills/` tree.
 
-Supported targets are Codex, Claude Code, Cursor, GitHub Copilot, OpenCode, the shared `.agents/skills` convention, or every declared target with `--agent all`.
+## What is actually in the repository
+
+| Included | Why it matters |
+|---|---|
+| 1 orchestrator + 16 specialist skills | Keeps the active context focused while preserving a complete design workflow |
+| 100 evidence-labeled references | Makes art-direction and technical choices searchable instead of relying on style adjectives |
+| 2 runnable, contrasting website experiments | Shows that the system does not force every output into one house style |
+| Playwright, axe, responsive, overflow, console, and reduced-motion gates | Turns “looks finished” into inspectable release evidence |
+| Cross-agent installer and doctor | Gives Codex, Claude Code, Cursor, Copilot, OpenCode, and `.agents` users one maintained source |
 
 ## What changes in practice
 
@@ -69,7 +88,18 @@ flowchart LR
 - Completion requires screenshots, keyboard and accessibility checks, overflow checks, and a clean console.
 - Daily learning produces evidence-backed proposals; it never silently rewrites core skills.
 
-## Proof, with labels
+## Proof you can open
+
+<table>
+  <tr>
+    <td width="50%"><a href="https://lrinvl1203.github.io/world-class-web-design-os/experiments/nocturne-concierge/"><img src="site/assets/nocturne.jpg" alt="Nocturne Concierge editorial hospitality experiment"></a></td>
+    <td width="50%"><a href="https://lrinvl1203.github.io/world-class-web-design-os/experiments/linehold-forge/"><img src="site/assets/linehold.jpg" alt="Linehold Forge industrial commerce experiment"></a></td>
+  </tr>
+  <tr>
+    <td><strong>Nocturne Concierge</strong><br>Editorial hospitality · atmospheric restraint</td>
+    <td><strong>Linehold Forge</strong><br>Industrial commerce · dense utility</td>
+  </tr>
+</table>
 
 | Experiment | Archetype | Internal score | Field evidence | Status |
 |---|---|---:|---|---|
@@ -90,7 +120,7 @@ These links prove where the project was introduced; they are not endorsements or
 
 | Channel | Status | Link |
 |---|---|---|
-| Product Hunt | Scheduled for Aug 11, 2026 at 00:01 PT | [Launch page](https://www.producthunt.com/products/world-class-web-design-os?launch=world-class-web-design-os) |
+| Product Hunt | Launched Aug 11, 2026 | [Launch page](https://www.producthunt.com/products/world-class-web-design-os) |
 | X | Published | [Announcement](https://x.com/lrinvl1203/status/2086859489001738289) |
 | Threads | Published | [Launch post](https://www.threads.com/@lrinvl1203/post/Db3bx0OkuRD) |
 | Reddit | Published | [Architecture discussion](https://www.reddit.com/r/OpenaiCodex/comments/1vkpgyr/i_turned_my_webdesign_workflow_into_17_codex/) |
