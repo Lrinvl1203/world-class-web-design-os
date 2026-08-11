@@ -66,5 +66,5 @@ jobs:
             evolution/inbox/*.json
             evolution/reports/*.md
             evolution/proposals/*.md
-          retention-days: 180
+          retention-days: 90
           if-no-files-found: error

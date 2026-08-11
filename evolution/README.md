@@ -33,7 +33,7 @@ The `weekly-evidence-review` workflow runs every Monday at 09:10 Asia/Seoul and 
 - the latest daily design-signal inbox and any threshold-qualified draft proposals;
 - repository validation, routing evaluation, and unit-test results.
 
-The resulting Markdown, JSON, snapshot, and comparison state are private GitHub Actions artifacts retained for 180 days. The previous state is restored through the Actions cache so movement can be reviewed without committing analytics to the public repository.
+The resulting Markdown, JSON, snapshot, and comparison state are private GitHub Actions artifacts retained for the repository maximum of 90 days. The previous state is restored through the Actions cache so movement can be reviewed without committing analytics to the public repository.
 
 GitHub's default Actions token can read public repository signals but may receive `403` from the private traffic endpoints. When full view, clone, path, and referrer data is desired, configure the optional `GROWTH_TRAFFIC_TOKEN` repository secret with the minimum read permission required for repository traffic. Without it, those values remain explicitly `Unavailable`; the workflow still succeeds and never converts a denied metric into zero.
 

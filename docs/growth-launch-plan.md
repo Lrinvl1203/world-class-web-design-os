@@ -33,7 +33,7 @@ Anti-direction: vague AI hype, award-equivalent claims, bought engagement, autom
 | Day 5–10 | Publish visual-first X/Threads posts and respond to substantive questions | Post URLs and reply notes |
 | Day 7–14 | Prepare and launch on Product Hunt if gallery, video, and discussion coverage are ready | Product page URL and maker replies |
 | Weekly | Publish one concrete build, failure analysis, or regression test | Linked artifact; never a generic reminder |
-| Monday 09:10 KST | Generate the private weekly evidence review and comparison state | 180-day Actions artifact; no posts, commits, or PRs |
+| Monday 09:10 KST | Generate the private weekly evidence review and comparison state | 90-day Actions artifact; no posts, commits, or PRs |
 | Daily | Capture repository traffic and referral data as a private workflow artifact | `growth-pulse` artifact |
 | Day 14 and 30 | Review conversion and decide which surface to improve | Dated review in this document |
 
