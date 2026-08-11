@@ -1,5 +1,19 @@
 # Continuous-learning records
 
+## Recurring improvement needs comparison evidence, not autonomous mutation
+
+- **Date / project:** 2026-08-11 / World-Class Web Design OS weekly maintenance
+- **Evidence:** Daily design-signal collection and daily growth snapshots existed independently, but there was no weekly comparison state, consolidated decision queue, or reliable way to distinguish a first observation from a trend. The owner requested weekly ongoing updates.
+- **Severity:** moderate maintenance and expectation risk
+- **Classification:** missing rule and automation gap
+- **Root cause:** Collection cadence was defined, while review cadence and cross-signal synthesis were left to ad hoc sessions.
+- **Generalizable principle:** Recurring improvement automation should compare current and prior evidence, label rolling metrics honestly, and produce a review queue; it must not imply that popularity proves quality or that unattended automation has authority to edit and merge core behavior.
+- **Countermeasure:** Add a Monday weekly workflow, cached comparison state, deterministic Markdown/JSON report, external curation-PR checks, and private 180-day artifacts. Keep posting, skill edits, commits, PR creation, and merging outside the scheduled job.
+- **Positive regression:** A second weekly run with higher traffic and unchanged stars must recommend improving third-party proof or successful-use onboarding while reporting exact directional deltas.
+- **Negative regression:** A first run or an API-denied metric must remain baseline/unavailable rather than becoming a fabricated zero, trend, or conversion claim.
+- **Validation:** Four weekly-review regressions cover comparison, traffic-without-star growth, unavailable metrics, and latest-evolution selection. A live authenticated dry run recorded 2 stars, 41 rolling views, 120 rolling clones, five referrers, two open curation PRs, one design signal, and zero proposals without modifying public state. The latest scheduled growth artifact was also inspected: its default Actions token returned traffic `403`, and the weekly report preserves that state as unavailable while supporting an optional least-privilege traffic token.
+- **Decision:** adopted as repository automation. No core skill, routing, or Design Quality rule changed.
+
 ## Launch distribution needs one validated source of truth
 
 - **Date / project:** 2026-08-11 / World-Class Web Design OS public distribution

@@ -12,6 +12,7 @@ All notable changes to Web Design OS are documented here. The project follows [S
 - Recorded the public X and Product Hunt launches and added a stale-schedule validation gate.
 - Tightened the README around a 60-second start, cross-agent compatibility, openable proof, and repository discovery metadata.
 - Verified the universal Agent Skills CLI discovers all 17 canonical skills without duplicating the skill tree.
+- Added a Monday weekly evidence review that combines repository growth, distribution, external curation PRs, validation, and controlled-learning signals into private review-only artifacts.
 
 ## [0.2.0] - 2026-08-10
 

@@ -18,6 +18,24 @@ async function github(endpoint) {
   return response.json();
 }
 
+async function externalPullRequest(entry) {
+  const match = entry.url?.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+)\/pull\/(\d+)\/?$/);
+  if (!match) return { channel: entry.channel, url: entry.url, unavailable: true, reason: 'invalid GitHub pull-request URL' };
+  const [, owner, name, number] = match;
+  const response = await fetch(`https://api.github.com/repos/${owner}/${name}/pulls/${number}`, { headers });
+  if (!response.ok) return { channel: entry.channel, url: entry.url, unavailable: true, status: response.status };
+  const pull = await response.json();
+  return {
+    channel: entry.channel,
+    url: entry.url,
+    state: pull.merged_at ? 'merged' : pull.state,
+    draft: pull.draft,
+    comments: pull.comments,
+    review_comments: pull.review_comments,
+    updated_at: pull.updated_at
+  };
+}
+
 const [repo, views, clones, referrers, paths, discussions] = await Promise.all([
   github(''),
   github('/traffic/views'),
@@ -26,6 +44,9 @@ const [repo, views, clones, referrers, paths, discussions] = await Promise.all([
   github('/traffic/popular/paths'),
   github('/discussions?per_page=10')
 ]);
+const externalPullRequests = await Promise.all(distribution.channels
+  .filter(entry => entry.status === 'pr_open' && entry.url?.includes('github.com/'))
+  .map(externalPullRequest));
 
 const snapshot = {
   captured_at: new Date().toISOString(),
@@ -43,6 +64,7 @@ const snapshot = {
       id, channel, status, url, published_on, scheduled_for, opened_on, blocker
     }))
   },
+  external_pull_requests: externalPullRequests,
   discussions: Array.isArray(discussions)
     ? discussions.map(({ number, title, html_url, comments, upvote_count }) => ({ number, title, html_url, comments, upvote_count }))
     : discussions

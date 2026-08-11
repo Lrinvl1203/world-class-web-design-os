@@ -1,0 +1,70 @@
+name: weekly-evidence-review
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Monday 09:10 Asia/Seoul (00:10 UTC)
+    - cron: '10 0 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.x'
+      - name: Restore the rolling design-evidence window
+        uses: actions/cache@v6
+        with:
+          path: evolution/inbox
+          key: weekly-design-signals-${{ github.run_id }}
+          restore-keys: |
+            weekly-design-signals-
+            design-signals-
+      - name: Restore the previous weekly comparison state
+        uses: actions/cache@v6
+        with:
+          path: artifacts/weekly/state.json
+          key: weekly-review-state-${{ github.run_id }}
+          restore-keys: |
+            weekly-review-state-
+      - run: npm install --ignore-scripts --package-lock=false
+      - name: Verify the operating system before reviewing it
+        run: |
+          npm run validate
+          npm run test:unit
+          npm run eval:skills
+      - name: Collect official and curated design signals
+        run: npm run evolve:daily
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_POST_IDS: ${{ vars.THREADS_POST_IDS }}
+      - name: Capture repository and distribution signals
+        run: node scripts/growth/snapshot.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GROWTH_TRAFFIC_TOKEN || secrets.GITHUB_TOKEN }}
+          GROWTH_SNAPSHOT_OUTPUT: artifacts/weekly/snapshot.json
+      - name: Build the review-only weekly report
+        run: node scripts/growth/weekly-review.mjs
+      - name: Upload the private weekly evidence package
+        uses: actions/upload-artifact@v7
+        with:
+          name: weekly-evidence-review-${{ github.run_id }}
+          path: |
+            artifacts/weekly/review.md
+            artifacts/weekly/review.json
+            artifacts/weekly/snapshot.json
+            artifacts/weekly/state.json
+            evolution/inbox/*.json
+            evolution/reports/*.md
+            evolution/proposals/*.md
+          retention-days: 180
+          if-no-files-found: error
