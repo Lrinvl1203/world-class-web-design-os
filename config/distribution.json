@@ -37,9 +37,9 @@
     {
       "id": "product-hunt",
       "channel": "Product Hunt",
-      "status": "scheduled",
-      "url": "https://www.producthunt.com/products/world-class-web-design-os?launch=world-class-web-design-os",
-      "scheduled_for": "2026-08-11T00:01:00-07:00",
+      "status": "published",
+      "url": "https://www.producthunt.com/products/world-class-web-design-os",
+      "published_on": "2026-08-11",
       "featured": true
     },
     {
@@ -62,7 +62,7 @@
       "id": "hacker-news",
       "channel": "Hacker News",
       "status": "pending",
-      "blocker": "Owner-chosen account password is required before Show HN submission.",
+      "blocker": "Owner chose to leave Hacker News out of the current growth plan.",
       "featured": false
     }
   ]

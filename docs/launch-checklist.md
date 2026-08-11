@@ -25,9 +25,9 @@ The repository was made public with explicit owner approval on 2026-08-10. This 
 
 ## Suggested repository metadata
 
-Description: `Evidence-led operating system for distinctive, accessible, and verifiable agentic web design.`
+Description: `17 installable agent skills for distinctive web design: art direction, implementation, critique, accessibility, and visual QA for Codex, Claude Code, and Cursor.`
 
-Topics: `agent-skills`, `web-design`, `design-system`, `accessibility`, `visual-testing`, `frontend`, `codex`, `motion-design`, `design-ops`, `playwright`.
+Topics: `accessibility`, `agent-skills`, `ai-agents`, `claude-code`, `codex`, `codex-skills`, `cursor`, `design-ops`, `design-system`, `developer-tools`, `frontend`, `frontend-design`, `github-copilot`, `motion-design`, `playwright`, `ui-design`, `visual-testing`, `web-design`.
 
 ## After launch
 
@@ -36,9 +36,8 @@ Topics: `agent-skills`, `web-design`, `design-system`, `accessibility`, `visual-
 - [x] Add an 18-second demo, Same Brief Challenge, external-result issue form, and channel-specific launch kit.
 - [x] Add a daily growth snapshot workflow that uploads private artifacts without auto-posting or modifying the repository.
 - [x] Submit the project to a small set of relevant agent-skill/Codex curation lists and record each URL.
-- [x] Publish the X, Threads, and Reddit launch posts and schedule the Product Hunt launch.
+- [x] Publish the X, Threads, Reddit, and Product Hunt launch surfaces.
 - [x] Add a machine-readable distribution manifest and validate it against the README and growth log in CI.
-- [ ] Publish Show HN after owner-controlled account setup and record the canonical item URL.
 - [ ] Respond to substantive launch feedback and record recurring questions.
 - [ ] Publish the first reproducible external benchmark before making comparative quality claims.
 - [ ] Triage launch feedback into defects, feature ideas, and evidence proposals.

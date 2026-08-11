@@ -2,7 +2,7 @@
 
 Use one channel at a time, answer every substantive reply, and record the final URL in `docs/growth-launch-plan.md`. Do not paste identical copy across communities or ask for empty upvotes.
 
-Canonical channel status lives in `config/distribution.json` and is validated against the growth log and README. X, Threads, Reddit, and the Product Hunt launch page are recorded there; Show HN remains pending until the owner completes account setup.
+Canonical channel status lives in `config/distribution.json` and is validated against the growth log and README. X, Threads, Reddit, and Product Hunt are public. The Show HN copy below is retained only as an optional archive; Hacker News is not part of the current growth plan.
 
 ## Core facts
 

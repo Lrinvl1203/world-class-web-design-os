@@ -731,11 +731,13 @@ External distribution completed on 2026-08-11:
 - Reddit r/OpenAIcodex: `https://www.reddit.com/r/OpenaiCodex/comments/1vkpgyr/i_turned_my_webdesign_workflow_into_17_codex/`
 - Threads: `https://www.threads.com/@lrinvl1203/post/Db3bx0OkuRD`
 - X: `https://x.com/lrinvl1203/status/2086859489001738289`
-- Product Hunt page: `https://www.producthunt.com/products/world-class-web-design-os?launch=world-class-web-design-os` (scheduled for 2026-08-11 00:01 PT / 16:01 Asia/Seoul)
+- Product Hunt page: `https://www.producthunt.com/products/world-class-web-design-os` (launched on 2026-08-11)
 - Awesome Codex CLI PR: `https://github.com/RoggeOhta/awesome-codex-cli/pull/192`
 - Awesome Agent Skills PR: `https://github.com/kodustech/awesome-agent-skills/pull/76`
 - Discussion update: `https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6#discussioncomment-17965481`
 
-X and Product Hunt authentication are complete. The X announcement is public, and the Product Hunt product page, maker comment, required metadata, and launch schedule are in place. Hacker News is the remaining distribution blocker because its account form requires an owner-chosen password; resume from the open HN submit/login tab after the owner enters it.
+X and Product Hunt authentication are complete, and both launch surfaces are public. The owner asked to leave Hacker News out of the current growth plan.
 
 Distribution status now has a machine-readable source of truth at `config/distribution.json`. `scripts/validate-distribution.mjs` rejects missing URLs, duplicate channel IDs, pending entries without blockers, and drift between featured links, the README, and `docs/growth-launch-plan.md`. The private daily growth snapshot includes the same channel state so traffic changes can be interpreted against actual distribution events.
+
+The universal Agent Skills CLI was smoke-tested with `npx --yes skills add Lrinvl1203/world-class-web-design-os --list` and discovered all 17 canonical skills directly under `.codex/skills`; do not add a duplicate root `skills/` tree merely for installer compatibility.

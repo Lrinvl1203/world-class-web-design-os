@@ -8,7 +8,7 @@ const planPath = path.join(root, 'docs', 'growth-launch-plan.md');
 const readmePath = path.join(root, 'README.md');
 const allowedStatuses = new Set(['pending', 'published', 'scheduled', 'pr_open', 'merged', 'rejected']);
 
-export function validateDistribution({ manifest, plan, readme }) {
+export function validateDistribution({ manifest, plan, readme, now = new Date() }) {
   const errors = [];
   const ids = new Set();
 
@@ -53,8 +53,13 @@ export function validateDistribution({ manifest, plan, readme }) {
     if (entry.status === 'published' && !/^\d{4}-\d{2}-\d{2}$/.test(entry.published_on || '')) {
       errors.push(`${label}: published entries require published_on`);
     }
-    if (entry.status === 'scheduled' && Number.isNaN(Date.parse(entry.scheduled_for || ''))) {
-      errors.push(`${label}: scheduled entries require an ISO scheduled_for value`);
+    if (entry.status === 'scheduled') {
+      const scheduledAt = Date.parse(entry.scheduled_for || '');
+      if (Number.isNaN(scheduledAt)) {
+        errors.push(`${label}: scheduled entries require an ISO scheduled_for value`);
+      } else if (scheduledAt < now.getTime()) {
+        errors.push(`${label}: scheduled_for has passed; verify the channel and update its status`);
+      }
     }
   }
 
