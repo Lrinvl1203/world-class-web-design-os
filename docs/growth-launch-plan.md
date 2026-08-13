@@ -18,11 +18,19 @@ The immediate bottleneck is discovery, followed by third-party proof. Installati
 
 `Channel-specific post → 18-second demo → live examples → one-line install → Same Brief Challenge → star / issue / show-your-build`
 
-Primary audience: front-end developers and designers using Codex, Claude Code, Cursor, GitHub Copilot, or OpenCode.
+Primary audience: non-developer vibe coders who can generate a front end but struggle to diagnose why its UI, UX, responsive behavior, interaction, or visual finish feels wrong.
+
+Secondary audience: front-end developers and designers using Codex, Claude Code, Cursor, GitHub Copilot, or OpenCode.
 
 Primary action: install and try the system on a real brief. A star is a useful secondary signal, not a substitute for usage.
 
 Anti-direction: vague AI hype, award-equivalent claims, bought engagement, automated mass posting, or hiding unfavorable benchmark results.
+
+## Positioning
+
+UI UX Pro Max is strong at searchable design intelligence and design-system recommendations. MengTo/Skills is strong at creative techniques and focused production workflows. Web Design OS should not claim universal superiority over either project. Its narrower, supportable advantage is that it is a better fit for non-developers who need one governed loop across component selection, art direction, interaction, animation, justified 3D/WebGL, independent critique, AI-smell detection, responsive recomposition, accessibility, and rendered browser QA.
+
+The recurring-learning claim must remain precise: design signals and observed failures produce reviewable proposals and regression tests. The system improves through validated adoption; it does not silently rewrite its core rules.
 
 ## 30-day cadence
 
@@ -40,7 +48,7 @@ Anti-direction: vague AI hype, award-equivalent claims, bought engagement, autom
 ## Channel rules
 
 - Reddit: participate in one relevant subreddit at a time and answer questions before posting elsewhere.
-- X/Threads: lead with the 18-second visual; keep facts verifiable.
+- X/Threads: lead with the non-developer UI-judgment problem, then show the 18-second visual or a concrete QA artifact; keep comparisons narrow and facts verifiable.
 - Product Hunt: use original gallery assets, a clear maker comment, and respond throughout launch day.
 - Awesome lists: follow each repository’s contribution format and submit only where agent skills or Codex tooling is in scope.
 - GitHub: keep Discussion #6 as the canonical show-your-build and feedback thread.
@@ -57,6 +65,8 @@ Anti-direction: vague AI hype, award-equivalent claims, bought engagement, autom
 | 2026-08-11 | Product Hunt | https://www.producthunt.com/products/world-class-web-design-os | Open-source product page, maker comment, and gallery | Published; launching today |
 | 2026-08-11 | Awesome Codex CLI | https://github.com/RoggeOhta/awesome-codex-cli/pull/192 | Codex-specific 17-skill collection | PR open |
 | 2026-08-11 | Awesome Agent Skills | https://github.com/kodustech/awesome-agent-skills/pull/76 | Web-design orchestrator skill | PR open |
+| 2026-08-13 | X | https://x.com/lrinvl1203/status/2087750811548062184 | Better fit for non-developer vibe coders: components, motion, 3D, independent critique, browser QA, and regression learning | Published |
+| 2026-08-13 | Threads | https://www.threads.com/@lrinvl1203/post/Db91IzvkorU | Korean non-developer positioning with end-to-end UI/UX, motion, 3D, QA, and controlled self-improvement | Published |
 
 ## Review template
 
