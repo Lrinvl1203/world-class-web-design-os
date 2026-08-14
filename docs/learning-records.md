@@ -1,5 +1,19 @@
 # Continuous-learning records
 
+## Deployment QA must preserve the configured base path
+
+- **Date / project:** 2026-08-15 / GitHub Pages post-deploy verification
+- **Observation/evidence:** The deployed launch page and all new assets returned HTTP 200 under `/world-class-web-design-os/`, but the first live Playwright run navigated with `page.goto('/')`. URL resolution discarded the repository subpath and audited GitHub Pages' domain-root 404 instead of the product.
+- **Severity/impact:** major QA false failure; a successful deployment appeared inaccessible and its unrelated 404 page produced misleading accessibility defects.
+- **Classification:** QA blind spot
+- **Root cause:** Local preview always served at the origin root, so an origin-absolute test path was never challenged by a subpath deployment.
+- **Generalizable principle:** When `baseURL` may include a path prefix, navigate to `./` or an explicitly joined application route. Do not let a test silently replace the configured base path with the host root.
+- **Proposed file/section change:** Make launch and release-gate entry navigation base-path-relative.
+- **Positive regression scenario:** The same suite audits both `http://127.0.0.1:4175/` and `https://example.test/repository-name/` without route overrides.
+- **Negative/regression-risk scenario:** A product intentionally mounted at the domain root or a test specifically exercising `/` may keep an absolute route, but that intent must be explicit.
+- **Validation performed:** The complete local matrix still passes 15/15. The deployed Pages URL passes 6/6 launch and hard-gate checks at 320 and 1440 px, including no-JavaScript survival.
+- **Decision:** adopted in repository QA; retain as regression evidence before proposing a core Visual QA starter change.
+
 ## Editorial discovery needs a controlled path when engagement metrics do not exist
 
 - **Date / project:** 2026-08-15 / controlled daily evolution

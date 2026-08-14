@@ -7,7 +7,7 @@ test('release hard gates', async ({ page }) => {
   page.on('pageerror', error => errors.push(error.message));
 
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/', { waitUntil: 'networkidle' });
+  await page.goto('./', { waitUntil: 'networkidle' });
   await page.locator('img').evaluateAll(async images => {
     images.forEach(image => { image.loading = 'eager'; });
     await Promise.all(images.map(image => Promise.race([

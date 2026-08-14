@@ -6,7 +6,7 @@ test('launch site passes rendered quality gates', async ({ page }, testInfo) => 
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
   page.on('pageerror', error => errors.push(error.message));
 
-  await page.goto('/', { waitUntil: 'networkidle' });
+  await page.goto('./', { waitUntil: 'networkidle' });
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Design with a');
   await expect(page.getByRole('heading', { name: /One command/ })).toBeVisible();
   await expect(page.getByRole('heading', { name: /Fifteen seconds/ })).toBeVisible();
