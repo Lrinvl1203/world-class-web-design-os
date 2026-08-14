@@ -1,6 +1,6 @@
 # Verified Source Registry
 
-Last reviewed: **2026-08-09**. This repository distills public documentation and public course descriptions; it does not reproduce proprietary course content.
+Last reviewed: **2026-08-15**. This repository distills public documentation and public course descriptions; it does not reproduce proprietary course content.
 
 ## Codex / skill architecture
 
@@ -66,8 +66,11 @@ Last reviewed: **2026-08-09**. This repository distills public documentation and
 - YouTube Data API video list and statistics: https://developers.google.com/youtube/v3/docs/videos/list
 - YouTube video resource statistics: https://developers.google.com/youtube/v3/docs/videos
 - Codrops RSS: https://tympanus.net/codrops/feed/
+- Smashing Magazine RSS: https://www.smashingmagazine.com/feed/
+- web.dev RSS: https://web.dev/feed.xml
+- MDN Blog RSS: https://developer.mozilla.org/en-US/blog/rss.xml
 
-Only official/API-permitted metrics are automated. Platform-wide Threads discovery is not simulated through logged-in scraping; public links can be curated manually until approved API access supports the desired discovery scope.
+Only official/API-permitted metrics are automated. The four public feeds above were checked for HTTP 200 and XML content on 2026-08-15. Platform-wide Threads discovery is not simulated through logged-in scraping; public links can be curated manually until approved API access supports the desired discovery scope.
 
 ### Source-use rule
 

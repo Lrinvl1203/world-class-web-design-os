@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f1ede3">
-  <meta name="description" content="Install 17 web-design Agent Skills for Codex, Claude Code, Cursor, and GitHub Copilot, with art direction, independent critique, accessibility, and visual QA.">
+  <meta name="description" content="A guided web-design operating system for non-designers who vibe-code front ends: install 17 skills for art direction, implementation, critique, accessibility, and visual QA.">
   <meta property="og:title" content="World-Class Web Design OS — Design with a point of view. Ship with evidence.">
-  <meta property="og:description" content="An open operating system for distinctive, usable, verifiable agent-made websites.">
+  <meta property="og:description" content="Your agent can generate UI. This open design OS helps it judge, refine, and verify the result.">
   <meta property="og:image" content="https://lrinvl1203.github.io/world-class-web-design-os/assets/social-preview.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lrinvl1203.github.io/world-class-web-design-os/">
@@ -15,6 +15,20 @@
   <link rel="canonical" href="https://lrinvl1203.github.io/world-class-web-design-os/">
   <link rel="icon" href="assets/web-design-os-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "World-Class Web Design OS",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Cross-platform",
+      "isAccessibleForFree": true,
+      "license": "https://opensource.org/license/mit",
+      "url": "https://lrinvl1203.github.io/world-class-web-design-os/",
+      "codeRepository": "https://github.com/Lrinvl1203/world-class-web-design-os",
+      "description": "An open design operating system for non-designers who use coding agents to build front ends."
+    }
+  </script>
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -26,7 +40,7 @@
     </a>
     <nav aria-label="Primary navigation">
       <a href="#proof">Proof</a>
-      <a href="#challenge">Challenge</a>
+      <a href="#start">60-sec start</a>
       <a href="#method">Method</a>
       <a href="#install">Install</a>
       <a class="nav-github" href="https://github.com/Lrinvl1203/world-class-web-design-os">Star on GitHub ↗</a>
@@ -36,14 +50,20 @@
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow"><span>Open design infrastructure</span><span>Seoul / Worldwide</span></p>
+        <p class="eyebrow"><span>For non-designers who vibe-code the front end</span><span>Open source / MIT</span></p>
         <h1 id="hero-title">Design with a<br><em>point of view.</em><br>Ship with evidence.</h1>
-        <p class="hero-deck">A practical operating system that routes an AI agent through discovery, art direction, implementation, critique, accessibility, and rendered QA. Not another prompt pack.</p>
+        <p class="hero-deck">Your agent can generate UI. The hard part is knowing why it feels wrong—and how to fix it. This operating system routes the work through art direction, implementation, independent critique, accessibility, and rendered browser QA.</p>
         <div class="command-row">
           <code id="hero-command">npx --yes github:Lrinvl1203/world-class-web-design-os install --agent codex</code>
-          <button class="copy-button" type="button" data-copy="hero-command">Copy</button>
+          <button class="copy-button" type="button" data-copy="hero-command" data-status-target="hero-copy-status">Copy installer</button>
         </div>
-        <p class="copy-status" aria-live="polite"></p>
+        <p class="copy-status" id="hero-copy-status" aria-live="polite"></p>
+        <ul class="hero-proof" aria-label="Installation facts">
+          <li>Free and MIT licensed</li>
+          <li>No account or API key</li>
+          <li>Node 20+ required</li>
+          <li><a href="#start">See the 60-second path ↓</a></li>
+        </ul>
       </div>
 
       <div class="hero-instrument" aria-label="The Web Design OS workflow from intent to evidence">
@@ -68,16 +88,51 @@
       <div><strong>Daily</strong><span>controlled learning</span></div>
     </section>
 
+    <section class="section first-run" id="start" aria-labelledby="start-title">
+      <header class="section-heading compact">
+        <p class="section-index">01 / First successful use</p>
+        <h2 id="start-title">One command.<br>One new session.<br>One normal sentence.</h2>
+        <p>No design vocabulary is required. Install the system, refresh skill discovery, and describe the website you need in plain language.</p>
+      </header>
+
+      <ol class="start-steps">
+        <li>
+          <span>01 / TERMINAL</span>
+          <h3>Install the 17 skills globally.</h3>
+          <code>npx --yes github:Lrinvl1203/world-class-web-design-os install --agent codex</code>
+          <p>Paste this into a terminal inside or outside your project. It does not modify the website yet.</p>
+        </li>
+        <li>
+          <span>02 / REFRESH</span>
+          <h3>Start a new Codex session.</h3>
+          <code>web-design-os doctor --agent codex</code>
+          <p>The doctor should report <strong>17/17 READY</strong>. A new session lets Codex discover the installed skills.</p>
+        </li>
+        <li>
+          <span>03 / ASK NORMALLY</span>
+          <h3>Give it the real product job.</h3>
+          <blockquote id="starter-prompt">Use $web-design-orchestrator to redesign and implement this website for [audience], then verify it on mobile and desktop.</blockquote>
+          <button type="button" class="starter-copy" data-copy="starter-prompt" data-status-target="starter-copy-status">Copy the one-sentence prompt</button>
+          <p class="copy-status" id="starter-copy-status" aria-live="polite"></p>
+        </li>
+      </ol>
+
+      <aside class="first-run-note">
+        <strong>Already installed?</strong>
+        <span>Append <code>--overwrite</code> to update. If a skill does not appear, run the doctor and open a fresh session before reinstalling.</span>
+      </aside>
+    </section>
+
     <section class="section demo" id="challenge" aria-labelledby="demo-title">
       <header class="section-heading compact">
-        <p class="section-index">01 / See it work</p>
-        <h2 id="demo-title">Eighteen seconds.<br>Then test the claim.</h2>
-        <p>The same operating system produced two deliberately different website archetypes. The demo is proof of operation, not external validation.</p>
+        <p class="section-index">02 / See it work</p>
+        <h2 id="demo-title">Fifteen seconds.<br>Five different outcomes.</h2>
+        <p>The same operating system produced five deliberately different website archetypes. The demo proves operation and range—not user validation or award status.</p>
       </header>
       <div class="demo-stage">
-        <video controls playsinline preload="none" poster="assets/web-design-os-demo-poster.jpg" aria-label="18-second Web Design OS demonstration" aria-describedby="demo-caption">
-          <source src="assets/web-design-os-demo-4x3.mp4" type="video/mp4">
-          <a href="assets/web-design-os-demo-4x3.mp4">Download the 18-second demo video</a>.
+        <video controls playsinline preload="none" poster="assets/web-design-os-proof-15s-poster.jpg" aria-label="15-second Web Design OS proof reel" aria-describedby="demo-caption">
+          <source src="assets/web-design-os-proof-15s.mp4" type="video/mp4">
+          <a href="assets/web-design-os-proof-15s.mp4">Download the 15-second proof reel</a>.
         </video>
         <div class="demo-caption" id="demo-caption">
           <span>PUBLIC TEST / SAME INPUTS</span>
@@ -89,7 +144,7 @@
 
     <section class="section experiments" id="proof" aria-labelledby="proof-title">
       <header class="section-heading">
-        <p class="section-index">02 / Rendered proof</p>
+        <p class="section-index">03 / Rendered proof</p>
         <h2 id="proof-title">Inspect the output,<br>not the adjective.</h2>
         <p>Five deliberately different archetypes exercise the same system. Scores are internal Design Quality evaluations, not field validation.</p>
       </header>
@@ -157,7 +212,7 @@
 
     <section class="section method" id="method" aria-labelledby="method-title">
       <header class="section-heading compact">
-        <p class="section-index">03 / Operating method</p>
+        <p class="section-index">04 / Operating method</p>
         <h2 id="method-title">One orchestrator.<br>Specialists on demand.</h2>
         <p>The system activates only the skills needed for the job, keeps implementation and critique separate, then records reusable defects through a controlled proposal loop.</p>
       </header>
@@ -181,7 +236,7 @@
 
     <section class="section contrast" aria-labelledby="contrast-title">
       <header class="section-heading compact">
-        <p class="section-index">04 / The difference</p>
+        <p class="section-index">05 / The difference</p>
         <h2 id="contrast-title">A system, not a style vending machine.</h2>
       </header>
       <div class="contrast-grid">
@@ -208,7 +263,7 @@
 
     <section class="section install" id="install" aria-labelledby="install-title">
       <header class="section-heading compact inverse-heading">
-        <p class="section-index">05 / Start here</p>
+        <p class="section-index">06 / Install details</p>
         <h2 id="install-title">Install once.<br>Ask normally.</h2>
         <p>After installation, a plain-language website request automatically starts with the orchestrator.</p>
       </header>
@@ -221,17 +276,18 @@
         </div>
         <div class="install-panel" id="install-panel" role="tabpanel" aria-labelledby="install-tab-codex">
           <span>01 / RUN</span>
-          <div class="install-command"><code id="install-command" tabindex="0">npx --yes github:Lrinvl1203/world-class-web-design-os install --agent codex</code><button type="button" data-copy="install-command">Copy command</button></div>
+          <div class="install-command"><code id="install-command" tabindex="0">npx --yes github:Lrinvl1203/world-class-web-design-os install --agent codex</code><button type="button" data-copy="install-command" data-status-target="install-copy-status">Copy command</button></div>
           <span>02 / ASK</span>
           <blockquote id="install-prompt">“이 제품의 웹사이트를 디자인하고 구현해줘.”</blockquote>
           <p id="install-note">The skill system is installed to your global Codex skills directory. Add <code>--overwrite</code> when updating an existing installation.</p>
+          <p class="copy-status" id="install-copy-status" aria-live="polite"></p>
         </div>
       </div>
     </section>
 
     <section class="section trust" aria-labelledby="trust-title">
       <header class="section-heading compact">
-        <p class="section-index">06 / Trust model</p>
+        <p class="section-index">07 / Trust model</p>
         <h2 id="trust-title">The gates are part<br>of the design.</h2>
       </header>
       <div class="trust-ledger">
@@ -242,13 +298,43 @@
       </div>
     </section>
 
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <header class="section-heading compact">
+        <p class="section-index">08 / Before you install</p>
+        <h2 id="faq-title">Useful boundaries,<br>not bigger promises.</h2>
+        <p>The OS is strongest as a governed workflow. It does not replace product judgment, user research, or a designer with real domain context.</p>
+      </header>
+      <div class="faq-list">
+        <details>
+          <summary>Is this another component library or style prompt collection?</summary>
+          <p>No. It can choose native HTML, custom components, registries, motion, or purposeful 3D after the user job and art direction are clear. The reusable product is the decision and verification workflow.</p>
+        </details>
+        <details>
+          <summary>Is it universally better than UI prompt packs or design courses?</summary>
+          <p>No universal claim is made. Its narrower advantage is connecting discovery, art direction, implementation, independent critique, responsive work, accessibility, browser QA, and controlled learning in one route.</p>
+        </details>
+        <details>
+          <summary>Does “daily learning” silently rewrite the skills?</summary>
+          <p>No. Trusted feeds and authorized APIs produce review artifacts. A recurring principle still needs three independent sources, counterexamples, regression scenarios, and an intentional reviewed change.</p>
+        </details>
+        <details>
+          <summary>Why must I start a new session after installation?</summary>
+          <p>Agent skill discovery happens when the session starts. Opening a fresh session prevents an old capability list from making the new skills appear missing.</p>
+        </details>
+        <details>
+          <summary>Do I need animation or 3D for every site?</summary>
+          <p>No. CSS or no motion is often the correct choice. 3D, WebGL, and heavier animation engines are used only when they communicate the product or brand idea and survive accessibility and performance review.</p>
+        </details>
+      </div>
+    </section>
+
     <section class="closing" aria-labelledby="closing-title">
       <p>OPEN SOURCE / MIT</p>
       <h2 id="closing-title">Make the next website<br><em>harder to ignore.</em></h2>
       <div>
         <a class="primary-link" href="https://github.com/Lrinvl1203/world-class-web-design-os">Star / view on GitHub ↗</a>
         <a href="#install">Install the system ↑</a>
-        <a href="https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6">Show your build ↗</a>
+        <a href="https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6">Share a build or failure ↗</a>
       </div>
     </section>
   </main>

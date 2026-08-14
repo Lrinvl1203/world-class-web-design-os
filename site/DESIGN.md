@@ -2,9 +2,19 @@
 
 ## Product job
 
-Help a developer or design lead understand in under a minute that this is an evidence-led operating system for agentic web design—not a prompt pack—and give them a trustworthy one-line path to install it.
+Help a non-designer who vibe-codes front ends understand in one scan that this is an evidence-led operating system—not a prompt pack—and reach a verified first use without knowing design vocabulary or agent-skill installation mechanics.
 
-Primary action: copy the install command and open the repository.
+Primary action: copy the Codex install command. Secondary success action: open a new session and paste the one-sentence starter prompt. The first durable proof action is sharing a build or failure.
+
+Primary objections: terminal uncertainty, stale session discovery, doubt that the workflow changes output quality, and concern that “daily learning” means uncontrolled prompt mutation.
+
+Conversion CTQs:
+
+- the install command and its requirements are visible above the fold;
+- the complete install → refresh → ask path is explainable in three steps;
+- the starter sentence is independently copyable;
+- proof remains adjacent to honest limitations;
+- mobile preserves the same first-success order without hiding controls in horizontal layouts.
 
 ## Three routes considered
 

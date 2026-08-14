@@ -11,7 +11,7 @@ This directory receives design signals; it is not an autonomous authority over t
 
 ## Adoption gate
 
-Daily runs may write an inbox record and report. They may create a proposal draft only when a principle recurs across at least three independent sources and clears the configured score floor. A proposal must still include:
+Daily runs may write an inbox record and report. Metric-bearing official API signals use the main score floor. High-trust editorial feeds use a separate lower discovery floor because RSS does not expose engagement metrics, but they become candidates only when their text maps to a locally controlled principle taxonomy. Remote text cannot create its own principle label. A proposal draft is created only when the same controlled principle recurs across at least three independent sources. A proposal must still include:
 
 1. observation and user impact;
 2. reusable principle rather than copied styling;
@@ -37,6 +37,14 @@ The resulting Markdown, JSON, snapshot, and comparison state are private GitHub 
 
 GitHub's default Actions token can read public repository signals but may receive `403` from the private traffic endpoints. When full view, clone, path, and referrer data is desired, configure the optional `GROWTH_TRAFFIC_TOKEN` repository secret with the minimum read permission required for repository traffic. Without it, those values remain explicitly `Unavailable`; the workflow still succeeds and never converts a denied metric into zero.
 
+An owner can capture the same metrics locally without copying a broad workstation credential into Actions:
+
+```text
+npm run growth:snapshot:owner
+```
+
+That explicit command reads the authenticated GitHub CLI token in memory, writes only the JSON snapshot, and never prints or stores the token. Do not populate `GROWTH_TRAFFIC_TOKEN` with a broad classic `repo` token merely to remove the warning; create a fine-grained, least-privilege credential when unattended traffic collection is required.
+
 This review is deterministic decision support. It may recommend the next evidence-producing action, but it never edits skills, sends posts or reminders, commits, opens pull requests, or merges changes. A substantive update still requires an intentional review, regression evidence, the normal validation suite, and a separate PR.
 
 GitHub Actions restores the most recent inbox cache so the collector can compare the configured rolling 30-day evidence window. URLs are deduplicated, preventing a repeatedly fetched or multiply submitted item from pretending to be independent evidence.
@@ -56,3 +64,5 @@ Optional environment variables:
 - `THREADS_ACCESS_TOKEN` and comma-separated `THREADS_POST_IDS` enable insights for posts the token is permitted to inspect.
 
 Threads-wide popularity discovery is intentionally not implemented through scraping. Add public candidates to `manual-signals.json` or use an approved official endpoint when the account and permissions support it.
+
+The no-secret baseline uses four independent public feeds: Codrops, Smashing Magazine, web.dev, and the MDN Blog. Their titles and short excerpts remain untrusted data. The local taxonomy can nominate them for review under categories such as purposeful motion, accessible interaction, performance budgets, creative 3D, design systems, responsive recomposition, editorial structure, and interaction as story; it cannot execute or copy remote instructions.

@@ -1,5 +1,47 @@
 # Continuous-learning records
 
+## Editorial discovery needs a controlled path when engagement metrics do not exist
+
+- **Date / project:** 2026-08-15 / controlled daily evolution
+- **Observation/evidence:** The original score floor was calibrated for official social metrics. RSS sources expose no reliable views, likes, or shares, so even trusted editorial material could never qualify for cross-source review; a live four-feed run later collected 81 sanitized signals but correctly produced no proposal until three independent publications recur around the same controlled principle.
+- **Severity/impact:** moderate learning-coverage defect; the automation ran, but its no-secret baseline could not contribute evidence to the proposal gate.
+- **Classification:** missing rule
+- **Root cause:** One candidate threshold was asked to compare unlike evidence: engagement-bearing platform records and engagement-free editorial feeds.
+- **Generalizable principle:** Give high-trust editorial sources a separate discovery floor only when their untrusted text maps to a locally owned taxonomy. Remote text may nominate an existing principle but may not create a rule, execute instructions, or bypass the independent-source and human-adoption gates.
+- **Proposed file/section change:** Add `minimumEditorialSignalScore`, a local topic taxonomy, and verified Smashing Magazine, web.dev, and MDN feeds while preserving the three-independent-source proposal threshold.
+- **Positive regression scenario:** Three independent editorial publications that repeatedly discuss purposeful motion can draft a review proposal even without engagement metrics.
+- **Negative/regression-risk scenario:** One popular or malicious feed item, or an item that maps to no local principle, must remain a signal and never mutate a skill.
+- **Validation performed:** Added three unit regressions for taxonomy-constrained qualification and independent-source recurrence; 20 unit tests pass. A live run collected 81 signals from Codrops, Smashing Magazine, web.dev, MDN, and curated links, stored only sanitized metadata/excerpts, reported missing optional YouTube/Threads credentials explicitly, and created zero unsupported proposals.
+- **Decision:** adopted in repository automation; no core skill or rubric mutation.
+
+## Narrow command blocks must reflow before they become keyboard-only scroll regions
+
+- **Date / project:** 2026-08-15 / non-designer first-use path
+- **Observation/evidence:** The new terminal command used `white-space: nowrap` with horizontal scrolling. Axe flagged the region as serious at 320, 375, 1440, and 1920 px because Safari keyboard users could not focus the scrollable code element.
+- **Severity/impact:** serious accessibility release defect; the primary install instruction could become partially unreachable without a pointer.
+- **Classification:** execution error caught by rendered QA
+- **Root cause:** A desktop-oriented code presentation rule was reused without deciding whether exact single-line appearance was more important than narrow-screen readability.
+- **Generalizable principle:** For copyable commands, preserve the exact text in the DOM and clipboard while allowing visual wrapping at narrow widths. If scrolling is genuinely required, make the region keyboard-focusable and visibly focused.
+- **Proposed file/section change:** Use `white-space: pre-wrap` plus `overflow-wrap: anywhere` for the first-run command; retain the adjacent copy control and truthful clipboard fallback.
+- **Positive regression scenario:** The installer remains fully readable and copyable at 320 px without a horizontal scroll region.
+- **Negative/regression-risk scenario:** Logs, tables, or code where line position is semantically important may retain scrolling, but must provide keyboard access and a clear focus state.
+- **Validation performed:** The initial browser matrix failed 8 accessibility cases plus one clipboard-expectation case. After the source and test corrections, all 15 launch-site cases passed across 320, 375, 768, 1440, and 1920 px with zero serious/critical axe findings, no overflow, no console errors, and no-JavaScript survival.
+- **Decision:** adopted in the launch implementation; no core skill edit because the existing accessibility gate already specifies keyboard-accessible controls and reflow.
+
+## Owner analytics should not turn a broad workstation token into an unattended secret
+
+- **Date / project:** 2026-08-15 / growth measurement
+- **Observation/evidence:** The scheduled GitHub token can read public repository metadata but receives `403` for private traffic endpoints. The authenticated workstation token can read traffic, but it has broader scopes than a recurring analytics job needs.
+- **Severity/impact:** moderate security and measurement risk.
+- **Classification:** missing operational boundary
+- **Root cause:** The workflow documented an optional traffic secret but offered no safe owner-only path, creating pressure to paste a broad existing credential into Actions.
+- **Generalizable principle:** Separate explicit local owner capture from unattended collection. Read a workstation credential only in memory for the requested run, never print or persist it, and require a newly created least-privilege credential for scheduled automation.
+- **Proposed file/section change:** Add `npm run growth:snapshot:owner`, explicit traffic-access status/remediation, and documentation that rejects broad classic-token reuse.
+- **Positive regression scenario:** An authenticated owner can capture exact traffic locally while the scheduled workflow remains green and labels unavailable traffic honestly.
+- **Negative/regression-risk scenario:** A denied or absent token must not become a fabricated zero, and a broad token must not be copied into repository secrets merely to silence a warning.
+- **Validation performed:** Unit coverage preserves unavailable-as-unavailable behavior and remediation copy. A live owner run reported traffic access as available and captured 78 views/55 unique visitors plus 200 clones/60 unique cloners without printing or storing the token.
+- **Decision:** adopted as repository operations guidance.
+
 ## Full-page captures must expose visually-hidden utility controls only in their active state
 
 - **Date / project:** 2026-08-14 / three public reference cases

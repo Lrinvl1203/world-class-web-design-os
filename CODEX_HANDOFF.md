@@ -12,6 +12,16 @@ Primary remote target:
 
 The user wants all future work on this project to continue in Codex with no loss of context.
 
+### Conversion, controlled-learning, and growth hardening — 2026-08-15
+
+- PR #18 (`agent/improve-conversion-learning`) carries the current milestone. It reframes the launch surface for non-designers who can generate a front end but struggle to judge why it feels wrong, and makes the primary journey installer → fresh session → one explicit `$web-design-orchestrator` sentence.
+- The launch page now includes a three-step 60-second first-use path, honest FAQ boundaries, per-control copy/fallback feedback, a 15-second 1920×1080 five-outcome proof reel, and a deterministic 111 KB proof poster. README, Korean onboarding, design notes, growth plan, launch kit, and changelog are aligned.
+- The no-secret evolution baseline now uses Codrops, Smashing Magazine, web.dev, and MDN. Engagement-free editorial signals have a separate discovery floor but qualify only through a local controlled taxonomy; proposals still require three independent sources and intentional human-reviewed regression evidence. A live run collected 81 sanitized signals and created zero unsupported proposals.
+- Growth snapshots now label repository-traffic access explicitly. `npm run growth:snapshot:owner` reads an authenticated owner token only in memory and does not print or persist it; unattended Actions collection still requires a newly created least-privilege `GROWTH_TRAFFIC_TOKEN`, never the broad workstation token. A live owner run captured 78 views/55 uniques and 200 clones/60 unique cloners; clone activity is not claimed as successful installs.
+- Validation is green: 17 skills, Design Quality 92/100, routing 10/10, unit tests 20/20, and launch browser gates 15/15 across 320, 375, 768, 1440, and 1920 px. The browser pass covers serious/critical axe findings, keyboard state, overflow, console errors, no-JavaScript survival, and the 500 KB initial transfer budget.
+- The strongest measured referrer remains Reddit; Threads has some reach and X has not produced measured repository referrals in the current window. Promote the deployed 15-second proof as evidence, not a generic reminder, and continue asking for real builds or failures rather than empty stars.
+- Preserve the four inherited mode-only changes in `scripts/install-into-project.sh`, `scripts/publish-github.sh`, `scripts/validate_design_quality_score.py`, and `scripts/validate_skills.py`; they remain intentionally outside PR #18.
+
 ### Reference-case expansion — 2026-08-14
 
 - Three new materially different public case studies are implemented on branch `agent/add-reference-case-studies`: `experiments/afterimage-atlas/` (editorial/cultural inspection), `experiments/sequence-desk/` (stateful product UI), and `experiments/orbital-commons/` (accessible civic-data pseudo-3D).

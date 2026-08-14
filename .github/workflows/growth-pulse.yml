@@ -20,6 +20,7 @@ jobs:
         run: node scripts/growth/snapshot.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GROWTH_TRAFFIC_TOKEN || secrets.GITHUB_TOKEN }}
+          GROWTH_TRAFFIC_TOKEN_CONFIGURED: ${{ secrets.GROWTH_TRAFFIC_TOKEN != '' }}
       - uses: actions/upload-artifact@v6
         with:
           name: growth-pulse-${{ github.run_id }}

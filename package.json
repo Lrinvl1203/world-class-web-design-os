@@ -44,6 +44,7 @@
     "scripts/lib",
     "scripts/evaluate-routes.mjs",
     "scripts/growth/snapshot.mjs",
+    "scripts/growth/snapshot-owner.mjs",
     "scripts/growth/weekly-review.mjs",
     "scripts/install-global.mjs",
     "templates",
@@ -60,6 +61,7 @@
     "eval:skills": "node cli/web-design-os.mjs eval",
     "evolve:daily": "node cli/web-design-os.mjs evolve",
     "growth:snapshot": "node scripts/growth/snapshot.mjs",
+    "growth:snapshot:owner": "node scripts/growth/snapshot-owner.mjs",
     "weekly:review": "node scripts/growth/weekly-review.mjs",
     "test:unit": "node --test tests/*.test.mjs",
     "qa:install": "npx playwright install chromium",
@@ -67,6 +69,7 @@
     "qa:visual": "playwright test",
     "qa:launch": "node scripts/run-launch-qa.mjs",
     "build:launch-assets": "node scripts/build-launch-assets.mjs",
+    "build:proof-poster": "node scripts/build-proof-poster.mjs",
     "prepack": "npm run validate && npm run eval:skills"
   },
   "devDependencies": {

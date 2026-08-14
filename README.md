@@ -2,7 +2,7 @@
   <img src="site/assets/web-design-os-mark.svg" width="72" alt="Web Design OS">
   <h1>World-Class Web Design OS</h1>
   <p><strong>Design with a point of view. Ship with evidence.</strong></p>
-  <p>An open operating system for distinctive, usable, accessible, and verifiable agent-made websites.</p>
+  <p>An open design operating system for non-designers who can generate a front end but still struggle to judge why it feels wrong.</p>
   <p>
     <a href="docs/README.ko.md">한국어</a> ·
     <a href="https://lrinvl1203.github.io/world-class-web-design-os/">Live overview</a> ·
@@ -19,13 +19,13 @@
 [![17 skills](https://img.shields.io/badge/specialist_skills-17-ff4f20.svg)](.codex/skills)
 
 <div align="center">
-  <a href="https://lrinvl1203.github.io/world-class-web-design-os/assets/web-design-os-demo-4x3.mp4">
-    <img src="site/assets/web-design-os-demo.webp" width="960" alt="18-second demonstration of the Web Design OS launch site and two contrasting website experiments">
+  <a href="https://lrinvl1203.github.io/world-class-web-design-os/assets/web-design-os-proof-15s.mp4">
+    <img src="site/assets/web-design-os-proof-15s-poster.jpg" width="960" alt="15-second proof reel showing five contrasting website experiments produced with Web Design OS">
   </a>
-  <p><strong>18 seconds:</strong> one operating system, two deliberately different outputs. <a href="https://lrinvl1203.github.io/world-class-web-design-os/">Explore the live proof</a>.</p>
+  <p><strong>15 seconds:</strong> one operating system, five deliberately different outputs. <a href="https://lrinvl1203.github.io/world-class-web-design-os/">Explore the live proof</a>.</p>
 </div>
 
-World-Class Web Design OS installs 17 routed specialist skills into Codex, Claude Code, Cursor, GitHub Copilot, OpenCode, or the shared `.agents/skills` convention. It guides a coding agent through discovery, art direction, implementation, independent critique, accessibility, performance, and rendered visual QA.
+World-Class Web Design OS installs 17 routed specialist skills into Codex, Claude Code, Cursor, GitHub Copilot, OpenCode, or the shared `.agents/skills` convention. It guides a coding agent through discovery, art direction, components, interaction, motion, justified 3D, implementation, independent critique, accessibility, performance, and rendered visual QA.
 
 It is not a component library or a list of style prompts. The output can look completely different from project to project because the system governs decisions and gates—not a house style.
 
@@ -47,7 +47,7 @@ npx --yes skills add Lrinvl1203/world-class-web-design-os -g
 
 3. Ask in one sentence:
 
-> Design and implement a distinctive website for this product using the installed Web Design OS, then verify it at mobile and desktop widths.
+> Use $web-design-orchestrator to redesign and implement this website for [audience], then verify it on mobile and desktop.
 
 Broad website work routes through `web-design-orchestrator`; specialist skills load only when their job is relevant. To update an installation, append `--overwrite`. To install every declared target, use `--agent all`.
 
@@ -63,7 +63,7 @@ The doctor command confirms the expected 17 skills are discoverable. Both instal
 |---|---|
 | 1 orchestrator + 16 specialist skills | Keeps the active context focused while preserving a complete design workflow |
 | 100 evidence-labeled references | Makes art-direction and technical choices searchable instead of relying on style adjectives |
-| 2 runnable, contrasting website experiments | Shows that the system does not force every output into one house style |
+| 5 runnable, contrasting website experiments | Shows that the system does not force every output into one house style |
 | Playwright, axe, responsive, overflow, console, and reduced-motion gates | Turns “looks finished” into inspectable release evidence |
 | Cross-agent installer and doctor | Gives Codex, Claude Code, Cursor, Copilot, OpenCode, and `.agents` users one maintained source |
 
