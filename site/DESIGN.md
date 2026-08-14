@@ -14,7 +14,7 @@ Primary action: copy the install command and open the repository.
 
 ## Point of view
 
-The system should feel like a working design instrument: opinionated enough to produce character, measured enough to earn trust. The page moves from promise to rendered proof to method to installation.
+The system should feel like a working design instrument: opinionated enough to produce character, measured enough to earn trust. The page moves from promise to five materially different rendered proofs, then to method and installation.
 
 Anti-direction: generic centered SaaS hero, floating glass cards, purple/blue glow, decorative 3D, uniform pills, inflated claims, or animation without information value.
 

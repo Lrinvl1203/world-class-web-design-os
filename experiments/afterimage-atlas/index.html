@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eee9dd">
+  <meta name="description" content="Afterimage Atlas is a fictional editorial design study about how one public image changes as it travels.">
+  <title>Afterimage Atlas — A living object study</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the object</a>
+  <header class="masthead">
+    <a href="#top" class="wordmark">AFTERIMAGE<br>ATLAS</a>
+    <p>Living object study <span>№ 014</span></p>
+    <nav aria-label="Primary navigation"><a href="#object">Object</a><a href="#reading">Reading</a><a href="#source">Source</a></nav>
+  </header>
+
+  <main id="main">
+    <section class="opening" id="top" aria-labelledby="title">
+      <p class="folio">FIELD NOTE / 06.12.2026 / FICTIONAL STUDY</p>
+      <h1 id="title">An image is never<br><em>only carried.</em></h1>
+      <div class="opening-note">
+        <p>A poster begins as a request. Then a photograph trims its edges, a printer changes its ink, a translator shifts its voice, and a feed forgets its scale.</p>
+        <a href="#object">Inspect five editions <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="thesis" aria-label="Study thesis"><span>ONE OBJECT</span><strong>5</strong><span>VISIBLE<br>TRANSFORMATIONS</span></div>
+    </section>
+
+    <section class="object-section" id="object" aria-labelledby="object-title">
+      <header class="chapter-head"><span>01</span><p>Object / editions 1978—2026</p><h2 id="object-title">The copy<br>keeps moving.</h2></header>
+
+      <div class="object-workbench">
+        <div class="poster-frame" aria-hidden="true">
+          <div class="poster" data-poster>
+            <span class="poster-code">PUBLIC NOTICE / 14</span>
+            <strong data-poster-word>STAY<br>VISIBLE</strong>
+            <i></i><b></b>
+            <small data-poster-small>A street belongs to the people who can still be seen in it.</small>
+          </div>
+          <span class="crop-mark crop-a"></span><span class="crop-mark crop-b"></span>
+        </div>
+
+        <div class="edition-panel">
+          <p class="panel-label">Select an edition</p>
+          <div class="edition-tabs" role="tablist" aria-label="Poster editions">
+            <button role="tab" aria-selected="true" id="edition-tab-0" aria-controls="edition-note" data-edition="0"><span>01</span><b>1978</b><small>Original</small></button>
+            <button role="tab" aria-selected="false" tabindex="-1" id="edition-tab-1" aria-controls="edition-note" data-edition="1"><span>02</span><b>1986</b><small>Photocopy</small></button>
+            <button role="tab" aria-selected="false" tabindex="-1" id="edition-tab-2" aria-controls="edition-note" data-edition="2"><span>03</span><b>1999</b><small>Translation</small></button>
+            <button role="tab" aria-selected="false" tabindex="-1" id="edition-tab-3" aria-controls="edition-note" data-edition="3"><span>04</span><b>2012</b><small>Crop</small></button>
+            <button role="tab" aria-selected="false" tabindex="-1" id="edition-tab-4" aria-controls="edition-note" data-edition="4"><span>05</span><b>2026</b><small>Feed</small></button>
+          </div>
+          <article class="edition-note" id="edition-note" role="tabpanel" aria-labelledby="edition-tab-0" tabindex="0">
+            <p class="note-index" data-note-index>EDITION 01 / SOURCE</p>
+            <h3 data-note-title>The request is still whole.</h3>
+            <p data-note-copy>The first edition uses scale as a public voice. Its sentence, authorship line, and open margin arrive together.</p>
+            <dl><div><dt>Loss</dt><dd data-loss>None recorded</dd></div><div><dt>Gain</dt><dd data-gain>Collective scale</dd></div></dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reading" id="reading" aria-labelledby="reading-title">
+      <header class="chapter-head inverse"><span>02</span><p>Reading / what survives</p><h2 id="reading-title">Every copy<br>authors again.</h2></header>
+      <div class="reading-grid">
+        <p class="pull">“Reproduction does not merely lower fidelity. It produces a new public, a new distance, and a new kind of urgency.”</p>
+        <div class="essay">
+          <p><span class="drop">T</span>he useful question is not whether the fifth edition is authentic. It is whether we can see the decisions that made it different. Cropping removes a place. Translation changes who can answer. Compression turns a wall-sized request into something held in one hand.</p>
+          <p>This interface keeps those edits beside the object. The image moves; the evidence does not disappear.</p>
+        </div>
+        <ol class="survival-list">
+          <li><span>01</span><b>Voice</b><small>Who is speaking?</small></li>
+          <li><span>02</span><b>Edge</b><small>What was cut away?</small></li>
+          <li><span>03</span><b>Scale</b><small>How close is the body?</small></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="source" id="source" aria-labelledby="source-title">
+      <p class="folio">03 / PROVENANCE</p>
+      <h2 id="source-title">Nothing here is borrowed.</h2>
+      <p>The poster, copy, annotations, and visual system are original fictional material made for this open-source design study. It demonstrates an inspectable editorial interaction—not a real historical object.</p>
+      <a href="../../index.html">Return to Web Design OS</a>
+    </section>
+  </main>
+
+  <footer><span>AFTERIMAGE ATLAS / FICTIONAL</span><span>Designed as evidence, not a template.</span><a href="#top">Top ↑</a></footer>
+  <script src="script.js" defer></script>
+</body>
+</html>

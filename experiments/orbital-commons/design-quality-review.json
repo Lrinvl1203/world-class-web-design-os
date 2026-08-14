@@ -1,0 +1,49 @@
+{
+  "project": "Orbital Commons — fictional civic heat comparison",
+  "review_type": "independent screenshot-led review after multi-viewport QA",
+  "wdx_total": 94.3,
+  "release_threshold": 92,
+  "release_decision": "INTERNAL PASS — FIELD VALIDATION PENDING",
+  "scores": {
+    "art_direction_originality": 11.5,
+    "brand_distinctiveness": 7.6,
+    "composition": 11.4,
+    "typography": 9.1,
+    "color_materiality": 5.7,
+    "spatial_rhythm": 7.5,
+    "imagery": 7.8,
+    "content_copy": 5.5,
+    "ux_navigation": 7.7,
+    "interaction": 4.8,
+    "motion": 4.8,
+    "responsive": 4.9,
+    "accessibility": 3.0,
+    "performance": 3.0
+  },
+  "hard_gates": {
+    "functional": true,
+    "critical_accessibility": true,
+    "responsive_matrix": true,
+    "reduced_motion": true,
+    "no_horizontal_overflow": true,
+    "no_console_errors": true,
+    "field_core_web_vitals": "PENDING_REAL_DEPLOYMENT"
+  },
+  "strengths": [
+    "The pseudo-3D field explains scenario distribution and is paired with an equivalent semantic table.",
+    "The compare verb synchronizes controls, geometry, result sentence, equity note, and active table row.",
+    "The renderer is dependency-free, DPR-capped, finite, reduced on mobile, and stopped when hidden."
+  ],
+  "remaining_limits": [
+    "All values are explicitly illustrative and must not be interpreted as planning evidence.",
+    "Canvas rendering requires additional low-end Android profiling before a production civic deployment.",
+    "Field Core Web Vitals and comprehension testing are pending."
+  ],
+  "ai_smell_review": {
+    "keep": ["purposeful oblique block field", "civic method disclosure", "one compare transition"],
+    "adapt": ["atmospheric rings remain only as spatial framing and are absent from the instrument itself"],
+    "replace": ["decorative globe and particles replaced by a task-linked neighborhood model"],
+    "remove": ["perpetual camera motion, neon grid, and canvas-only labels"],
+    "blocking_smells": []
+  }
+}

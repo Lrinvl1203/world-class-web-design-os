@@ -101,10 +101,26 @@ flowchart LR
   </tr>
 </table>
 
+<table>
+  <tr>
+    <td width="33%"><a href="https://lrinvl1203.github.io/world-class-web-design-os/experiments/afterimage-atlas/"><img src="site/assets/afterimage.jpg" alt="Afterimage Atlas editorial culture experiment"></a></td>
+    <td width="33%"><a href="https://lrinvl1203.github.io/world-class-web-design-os/experiments/sequence-desk/"><img src="site/assets/sequence-desk.jpg" alt="Sequence Desk product interface experiment"></a></td>
+    <td width="33%"><a href="https://lrinvl1203.github.io/world-class-web-design-os/experiments/orbital-commons/"><img src="site/assets/orbital-commons.jpg" alt="Orbital Commons civic data and pseudo-3D experiment"></a></td>
+  </tr>
+  <tr>
+    <td><strong>Afterimage Atlas</strong><br>Editorial culture · object-led inspection</td>
+    <td><strong>Sequence Desk</strong><br>Product UI · component state workflow</td>
+    <td><strong>Orbital Commons</strong><br>Civic data · purposeful pseudo-3D</td>
+  </tr>
+</table>
+
 | Experiment | Archetype | Internal score | Field evidence | Status |
 |---|---|---:|---|---|
 | [Nocturne Concierge](experiments/nocturne-concierge/) | Editorial hospitality | 92.8 | Pending | Internal target passed |
 | [Linehold Forge](experiments/linehold-forge/) | Industrial commerce | 91.8 | Pending | Hold; below 92 target |
+| [Afterimage Atlas](experiments/afterimage-atlas/) | Editorial culture | 92.7 | Pending | Internal target passed |
+| [Sequence Desk](experiments/sequence-desk/) | Product interface | 92.8 | Pending | Internal target passed |
+| [Orbital Commons](experiments/orbital-commons/) | Civic data / pseudo-3D | 94.3 | Pending | Internal target passed |
 
 Design Quality scores are internal rubric evaluations. They are not user research, conversion data, award results, or external expert validation. See [public benchmark](docs/public-benchmark.md) for the evidence model.
 

@@ -12,6 +12,15 @@ Primary remote target:
 
 The user wants all future work on this project to continue in Codex with no loss of context.
 
+### Reference-case expansion — 2026-08-14
+
+- Three new materially different public case studies are implemented on branch `agent/add-reference-case-studies`: `experiments/afterimage-atlas/` (editorial/cultural inspection), `experiments/sequence-desk/` (stateful product UI), and `experiments/orbital-commons/` (accessible civic-data pseudo-3D).
+- Each case includes a project brief, design system, semantic HTML/CSS/JS implementation, independent review, Design Quality JSON, QA results, and six reviewed Playwright baselines at 320, 375, 390, 768, 1440, and 1920 px.
+- All 18 new browser tests pass with reduced motion, no horizontal overflow, no console errors, and zero serious/critical axe findings. Internal scores are 92.7, 92.8, and 94.3; all remain explicitly labeled as internal artifact scores with field validation pending.
+- The launch-site gallery, README proof table, asset builder, validation workflow, and Pages assembly now cover five total archetypes. `npm run validate`, `npm run eval:skills`, `npm run test:unit`, and `npm run qa:launch` are green.
+- The next actions are to commit only intended files, publish and merge the PR after CI, dispatch Pages, verify the three live URLs, and promote the visual proof on Threads first and X second. Hacker News remains excluded.
+- Preserve the four inherited mode-only changes in `scripts/install-into-project.sh`, `scripts/publish-github.sh`, `scripts/validate_design_quality_score.py`, and `scripts/validate_skills.py`; they are not part of the case-study change.
+
 ### Continuation state — 2026-08-09
 
 This section is authoritative when older historical descriptions below differ.

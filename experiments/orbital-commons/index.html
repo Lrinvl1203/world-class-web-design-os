@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1718">
+  <meta name="description" content="Orbital Commons is a fictional civic data design study comparing neighborhood heat interventions with an accessible pseudo-3D field.">
+  <title>Orbital Commons — Heat belongs to everyone</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip-link" href="#findings">Skip visualization</a>
+  <header class="site-head">
+    <a class="mark" href="#top"><i></i><span>ORBITAL<br>COMMONS</span></a>
+    <p>Ward 07 / Illustrative model</p>
+    <nav aria-label="Primary navigation"><a href="#field">Field</a><a href="#findings">Findings</a><a href="#method">Method</a></nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-copy">
+        <p class="eyebrow">PUBLIC STUDY / 03 SCENARIOS / FICTIONAL DATA</p>
+        <h1 id="title">Heat belongs<br>to <em>everyone.</em></h1>
+        <p>A neighborhood is not an average. Compare where shade lands, which blocks cool first, and who remains exposed.</p>
+      </div>
+      <div class="hero-reading"><span>CURRENT FIELD</span><strong data-hero-temp>37.8°</strong><small>Afternoon surface temperature</small></div>
+      <a class="field-link" href="#field">Enter the comparison field <span>↘</span></a>
+    </section>
+
+    <section class="field" id="field" aria-labelledby="field-title">
+      <div class="field-head"><p>01 / SPATIAL MODEL</p><h2 id="field-title">Lift the cooler<br>blocks into view.</h2><p>The height of each cell represents cooling benefit. Color represents surface temperature. This is illustrative interface data, not a planning forecast.</p></div>
+      <div class="instrument">
+        <canvas data-field-canvas aria-hidden="true"></canvas>
+        <div class="field-label label-a"><span>A</span>Transit edge</div><div class="field-label label-b"><span>B</span>School block</div><div class="field-label label-c"><span>C</span>Market lane</div>
+        <div class="controls" role="group" aria-label="Heat intervention scenarios">
+          <p>COMPARE INTERVENTION</p>
+          <button type="button" aria-pressed="true" data-scenario="0"><span>01</span><b>Current field</b><small>37.8° / 11% shade</small></button>
+          <button type="button" aria-pressed="false" data-scenario="1"><span>02</span><b>Tree corridors</b><small>34.6° / 28% shade</small></button>
+          <button type="button" aria-pressed="false" data-scenario="2"><span>03</span><b>Cool roofs + trees</b><small>32.9° / 41% shade</small></button>
+        </div>
+        <div class="legend" aria-hidden="true"><span>COOLER</span><i></i><span>HOTTER</span></div>
+      </div>
+      <p class="field-result" data-result aria-live="polite"><span>CURRENT /</span> The school block is 2.1° hotter than the modeled ward median.</p>
+    </section>
+
+    <section class="findings" id="findings" aria-labelledby="findings-title">
+      <header><p>02 / CONSEQUENCE</p><h2 id="findings-title">Averages hide<br>the walk home.</h2></header>
+      <div class="finding-lead"><strong data-delta>0.0°</strong><p data-delta-copy>Baseline field. No modeled cooling intervention is active.</p></div>
+      <div class="finding-copy"><p>The most useful scenario is not the one with the best ward average. It is the one that reduces the hottest everyday route without moving the burden to another block.</p><p data-equity><b>Equity note:</b> The current field leaves the school and transit edge above the ward median.</p></div>
+      <div class="table-wrap" tabindex="0" aria-label="Scrollable scenario comparison table">
+        <table>
+          <caption>Scenario comparison; illustrative data</caption>
+          <thead><tr><th scope="col">Scenario</th><th scope="col">Mean temp.</th><th scope="col">Shade</th><th scope="col">Hottest block</th></tr></thead>
+          <tbody>
+            <tr aria-current="true" data-row="0"><th scope="row">Current field</th><td>37.8°C</td><td>11%</td><td>School / 40.1°C</td></tr>
+            <tr data-row="1"><th scope="row">Tree corridors</th><td>34.6°C</td><td>28%</td><td>Market / 36.8°C</td></tr>
+            <tr data-row="2"><th scope="row">Cool roofs + trees</th><td>32.9°C</td><td>41%</td><td>Transit / 34.5°C</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="method" id="method">
+      <p>03 / PUBLIC METHOD</p>
+      <details><summary>What the field shows <span>+</span></summary><p>A procedural 7 × 6 block grid. Height is a normalized cooling benefit; color is an illustrative surface temperature. The adjacent table contains the same comparison without canvas.</p></details>
+      <details><summary>What it does not claim <span>+</span></summary><p>No measurements, forecasts, addresses, or demographic records are used. This case study demonstrates interface behavior only and must not be used for planning decisions.</p></details>
+      <details><summary>How it stays light <span>+</span></summary><p>No 3D library or asset download. Rendering uses one Canvas 2D context, capped device pixel ratio, fewer cells on narrow screens, and no perpetual loop.</p></details>
+      <a href="../../index.html">Return to Web Design OS <span>↗</span></a>
+    </section>
+  </main>
+  <footer><span>ORBITAL COMMONS / FICTIONAL</span><span>Canvas is enhancement. Evidence stays in HTML.</span><a href="#top">Top ↑</a></footer>
+  <script src="script.js" defer></script>
+</body>
+</html>
