@@ -53,10 +53,12 @@ test('unavailable GitHub metrics remain unavailable instead of becoming zero', (
   const current = snapshot();
   current.repository_signals = { unavailable: true, status: 403 };
   current.traffic.views = { unavailable: true, status: 403 };
+  current.traffic_access = { status: 'unavailable' };
   const result = buildWeeklyReview({ current, evolution, generatedAt: '2026-08-11T00:10:00.000Z' });
   assert.equal(result.report.metrics.stars, null);
   assert.equal(result.report.metrics.views, null);
   assert.match(result.markdown, /Unavailable/);
+  assert.match(result.markdown, /GROWTH_TRAFFIC_TOKEN/);
 });
 
 test('evolution summary uses only the latest dated inbox and matching proposal files', () => {

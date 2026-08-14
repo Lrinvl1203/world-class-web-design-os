@@ -27,16 +27,17 @@ const installModes = {
 document.querySelectorAll('[data-copy]').forEach(button => {
   button.addEventListener('click', async () => {
     const source = document.getElementById(button.dataset.copy);
+    const status = document.getElementById(button.dataset.statusTarget || 'hero-copy-status');
     const value = source?.textContent?.trim() ?? '';
     try {
       await navigator.clipboard.writeText(value);
       const previous = button.textContent;
       button.textContent = 'Copied';
-      document.querySelector('.copy-status').textContent = 'Command copied to clipboard.';
+      if (status) status.textContent = source?.tagName === 'BLOCKQUOTE' ? 'Prompt copied. Paste it into a new agent session.' : 'Command copied. Paste it into your terminal.';
       window.setTimeout(() => { button.textContent = previous; }, 1600);
     } catch {
-      window.getSelection()?.selectAllChildren(source);
-      document.querySelector('.copy-status').textContent = 'Clipboard was unavailable. The command is selected.';
+      if (source) window.getSelection()?.selectAllChildren(source);
+      if (status) status.textContent = 'Clipboard was unavailable. The text is selected for manual copying.';
     }
   });
 });

@@ -9,7 +9,7 @@ Canonical channel status lives in `config/distribution.json` and is validated ag
 - Open source, MIT licensed, version 0.2.0.
 - One orchestrator plus 16 specialist skills.
 - Installs into Codex, Claude Code, Cursor, GitHub Copilot, OpenCode, or all declared targets.
-- Two deliberately different internal experiments; no external benchmark win claimed.
+- Five deliberately different internal experiments; no external benchmark win claimed.
 - Browser QA covers representative viewports, keyboard use, axe, overflow, console errors, reduced motion, and no-JavaScript survival.
 - Daily evolution creates reviewable proposals; it cannot silently rewrite core skills.
 
@@ -23,7 +23,7 @@ Body:
 
 > I built World-Class Web Design OS because agent-made sites often jump from a vague style prompt straight to implementation. It is a set of 17 installable skills that routes a coding agent through discovery, art direction, design systems, implementation, an independent critique pass, accessibility, and rendered browser QA.
 >
-> The interesting constraint is that it does not prescribe a house style. The repository includes two intentionally different test cases—an editorial hospitality experience and an industrial commerce site—and labels its own scores as internal evidence, not market validation.
+> The interesting constraint is that it does not prescribe a house style. The repository includes five intentionally different test cases across hospitality, industrial commerce, editorial culture, product UI, and civic data, and labels its own scores as internal evidence rather than market validation.
 >
 > Install: `npx --yes github:Lrinvl1203/world-class-web-design-os install --agent codex`
 >
@@ -41,7 +41,7 @@ Body:
 >
 > This open-source project adds a small router and 16 specialist skills for discovery, reference analysis, art direction, interaction/motion decisions, responsive recomposition, independent critique, AI-smell detection, accessibility, and Playwright QA. Broad website requests start at the orchestrator automatically after installation.
 >
-> The repo includes an 18-second demo, two contrasting test sites, the validation suite, and a public Same Brief Challenge. The included 92.8 and 91.8 scores are explicitly internal; there is no claim of external validation yet.
+> The repo includes a 15-second proof reel, five contrasting test sites, the validation suite, and a public Same Brief Challenge. Every score is explicitly internal; there is no claim of an external benchmark win yet.
 >
 > One-line install: `npx --yes github:Lrinvl1203/world-class-web-design-os install --agent codex`
 >
@@ -55,11 +55,11 @@ Body:
 >
 > 17 installable skills. One orchestrator. Separate build and critique passes. Real browser gates for keyboard, axe, overflow, console errors, reduced motion, and responsive states.
 >
-> No house style. No “world-class” outcome claim. Two contrasting demos and a public same-brief challenge.
+> No house style. No “world-class” outcome claim. Five contrasting demos and a public same-brief challenge.
 >
 > https://github.com/Lrinvl1203/world-class-web-design-os
 
-Attach `site/assets/web-design-os-demo-4x3.mp4`.
+Attach `site/assets/web-design-os-proof-15s.mp4`.
 
 ## Threads
 
@@ -67,7 +67,7 @@ Attach `site/assets/web-design-os-demo-4x3.mp4`.
 >
 > It makes the agent resolve the job and audience first, choose a point of view and an anti-direction, build semantically, recompose for mobile, then survive a separate design critique and real browser QA.
 >
-> The repo includes two deliberately different outputs and a same-brief challenge so the claims can be tested publicly. I’d love the sharp version of your feedback: which agent-made web failure should it catch next?
+> The repo includes five deliberately different outputs and a same-brief challenge so the claims can be tested publicly. I’d love the sharp version of your feedback: which agent-made web failure should it catch next?
 >
 > https://github.com/Lrinvl1203/world-class-web-design-os
 
@@ -87,9 +87,23 @@ Maker comment:
 
 ## Launch media
 
-- 18-second 4:3 MP4: `site/assets/web-design-os-demo-4x3.mp4`
-- Animated preview: `site/assets/web-design-os-demo.webp`
-- Poster: `site/assets/web-design-os-demo-poster.jpg`
+- 15-second 16:9 proof reel: `site/assets/web-design-os-proof-15s.mp4`
+- Reproducible five-output poster: `site/assets/web-design-os-proof-15s-poster.jpg` (`npm run build:proof-poster`)
+- Legacy 18-second preview: `site/assets/web-design-os-demo-4x3.mp4`
 - 1280×640 social card: `site/assets/social-preview.jpg`
 - Live overview: https://lrinvl1203.github.io/world-class-web-design-os/
 - Benchmark: https://github.com/Lrinvl1203/world-class-web-design-os/blob/main/BENCHMARK.md
+
+## Current proof follow-up
+
+Threads, Korean-first:
+
+> 바이브코딩으로 화면은 만들었는데 왜 어색한지 모르겠다면, 문제는 컴포넌트가 아니라 판단 과정일 수 있습니다. Web Design OS는 비개발자도 한 문장으로 아트디렉션, 컴포넌트, 모션, 필요한 경우의 3D, 모바일 재구성, 독립 비평, 실제 브라우저 QA까지 한 흐름으로 호출하게 합니다. 같은 OS로 만든 서로 다른 5개 결과를 15초에 담았습니다. 자동 학습은 인기 글을 그대로 복사하지 않고, 여러 출처에서 반복된 원칙만 검토 제안으로 올립니다.
+>
+> https://lrinvl1203.github.io/world-class-web-design-os/
+
+X, concise English:
+
+> Vibe coding can generate the front end. The hard part is judging why it feels wrong. Web Design OS gives non-designers one governed loop for art direction, components, motion, justified 3D, mobile recomposition, independent critique, and browser QA. Five different outcomes in 15 seconds—no house style, no benchmark-win claim.
+>
+> https://lrinvl1203.github.io/world-class-web-design-os/

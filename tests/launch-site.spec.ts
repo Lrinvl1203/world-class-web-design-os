@@ -8,10 +8,15 @@ test('launch site passes rendered quality gates', async ({ page }, testInfo) => 
 
   await page.goto('/', { waitUntil: 'networkidle' });
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Design with a');
-  await expect(page.getByRole('heading', { name: /Eighteen seconds/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /One command/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /Fifteen seconds/ })).toBeVisible();
   await expect(page.getByRole('heading', { name: /Inspect the output/ })).toBeVisible();
+  await expect(page.locator('#start .start-steps > li')).toHaveCount(3);
+  await expect(page.locator('#starter-prompt')).toContainText('$web-design-orchestrator');
+  await expect(page.locator('#faq details')).toHaveCount(5);
   await expect(page.locator('img')).toHaveCount(6);
-  await expect(page.locator('video')).toHaveAttribute('poster', 'assets/web-design-os-demo-poster.jpg');
+  await expect(page.locator('video')).toHaveAttribute('poster', 'assets/web-design-os-proof-15s-poster.jpg');
+  await expect(page.locator('video source')).toHaveAttribute('src', 'assets/web-design-os-proof-15s.mp4');
   await expect(page.getByRole('link', { name: /Run the Same Brief Challenge/ })).toHaveAttribute('href', /BENCHMARK\.md/);
   for (const image of await page.locator('img').all()) {
     await image.scrollIntoViewIfNeeded();
@@ -37,6 +42,14 @@ test('launch site passes rendered quality gates', async ({ page }, testInfo) => 
   await page.getByRole('tab', { name: 'All supported agents' }).click();
   await expect(page.locator('#install-command')).toContainText('--agent all');
 
+  await page.getByRole('button', { name: 'Copy the one-sentence prompt' }).click();
+  await expect(page.locator('#starter-copy-status')).toHaveText(/Prompt copied|Clipboard was unavailable/);
+
+  const firstFaq = page.locator('#faq details').first();
+  await firstFaq.locator('summary').click();
+  await expect(firstFaq).toHaveAttribute('open', '');
+  await expect(firstFaq.locator('p')).toBeVisible();
+
   await page.screenshot({ path: `artifacts/launch-site/${testInfo.project.name}.png`, fullPage: true, animations: 'disabled' });
   expect(errors, `console/page errors: ${errors.join('\n')}`).toEqual([]);
 });
@@ -47,6 +60,7 @@ test('critical message and install path survive without JavaScript', async ({ br
   await page.goto(baseURL || '/');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   await expect(page.locator('#hero-command')).toContainText('github:Lrinvl1203/world-class-web-design-os');
+  await expect(page.locator('#starter-prompt')).toContainText('$web-design-orchestrator');
   await expect(page.locator('#stage-panel')).toContainText('Find the job before the style');
   await context.close();
 });

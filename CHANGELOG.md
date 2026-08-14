@@ -4,11 +4,16 @@ All notable changes to Web Design OS are documented here. The project follows [S
 
 ## [Unreleased]
 
+- Reframed the public onboarding for non-designers who can generate a front end but struggle to judge and repair its UI/UX.
+- Added a three-step 60-second first-use path, explicit orchestrator sentence, FAQ boundaries, and copy/fallback interaction tests.
+- Replaced the legacy 18-second demo with a reproducible 15-second, five-outcome proof reel and poster board.
+- Expanded the no-secret learning baseline to Codrops, Smashing Magazine, web.dev, and MDN with a controlled local taxonomy, a separate editorial discovery floor, and the existing three-independent-source adoption gate.
+- Added an explicit owner traffic snapshot command without copying a broad workstation token into GitHub Actions.
 - Added three verified reference cases: Afterimage Atlas (editorial culture), Sequence Desk (stateful SaaS/product UI), and Orbital Commons (accessible pseudo-3D civic data).
 - Expanded visual QA with 18 new multi-viewport baselines, axe audits, interaction checks, and Pages deployment routes.
 - Updated the public proof gallery from two to five materially different archetypes.
 - Public launch readiness checks and external field evaluation.
-- Added an 18-second product demonstration, a reproducible Same Brief Challenge, and a benchmark-result issue form.
+- Added a product demonstration, a reproducible Same Brief Challenge, and a benchmark-result issue form.
 - Added a daily private growth snapshot workflow and channel-specific public launch kit.
 - Added proof-to-install-to-feedback conversion paths on the README and GitHub Pages overview.
 - Added a machine-readable distribution manifest, README launch trail, and CI checks that prevent launch-status drift.

@@ -47,6 +47,7 @@ const [repo, views, clones, referrers, paths, discussions] = await Promise.all([
 const externalPullRequests = await Promise.all(distribution.channels
   .filter(entry => entry.status === 'pr_open' && entry.url?.includes('github.com/'))
   .map(externalPullRequest));
+const trafficDenied = [views, clones, referrers, paths].some(value => value?.unavailable);
 
 const snapshot = {
   captured_at: new Date().toISOString(),
@@ -58,6 +59,15 @@ const snapshot = {
     open_issues: repo.open_issues_count
   },
   traffic: { views, clones, referrers, popular_paths: paths },
+  traffic_access: {
+    status: trafficDenied ? 'unavailable' : 'available',
+    credential_source: process.env.GROWTH_TRAFFIC_TOKEN_CONFIGURED === 'true'
+      ? 'repository-secret'
+      : process.env.GROWTH_TRAFFIC_TOKEN_CONFIGURED === 'owner-session' ? 'owner-session' : 'default-actions-token',
+    remediation: trafficDenied
+      ? 'Configure a least-privilege GROWTH_TRAFFIC_TOKEN repository secret, or run npm run growth:snapshot:owner from an authenticated owner workstation.'
+      : null
+  },
   distribution: {
     updated_on: distribution.updated_on,
     channels: distribution.channels.map(({ id, channel, status, url, published_on, scheduled_for, opened_on, blocker }) => ({
@@ -73,3 +83,4 @@ const snapshot = {
 fs.mkdirSync(path.dirname(output), { recursive: true });
 fs.writeFileSync(output, `${JSON.stringify(snapshot, null, 2)}\n`);
 console.log(output);
+if (trafficDenied) console.warn(snapshot.traffic_access.remediation);

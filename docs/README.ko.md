@@ -2,7 +2,7 @@
 
 **관점이 있는 디자인. 증거가 있는 출시.**
 
-Web Design OS는 AI 코딩 에이전트가 웹사이트를 만들 때 사용하는 17개 전문 스킬과 품질 게이트의 운영체제입니다. 스타일 프롬프트 모음이 아니라 발견 → 아트 디렉션 → 시스템 → 구현 → 독립 비평 → 접근성·성능 → 실제 렌더 QA까지의 의사결정 구조를 제공합니다.
+Web Design OS는 프런트엔드는 생성할 수 있지만 왜 UI가 어색한지 판단하기 어려운 비개발자·바이브코더를 위한 17개 전문 스킬과 품질 게이트의 운영체제입니다. 스타일 프롬프트 모음이 아니라 발견 → 아트 디렉션 → 컴포넌트·모션·필요한 3D → 구현 → 독립 비평 → 접근성·성능 → 실제 렌더 QA까지의 의사결정 구조를 제공합니다.
 
 [English README](../README.md) · [런치 페이지](https://lrinvl1203.github.io/world-class-web-design-os/) · [60초 시작](#60초-시작) · [동일 브리프 챌린지](../BENCHMARK.md) · [기여 안내](../CONTRIBUTING.md)
 
@@ -24,7 +24,7 @@ npx --yes skills add Lrinvl1203/world-class-web-design-os -g
 
 3. 한 문장으로 요청합니다.
 
-> 설치된 Web Design OS를 사용해서 이 제품의 개성이 분명한 웹사이트를 디자인하고 구현한 뒤, 모바일과 데스크톱 화면에서 검증해줘.
+> $web-design-orchestrator를 사용해서 [대상 사용자]를 위한 이 웹사이트를 리디자인하고 구현한 뒤, 모바일과 데스크톱에서 검증해줘.
 
 기존 설치를 갱신할 때는 `--overwrite`, 지원 대상 전체에 설치할 때는 `--agent all`을 사용합니다.
 
@@ -42,7 +42,7 @@ npx --yes github:Lrinvl1203/world-class-web-design-os doctor --agent codex
 |---|---|
 | 오케스트레이터 1개 + 전문 스킬 16개 | 필요한 역할만 활성화하면서 전체 디자인 과정을 유지합니다 |
 | 증거 등급이 표시된 레퍼런스 100개 | 스타일 형용사 대신 검색 가능한 디자인·기술 근거를 제공합니다 |
-| 서로 다른 실행형 웹사이트 실험 2개 | 하나의 하우스 스타일을 강요하지 않음을 직접 보여줍니다 |
+| 서로 다른 실행형 웹사이트 실험 5개 | 하나의 하우스 스타일을 강요하지 않음을 직접 보여줍니다 |
 | Playwright·axe·반응형·오버플로·콘솔·모션 감소 게이트 | 완성 여부를 실제 브라우저 증거로 확인합니다 |
 | 다중 에이전트 설치기와 진단 명령 | 여러 에이전트가 하나의 관리되는 원본을 사용합니다 |
 
@@ -69,10 +69,26 @@ npx --yes github:Lrinvl1203/world-class-web-design-os doctor --agent codex
   </tr>
 </table>
 
+<table>
+  <tr>
+    <td width="33%"><a href="https://lrinvl1203.github.io/world-class-web-design-os/experiments/afterimage-atlas/"><img src="../site/assets/afterimage.jpg" alt="Afterimage Atlas 에디토리얼 문화 실험"></a></td>
+    <td width="33%"><a href="https://lrinvl1203.github.io/world-class-web-design-os/experiments/sequence-desk/"><img src="../site/assets/sequence-desk.jpg" alt="Sequence Desk 제품 UI 실험"></a></td>
+    <td width="33%"><a href="https://lrinvl1203.github.io/world-class-web-design-os/experiments/orbital-commons/"><img src="../site/assets/orbital-commons.jpg" alt="Orbital Commons 시민 데이터와 의도 있는 3D 실험"></a></td>
+  </tr>
+  <tr>
+    <td><strong>Afterimage Atlas</strong><br>에디토리얼 문화 · 오브젝트 검사</td>
+    <td><strong>Sequence Desk</strong><br>제품 UI · 상태 기반 워크플로</td>
+    <td><strong>Orbital Commons</strong><br>시민 데이터 · 의도 있는 유사 3D</td>
+  </tr>
+</table>
+
 | 실험 | 유형 | 내부 점수 | 현장 증거 | 상태 |
 |---|---|---:|---|---|
 | [Nocturne Concierge](../experiments/nocturne-concierge/) | 에디토리얼 호스피탈리티 | 92.8 | 대기 | 내부 목표 통과 |
 | [Linehold Forge](../experiments/linehold-forge/) | 산업형 커머스 | 91.8 | 대기 | 92 미만 보류 |
+| [Afterimage Atlas](../experiments/afterimage-atlas/) | 에디토리얼 문화 | 92.7 | 대기 | 내부 목표 통과 |
+| [Sequence Desk](../experiments/sequence-desk/) | 제품 인터페이스 | 92.8 | 대기 | 내부 목표 통과 |
+| [Orbital Commons](../experiments/orbital-commons/) | 시민 데이터·유사 3D | 94.3 | 대기 | 내부 목표 통과 |
 
 Design Quality 점수는 내부 루브릭 평가입니다. 사용자 조사, 전환율, 어워드 결과, 외부 전문가 평가를 뜻하지 않습니다. 증거 체계는 [공개 벤치마크 문서](public-benchmark.md)를 참고하세요.
 

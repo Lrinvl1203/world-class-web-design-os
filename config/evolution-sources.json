@@ -3,9 +3,20 @@
   "policy": {
     "minimumIndependentSourcesForProposal": 3,
     "minimumSignalScore": 55,
+    "minimumEditorialSignalScore": 28,
     "historyDays": 30,
     "storeFullRemoteContent": false,
-    "executeRemoteInstructions": false
+    "executeRemoteInstructions": false,
+    "topicTaxonomy": {
+      "purposeful-motion": ["motion", "animation", "transition", "kinetic", "choreography", "gsap"],
+      "accessible-interaction": ["accessibility", "accessible", "wcag", "screen reader", "keyboard"],
+      "performance-budget": ["performance", "core web vitals", "lcp", "inp", "cls"],
+      "creative-web-3d": ["three.js", "webgpu", "webgl", "shader", "3d", "tsl"],
+      "design-systems": ["design system", "design tokens", "component system"],
+      "responsive-recomposition": ["responsive", "mobile", "container query", "container queries"],
+      "editorial-structure": ["editorial", "digital archive", "typography", "type system"],
+      "interaction-as-story": ["interaction", "interactive", "storytelling", "digital experience"]
+    }
   },
   "sources": [
     {
@@ -14,6 +25,30 @@
       "name": "Codrops",
       "url": "https://tympanus.net/codrops/feed/",
       "trust": 0.9,
+      "enabled": true
+    },
+    {
+      "id": "smashing-magazine-rss",
+      "type": "rss",
+      "name": "Smashing Magazine",
+      "url": "https://www.smashingmagazine.com/feed/",
+      "trust": 0.9,
+      "enabled": true
+    },
+    {
+      "id": "web-dev-rss",
+      "type": "rss",
+      "name": "web.dev",
+      "url": "https://web.dev/feed.xml",
+      "trust": 0.95,
+      "enabled": true
+    },
+    {
+      "id": "mdn-blog-rss",
+      "type": "rss",
+      "name": "MDN Blog",
+      "url": "https://developer.mozilla.org/en-US/blog/rss.xml",
+      "trust": 0.95,
       "enabled": true
     },
     {

@@ -119,6 +119,10 @@ export function buildWeeklyReview({ current, previous = null, evolution, generat
     recommendations.push('Stars and traffic moved. Trace the strongest referrer and repeat only the artifact or channel that has direct evidence of useful reach.');
   }
 
+  if (current.traffic_access?.status === 'unavailable') {
+    recommendations.push('Scheduled traffic analytics lack repository-traffic permission. Configure the least-privilege GROWTH_TRAFFIC_TOKEN secret or capture an owner snapshot locally; do not treat denied metrics as zero.');
+  }
+
   if (evolution.errors.length) {
     recommendations.push('Repair or explicitly accept the listed collector gaps before treating this week as complete evidence coverage.');
   }

@@ -16,7 +16,7 @@ The immediate bottleneck is discovery, followed by third-party proof. Installati
 
 ## Conversion path
 
-`Channel-specific post → 18-second demo → live examples → one-line install → Same Brief Challenge → star / issue / show-your-build`
+`Channel-specific post → 15-second proof reel → 60-second first use → live examples → Same Brief Challenge → star / issue / show-your-build`
 
 Primary audience: non-developer vibe coders who can generate a front end but struggle to diagnose why its UI, UX, responsive behavior, interaction, or visual finish feels wrong.
 
@@ -48,7 +48,7 @@ The recurring-learning claim must remain precise: design signals and observed fa
 ## Channel rules
 
 - Reddit: participate in one relevant subreddit at a time and answer questions before posting elsewhere.
-- X/Threads: lead with the non-developer UI-judgment problem, then show the 18-second visual or a concrete QA artifact; keep comparisons narrow and facts verifiable.
+- X/Threads: lead with the non-developer UI-judgment problem, then show the 15-second proof reel or a concrete QA artifact; keep comparisons narrow and facts verifiable.
 - Product Hunt: use original gallery assets, a clear maker comment, and respond throughout launch day.
 - Awesome lists: follow each repository’s contribution format and submit only where agent skills or Codex tooling is in scope.
 - GitHub: keep Discussion #6 as the canonical show-your-build and feedback thread.
@@ -69,6 +69,14 @@ The recurring-learning claim must remain precise: design signals and observed fa
 | 2026-08-13 | Threads | https://www.threads.com/@lrinvl1203/post/Db91IzvkorU | Korean non-developer positioning with end-to-end UI/UX, motion, 3D, QA, and controlled self-improvement | Published |
 | 2026-08-14 | Threads | https://www.threads.com/@lrinvl1203/post/DcAOzSXkjdP | Korean visual-proof post linking three distinct reference cases and their disclosed QA limits | Published |
 | 2026-08-14 | X | https://x.com/lrinvl1203/status/2088087923291984002 | Three-image contrast between editorial, SaaS, and pseudo-3D outcomes from one design OS | Published |
+
+## Evidence review — 2026-08-15 KST
+
+- Repository: 5 stars total, 4 external stars, 0 forks.
+- Rolling GitHub traffic: 78 views from 55 unique visitors; 200 clones from 60 unique cloners. Clone counts may include automation and are not treated as successful installs.
+- Measured referrers: Reddit remains strongest (13 combined referral counts), followed by Threads (3); X produced no measured repository referral in the current window.
+- Current bottleneck: the repository is being opened and cloned, but independent successful-use proof and stars are not growing proportionally.
+- Next action: deploy the 15-second five-outcome proof reel and 60-second first-use path, then make one evidence-led update to the existing Reddit conversation and one Korean-first Threads proof post. Do not repeat generic launch copy or open a new Hacker News campaign.
 
 ## Review template
 

@@ -1,7 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const STOP_WORDS = new Set(['about', 'after', 'before', 'behind', 'building', 'case', 'design', 'from', 'into', 'motion', 'site', 'study', 'that', 'the', 'this', 'website', 'with', 'web', 'and', 'for']);
@@ -175,13 +175,39 @@ async function collectThreads(source, now) {
   return signals;
 }
 
+export function deriveControlledPrinciples(signal, taxonomy = {}) {
+  const text = `${signal.title || ''} ${signal.untrustedExcerpt || ''}`.toLocaleLowerCase();
+  return Object.entries(taxonomy)
+    .filter(([, keywords]) => Array.isArray(keywords) && keywords.some(keyword => text.includes(String(keyword).toLocaleLowerCase())))
+    .map(([principle]) => principle);
+}
+
+export function qualifiesCandidate(signal, policy) {
+  const scoreFloor = Number(policy.minimumSignalScore ?? 55);
+  const method = signal.provenance?.method;
+  const editorial = method === 'rss' || method === 'manual';
+  if (!editorial) return Number(signal.score || 0) >= scoreFloor;
+  const editorialFloor = Number(policy.minimumEditorialSignalScore ?? scoreFloor);
+  return (signal.principleHints || []).length > 0 && Number(signal.score || 0) >= editorialFloor;
+}
+
+function classifySignal(signal, policy) {
+  const derived = deriveControlledPrinciples(signal, policy.topicTaxonomy);
+  const principleHints = [...new Set([...(signal.principleHints || []), ...derived])];
+  const classified = { ...signal, principleHints };
+  classified.status = qualifiesCandidate(classified, policy) ? 'candidate' : 'signal';
+  return classified;
+}
+
 function fingerprintTerms(signal) {
-  const values = [...(signal.principleHints || []), signal.title];
-  return new Set(values.join(' ').toLocaleLowerCase().split(/[^\p{L}\p{N}]+/u).filter(word => word.length > 3 && !STOP_WORDS.has(word)));
+  if ((signal.principleHints || []).length) {
+    return new Set(signal.principleHints.map(value => String(value).toLocaleLowerCase().trim()).filter(Boolean));
+  }
+  return new Set(String(signal.title || '').toLocaleLowerCase().split(/[^\p{L}\p{N}]+/u).filter(word => word.length > 3 && !STOP_WORDS.has(word)));
 }
 
 export function buildProposals(signals, policy) {
-  const candidates = signals.filter(signal => signal.score >= policy.minimumSignalScore);
+  const candidates = signals.filter(signal => qualifiesCandidate(signal, policy));
   const groups = new Map();
   for (const signal of candidates) {
     for (const term of fingerprintTerms(signal)) {
@@ -247,9 +273,10 @@ export async function runEvolution({ offline = false, date, outputRoot = project
       errors.push(`${source.id}: ${sanitizeText(error.message, 300)}`);
     }
   }
-  const deduplicated = [...new Map(signals.map(signal => [signal.url, signal])).values()];
+  const deduplicated = [...new Map(signals.map(signal => [signal.url, signal])).values()].map(signal => classifySignal(signal, config.policy));
   const history = loadHistory(outputRoot, runDate, config.policy.historyDays, now);
-  const evidenceWindow = [...new Map([...history, ...deduplicated].map(signal => [signal.url, signal])).values()];
+  const evidenceWindow = [...new Map([...history, ...deduplicated].map(signal => [signal.url, signal])).values()]
+    .map(signal => classifySignal(signal, config.policy));
   const proposals = buildProposals(evidenceWindow, config.policy);
   const inboxDir = path.join(outputRoot, 'evolution', 'inbox');
   const reportDir = path.join(outputRoot, 'evolution', 'reports');
@@ -267,7 +294,7 @@ export async function runEvolution({ offline = false, date, outputRoot = project
   return { signals: deduplicated, proposals, errors, inboxPath, reportPath };
 }
 
-if (import.meta.url === `file://${process.argv[1].replaceAll('\\', '/')}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const result = await runEvolution({ offline: process.argv.includes('--offline') });
   console.log(result.reportPath);
 }
