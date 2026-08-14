@@ -67,6 +67,8 @@ The recurring-learning claim must remain precise: design signals and observed fa
 | 2026-08-11 | Awesome Agent Skills | https://github.com/kodustech/awesome-agent-skills/pull/76 | Web-design orchestrator skill | PR open |
 | 2026-08-13 | X | https://x.com/lrinvl1203/status/2087750811548062184 | Better fit for non-developer vibe coders: components, motion, 3D, independent critique, browser QA, and regression learning | Published |
 | 2026-08-13 | Threads | https://www.threads.com/@lrinvl1203/post/Db91IzvkorU | Korean non-developer positioning with end-to-end UI/UX, motion, 3D, QA, and controlled self-improvement | Published |
+| 2026-08-14 | Threads | https://www.threads.com/@lrinvl1203/post/DcAOzSXkjdP | Korean visual-proof post linking three distinct reference cases and their disclosed QA limits | Published |
+| 2026-08-14 | X | https://x.com/lrinvl1203/status/2088087923291984002 | Three-image contrast between editorial, SaaS, and pseudo-3D outcomes from one design OS | Published |
 
 ## Review template
 

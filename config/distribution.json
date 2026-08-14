@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-08-13",
+  "updated_on": "2026-08-14",
   "channels": [
     {
       "id": "github-discussion",
@@ -48,6 +48,22 @@
       "status": "published",
       "url": "https://x.com/lrinvl1203/status/2087750811548062184",
       "published_on": "2026-08-13",
+      "featured": false
+    },
+    {
+      "id": "threads-reference-case-gallery",
+      "channel": "Threads",
+      "status": "published",
+      "url": "https://www.threads.com/@lrinvl1203/post/DcAOzSXkjdP",
+      "published_on": "2026-08-14",
+      "featured": false
+    },
+    {
+      "id": "x-reference-case-gallery",
+      "channel": "X",
+      "status": "published",
+      "url": "https://x.com/lrinvl1203/status/2088087923291984002",
+      "published_on": "2026-08-14",
       "featured": false
     },
     {
