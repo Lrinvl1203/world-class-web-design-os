@@ -69,6 +69,7 @@ The recurring-learning claim must remain precise: design signals and observed fa
 | 2026-08-13 | Threads | https://www.threads.com/@lrinvl1203/post/Db91IzvkorU | Korean non-developer positioning with end-to-end UI/UX, motion, 3D, QA, and controlled self-improvement | Published |
 | 2026-08-14 | Threads | https://www.threads.com/@lrinvl1203/post/DcAOzSXkjdP | Korean visual-proof post linking three distinct reference cases and their disclosed QA limits | Published |
 | 2026-08-14 | X | https://x.com/lrinvl1203/status/2088087923291984002 | Three-image contrast between editorial, SaaS, and pseudo-3D outcomes from one design OS | Published |
+| 2026-08-15 | GitHub Discussion update | https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6#discussioncomment-18019724 | 60-second first use, 15-second five-outcome reel, release downloads, and request for builds or failures | Published |
 
 ## Evidence review — 2026-08-15 KST
 
