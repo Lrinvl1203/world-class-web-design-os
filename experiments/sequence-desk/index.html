@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111310">
+  <meta name="description" content="Sequence Desk is a fictional launch-decision interface for non-developer product teams.">
+  <title>Sequence Desk — Resolve the next decision</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to decision workspace</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Sequence Desk home"><span></span>SEQUENCE / DESK</a>
+    <div class="release-title"><small>ACTIVE RELEASE</small><strong>Northstar 2.4</strong></div>
+    <button class="command-trigger" type="button" data-command aria-haspopup="dialog"><kbd>⌘</kbd> Find action</button>
+  </header>
+
+  <main id="top">
+    <aside class="release-rail" aria-label="Release health">
+      <div><p>RELEASE WINDOW</p><strong>18 hrs</strong><small>Thursday / 10:00</small></div>
+      <div class="health"><p>HEALTH</p><strong><i></i>At risk</strong><small>1 decision blocks 3 teams</small></div>
+      <nav aria-label="Workspace"><a href="#workspace" aria-current="page">Decision path <span>01</span></a><a href="#proof">Proof log <span>04</span></a><a href="#summary">Brief <span>↗</span></a></nav>
+      <p class="rail-note">Fictional interface study.<br>No data is transmitted.</p>
+    </aside>
+
+    <section class="workspace" id="workspace" aria-labelledby="page-title">
+      <header class="workspace-head">
+        <div><p class="eyebrow">ONE CLEAR NEXT MOVE</p><h1 id="page-title">Resolve the decision,<br>not the whole project.</h1></div>
+        <p>Sequence Desk translates a noisy launch into one explainable chain: signal, choice, owner, proof.</p>
+      </header>
+
+      <div class="scenario-tabs" role="tablist" aria-label="Launch scenarios">
+        <button role="tab" aria-selected="true" aria-controls="scenario-panel" id="scenario-tab-0" data-scenario="0"><span>01</span>Checkout</button>
+        <button role="tab" aria-selected="false" tabindex="-1" aria-controls="scenario-panel" id="scenario-tab-1" data-scenario="1"><span>02</span>Onboarding</button>
+        <button role="tab" aria-selected="false" tabindex="-1" aria-controls="scenario-panel" id="scenario-tab-2" data-scenario="2"><span>03</span>Pricing</button>
+      </div>
+
+      <div class="decision-panel" id="scenario-panel" role="tabpanel" aria-labelledby="scenario-tab-0">
+        <div class="panel-intro">
+          <p><span data-count>1</span> OPEN DECISION</p>
+          <h2 data-question>Should guest checkout show tax before address?</h2>
+          <p data-context>Research and support disagree. Engineering is waiting on the disclosure rule before final QA can begin.</p>
+          <div class="decision-meta"><span><small>OWNER</small><b data-owner>Mina / Product</b></span><span><small>BLOCKS</small><b data-blocks>Copy · QA · Release</b></span></div>
+        </div>
+
+        <ol class="sequence" aria-label="Decision dependency sequence" data-sequence>
+          <li class="done"><span>01</span><div><small>SIGNAL</small><strong data-signal>11 support tickets mention surprise tax</strong></div><em>Captured</em></li>
+          <li class="active" data-active-node tabindex="-1"><span>02</span><div><small>CHOICE</small><strong data-choice>Choose disclosure timing</strong></div><em data-status>Needs decision</em></li>
+          <li><span>03</span><div><small>OWNER</small><strong data-owner-node>Product signs the rule</strong></div><em>Waiting</em></li>
+          <li><span>04</span><div><small>PROOF</small><strong data-proof>QA records final checkout</strong></div><em>Waiting</em></li>
+        </ol>
+
+        <div class="action-dock">
+          <div><small>RECOMMENDED NEXT ACTION</small><p data-recommendation>Approve “estimated tax” before address, then show final tax after postcode.</p></div>
+          <button type="button" data-resolve>Resolve &amp; continue <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="status-message" data-message aria-live="polite"></p>
+      </div>
+    </section>
+
+    <aside class="proof" id="proof" aria-labelledby="proof-title">
+      <header><p>ACCOUNTABLE BY DEFAULT</p><h2 id="proof-title">Proof log</h2><span data-proof-count>4 events</span></header>
+      <ol data-log>
+        <li><time>09:42</time><div><strong>Research linked</strong><p>Checkout study / 7 sessions</p></div></li>
+        <li><time>10:06</time><div><strong>Support signal added</strong><p>11 related tickets</p></div></li>
+        <li><time>10:21</time><div><strong>Engineering paused</strong><p>Disclosure rule required</p></div></li>
+        <li><time>NOW</time><div><strong>Decision requested</strong><p>Owner: Mina / Product</p></div></li>
+      </ol>
+    </aside>
+
+    <section class="summary" id="summary">
+      <p>WHAT THIS PROVES</p>
+      <h2>A component system can feel distinct without hiding the work.</h2>
+      <div><p>Tabs, state machines, a reversible action, live feedback, focus management, proof history, and mobile recomposition—implemented in semantic HTML, CSS, and 3 KB of behavior.</p><a href="../../index.html">Back to Web Design OS</a></div>
+    </section>
+  </main>
+
+  <dialog class="command" data-command-dialog aria-labelledby="command-title">
+    <form method="dialog"><button aria-label="Close command palette">×</button></form>
+    <p>QUICK ACTION</p><h2 id="command-title">Where do you want to go?</h2>
+    <a href="#workspace">Open decision path <kbd>D</kbd></a><a href="#proof">Review proof log <kbd>P</kbd></a><a href="../../index.html">Return to Web Design OS <kbd>H</kbd></a>
+  </dialog>
+  <script src="script.js" defer></script>
+</body>
+</html>

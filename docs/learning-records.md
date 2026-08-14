@@ -1,5 +1,19 @@
 # Continuous-learning records
 
+## Full-page captures must expose visually-hidden utility controls only in their active state
+
+- **Date / project:** 2026-08-14 / three public reference cases
+- **Observation/evidence:** All 18 functional and accessibility runs passed, but independent review of full-page baselines showed the skip link painted inside the page at the viewport position Playwright had scrolled to for the interaction assertion. A transform-only off-canvas hiding technique was not stable in full-page capture composition.
+- **Severity/impact:** moderate visual-evidence defect; the released UI remained operable, but the accepted screenshots misrepresented the intended visual state.
+- **Classification:** QA blind spot and execution error
+- **Root cause:** The baseline suite proved semantics, focus behavior, and overflow but did not assert that inactive utility controls were visually absent before accepting the screenshot. Transform-only hiding also depended on fixed-position capture behavior.
+- **Generalizable principle:** Full-page evidence should verify both sides of conditional utility UI: visually absent while inactive and visible/usable when focused. Use robust clipping/size containment for visually hidden controls rather than relying only on translated fixed positioning.
+- **Proposed file/section change:** Trial an explicit inactive/active utility-control assertion in future visual-QA starter updates after recurrence in another unrelated project; do not change the core skill from this single project.
+- **Positive regression scenario:** A long page captured after an interaction scroll should not show its inactive skip link, while keyboard focus on that link should expose it at the viewport edge.
+- **Negative/regression-risk scenario:** A deliberately persistent accessibility or status control must not be hidden merely because it is visually utilitarian.
+- **Validation performed:** The three implementations now use clipped 1 px inactive states and restore full size on focus. All 18 baselines were regenerated and passed again; desktop/mobile screenshots were re-inspected.
+- **Decision:** trial as project evidence; no core-skill mutation.
+
 ## Recurring improvement needs comparison evidence, not autonomous mutation
 
 - **Date / project:** 2026-08-11 / World-Class Web Design OS weekly maintenance

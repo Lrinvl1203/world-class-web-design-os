@@ -1,0 +1,8 @@
+{
+  "browser": "Chromium via Playwright 1.62",
+  "method": "Local static server, reduced-motion baselines, interaction-state checks, axe serious/critical audit",
+  "viewports": ["320x568", "375x812", "390x844", "768x1024", "1440x900", "1920x1080"],
+  "results": {"visual_baselines": 6, "horizontal_overflow": false, "console_errors": 0, "serious_or_critical_axe_violations": 0},
+  "critical_path": {"edition_selection": true, "aria_selected_updated": true, "tabpanel_content_updated": true, "keyboard_tab_model": true},
+  "field_core_web_vitals": "not measured; requires representative deployment and field population"
+}

@@ -38,6 +38,24 @@ jobs:
           TARGET_URL: http://127.0.0.1:4174
           STATIC_DIR: experiments/linehold-forge
           STATIC_PORT: '4174'
+      - name: Afterimage Atlas browser gates
+        run: npx playwright test tests/afterimage.spec.ts --project=edge-mobile --project=desktop
+        env:
+          TARGET_URL: http://127.0.0.1:4176
+          STATIC_DIR: experiments/afterimage-atlas
+          STATIC_PORT: '4176'
+      - name: Sequence Desk browser gates
+        run: npx playwright test tests/sequence-desk.spec.ts --project=edge-mobile --project=desktop
+        env:
+          TARGET_URL: http://127.0.0.1:4177
+          STATIC_DIR: experiments/sequence-desk
+          STATIC_PORT: '4177'
+      - name: Orbital Commons browser gates
+        run: npx playwright test tests/orbital-commons.spec.ts --project=edge-mobile --project=desktop
+        env:
+          TARGET_URL: http://127.0.0.1:4178
+          STATIC_DIR: experiments/orbital-commons
+          STATIC_PORT: '4178'
       - name: Launch site accessibility and browser gates
         run: npx playwright test tests/release-gates.spec.ts tests/launch-site.spec.ts --project=edge-mobile --project=tablet --project=desktop
         env:

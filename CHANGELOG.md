@@ -4,6 +4,9 @@ All notable changes to Web Design OS are documented here. The project follows [S
 
 ## [Unreleased]
 
+- Added three verified reference cases: Afterimage Atlas (editorial culture), Sequence Desk (stateful SaaS/product UI), and Orbital Commons (accessible pseudo-3D civic data).
+- Expanded visual QA with 18 new multi-viewport baselines, axe audits, interaction checks, and Pages deployment routes.
+- Updated the public proof gallery from two to five materially different archetypes.
 - Public launch readiness checks and external field evaluation.
 - Added an 18-second product demonstration, a reproducible Same Brief Challenge, and a benchmark-result issue form.
 - Added a daily private growth snapshot workflow and channel-specific public launch kit.

@@ -1,0 +1,9 @@
+{
+  "browser": "Chromium via Playwright 1.62",
+  "method": "Local static server, reduced-motion baselines, interaction-state checks, axe serious/critical audit",
+  "viewports": ["320x568", "375x812", "390x844", "768x1024", "1440x900", "1920x1080"],
+  "results": {"visual_baselines": 6, "horizontal_overflow": false, "console_errors": 0, "serious_or_critical_axe_violations": 0},
+  "critical_path": {"scenario_selection": true, "canvas_state_updated": true, "semantic_table_synchronized": true, "live_result_updated": true, "reduced_motion_finite_render": true},
+  "creative_layer": {"external_dependencies": 0, "canvas_context": "2d pseudo-3D", "device_pixel_ratio_cap": 1.5, "continuous_loop": false},
+  "field_core_web_vitals": "not measured; requires representative deployment and field population"
+}

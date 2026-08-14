@@ -1,0 +1,49 @@
+{
+  "project": "Afterimage Atlas — fictional living-object study",
+  "review_type": "independent screenshot-led review after multi-viewport QA",
+  "wdx_total": 92.7,
+  "release_threshold": 92,
+  "release_decision": "INTERNAL PASS — FIELD VALIDATION PENDING",
+  "scores": {
+    "art_direction_originality": 11.4,
+    "brand_distinctiveness": 7.3,
+    "composition": 11.2,
+    "typography": 9.4,
+    "color_materiality": 5.7,
+    "spatial_rhythm": 7.4,
+    "imagery": 7.1,
+    "content_copy": 5.5,
+    "ux_navigation": 7.6,
+    "interaction": 4.6,
+    "motion": 4.7,
+    "responsive": 4.8,
+    "accessibility": 3.0,
+    "performance": 3.0
+  },
+  "hard_gates": {
+    "functional": true,
+    "critical_accessibility": true,
+    "responsive_matrix": true,
+    "reduced_motion": true,
+    "no_horizontal_overflow": true,
+    "no_console_errors": true,
+    "field_core_web_vitals": "PENDING_REAL_DEPLOYMENT"
+  },
+  "strengths": [
+    "The inspect verb governs composition, copy, state change, and the poster aperture rather than relying on scroll spectacle.",
+    "Five editions form a keyboard-operable editorial instrument with state communicated by text, structure, and aria-selected.",
+    "The mobile tab rail, object-first order, and reduced-motion behavior feel authored rather than mechanically compressed."
+  ],
+  "remaining_limits": [
+    "The object and history are explicitly fictional and do not test comprehension with a real archive audience.",
+    "Compact folio labels warrant native-device review despite passing automated contrast and overflow checks.",
+    "Field Core Web Vitals remain unmeasured."
+  ],
+  "ai_smell_review": {
+    "keep": ["single-object editorial thesis", "square paper geometry", "one state-linked continuity motion"],
+    "adapt": ["oversized serif typography is paired with dense provenance rather than vague marketing copy"],
+    "replace": ["generic gallery grid replaced by one inspectable object sequence"],
+    "remove": ["decorative parallax and repeated reveal animations"],
+    "blocking_smells": []
+  }
+}

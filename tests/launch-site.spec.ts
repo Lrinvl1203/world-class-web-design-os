@@ -10,7 +10,7 @@ test('launch site passes rendered quality gates', async ({ page }, testInfo) => 
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Design with a');
   await expect(page.getByRole('heading', { name: /Eighteen seconds/ })).toBeVisible();
   await expect(page.getByRole('heading', { name: /Inspect the output/ })).toBeVisible();
-  await expect(page.locator('img')).toHaveCount(3);
+  await expect(page.locator('img')).toHaveCount(6);
   await expect(page.locator('video')).toHaveAttribute('poster', 'assets/web-design-os-demo-poster.jpg');
   await expect(page.getByRole('link', { name: /Run the Same Brief Challenge/ })).toHaveAttribute('href', /BENCHMARK\.md/);
   for (const image of await page.locator('img').all()) {
