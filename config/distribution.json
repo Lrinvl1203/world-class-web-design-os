@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-08-11",
+  "updated_on": "2026-08-13",
   "channels": [
     {
       "id": "github-discussion",
@@ -33,6 +33,22 @@
       "url": "https://x.com/lrinvl1203/status/2086859489001738289",
       "published_on": "2026-08-11",
       "featured": true
+    },
+    {
+      "id": "threads-non-developer-positioning",
+      "channel": "Threads",
+      "status": "published",
+      "url": "https://www.threads.com/@lrinvl1203/post/Db91IzvkorU",
+      "published_on": "2026-08-13",
+      "featured": false
+    },
+    {
+      "id": "x-non-developer-positioning",
+      "channel": "X",
+      "status": "published",
+      "url": "https://x.com/lrinvl1203/status/2087750811548062184",
+      "published_on": "2026-08-13",
+      "featured": false
     },
     {
       "id": "product-hunt",
