@@ -18,7 +18,8 @@ The user wants all future work on this project to continue in Codex with no loss
 - Each case includes a project brief, design system, semantic HTML/CSS/JS implementation, independent review, Design Quality JSON, QA results, and six reviewed Playwright baselines at 320, 375, 390, 768, 1440, and 1920 px.
 - All 18 new browser tests pass with reduced motion, no horizontal overflow, no console errors, and zero serious/critical axe findings. Internal scores are 92.7, 92.8, and 94.3; all remain explicitly labeled as internal artifact scores with field validation pending.
 - The launch-site gallery, README proof table, asset builder, validation workflow, and Pages assembly now cover five total archetypes. `npm run validate`, `npm run eval:skills`, `npm run test:unit`, and `npm run qa:launch` are green.
-- The next actions are to commit only intended files, publish and merge the PR after CI, dispatch Pages, verify the three live URLs, and promote the visual proof on Threads first and X second. Hacker News remains excluded.
+- PR #16 was merged at `c1383909088ba8b280b4a6cbcf0197b9f02fae08`; CI and Pages deployment run `31762993140` completed successfully, and all three case URLs plus the launch page returned HTTP 200.
+- The visual proof was published on Threads (`https://www.threads.com/@lrinvl1203/post/DcAOzSXkjdP`) and X (`https://x.com/lrinvl1203/status/2088087923291984002`). Hacker News remains excluded.
 - Preserve the four inherited mode-only changes in `scripts/install-into-project.sh`, `scripts/publish-github.sh`, `scripts/validate_design_quality_score.py`, and `scripts/validate_skills.py`; they are not part of the case-study change.
 
 ### Continuation state — 2026-08-09
