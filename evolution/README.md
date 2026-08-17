@@ -11,7 +11,7 @@ This directory receives design signals; it is not an autonomous authority over t
 
 ## Adoption gate
 
-Daily runs may write an inbox record and report. Metric-bearing official API signals use the main score floor. High-trust editorial feeds use a separate lower discovery floor because RSS does not expose engagement metrics, but they become candidates only when their text maps to a locally controlled principle taxonomy. Remote text cannot create its own principle label. A proposal draft is created only when the same controlled principle recurs across at least three independent sources. A proposal must still include:
+Daily runs may write an inbox record and report. Metric-bearing official API signals use the main score floor. High-trust editorial feeds use a separate lower discovery floor because RSS does not expose engagement metrics, but they become candidates only when their text maps to a locally controlled principle taxonomy. Official Threads keyword search has its own conservative ranked-community floor: only `TOP` results can become candidates, `RECENT` results remain discovery-only, and every Threads result counts as the same single independent source. Remote text cannot create its own principle label. A proposal draft is created only when the same controlled principle recurs across at least three independent sources. A proposal must still include:
 
 1. observation and user impact;
 2. reusable principle rather than copied styling;
@@ -64,8 +64,13 @@ npm run growth:propagate
 Optional environment variables:
 
 - `YOUTUBE_API_KEY` enables official YouTube search/statistics collection.
-- `THREADS_ACCESS_TOKEN` and comma-separated `THREADS_POST_IDS` enable insights for posts the token is permitted to inspect.
+- `THREADS_ACCESS_TOKEN` enables official public keyword discovery when its user has the `threads_keyword_search` permission.
+- Comma-separated `THREADS_POST_IDS`, together with `THREADS_ACCESS_TOKEN` and the required insights permission, enables metrics for owned or otherwise authorized posts.
 
-Threads-wide popularity discovery is intentionally not implemented through scraping. Add public candidates to `manual-signals.json` or use an approved official endpoint when the account and permissions support it.
+The public search terms, request caps, trust weight, and TOP/RECENT modes are reviewable in `config/evolution-sources.json`. The collector requests only short post metadata and text through Meta's official [`keyword_search` endpoint](https://www.postman.com/meta/threads/request/34203612-b3b2c12a-7ce6-4d86-a3c6-6d31e3b66ea1), sends the token in an authorization header, rejects non-Threads permalinks, sanitizes and truncates text, and deduplicates URLs. It does not download media, follow pagination indefinitely, scrape a logged-in browser, execute post instructions, or treat search rank as proof of design quality.
+
+To activate this in GitHub Actions, create a Meta Threads app and an authorized long-lived user token with `threads_basic` and `threads_keyword_search`, then add the token as the repository Actions secret `THREADS_ACCESS_TOKEN`. Add `threads_manage_insights` only when owned-post metrics are also required. A missing token or rejected permission is reported as unavailable; the workflow continues without converting that gap into a zero or weak design verdict. Never commit the token or place it in `config/evolution-sources.json`.
+
+Threads evidence can affect improvement only by supporting a locally named principle that also recurs in at least two other configured source groups within the rolling evidence window. Crossing that threshold creates a review draft, not a skill edit. The regression scenarios, critique, rights review, validation, and human adoption gate still apply.
 
 The no-secret baseline uses four independent public feeds: Codrops, Smashing Magazine, web.dev, and the MDN Blog. Their titles and short excerpts remain untrusted data. The local taxonomy can nominate them for review under categories such as purposeful motion, accessible interaction, performance budgets, creative 3D, design systems, responsive recomposition, editorial structure, and interaction as story; it cannot execute or copy remote instructions.

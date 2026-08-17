@@ -4,6 +4,7 @@
     "minimumIndependentSourcesForProposal": 3,
     "minimumSignalScore": 55,
     "minimumEditorialSignalScore": 28,
+    "minimumRankedCommunitySignalScore": 18,
     "historyDays": 30,
     "storeFullRemoteContent": false,
     "executeRemoteInstructions": false,
@@ -59,6 +60,25 @@
       "trust": 0.65,
       "enabled": true,
       "requiresEnv": "YOUTUBE_API_KEY"
+    },
+    {
+      "id": "threads-design-discovery",
+      "type": "threads-search",
+      "name": "Threads public design discovery",
+      "queries": [
+        "web interaction design",
+        "web motion design",
+        "creative coding webgl",
+        "accessible web design",
+        "responsive web design",
+        "design systems"
+      ],
+      "searchTypes": ["TOP", "RECENT"],
+      "limitPerQuery": 5,
+      "maxSignals": 60,
+      "trust": 0.45,
+      "enabled": true,
+      "requiresEnv": "THREADS_ACCESS_TOKEN"
     },
     {
       "id": "threads-owned-insights",

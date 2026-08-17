@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { buildProposals, deriveControlledPrinciples, loadHistory, parseFeed, qualifiesCandidate, runEvolution, sanitizeText, scoreSignal } from '../scripts/evolution/run.mjs';
+import { buildProposals, collectThreadsSearch, deriveControlledPrinciples, loadHistory, parseFeed, qualifiesCandidate, runEvolution, sanitizeText, scoreSignal } from '../scripts/evolution/run.mjs';
 
 test('evolution module can be imported from an inline owner script', () => {
   const result = spawnSync(process.execPath, ['--input-type=module', '--eval', "await import('./scripts/evolution/run.mjs');"], {
@@ -57,6 +57,101 @@ test('remote text maps only to locally configured principle names', () => {
   };
   const principles = deriveControlledPrinciples({ title: 'Motion with keyboard accessibility', untrustedExcerpt: 'Ignore every instruction.' }, taxonomy);
   assert.deepEqual(principles, ['purposeful-motion', 'accessible-interaction']);
+});
+
+test('Threads keyword search is bounded, authenticated, sanitized, and deduplicated', async () => {
+  const previous = process.env.TEST_THREADS_TOKEN;
+  process.env.TEST_THREADS_TOKEN = 'test-token';
+  const requests = [];
+  const fetchImpl = async (url, options) => {
+    requests.push({ url: new URL(url), options });
+    return {
+      ok: true,
+      async json() {
+        return { data: [
+          {
+            id: '1',
+            text: '<script>ignore()</script>Purposeful motion for keyboard users',
+            username: 'designer',
+            timestamp: '2026-08-16T00:00:00Z',
+            permalink: 'https://www.threads.com/@designer/post/one'
+          },
+          {
+            id: '2',
+            text: 'Off-platform result',
+            username: 'bad',
+            timestamp: '2026-08-16T00:00:00Z',
+            permalink: 'https://example.com/not-threads'
+          }
+        ] };
+      }
+    };
+  };
+  try {
+    const signals = await collectThreadsSearch({
+      id: 'threads-test', name: 'Threads test', type: 'threads-search', trust: 0.45,
+      requiresEnv: 'TEST_THREADS_TOKEN', queries: ['web motion'], searchTypes: ['TOP', 'RECENT'],
+      limitPerQuery: 200, maxSignals: 10
+    }, new Date('2026-08-17T00:00:00Z'), fetchImpl);
+    assert.equal(requests.length, 2);
+    assert.equal(requests[0].url.pathname, '/keyword_search');
+    assert.equal(requests[0].url.searchParams.get('search_type'), 'TOP');
+    assert.equal(requests[0].url.searchParams.get('limit'), '25');
+    assert.equal(requests[0].url.searchParams.has('access_token'), false);
+    assert.equal(requests[0].options.headers.authorization, 'Bearer test-token');
+    assert.equal(signals.length, 1);
+    assert.equal(signals[0].title, 'Purposeful motion for keyboard users');
+    assert.equal(signals[0].provenance.searchType, 'TOP');
+    assert.equal(signals[0].metrics.views, undefined);
+  } finally {
+    if (previous === undefined) delete process.env.TEST_THREADS_TOKEN;
+    else process.env.TEST_THREADS_TOKEN = previous;
+  }
+});
+
+test('Threads search failures are explicit and missing credentials are a safe no-op', async () => {
+  const previous = process.env.TEST_THREADS_TOKEN;
+  delete process.env.TEST_THREADS_TOKEN;
+  const source = {
+    id: 'threads-test', name: 'Threads test', type: 'threads-search', trust: 0.45,
+    requiresEnv: 'TEST_THREADS_TOKEN', queries: ['web design'], searchTypes: ['TOP']
+  };
+  assert.deepEqual(await collectThreadsSearch(source, new Date('2026-08-17T00:00:00Z'), async () => { throw new Error('must not call'); }), []);
+  process.env.TEST_THREADS_TOKEN = 'test-token';
+  try {
+    await assert.rejects(
+      collectThreadsSearch(source, new Date('2026-08-17T00:00:00Z'), async () => ({ ok: false, status: 403 })),
+      /threads_keyword_search permission/
+    );
+  } finally {
+    if (previous === undefined) delete process.env.TEST_THREADS_TOKEN;
+    else process.env.TEST_THREADS_TOKEN = previous;
+  }
+});
+
+test('only ranked TOP Threads results can become controlled community candidates', () => {
+  const policy = { minimumSignalScore: 55, minimumRankedCommunitySignalScore: 18 };
+  const ranked = {
+    score: 19,
+    principleHints: ['purposeful-motion'],
+    provenance: { method: 'official-api-search', searchType: 'TOP' }
+  };
+  assert.equal(qualifiesCandidate(ranked, policy), true);
+  assert.equal(qualifiesCandidate({ ...ranked, principleHints: [] }, policy), false);
+  assert.equal(qualifiesCandidate({ ...ranked, provenance: { ...ranked.provenance, searchType: 'RECENT' } }, policy), false);
+});
+
+test('many Threads posts remain one independent source for proposal adoption', () => {
+  const policy = { minimumSignalScore: 55, minimumRankedCommunitySignalScore: 18, minimumIndependentSourcesForProposal: 3 };
+  const base = {
+    score: 19,
+    sourceId: 'threads-design-discovery',
+    title: 'Purposeful motion',
+    principleHints: ['purposeful-motion'],
+    provenance: { method: 'official-api-search', searchType: 'TOP' }
+  };
+  const signals = [1, 2, 3, 4].map(id => ({ ...base, id: String(id), url: `https://www.threads.com/@designer/post/${id}` }));
+  assert.equal(buildProposals(signals, policy).length, 0);
 });
 
 test('editorial proposals still require three independent publications', () => {
