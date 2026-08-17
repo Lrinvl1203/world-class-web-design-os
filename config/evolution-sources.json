@@ -67,12 +67,12 @@
       "type": "threads-search",
       "name": "Threads public design discovery",
       "queries": [
-        "web interaction design",
-        "web motion design",
-        "creative coding webgl",
-        "accessible web design",
-        "responsive web design",
-        "design systems"
+        "바이브코딩",
+        "웹디자인",
+        "웹사이트",
+        "프론트엔드",
+        "web design",
+        "webgl"
       ],
       "searchTypes": ["TOP", "RECENT"],
       "limitPerQuery": 5,
