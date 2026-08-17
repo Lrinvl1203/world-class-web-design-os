@@ -59,6 +59,10 @@ npm run web-design-os -- evolve --offline
 npm run growth:snapshot
 npm run weekly:review
 npm run growth:propagate
+npm run threads:doctor
+npm run threads:connect
+npm run threads:refresh
+npm run threads:add
 ```
 
 Optional environment variables:
@@ -70,6 +74,8 @@ Optional environment variables:
 The public search terms, request caps, trust weight, and TOP/RECENT modes are reviewable in `config/evolution-sources.json`. The collector requests only short post metadata and text through Meta's official [`keyword_search` endpoint](https://www.postman.com/meta/threads/request/34203612-b3b2c12a-7ce6-4d86-a3c6-6d31e3b66ea1), sends the token in an authorization header, rejects non-Threads permalinks, sanitizes and truncates text, and deduplicates URLs. It does not download media, follow pagination indefinitely, scrape a logged-in browser, execute post instructions, or treat search rank as proof of design quality.
 
 To activate this in GitHub Actions, create a Meta Threads app and an authorized long-lived user token with `threads_basic` and `threads_keyword_search`, then add the token as the repository Actions secret `THREADS_ACCESS_TOKEN`. Add `threads_manage_insights` only when owned-post metrics are also required. A missing token or rejected permission is reported as unavailable; the workflow continues without converting that gap into a zero or weak design verdict. Never commit the token or place it in `config/evolution-sources.json`.
+
+The owner commands above validate keyword-search access and install or refresh the GitHub secret through hidden input. The [Threads connection guide](../docs/threads-connection.md) covers the one unavoidable account-owner consent step and the no-token reviewed-link fallback. The fallback never fetches Threads; it stores only the permalink and short text that the owner explicitly supplies.
 
 Threads evidence can affect improvement only by supporting a locally named principle that also recurs in at least two other configured source groups within the rolling evidence window. Crossing that threshold creates a review draft, not a skill edit. The regression scenarios, critique, rights review, validation, and human adoption gate still apply.
 

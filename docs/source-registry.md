@@ -62,7 +62,9 @@ Last reviewed: **2026-08-17**. This repository distills public documentation and
 ## Daily signal collection APIs
 
 - Threads API official workspace and post-insights reference: https://www.postman.com/meta/threads/documentation/dht3nzz/threads-api
+- Threads official authorization, long-lived-token exchange, and refresh: https://www.postman.com/meta/threads/folder/34203612-e0373e84-de6b-46f1-b90d-3fea76ba6782
 - Threads official keyword-search request and `threads_keyword_search` permission: https://www.postman.com/meta/threads/request/34203612-b3b2c12a-7ce6-4d86-a3c6-6d31e3b66ea1
+- Meta automated data collection terms: https://www.facebook.com/legal/automated_data_collection_terms
 - Threads insights help: https://www.facebook.com/help/instagram/3675908612671136/
 - YouTube Data API video list and statistics: https://developers.google.com/youtube/v3/docs/videos/list
 - YouTube video resource statistics: https://developers.google.com/youtube/v3/docs/videos
@@ -71,7 +73,7 @@ Last reviewed: **2026-08-17**. This repository distills public documentation and
 - web.dev RSS: https://web.dev/feed.xml
 - MDN Blog RSS: https://developer.mozilla.org/en-US/blog/rss.xml
 
-Only official/API-permitted discovery and metrics are automated. The four public feeds above were checked for HTTP 200 and XML content on 2026-08-15. Threads discovery uses Meta's official keyword endpoint only when an authorized token is configured; it is never simulated through logged-in scraping. Search rank does not establish design quality, all Threads posts remain one independent source, and remote text can map only to the local controlled taxonomy.
+Only official/API-permitted discovery and metrics are automated. The four public feeds above were checked for HTTP 200 and XML content on 2026-08-15. Threads discovery uses Meta's official keyword endpoint only when an authorized token is configured; it is never simulated through logged-in scraping. A no-token owner command can append a manually inspected permalink and short note without fetching the page. Search rank does not establish design quality, all official, owned-insight, and manual Threads paths share one source family, and remote text can map only to the local controlled taxonomy.
 
 ### Source-use rule
 

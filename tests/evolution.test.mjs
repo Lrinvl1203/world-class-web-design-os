@@ -154,6 +154,24 @@ test('many Threads posts remain one independent source for proposal adoption', (
   assert.equal(buildProposals(signals, policy).length, 0);
 });
 
+test('official and manually reviewed Threads collectors remain one source family', () => {
+  const policy = { minimumSignalScore: 55, minimumEditorialSignalScore: 18, minimumRankedCommunitySignalScore: 18, minimumIndependentSourcesForProposal: 3 };
+  const ranked = {
+    id: 'ranked', sourceId: 'threads-design-discovery', sourceFamily: 'threads', url: 'https://threads.com/@a/post/1',
+    score: 19, title: 'Purposeful motion', principleHints: ['purposeful-motion'],
+    provenance: { method: 'official-api-search', searchType: 'TOP' }
+  };
+  const reviewed = {
+    id: 'reviewed', sourceId: 'threads-reviewed-links', sourceFamily: 'threads', url: 'https://threads.com/@b/post/2',
+    score: 20, title: 'Purposeful motion', principleHints: ['purposeful-motion'], provenance: { method: 'manual' }
+  };
+  const publication = {
+    id: 'publication', sourceId: 'publication', url: 'https://publication.test/motion', score: 20,
+    title: 'Purposeful motion', principleHints: ['purposeful-motion'], provenance: { method: 'rss' }
+  };
+  assert.equal(buildProposals([ranked, reviewed, publication], policy).length, 0);
+});
+
 test('editorial proposals still require three independent publications', () => {
   const policy = { minimumSignalScore: 55, minimumEditorialSignalScore: 28, minimumIndependentSourcesForProposal: 3 };
   const base = { score: 30, title: 'Accessible interface', principleHints: ['accessible-interaction'], provenance: { method: 'rss' } };

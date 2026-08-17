@@ -3,10 +3,11 @@
   "$id": "https://github.com/Lrinvl1203/world-class-web-design-os/schemas/design-signal.schema.json",
   "title": "Web Design OS design signal",
   "type": "object",
-  "required": ["id", "sourceId", "platform", "url", "title", "observedAt", "metrics", "provenance", "score", "status"],
+  "required": ["id", "sourceId", "sourceFamily", "platform", "url", "title", "observedAt", "metrics", "provenance", "score", "status"],
   "properties": {
     "id": {"type": "string"},
     "sourceId": {"type": "string"},
+    "sourceFamily": {"type": "string"},
     "platform": {"type": "string"},
     "url": {"type": "string", "format": "uri"},
     "title": {"type": "string", "maxLength": 500},
@@ -31,9 +32,12 @@
       "type": "object",
       "required": ["method", "retrievedAt", "contentHash"],
       "properties": {
-        "method": {"enum": ["official-api", "rss", "manual"]},
+        "method": {"enum": ["official-api", "official-api-search", "rss", "manual"]},
         "retrievedAt": {"type": "string", "format": "date-time"},
-        "contentHash": {"type": "string"}
+        "contentHash": {"type": "string"},
+        "searchType": {"enum": ["TOP", "RECENT"]},
+        "searchQuery": {"type": "string", "maxLength": 120},
+        "searchRank": {"type": "integer", "minimum": 1}
       }
     },
     "score": {"type": "number", "minimum": 0, "maximum": 100},

@@ -63,6 +63,7 @@
     },
     {
       "id": "threads-design-discovery",
+      "sourceFamily": "threads",
       "type": "threads-search",
       "name": "Threads public design discovery",
       "queries": [
@@ -82,12 +83,22 @@
     },
     {
       "id": "threads-owned-insights",
+      "sourceFamily": "threads",
       "type": "threads-insights",
       "name": "Threads authorized post insights",
       "postIdsEnv": "THREADS_POST_IDS",
       "trust": 0.6,
       "enabled": true,
       "requiresEnv": "THREADS_ACCESS_TOKEN"
+    },
+    {
+      "id": "threads-reviewed-links",
+      "sourceFamily": "threads",
+      "type": "manual-json",
+      "name": "Human-reviewed Threads links",
+      "path": "evolution/manual-threads.json",
+      "trust": 0.8,
+      "enabled": true
     },
     {
       "id": "manual-curation",

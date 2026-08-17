@@ -60,6 +60,7 @@ function normalizeSignal(raw, source, method, now) {
   const signal = {
     id: hash(`${source.id}:${url}`).slice(0, 20),
     sourceId: source.id,
+    sourceFamily: sanitizeText(source.sourceFamily || source.id, 100),
     sourceName: source.name,
     sourceTrust: source.trust,
     platform: sanitizeText(raw.platform || source.type, 60),
@@ -185,7 +186,7 @@ async function collectThreads(source, now) {
   return signals;
 }
 
-function isThreadsPermalink(value) {
+export function isThreadsPermalink(value) {
   try {
     const url = new URL(String(value || ''));
     return url.protocol === 'https:' && THREADS_PERMALINK_HOSTS.has(url.hostname.toLocaleLowerCase());
@@ -297,7 +298,7 @@ export function buildProposals(signals, policy) {
   }
   return [...groups.entries()].map(([principle, items]) => {
     const uniqueSignals = [...new Map(items.map(item => [item.url || item.id, item])).values()];
-    const uniqueSources = new Set(uniqueSignals.map(item => item.sourceId));
+    const uniqueSources = new Set(uniqueSignals.map(item => item.sourceFamily || item.sourceId));
     return { principle, signals: uniqueSignals, independentSources: uniqueSources.size };
   }).filter(group => group.independentSources >= policy.minimumIndependentSourcesForProposal)
     .sort((a, b) => b.independentSources - a.independentSources)
