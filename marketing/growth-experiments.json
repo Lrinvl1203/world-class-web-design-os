@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-08-17",
+  "experiments": [
+    {
+      "id": "threads-launch-2026-08-11",
+      "observed_on": "2026-08-17",
+      "channel": "threads",
+      "mode": "release_or_direct_call_to_action",
+      "language": "ko",
+      "url": "https://www.threads.com/@lrinvl1203/post/Db3bx0OkuRD",
+      "impressions": 162,
+      "interactions": 1,
+      "link_clicks": null,
+      "external_builds": 0,
+      "benchmark_submissions": 0,
+      "follows": 0,
+      "notes": "Evidence-led launch post."
+    },
+    {
+      "id": "threads-positioning-2026-08-13",
+      "observed_on": "2026-08-17",
+      "channel": "threads",
+      "mode": "community_question_or_request",
+      "language": "ko",
+      "url": "https://www.threads.com/@lrinvl1203/post/Db91IzvkorU",
+      "impressions": 152,
+      "interactions": 2,
+      "link_clicks": null,
+      "external_builds": 0,
+      "benchmark_submissions": 0,
+      "follows": 0,
+      "notes": "Non-developer positioning and feedback request."
+    },
+    {
+      "id": "threads-cases-2026-08-14",
+      "observed_on": "2026-08-17",
+      "channel": "threads",
+      "mode": "visual_proof_or_tutorial",
+      "language": "ko",
+      "url": "https://www.threads.com/@lrinvl1203/post/DcAOzSXkjdP",
+      "impressions": 106,
+      "interactions": 2,
+      "link_clicks": null,
+      "external_builds": 0,
+      "benchmark_submissions": 0,
+      "follows": 0,
+      "notes": "Three-case visual proof."
+    }
+  ]
+}

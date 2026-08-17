@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
-import { buildWeeklyReview, summarizeEvolution } from '../scripts/growth/weekly-review.mjs';
+import { buildWeeklyReview, selectGrowthStage, summarizeEvolution } from '../scripts/growth/weekly-review.mjs';
 
 const projectRoot = path.resolve(import.meta.dirname, '..');
 
@@ -23,6 +23,17 @@ function snapshot({ stars = 2, views = 40, uniqueViews = 25, clones = 100, uniqu
 }
 
 const evolution = { date: '2026-08-11', signals: 4, candidates: 1, errors: [], proposals: [] };
+
+test('growth strategy maps the current repository into proof and activation', () => {
+  const strategy = JSON.parse(fs.readFileSync(path.join(projectRoot, 'config', 'growth-strategy.json'), 'utf8'));
+  const stage = selectGrowthStage(5, strategy);
+  assert.equal(stage.id, 'proof');
+  const result = buildWeeklyReview({ current: snapshot({ stars: 5 }), evolution, strategy, generatedAt: '2026-08-17T00:10:00.000Z' });
+  assert.equal(result.report.growth_goal.target_stars, 10000);
+  assert.equal(result.report.growth_goal.stars_remaining, 9995);
+  assert.match(result.markdown, /Proof and activation/);
+  assert.match(result.markdown, /No astroturfing/);
+});
 
 test('weekly review compares repository and rolling traffic signals without claiming cohort conversion', () => {
   const result = buildWeeklyReview({

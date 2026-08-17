@@ -153,3 +153,17 @@
 - **Negative regression:** Common descriptive terms or unrelated technical acronyms should not trigger automatic renaming without related-goods, geography, and confusion context.
 - **Validation:** `WDX` became descriptive `Design Quality`/`World-Class Web Design OS`; `Vanta Forge` became `Linehold Forge`; all legacy-name searches are empty; the package smoke install is 17/17 READY; all validators, unit tests, 15 launch-browser cases, and both Linehold hard-gate cases pass.
 - **Decision:** adopted as launch process evidence and global project-management guidance; no autonomous core-skill rewrite.
+
+## Growth multiplication must learn from verified outcomes without gaining publication authority
+
+- **Date / project:** 2026-08-17 / World-Class Web Design OS 10K growth system
+- **Observation/evidence:** Daily design evolution and weekly repository reviews could collect and compare evidence, but one completed experiment still depended on an ad hoc session to become distinct YouTube, short-video, Threads, X, and community artifacts. Repeating launch copy produced views without external builds or meaningful star conversion.
+- **Severity/impact:** major growth-system gap; useful project evidence did not compound, while naive automation would create spam and trust risk.
+- **Classification:** missing rule and automation gap
+- **Root cause:** The project separated learning from public mutation correctly but had no governed intermediate layer that converted reviewed evidence into channel-native briefs or learned which content mode deserved another test.
+- **Generalizable principle:** Safe content propagation should multiply one reproducible source experiment into distinct native artifacts, rank tactics by verified downstream evidence, explore under-tested modes before exploiting apparent winners, and retain human publication authority.
+- **Proposed file/section change:** Add reviewed content seeds, a verified performance ledger, a deterministic propagation planner, a private weekly artifact, stage-aware CTAs, and explicit prohibitions on auto-posting, hidden affiliation, fake engagement, unsolicited DMs, or core-skill mutation.
+- **Positive regression scenario:** With three observed Threads artifacts and no education/build-log sample, the planner must select an under-tested non-promotional mode, generate multiple channel briefs from one reviewed case, and prioritize an external build over an empty star request.
+- **Negative/regression-risk scenario:** High impressions from one promotional post must not be treated as design-quality proof, sufficient evidence to abandon exploration, or authority to post automatically.
+- **Validation performed:** Three propagation regressions prove external builds outweigh shallow reach, under-tested modes are explored first, and every generated plan remains review-gated. The full unit suite passes 24/24, all 17 skills validate, the Design Quality sample remains 92/100, and a live local run generated the expected Nocturne Concierge weekly plan from the current evidence review.
+- **Decision:** adopted as review-only growth automation. No core design skill, scoring weight, public post, account, commit, or merge was changed automatically.

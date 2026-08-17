@@ -1,5 +1,7 @@
 # Growth and launch plan
 
+The launch phase now feeds the durable [10K growth system](10k-growth-system.md). `config/growth-strategy.json` is the machine-readable source for the target, stage gates, content mix, and anti-spam constraints. The goal is compounding discovery and third-party proof, not a promise of 10,000 stars.
+
 ## Baseline — 2026-08-11 KST
 
 | Signal | Baseline |
@@ -44,6 +46,18 @@ The recurring-learning claim must remain precise: design signals and observed fa
 | Monday 09:10 KST | Generate the private weekly evidence review and comparison state | 90-day Actions artifact; no posts, commits, or PRs |
 | Daily | Capture repository traffic and referral data as a private workflow artifact | `growth-pulse` artifact |
 | Day 14 and 30 | Review conversion and decide which surface to improve | Dated review in this document |
+
+After day 30, use the weekly operating rhythm and stage gates in the [10K growth system](10k-growth-system.md). Do not extend launch mode indefinitely.
+
+## Current growth stage — 2026-08-17
+
+The project is in **Proof and activation (0–99 stars)**.
+
+- Current stars: 5 total, 4 external.
+- Immediate target: ten reproducible external builds and two independent comparisons.
+- Distribution defect: the universal `skills` CLI discovers all 17 skills from the repository, but `skills find web-design-orchestrator --owner Lrinvl1203` currently returns no search result.
+- Scaling gate: fix directory search visibility and prove that strangers can install, invoke, and share a build without maintainer help.
+- Content rule: at least 80% of monthly participation must be education, evidence, failure analysis, or community help rather than direct promotion.
 
 ## Channel rules
 

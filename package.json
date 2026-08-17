@@ -63,6 +63,7 @@
     "growth:snapshot": "node scripts/growth/snapshot.mjs",
     "growth:snapshot:owner": "node scripts/growth/snapshot-owner.mjs",
     "weekly:review": "node scripts/growth/weekly-review.mjs",
+    "growth:propagate": "node scripts/growth/propagation-plan.mjs",
     "test:unit": "node --test tests/*.test.mjs",
     "qa:install": "npx playwright install chromium",
     "qa:capture": "node scripts/capture-screenshots.mjs",

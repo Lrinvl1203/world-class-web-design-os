@@ -47,6 +47,8 @@ That explicit command reads the authenticated GitHub CLI token in memory, writes
 
 This review is deterministic decision support. It may recommend the next evidence-producing action, but it never edits skills, sends posts or reminders, commits, opens pull requests, or merges changes. A substantive update still requires an intentional review, regression evidence, the normal validation suite, and a separate PR.
 
+After the weekly review, `scripts/growth/propagation-plan.mjs` selects one reviewed local case and one content mode. It uses the manually verified observations in `marketing/growth-experiments.json` to explore under-tested modes before favoring stronger evidence. The resulting private Markdown/JSON artifacts multiply one experiment into channel-native YouTube, short-video, Threads, X, and community-participation briefs. They are drafts only: the workflow cannot publish, reply, DM, create accounts, hide creator affiliation, buy engagement, or change the product. Final copy, media, channel, and timing require a human decision.
+
 GitHub Actions restores the most recent inbox cache so the collector can compare the configured rolling 30-day evidence window. URLs are deduplicated, preventing a repeatedly fetched or multiply submitted item from pretending to be independent evidence.
 
 ## Commands
@@ -56,6 +58,7 @@ npm run evolve:daily
 npm run web-design-os -- evolve --offline
 npm run growth:snapshot
 npm run weekly:review
+npm run growth:propagate
 ```
 
 Optional environment variables:

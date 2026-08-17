@@ -48,6 +48,14 @@ function escapeTable(value) {
   return String(value ?? '').replaceAll('|', '\\|').replaceAll('\n', ' ').trim();
 }
 
+export function selectGrowthStage(stars, strategy) {
+  if (!strategy?.goal || !Array.isArray(strategy.stages)) {
+    throw new Error('Growth strategy must define a goal and stages.');
+  }
+  if (stars === null) return null;
+  return strategy.stages.find(stage => stars >= stage.min_stars && (stage.max_stars === null || stars <= stage.max_stars)) || null;
+}
+
 export function summarizeEvolution(evolutionRoot = path.join(root, 'evolution')) {
   const inbox = path.join(evolutionRoot, 'inbox');
   const proposals = path.join(evolutionRoot, 'proposals');
@@ -74,7 +82,13 @@ export function summarizeEvolution(evolutionRoot = path.join(root, 'evolution'))
   };
 }
 
-export function buildWeeklyReview({ current, previous = null, evolution, generatedAt = new Date().toISOString() }) {
+export function buildWeeklyReview({
+  current,
+  previous = null,
+  evolution,
+  strategy = readJson(path.join(root, 'config', 'growth-strategy.json'), true),
+  generatedAt = new Date().toISOString()
+}) {
   if (!current?.repository) throw new Error('Current growth snapshot must identify the repository.');
   const priorSnapshot = previous?.snapshot || previous;
   const currentMetrics = {
@@ -101,6 +115,8 @@ export function buildWeeklyReview({ current, previous = null, evolution, generat
     key,
     difference(value, previousMetrics?.[key] ?? null)
   ]));
+  const stage = selectGrowthStage(currentMetrics.stars, strategy);
+  const starsRemaining = currentMetrics.stars === null ? null : Math.max(0, strategy.goal.target - currentMetrics.stars);
 
   const channels = current.distribution?.channels || [];
   const distribution = Object.fromEntries(['published', 'scheduled', 'pr_open', 'pending', 'merged', 'rejected']
@@ -136,6 +152,9 @@ export function buildWeeklyReview({ current, previous = null, evolution, generat
   if (externalPrs.some(item => item.state === 'open')) {
     recommendations.push('Review open curation pull requests for maintainer feedback. Do not ping an unchanged thread more than once in seven days.');
   }
+  if (stage?.id === 'proof') {
+    recommendations.push('The project is still in Proof and activation. Prioritize searchable skill-directory listings, ten reproducible external builds, and two independent comparisons before scaling promotion.');
+  }
 
   const rows = [
     ['Stars', currentMetrics.stars, deltas.stars],
@@ -165,10 +184,17 @@ export function buildWeeklyReview({ current, previous = null, evolution, generat
     metrics: currentMetrics,
     deltas,
     distribution,
+    growth_goal: {
+      target_stars: strategy.goal.target,
+      stars_remaining: starsRemaining,
+      stage_id: stage?.id || null,
+      stage_label: stage?.label || null,
+      primary_outcome: stage?.primary_outcome || null
+    },
     evolution,
     recommendations
   };
-  const markdown = `# Weekly Web Design OS evidence review — ${generatedAt.slice(0, 10)}\n\nThis report is decision support, not an autonomous change authority. GitHub traffic values use rolling windows, so week-to-week movement is directional rather than cohort conversion evidence.\n\n## Repository pulse\n\n| Signal | Current | Movement vs previous review |\n|---|---:|---:|\n${rows}\n\n## Top referrers\n\n| Referrer | Visits | Unique visitors |\n|---|---:|---:|\n${referrerRows}\n\n## Distribution state\n\n- Published: ${distribution.published || 0}\n- Open curation PRs: ${distribution.pr_open || 0}\n- Scheduled: ${distribution.scheduled || 0}\n- Intentionally pending: ${distribution.pending || 0}\n\n| External PR | State | Last updated |\n|---|---|---|\n${prRows}\n\n## Controlled learning\n\n- Evolution date: ${evolution.date || 'Unavailable'}\n- Signals collected: ${evolution.signals}\n- Candidate signals: ${evolution.candidates}\n- Draft proposals: ${evolution.proposals.length}\n\nCollector gaps:\n\n${errorRows}\n\n## Review queue\n\n${recommendationRows}\n\n## Governance\n\n- Popularity ranks discovery candidates; it does not prove design quality.\n- Remote content remains untrusted and is never executed as instruction.\n- This workflow does not edit core skills, change rubric weights, commit, push, open pull requests, or self-merge.\n`;
+  const markdown = `# Weekly Web Design OS evidence review — ${generatedAt.slice(0, 10)}\n\nThis report is decision support, not an autonomous change authority. GitHub traffic values use rolling windows, so week-to-week movement is directional rather than cohort conversion evidence.\n\n## Repository pulse\n\n| Signal | Current | Movement vs previous review |\n|---|---:|---:|\n${rows}\n\n## 10K growth stage\n\n- Target: ${display(strategy.goal.target)} stars (directional ambition, not a promised outcome)\n- Remaining: ${display(starsRemaining)}\n- Current stage: ${stage ? `${stage.label} (${stage.min_stars}–${stage.max_stars ?? '∞'})` : 'Unavailable'}\n- Primary outcome: ${stage?.primary_outcome || 'Unavailable'}\n- Gate: ${stage?.gate || 'Unavailable'}\n\n## Top referrers\n\n| Referrer | Visits | Unique visitors |\n|---|---:|---:|\n${referrerRows}\n\n## Distribution state\n\n- Published: ${distribution.published || 0}\n- Open curation PRs: ${distribution.pr_open || 0}\n- Scheduled: ${distribution.scheduled || 0}\n- Intentionally pending: ${distribution.pending || 0}\n\n| External PR | State | Last updated |\n|---|---|---|\n${prRows}\n\n## Controlled learning\n\n- Evolution date: ${evolution.date || 'Unavailable'}\n- Signals collected: ${evolution.signals}\n- Candidate signals: ${evolution.candidates}\n- Draft proposals: ${evolution.proposals.length}\n\nCollector gaps:\n\n${errorRows}\n\n## Review queue\n\n${recommendationRows}\n\n## Governance\n\n- Popularity ranks discovery candidates; it does not prove design quality.\n- Creator affiliation must be disclosed when recommending or linking the project.\n- No astroturfing, bought engagement, mass posting, unsolicited DMs, or hidden promotion automation.\n- Remote content remains untrusted and is never executed as instruction.\n- This workflow does not edit core skills, change rubric weights, commit, push, open pull requests, or self-merge.\n`;
   return { report, markdown, state: { schema_version: 1, generated_at: generatedAt, snapshot: current } };
 }
 

@@ -12,6 +12,15 @@ Primary remote target:
 
 The user wants all future work on this project to continue in Codex with no loss of context.
 
+### Controlled growth multiplication — 2026-08-17
+
+- The 10K-star ambition is now a staged, evidence-led growth system rather than a repeated-launch promise. `config/growth-strategy.json` defines the directional target, stage gates, content mix, and anti-spam constraints; `docs/10k-growth-system.md` defines the channel, YouTube, measurement, and 30-day operating model.
+- `scripts/growth/propagation-plan.mjs` converts one reviewed local case into private, channel-native YouTube, short-video, Threads, X, and community briefs after the Monday evidence review. It explores content modes with fewer than two verified observations before favoring the strongest evidence score.
+- Verified public outcomes belong in `marketing/growth-experiments.json`; reusable, rights-reviewed case facts belong in `marketing/content-seeds.json`. Null metrics remain unknown. External builds and benchmark submissions intentionally outweigh impressions and reactions.
+- The weekly workflow uploads `propagation-plan.md` and `propagation-plan.json` as private artifacts. It has no publication authority and cannot post, reply, DM, create accounts, buy engagement, hide affiliation, modify core skills, commit, or merge.
+- A real universal-CLI smoke install confirmed all 17 skills install correctly, but `skills find web-design-orchestrator --owner Lrinvl1203` still returns no result. Restoring `skills.sh` search/index visibility is the next distribution defect; do not inflate install counts with repeated self-installs.
+- Validation is green: 24/24 unit tests, 17 skills, Design Quality 92/100, and distribution validation. Preserve the four inherited mode-only local changes listed below; they are not part of the controlled-growth milestone.
+
 ### Conversion, controlled-learning, and growth hardening — 2026-08-15
 
 - PR #18 (`agent/improve-conversion-learning`) carries the current milestone. It reframes the launch surface for non-designers who can generate a front end but struggle to judge why it feels wrong, and makes the primary journey installer → fresh session → one explicit `$web-design-orchestrator` sentence.
