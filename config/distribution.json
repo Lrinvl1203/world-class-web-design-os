@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-08-14",
+  "updated_on": "2026-08-19",
   "channels": [
     {
       "id": "github-discussion",
@@ -64,6 +64,22 @@
       "status": "published",
       "url": "https://x.com/lrinvl1203/status/2088087923291984002",
       "published_on": "2026-08-14",
+      "featured": false
+    },
+    {
+      "id": "x-non-developer-tester-request",
+      "channel": "X",
+      "status": "published",
+      "url": "https://x.com/lrinvl1203/status/2089729123967270953",
+      "published_on": "2026-08-19",
+      "featured": false
+    },
+    {
+      "id": "threads-controlled-learning-tester-request",
+      "channel": "Threads",
+      "status": "published",
+      "url": "https://www.threads.com/@lrinvl1203/post/DcL44Agkqgy",
+      "published_on": "2026-08-19",
       "featured": false
     },
     {
