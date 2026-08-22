@@ -82,6 +82,13 @@ test('Threads keyword search is bounded, authenticated, sanitized, and deduplica
             username: 'bad',
             timestamp: '2026-08-16T00:00:00Z',
             permalink: 'https://example.com/not-threads'
+          },
+          {
+            id: '3',
+            text: 'Maintainer-authored promotion is not community evidence',
+            username: 'Lrinvl1203',
+            timestamp: '2026-08-16T00:00:00Z',
+            permalink: 'https://www.threads.com/@lrinvl1203/post/self'
           }
         ] };
       }
@@ -91,7 +98,7 @@ test('Threads keyword search is bounded, authenticated, sanitized, and deduplica
     const signals = await collectThreadsSearch({
       id: 'threads-test', name: 'Threads test', type: 'threads-search', trust: 0.45,
       requiresEnv: 'TEST_THREADS_TOKEN', queries: ['web motion'], searchTypes: ['TOP', 'RECENT'],
-      limitPerQuery: 200, maxSignals: 10
+      excludeAuthors: ['lrinvl1203'], limitPerQuery: 200, maxSignals: 10
     }, new Date('2026-08-17T00:00:00Z'), fetchImpl);
     assert.equal(requests.length, 2);
     assert.equal(requests[0].url.pathname, '/keyword_search');
@@ -101,6 +108,7 @@ test('Threads keyword search is bounded, authenticated, sanitized, and deduplica
     assert.equal(requests[0].options.headers.authorization, 'Bearer test-token');
     assert.equal(signals.length, 1);
     assert.equal(signals[0].title, 'Purposeful motion for keyboard users');
+    assert.equal(signals[0].author, 'designer');
     assert.equal(signals[0].provenance.searchType, 'TOP');
     assert.equal(signals[0].metrics.views, undefined);
   } finally {

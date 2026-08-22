@@ -181,3 +181,17 @@
 - **Negative/regression-risk scenario:** Ten popular Threads posts, duplicate TOP/RECENT appearances, a malicious instruction inside post text, a non-Threads permalink, or a missing/denied API permission must not create an adopted rule or three-source proposal.
 - **Validation performed:** Twelve Threads-specific regressions cover bounded authenticated requests, sanitization, host filtering, deduplication with TOP preservation, missing/denied credentials, controlled candidate qualification, cross-collector source-family independence, manual-queue validation, secure token refresh, and stdin-only GitHub secret installation. The full unit suite passes 35/35, routing passes 10/10, all 17 skills validate, and the configured Design Quality report remains 92/100.
 - **Decision:** adopted as optional official-API discovery. No scraping, media copying, core-skill mutation, public posting, commit, or merge occurs inside the scheduled workflow; live collection remains disabled until an owner-authorized Meta token is configured.
+
+## Community discovery must exclude maintainer-authored promotion
+
+- **Date / project:** 2026-08-22 / World-Class Web Design OS Threads discovery
+- **Observation/evidence:** The first post-merge weekly run collected 90 signals, including nine official Threads results. All nine were authored by the repository owner, and five crossed the ranked-community candidate floor. Counting those posts as public community discovery would let the project reinforce its own marketing claims.
+- **Severity/impact:** major evidence-integrity defect; a working official API path could still create a biased review queue without any external community evidence.
+- **Classification:** missing rule and live-validation blind spot
+- **Root cause:** The collector bounded, sanitized, ranked, and deduplicated results but did not distinguish maintainer-authored distribution from independent public discussion. The request limit also ended before less-prominent external results could be considered.
+- **Generalizable principle:** A project may measure its own posts as distribution outcomes, but self-authored content must not enter the external community-discovery evidence pool. Author exclusions must be explicit, case-insensitive, and source-scoped.
+- **Proposed file/section change:** Add a configured `excludeAuthors` list to Threads public discovery, filter matching authors before normalization, raise the still-bounded per-query result window from five to ten, and document the distinction from authorized owned-post insights.
+- **Positive regression scenario:** An external designer result and a maintainer result returned by both TOP and RECENT searches must retain the external result once while excluding the maintainer result regardless of username case.
+- **Negative/regression-risk scenario:** The exclusion must not suppress unrelated authors, disable authorized owned-post metrics, weaken the three-source proposal gate, or turn an empty external result set into fabricated evidence.
+- **Validation performed:** Pending unit, full validation, prior-scenario, and new live workflow verification.
+- **Decision:** trial until the corrected collector is validated locally and against a new official API run.
