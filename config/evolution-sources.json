@@ -66,6 +66,7 @@
       "sourceFamily": "threads",
       "type": "threads-search",
       "name": "Threads public design discovery",
+      "excludeAuthors": ["lrinvl1203"],
       "queries": [
         "바이브코딩",
         "웹디자인",
@@ -75,7 +76,7 @@
         "webgl"
       ],
       "searchTypes": ["TOP", "RECENT"],
-      "limitPerQuery": 5,
+      "limitPerQuery": 10,
       "maxSignals": 60,
       "trust": 0.45,
       "enabled": true,

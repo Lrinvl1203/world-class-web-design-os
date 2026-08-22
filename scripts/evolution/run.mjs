@@ -199,6 +199,9 @@ export async function collectThreadsSearch(source, now = new Date(), fetchImpl =
   const token = process.env[source.requiresEnv];
   if (!token) return [];
   const queries = [...new Set((source.queries || []).map(query => sanitizeText(query, 120)).filter(Boolean))].slice(0, 8);
+  const excludedAuthors = new Set((source.excludeAuthors || [])
+    .map(author => sanitizeText(author, 200).toLocaleLowerCase())
+    .filter(Boolean));
   const searchTypes = [...new Set((source.searchTypes || ['TOP', 'RECENT']).map(value => String(value).toUpperCase()))]
     .filter(value => value === 'TOP' || value === 'RECENT');
   const limitPerQuery = Math.max(1, Math.min(25, Number(source.limitPerQuery) || 10));
@@ -223,10 +226,12 @@ export async function collectThreadsSearch(source, now = new Date(), fetchImpl =
       const payload = await response.json();
       for (const [index, post] of (payload.data || []).entries()) {
         if (!isThreadsPermalink(post.permalink) || !sanitizeText(post.text, 1000)) continue;
+        const username = sanitizeText(post.username, 200);
+        if (excludedAuthors.has(username.toLocaleLowerCase())) continue;
         signals.push(normalizeSignal({
           url: post.permalink,
           title: sanitizeText(post.text, 160),
-          author: post.username,
+          author: username,
           publishedAt: post.timestamp,
           excerpt: post.text,
           platform: 'threads',
