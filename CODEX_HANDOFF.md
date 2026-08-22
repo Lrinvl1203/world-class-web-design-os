@@ -12,6 +12,15 @@ Primary remote target:
 
 The user wants all future work on this project to continue in Codex with no loss of context.
 
+### Controlled growth multiplication — 2026-08-17
+
+- The 10K-star ambition is now a staged, evidence-led growth system rather than a repeated-launch promise. `config/growth-strategy.json` defines the directional target, stage gates, content mix, and anti-spam constraints; `docs/10k-growth-system.md` defines the channel, YouTube, measurement, and 30-day operating model.
+- `scripts/growth/propagation-plan.mjs` converts one reviewed local case into private, channel-native YouTube, short-video, Threads, X, and community briefs after the Monday evidence review. It explores content modes with fewer than two verified observations before favoring the strongest evidence score.
+- Verified public outcomes belong in `marketing/growth-experiments.json`; reusable, rights-reviewed case facts belong in `marketing/content-seeds.json`. Null metrics remain unknown. External builds and benchmark submissions intentionally outweigh impressions and reactions.
+- The weekly workflow uploads `propagation-plan.md` and `propagation-plan.json` as private artifacts. It has no publication authority and cannot post, reply, DM, create accounts, buy engagement, hide affiliation, modify core skills, commit, or merge.
+- A real universal-CLI smoke install confirmed all 17 skills install correctly, but `skills find web-design-orchestrator --owner Lrinvl1203` still returns no result. Restoring `skills.sh` search/index visibility is the next distribution defect; do not inflate install counts with repeated self-installs.
+- Validation is green: 24/24 unit tests, 17 skills, Design Quality 92/100, and distribution validation. Preserve the four inherited mode-only local changes listed below; they are not part of the controlled-growth milestone.
+
 ### Conversion, controlled-learning, and growth hardening — 2026-08-15
 
 - PR #18 (`agent/improve-conversion-learning`) carries the current milestone. It reframes the launch surface for non-designers who can generate a front end but struggle to judge why it feels wrong, and makes the primary journey installer → fresh session → one explicit `$web-design-orchestrator` sentence.
@@ -764,3 +773,15 @@ Distribution status now has a machine-readable source of truth at `config/distri
 The universal Agent Skills CLI was smoke-tested with `npx --yes skills add Lrinvl1203/world-class-web-design-os --list` and discovered all 17 canonical skills directly under `.codex/skills`; do not add a duplicate root `skills/` tree merely for installer compatibility.
 
 The owner requested weekly ongoing improvement with Hacker News excluded. `weekly-evidence-review` now runs Monday at 09:10 Asia/Seoul, restores the previous comparison state, validates the OS, collects controlled design signals, captures repository/distribution/external-PR signals, and uploads a private 90-day review package. It is deliberately review-only: no skill edits, posts, commits, PR creation, or self-merge. Use the report queue as evidence for a normal validated milestone PR rather than treating the schedule as autonomous authority. The default Actions token currently receives `403` from private traffic endpoints; an optional least-privilege `GROWTH_TRAFFIC_TOKEN` secret enables those metrics, while denied values remain `Unavailable` rather than zero. Manual run `31497195015` completed in 20 seconds and produced the expected report, state, evolution, and snapshot artifacts.
+
+---
+
+## 25. Controlled growth propagation and Threads discovery (2026-08-17)
+
+The weekly evidence review now creates a private, review-only propagation plan that turns one verified case into channel-native YouTube, short-video, Threads, X, and community briefs. It explores under-tested content modes before using observed evidence, keeps engagement distinct from product quality, requires creator disclosure, and never publishes, replies, sends DMs, creates accounts, buys engagement, or edits the product. The change is on draft PR #21; do not self-merge it.
+
+Official Threads public discovery was added to the same controlled evolution path. When `THREADS_ACCESS_TOKEN` is configured with `threads_basic` and `threads_keyword_search`, the collector searches six reviewed design topics through Meta's official keyword endpoint in bounded TOP and RECENT requests. It stores only sanitized short text, metadata, hashes, and permalinks; rejects non-Threads links; does not fetch media or scrape a logged-in browser; and keeps the token out of URLs and artifacts.
+
+Threads rank is weak discovery evidence, not a quality verdict. Only TOP results that map to the local principle taxonomy can become community candidates. RECENT results stay discovery-only, and all Threads posts count as one independent source, so Threads alone can never satisfy the three-source proposal gate. Even a threshold-qualified proposal remains a draft that needs the continuous-learning critique, prior/new regression scenarios, rights review, validation, and explicit adoption. GitHub currently has no `THREADS_ACCESS_TOKEN` Actions secret, so live collection remains unavailable until the owner completes Meta OAuth and adds that secret; missing or denied access is non-fatal and is reported as unavailable.
+
+Owner tooling now covers everything after Meta's unavoidable app creation and OAuth consent: `threads:connect` reads a token through hidden input, proves `threads_keyword_search` access, and pipes it to the GitHub secret command; `threads:refresh` replaces an unexpired long-lived token the same way; `threads:doctor` checks secret presence; and `threads:add` maintains a bounded, sanitized, no-fetch queue of manually reviewed public permalinks. Official search, owned insights, and reviewed links use `sourceFamily: threads`, so separate collectors cannot inflate independence. Do not replace this with Playwright feed scraping or add an elevated secret-administration token merely to rotate another secret unattended.

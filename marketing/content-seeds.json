@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-08-17",
+  "seeds": [
+    {
+      "id": "sequence-desk",
+      "name": "Sequence Desk",
+      "url": "https://lrinvl1203.github.io/world-class-web-design-os/experiments/sequence-desk/",
+      "archetype": "Stateful product interface",
+      "lesson": "A convincing SaaS interface must prove loading, empty, error, selection, and completion states instead of presenting a polished static dashboard.",
+      "visual_hook": "the same component changing state before the full page appears.",
+      "limitations": "Internal QA evidence only; no field conversion or user-research claim."
+    },
+    {
+      "id": "orbital-commons",
+      "name": "Orbital Commons",
+      "url": "https://lrinvl1203.github.io/world-class-web-design-os/experiments/orbital-commons/",
+      "archetype": "Civic data with purposeful pseudo-3D",
+      "lesson": "Spatial effects earn their cost only when they clarify hierarchy, comparison, or story and preserve an accessible semantic fallback.",
+      "visual_hook": "the spatial data scene switching to its reduced-motion and semantic fallback.",
+      "limitations": "Pseudo-3D demonstration, not proof that 3D improves every interface."
+    },
+    {
+      "id": "afterimage-atlas",
+      "name": "Afterimage Atlas",
+      "url": "https://lrinvl1203.github.io/world-class-web-design-os/experiments/afterimage-atlas/",
+      "archetype": "Editorial cultural archive",
+      "lesson": "Distinctive editorial interfaces come from hierarchy, cropping, rhythm, and an inspection verb—not from applying a fashionable palette to a card grid.",
+      "visual_hook": "the archive overview contrasted with the object-inspection interaction.",
+      "limitations": "Fictional concept content with internal artifact scoring."
+    },
+    {
+      "id": "linehold-forge",
+      "name": "Linehold Forge",
+      "url": "https://lrinvl1203.github.io/world-class-web-design-os/experiments/linehold-forge/",
+      "archetype": "Industrial commerce",
+      "lesson": "A dense B2B interface should help a buyer compare risk and evidence rather than imitate consumer SaaS minimalism.",
+      "visual_hook": "the supplier-evaluation decision surface revealing its evidence hierarchy.",
+      "limitations": "Internal score remains below the project's target and buyer validation is pending."
+    },
+    {
+      "id": "nocturne-concierge",
+      "name": "Nocturne Concierge",
+      "url": "https://lrinvl1203.github.io/world-class-web-design-os/experiments/nocturne-concierge/",
+      "archetype": "Editorial hospitality",
+      "lesson": "Atmosphere should support booking confidence and orientation; decorative motion cannot replace a clear service and navigation model.",
+      "visual_hook": "the atmospheric first impression followed by keyboard navigation and the reduced-motion state.",
+      "limitations": "Fictional hospitality concept; field Core Web Vitals and booking conversion are unverified."
+    }
+  ]
+}

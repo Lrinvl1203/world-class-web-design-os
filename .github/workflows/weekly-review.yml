@@ -54,6 +54,8 @@ jobs:
           GROWTH_SNAPSHOT_OUTPUT: artifacts/weekly/snapshot.json
       - name: Build the review-only weekly report
         run: node scripts/growth/weekly-review.mjs
+      - name: Multiply one reviewed experiment into channel-native draft briefs
+        run: node scripts/growth/propagation-plan.mjs
       - name: Upload the private weekly evidence package
         uses: actions/upload-artifact@v7
         with:
@@ -63,6 +65,8 @@ jobs:
             artifacts/weekly/review.json
             artifacts/weekly/snapshot.json
             artifacts/weekly/state.json
+            artifacts/weekly/propagation-plan.md
+            artifacts/weekly/propagation-plan.json
             evolution/inbox/*.json
             evolution/reports/*.md
             evolution/proposals/*.md

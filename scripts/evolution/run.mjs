@@ -5,6 +5,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const STOP_WORDS = new Set(['about', 'after', 'before', 'behind', 'building', 'case', 'design', 'from', 'into', 'motion', 'site', 'study', 'that', 'the', 'this', 'website', 'with', 'web', 'and', 'for']);
+const THREADS_SEARCH_FIELDS = 'id,text,username,timestamp,permalink,topic_tag,is_verified';
+const THREADS_PERMALINK_HOSTS = new Set(['threads.com', 'www.threads.com', 'threads.net', 'www.threads.net']);
 
 export function sanitizeText(value, maxLength = 1000) {
   return String(value ?? '')
@@ -58,6 +60,7 @@ function normalizeSignal(raw, source, method, now) {
   const signal = {
     id: hash(`${source.id}:${url}`).slice(0, 20),
     sourceId: source.id,
+    sourceFamily: sanitizeText(source.sourceFamily || source.id, 100),
     sourceName: source.name,
     sourceTrust: source.trust,
     platform: sanitizeText(raw.platform || source.type, 60),
@@ -69,7 +72,14 @@ function normalizeSignal(raw, source, method, now) {
     untrustedExcerpt: sanitizeText(raw.excerpt || '', 1000),
     principleHints: Array.isArray(raw.principleHints) ? raw.principleHints.map(item => sanitizeText(item, 160)).filter(Boolean) : [],
     metrics: Object.fromEntries(Object.entries(raw.metrics || {}).map(([key, value]) => [key, numeric(value)])),
-    provenance: { method, retrievedAt: observedAt, contentHash: hash(`${title}\n${url}\n${raw.excerpt || ''}`) },
+    provenance: {
+      method,
+      retrievedAt: observedAt,
+      contentHash: hash(`${title}\n${url}\n${raw.excerpt || ''}`),
+      ...(raw.searchType ? { searchType: sanitizeText(raw.searchType, 12).toUpperCase() } : {}),
+      ...(raw.searchQuery ? { searchQuery: sanitizeText(raw.searchQuery, 120) } : {}),
+      ...(Number.isInteger(raw.searchRank) ? { searchRank: raw.searchRank } : {})
+    },
     status: 'signal'
   };
   signal.score = scoreSignal(signal, now);
@@ -152,11 +162,12 @@ async function collectThreads(source, now) {
   if (!token || !postIds.length) return [];
   const signals = [];
   for (const id of postIds) {
-    const insightParams = new URLSearchParams({ metric: 'views,likes,replies,reposts,quotes,shares', access_token: token });
-    const mediaParams = new URLSearchParams({ fields: 'id,text,username,timestamp,permalink', access_token: token });
+    const insightParams = new URLSearchParams({ metric: 'views,likes,replies,reposts,quotes,shares' });
+    const mediaParams = new URLSearchParams({ fields: 'id,text,username,timestamp,permalink' });
+    const headers = { authorization: `Bearer ${token}` };
     const [insightResponse, mediaResponse] = await Promise.all([
-      fetch(`https://graph.threads.net/v1.0/${encodeURIComponent(id)}/insights?${insightParams}`),
-      fetch(`https://graph.threads.net/v1.0/${encodeURIComponent(id)}?${mediaParams}`)
+      fetch(`https://graph.threads.net/v1.0/${encodeURIComponent(id)}/insights?${insightParams}`, { headers }),
+      fetch(`https://graph.threads.net/v1.0/${encodeURIComponent(id)}?${mediaParams}`, { headers })
     ]);
     if (!insightResponse.ok || !mediaResponse.ok) throw new Error(`${source.id}: Threads API rejected post ${id}`);
     const [insights, media] = await Promise.all([insightResponse.json(), mediaResponse.json()]);
@@ -175,6 +186,70 @@ async function collectThreads(source, now) {
   return signals;
 }
 
+export function isThreadsPermalink(value) {
+  try {
+    const url = new URL(String(value || ''));
+    return url.protocol === 'https:' && THREADS_PERMALINK_HOSTS.has(url.hostname.toLocaleLowerCase());
+  } catch {
+    return false;
+  }
+}
+
+export async function collectThreadsSearch(source, now = new Date(), fetchImpl = fetch) {
+  const token = process.env[source.requiresEnv];
+  if (!token) return [];
+  const queries = [...new Set((source.queries || []).map(query => sanitizeText(query, 120)).filter(Boolean))].slice(0, 8);
+  const searchTypes = [...new Set((source.searchTypes || ['TOP', 'RECENT']).map(value => String(value).toUpperCase()))]
+    .filter(value => value === 'TOP' || value === 'RECENT');
+  const limitPerQuery = Math.max(1, Math.min(25, Number(source.limitPerQuery) || 10));
+  const maxSignals = Math.max(1, Math.min(100, Number(source.maxSignals) || 50));
+  const signals = [];
+
+  for (const query of queries) {
+    for (const searchType of searchTypes) {
+      const params = new URLSearchParams({
+        q: query,
+        search_type: searchType,
+        search_mode: 'KEYWORD',
+        limit: String(limitPerQuery),
+        fields: THREADS_SEARCH_FIELDS
+      });
+      const response = await fetchImpl(`https://graph.threads.net/keyword_search?${params}`, {
+        headers: { authorization: `Bearer ${token}` }
+      });
+      if (!response.ok) {
+        throw new Error(`${source.id}: keyword search HTTP ${response.status}; verify the threads_keyword_search permission.`);
+      }
+      const payload = await response.json();
+      for (const [index, post] of (payload.data || []).entries()) {
+        if (!isThreadsPermalink(post.permalink) || !sanitizeText(post.text, 1000)) continue;
+        signals.push(normalizeSignal({
+          url: post.permalink,
+          title: sanitizeText(post.text, 160),
+          author: post.username,
+          publishedAt: post.timestamp,
+          excerpt: post.text,
+          platform: 'threads',
+          metrics: {},
+          searchType,
+          searchQuery: query,
+          searchRank: index + 1
+        }, source, 'official-api-search', now));
+      }
+      if (signals.length >= maxSignals) break;
+    }
+    if (signals.length >= maxSignals) break;
+  }
+
+  // TOP is requested before RECENT. Keeping the first URL prevents the same post
+  // from appearing as multiple pieces of evidence or losing its ranked context.
+  const unique = new Map();
+  for (const signal of signals) {
+    if (!unique.has(signal.url)) unique.set(signal.url, signal);
+  }
+  return [...unique.values()].slice(0, maxSignals);
+}
+
 export function deriveControlledPrinciples(signal, taxonomy = {}) {
   const text = `${signal.title || ''} ${signal.untrustedExcerpt || ''}`.toLocaleLowerCase();
   return Object.entries(taxonomy)
@@ -185,6 +260,12 @@ export function deriveControlledPrinciples(signal, taxonomy = {}) {
 export function qualifiesCandidate(signal, policy) {
   const scoreFloor = Number(policy.minimumSignalScore ?? 55);
   const method = signal.provenance?.method;
+  if (method === 'official-api-search') {
+    const rankedFloor = Number(policy.minimumRankedCommunitySignalScore ?? scoreFloor);
+    return signal.provenance?.searchType === 'TOP'
+      && (signal.principleHints || []).length > 0
+      && Number(signal.score || 0) >= rankedFloor;
+  }
   const editorial = method === 'rss' || method === 'manual';
   if (!editorial) return Number(signal.score || 0) >= scoreFloor;
   const editorialFloor = Number(policy.minimumEditorialSignalScore ?? scoreFloor);
@@ -217,7 +298,7 @@ export function buildProposals(signals, policy) {
   }
   return [...groups.entries()].map(([principle, items]) => {
     const uniqueSignals = [...new Map(items.map(item => [item.url || item.id, item])).values()];
-    const uniqueSources = new Set(uniqueSignals.map(item => item.sourceId));
+    const uniqueSources = new Set(uniqueSignals.map(item => item.sourceFamily || item.sourceId));
     return { principle, signals: uniqueSignals, independentSources: uniqueSources.size };
   }).filter(group => group.independentSources >= policy.minimumIndependentSourcesForProposal)
     .sort((a, b) => b.independentSources - a.independentSources)
@@ -267,7 +348,8 @@ export async function runEvolution({ offline = false, date, outputRoot = project
       const collected = source.type === 'rss' ? await collectRss(source, now)
         : source.type === 'manual-json' ? await collectManual(source, now)
           : source.type === 'youtube-search' ? await collectYouTube(source, now)
-            : source.type === 'threads-insights' ? await collectThreads(source, now) : [];
+            : source.type === 'threads-insights' ? await collectThreads(source, now)
+              : source.type === 'threads-search' ? await collectThreadsSearch(source, now) : [];
       signals.push(...collected);
     } catch (error) {
       errors.push(`${source.id}: ${sanitizeText(error.message, 300)}`);

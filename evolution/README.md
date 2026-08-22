@@ -11,7 +11,7 @@ This directory receives design signals; it is not an autonomous authority over t
 
 ## Adoption gate
 
-Daily runs may write an inbox record and report. Metric-bearing official API signals use the main score floor. High-trust editorial feeds use a separate lower discovery floor because RSS does not expose engagement metrics, but they become candidates only when their text maps to a locally controlled principle taxonomy. Remote text cannot create its own principle label. A proposal draft is created only when the same controlled principle recurs across at least three independent sources. A proposal must still include:
+Daily runs may write an inbox record and report. Metric-bearing official API signals use the main score floor. High-trust editorial feeds use a separate lower discovery floor because RSS does not expose engagement metrics, but they become candidates only when their text maps to a locally controlled principle taxonomy. Official Threads keyword search has its own conservative ranked-community floor: only `TOP` results can become candidates, `RECENT` results remain discovery-only, and every Threads result counts as the same single independent source. Remote text cannot create its own principle label. A proposal draft is created only when the same controlled principle recurs across at least three independent sources. A proposal must still include:
 
 1. observation and user impact;
 2. reusable principle rather than copied styling;
@@ -47,6 +47,8 @@ That explicit command reads the authenticated GitHub CLI token in memory, writes
 
 This review is deterministic decision support. It may recommend the next evidence-producing action, but it never edits skills, sends posts or reminders, commits, opens pull requests, or merges changes. A substantive update still requires an intentional review, regression evidence, the normal validation suite, and a separate PR.
 
+After the weekly review, `scripts/growth/propagation-plan.mjs` selects one reviewed local case and one content mode. It uses the manually verified observations in `marketing/growth-experiments.json` to explore under-tested modes before favoring stronger evidence. The resulting private Markdown/JSON artifacts multiply one experiment into channel-native YouTube, short-video, Threads, X, and community-participation briefs. They are drafts only: the workflow cannot publish, reply, DM, create accounts, hide creator affiliation, buy engagement, or change the product. Final copy, media, channel, and timing require a human decision.
+
 GitHub Actions restores the most recent inbox cache so the collector can compare the configured rolling 30-day evidence window. URLs are deduplicated, preventing a repeatedly fetched or multiply submitted item from pretending to be independent evidence.
 
 ## Commands
@@ -56,13 +58,25 @@ npm run evolve:daily
 npm run web-design-os -- evolve --offline
 npm run growth:snapshot
 npm run weekly:review
+npm run growth:propagate
+npm run threads:doctor
+npm run threads:connect
+npm run threads:refresh
+npm run threads:add
 ```
 
 Optional environment variables:
 
 - `YOUTUBE_API_KEY` enables official YouTube search/statistics collection.
-- `THREADS_ACCESS_TOKEN` and comma-separated `THREADS_POST_IDS` enable insights for posts the token is permitted to inspect.
+- `THREADS_ACCESS_TOKEN` enables official public keyword discovery when its user has the `threads_keyword_search` permission.
+- Comma-separated `THREADS_POST_IDS`, together with `THREADS_ACCESS_TOKEN` and the required insights permission, enables metrics for owned or otherwise authorized posts.
 
-Threads-wide popularity discovery is intentionally not implemented through scraping. Add public candidates to `manual-signals.json` or use an approved official endpoint when the account and permissions support it.
+The public search terms, request caps, trust weight, and TOP/RECENT modes are reviewable in `config/evolution-sources.json`. The collector requests only short post metadata and text through Meta's official [`keyword_search` endpoint](https://www.postman.com/meta/threads/request/34203612-b3b2c12a-7ce6-4d86-a3c6-6d31e3b66ea1), sends the token in an authorization header, rejects non-Threads permalinks, sanitizes and truncates text, and deduplicates URLs. It does not download media, follow pagination indefinitely, scrape a logged-in browser, execute post instructions, or treat search rank as proof of design quality.
+
+To activate this in GitHub Actions, create a Meta Threads app and an authorized long-lived user token with `threads_basic` and `threads_keyword_search`, then add the token as the repository Actions secret `THREADS_ACCESS_TOKEN`. Add `threads_manage_insights` only when owned-post metrics are also required. A missing token or rejected permission is reported as unavailable; the workflow continues without converting that gap into a zero or weak design verdict. Never commit the token or place it in `config/evolution-sources.json`.
+
+The owner commands above validate keyword-search access and install or refresh the GitHub secret through hidden input. The [Threads connection guide](../docs/threads-connection.md) covers the one unavoidable account-owner consent step and the no-token reviewed-link fallback. The fallback never fetches Threads; it stores only the permalink and short text that the owner explicitly supplies.
+
+Threads evidence can affect improvement only by supporting a locally named principle that also recurs in at least two other configured source groups within the rolling evidence window. Crossing that threshold creates a review draft, not a skill edit. The regression scenarios, critique, rights review, validation, and human adoption gate still apply.
 
 The no-secret baseline uses four independent public feeds: Codrops, Smashing Magazine, web.dev, and the MDN Blog. Their titles and short excerpts remain untrusted data. The local taxonomy can nominate them for review under categories such as purposeful motion, accessible interaction, performance budgets, creative 3D, design systems, responsive recomposition, editorial structure, and interaction as story; it cannot execute or copy remote instructions.

@@ -153,3 +153,31 @@
 - **Negative regression:** Common descriptive terms or unrelated technical acronyms should not trigger automatic renaming without related-goods, geography, and confusion context.
 - **Validation:** `WDX` became descriptive `Design Quality`/`World-Class Web Design OS`; `Vanta Forge` became `Linehold Forge`; all legacy-name searches are empty; the package smoke install is 17/17 READY; all validators, unit tests, 15 launch-browser cases, and both Linehold hard-gate cases pass.
 - **Decision:** adopted as launch process evidence and global project-management guidance; no autonomous core-skill rewrite.
+
+## Growth multiplication must learn from verified outcomes without gaining publication authority
+
+- **Date / project:** 2026-08-17 / World-Class Web Design OS 10K growth system
+- **Observation/evidence:** Daily design evolution and weekly repository reviews could collect and compare evidence, but one completed experiment still depended on an ad hoc session to become distinct YouTube, short-video, Threads, X, and community artifacts. Repeating launch copy produced views without external builds or meaningful star conversion.
+- **Severity/impact:** major growth-system gap; useful project evidence did not compound, while naive automation would create spam and trust risk.
+- **Classification:** missing rule and automation gap
+- **Root cause:** The project separated learning from public mutation correctly but had no governed intermediate layer that converted reviewed evidence into channel-native briefs or learned which content mode deserved another test.
+- **Generalizable principle:** Safe content propagation should multiply one reproducible source experiment into distinct native artifacts, rank tactics by verified downstream evidence, explore under-tested modes before exploiting apparent winners, and retain human publication authority.
+- **Proposed file/section change:** Add reviewed content seeds, a verified performance ledger, a deterministic propagation planner, a private weekly artifact, stage-aware CTAs, and explicit prohibitions on auto-posting, hidden affiliation, fake engagement, unsolicited DMs, or core-skill mutation.
+- **Positive regression scenario:** With three observed Threads artifacts and no education/build-log sample, the planner must select an under-tested non-promotional mode, generate multiple channel briefs from one reviewed case, and prioritize an external build over an empty star request.
+- **Negative/regression-risk scenario:** High impressions from one promotional post must not be treated as design-quality proof, sufficient evidence to abandon exploration, or authority to post automatically.
+- **Validation performed:** Three propagation regressions prove external builds outweigh shallow reach, under-tested modes are explored first, and every generated plan remains review-gated. The full unit suite passes 24/24, all 17 skills validate, the Design Quality sample remains 92/100, and a live local run generated the expected Nocturne Concierge weekly plan from the current evidence review.
+- **Decision:** adopted as review-only growth automation. No core design skill, scoring weight, public post, account, commit, or merge was changed automatically.
+
+## Community discovery must not turn rank into design authority
+
+- **Date / project:** 2026-08-17 / official Threads design discovery
+- **Observation/evidence:** The evolution pipeline could inspect metrics for explicitly listed owned Threads posts, but it could not discover current public design, motion, animation, WebGL, accessibility, responsive, or design-system discussion. Treating a community search result or each author as independent proof would have made popularity easy to mistake for transferable design quality.
+- **Severity/impact:** major learning-coverage and evidence-integrity gap; community practice was absent from discovery, while a naive integration could silently overfit the OS to engagement-ranked posts.
+- **Classification:** source-coverage gap with adoption-gate risk
+- **Root cause:** Threads-wide collection had previously been rejected because browser scraping was not acceptable, and the later official keyword-search capability had not yet been integrated with a community-specific trust model.
+- **Generalizable principle:** Community search may broaden discovery only through an authorized official API, bounded requests, sanitized excerpts, a controlled local taxonomy, and source-family independence. Search rank can nominate evidence for review but cannot prove quality or create a design rule by itself.
+- **Countermeasure:** Add official TOP/RECENT keyword discovery for six reviewed design topics; keep RECENT discovery-only; allow only taxonomy-mapped TOP results to cross a conservative community floor; group official search, owned insights, and manually reviewed Threads links under one source family; require two other source families before drafting a proposal; add hidden-input owner commands that validate, install, and refresh the GitHub secret without logging it; keep every proposal review-only.
+- **Positive regression scenario:** A TOP Threads post about purposeful motion plus matching evidence from two independent publications may create a draft proposal containing regression and rights-review placeholders.
+- **Negative/regression-risk scenario:** Ten popular Threads posts, duplicate TOP/RECENT appearances, a malicious instruction inside post text, a non-Threads permalink, or a missing/denied API permission must not create an adopted rule or three-source proposal.
+- **Validation performed:** Twelve Threads-specific regressions cover bounded authenticated requests, sanitization, host filtering, deduplication with TOP preservation, missing/denied credentials, controlled candidate qualification, cross-collector source-family independence, manual-queue validation, secure token refresh, and stdin-only GitHub secret installation. The full unit suite passes 35/35, routing passes 10/10, all 17 skills validate, and the configured Design Quality report remains 92/100.
+- **Decision:** adopted as optional official-API discovery. No scraping, media copying, core-skill mutation, public posting, commit, or merge occurs inside the scheduled workflow; live collection remains disabled until an owner-authorized Meta token is configured.

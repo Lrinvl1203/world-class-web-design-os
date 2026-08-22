@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-08-17",
+  "goal": {
+    "metric": "github_stars",
+    "target": 10000,
+    "baseline": 5,
+    "baseline_on": "2026-08-17",
+    "note": "A directional ambition, not a promised outcome or quality metric."
+  },
+  "principles": {
+    "value_first": true,
+    "creator_disclosure_required_when_linking": true,
+    "no_astroturfing": true,
+    "no_bought_engagement": true,
+    "no_mass_posting_or_unsolicited_dm": true,
+    "no_hidden_automation": true,
+    "no_unsupported_comparative_claims": true
+  },
+  "stages": [
+    {
+      "id": "proof",
+      "label": "Proof and activation",
+      "min_stars": 0,
+      "max_stars": 99,
+      "primary_outcome": "Ten reproducible external builds and a searchable Agent Skills listing",
+      "gate": "Do not scale promotion until a stranger can discover, install, invoke, and share a result without maintainer help."
+    },
+    {
+      "id": "category",
+      "label": "Category ownership",
+      "min_stars": 100,
+      "max_stars": 999,
+      "primary_outcome": "Own the non-designer UI judgment problem through recurring public evidence",
+      "gate": "At least five third-party artifacts and two independent workflow comparisons must be public."
+    },
+    {
+      "id": "community",
+      "label": "Community flywheel",
+      "min_stars": 1000,
+      "max_stars": 2999,
+      "primary_outcome": "Contributors and creators publish builds without direct maintainer prompting",
+      "gate": "Contribution, showcase, and support paths must work without private coordination."
+    },
+    {
+      "id": "ecosystem",
+      "label": "Ecosystem distribution",
+      "min_stars": 3000,
+      "max_stars": 9999,
+      "primary_outcome": "Become a default recommendation across agent-skill directories and creator workflows",
+      "gate": "Distribution partnerships must be earned through usage evidence, not reciprocal promotion."
+    },
+    {
+      "id": "ten_k",
+      "label": "10K stewardship",
+      "min_stars": 10000,
+      "max_stars": null,
+      "primary_outcome": "Protect trust, compatibility, and contributor experience at ecosystem scale",
+      "gate": "Growth never overrides safety, evidence, licensing, or maintainability."
+    }
+  ],
+  "content_mix_percent": {
+    "useful_native_education_without_link": 35,
+    "build_or_failure_log": 25,
+    "visual_proof_or_tutorial": 20,
+    "community_question_or_request": 10,
+    "release_or_direct_call_to_action": 10
+  },
+  "review_thresholds": {
+    "minimum_external_builds_for_scaling": 10,
+    "minimum_independent_comparisons_for_scaling": 2,
+    "maximum_curation_followups_per_unchanged_thread_per_7_days": 1,
+    "maximum_direct_promotion_share_percent": 20,
+    "youtube_impressions_before_thumbnail_judgment": 100,
+    "youtube_ctr_floor_percent": 3,
+    "youtube_intro_retention_floor_percent": 50
+  }
+}

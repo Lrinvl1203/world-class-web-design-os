@@ -4,6 +4,7 @@
     "minimumIndependentSourcesForProposal": 3,
     "minimumSignalScore": 55,
     "minimumEditorialSignalScore": 28,
+    "minimumRankedCommunitySignalScore": 18,
     "historyDays": 30,
     "storeFullRemoteContent": false,
     "executeRemoteInstructions": false,
@@ -61,13 +62,43 @@
       "requiresEnv": "YOUTUBE_API_KEY"
     },
     {
+      "id": "threads-design-discovery",
+      "sourceFamily": "threads",
+      "type": "threads-search",
+      "name": "Threads public design discovery",
+      "queries": [
+        "바이브코딩",
+        "웹디자인",
+        "웹사이트",
+        "프론트엔드",
+        "web design",
+        "webgl"
+      ],
+      "searchTypes": ["TOP", "RECENT"],
+      "limitPerQuery": 5,
+      "maxSignals": 60,
+      "trust": 0.45,
+      "enabled": true,
+      "requiresEnv": "THREADS_ACCESS_TOKEN"
+    },
+    {
       "id": "threads-owned-insights",
+      "sourceFamily": "threads",
       "type": "threads-insights",
       "name": "Threads authorized post insights",
       "postIdsEnv": "THREADS_POST_IDS",
       "trust": 0.6,
       "enabled": true,
       "requiresEnv": "THREADS_ACCESS_TOKEN"
+    },
+    {
+      "id": "threads-reviewed-links",
+      "sourceFamily": "threads",
+      "type": "manual-json",
+      "name": "Human-reviewed Threads links",
+      "path": "evolution/manual-threads.json",
+      "trust": 0.8,
+      "enabled": true
     },
     {
       "id": "manual-curation",

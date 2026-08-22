@@ -1,5 +1,7 @@
 # Growth and launch plan
 
+The launch phase now feeds the durable [10K growth system](10k-growth-system.md). `config/growth-strategy.json` is the machine-readable source for the target, stage gates, content mix, and anti-spam constraints. The goal is compounding discovery and third-party proof, not a promise of 10,000 stars.
+
 ## Baseline — 2026-08-11 KST
 
 | Signal | Baseline |
@@ -45,6 +47,18 @@ The recurring-learning claim must remain precise: design signals and observed fa
 | Daily | Capture repository traffic and referral data as a private workflow artifact | `growth-pulse` artifact |
 | Day 14 and 30 | Review conversion and decide which surface to improve | Dated review in this document |
 
+After day 30, use the weekly operating rhythm and stage gates in the [10K growth system](10k-growth-system.md). Do not extend launch mode indefinitely.
+
+## Current growth stage — 2026-08-17
+
+The project is in **Proof and activation (0–99 stars)**.
+
+- Current stars: 5 total, 4 external.
+- Immediate target: ten reproducible external builds and two independent comparisons.
+- Distribution defect: the universal `skills` CLI discovers all 17 skills from the repository, but `skills find web-design-orchestrator --owner Lrinvl1203` currently returns no search result.
+- Scaling gate: fix directory search visibility and prove that strangers can install, invoke, and share a build without maintainer help.
+- Content rule: at least 80% of monthly participation must be education, evidence, failure analysis, or community help rather than direct promotion.
+
 ## Channel rules
 
 - Reddit: participate in one relevant subreddit at a time and answer questions before posting elsewhere.
@@ -70,6 +84,8 @@ The recurring-learning claim must remain precise: design signals and observed fa
 | 2026-08-14 | Threads | https://www.threads.com/@lrinvl1203/post/DcAOzSXkjdP | Korean visual-proof post linking three distinct reference cases and their disclosed QA limits | Published |
 | 2026-08-14 | X | https://x.com/lrinvl1203/status/2088087923291984002 | Three-image contrast between editorial, SaaS, and pseudo-3D outcomes from one design OS | Published |
 | 2026-08-15 | GitHub Discussion update | https://github.com/Lrinvl1203/world-class-web-design-os/discussions/6#discussioncomment-18019724 | 60-second first use, 15-second five-outcome reel, release downloads, and request for builds or failures | Published |
+| 2026-08-19 | X | https://x.com/lrinvl1203/status/2089729123967270953 | 15-second proof reel and request for ten non-developer UI cases | Published; measure after 24 hours |
+| 2026-08-19 | Threads | https://www.threads.com/@lrinvl1203/post/DcL44Agkqgy | Korean controlled-learning explanation and request for real UI failures | Published; measure after 24 hours |
 
 ## Evidence review — 2026-08-15 KST
 
@@ -78,6 +94,14 @@ The recurring-learning claim must remain precise: design signals and observed fa
 - Measured referrers: Reddit remains strongest (13 combined referral counts), followed by Threads (3); X produced no measured repository referral in the current window.
 - Current bottleneck: the repository is being opened and cloned, but independent successful-use proof and stars are not growing proportionally.
 - Next action: deploy the 15-second five-outcome proof reel and 60-second first-use path, then make one evidence-led update to the existing Reddit conversation and one Korean-first Threads proof post. Do not repeat generic launch copy or open a new Hacker News campaign.
+
+## Evidence review — 2026-08-19 KST
+
+- Repository: 6 stars total, 5 external stars, 0 forks, and 0 subscribers.
+- Rolling GitHub traffic: 112 views from 76 unique visitors; 360 clones from 104 unique cloners. Compared with the 2026-08-15 review, this is +34 views, +21 unique visitors, +160 clones, and +44 unique cloners. Clone counts may include automation and are not treated as successful installs.
+- Measured referrers: Threads leads with 12 views from 12 uniques; Reddit surfaces account for 21 views from 17 uniques. X has not yet appeared as a measurable repository referrer.
+- Current bottleneck: discovery and cloning are growing faster than stars, forks, or independent builds. The next proof unit must be a real non-developer before/after case, not another generic feature announcement.
+- Next action: measure the two 2026-08-19 posts after 24 hours, recruit up to ten real UI cases, and turn the strongest consented case into a reproducible before/after page and short implementation video.
 
 ## Review template
 

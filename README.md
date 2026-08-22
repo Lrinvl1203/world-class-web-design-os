@@ -179,9 +179,9 @@ web-design-os eval
 
 ## Daily evolution without silent drift
 
-The scheduled workflow collects official APIs, RSS feeds, and reviewed manual signals into a dated report. A proposal needs three independent sources and survives a 30-day cache policy before it can be considered. The automation may write evidence and proposals; it may not modify core skill instructions.
+The scheduled workflow collects official APIs, RSS feeds, and reviewed manual signals into a dated report. With an authorized Meta token, that includes bounded official Threads keyword discovery across interaction, motion, creative coding, accessibility, responsive design, and design systems. Threads rank remains a weak discovery signal: all Threads posts count as one source, and only taxonomy-mapped TOP results can support a proposal alongside at least two other independent source groups. A proposal needs three independent sources and survives a 30-day cache policy before it can be considered. The automation may write evidence and proposals; it may not modify core skill instructions.
 
-See [evolution model](evolution/README.md), [source registry](docs/source-registry.md), and [learning records](docs/learning-records.md).
+See [evolution model](evolution/README.md), [Threads connection](docs/threads-connection.md), [source registry](docs/source-registry.md), and [learning records](docs/learning-records.md).
 
 Every Monday at 09:10 Asia/Seoul, `weekly-evidence-review` combines the latest repository traffic, star/fork signals, distribution state, external curation PR status, validation results, and controlled-learning output into a private 90-day artifact. It creates a review queue but never edits skills, posts, commits, opens PRs, or self-merges.
 
