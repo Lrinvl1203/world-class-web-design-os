@@ -191,6 +191,8 @@ export function buildWeeklyReview({
 
   if (!previousMetrics) {
     recommendations.push('Treat this run as the comparison baseline; do not infer a trend from one snapshot.');
+  } else if (currentMetrics.uniqueViews === null || previousMetrics.uniqueViews === null) {
+    recommendations.push('Repository traffic movement is unavailable. Do not infer growth or decline until comparable authorized snapshots exist.');
   } else if ((deltas.uniqueViews ?? 0) <= 0) {
     recommendations.push('Discovery did not grow in the rolling traffic window. Publish one concrete build, failure analysis, or reproducible benchmark; do not send a generic reminder post.');
   } else if ((deltas.stars ?? 0) <= 0) {
