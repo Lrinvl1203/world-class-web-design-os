@@ -2,15 +2,22 @@
 
 This document turns the 10,000-star ambition into a repeatable operating system. It is not a forecast or a promise. Stars are a discovery signal; successful installs, independent builds, recurring users, and contributors are stronger evidence of usefulness.
 
-## Current position — 2026-08-17
+## Current-position baseline — 2026-08-17
 
 - World-Class Web Design OS: 5 stars, including the owner.
 - UI UX Pro Max: approximately 117K stars.
 - MengTo/Skills: approximately 4.8K stars.
-- The universal `skills` CLI discovers all 17 local skills, but `skills find web-design-orchestrator --owner Lrinvl1203` currently returns no search result.
+- The universal `skills` CLI discovered all 17 local skills, but the dated baseline search returned no public result.
 - GitHub traffic is moving slowly while external builds, forks, replies, and star conversion remain near zero.
 
 Reaching 10K from 5 requires 9,995 additional stars. That is roughly 27 net stars per day for one year or 14 per day for two years. Repeating launch posts cannot sustain that rate. Distribution, proof, education, and community must compound together.
+
+### Measured update — 2026-08-24
+
+- The repository has 7 stars, 0 forks, and 0 watchers.
+- Rolling GitHub traffic reports 159 views from 96 unique visitors and 436 clones from 130 unique cloners. Clone traffic is unattributed and may include CI, bots, repeated checkouts, or human evaluation; it is not install evidence.
+- `skills find web-design-orchestrator --owner Lrinvl1203` now returns the public skill page with one indexed install.
+- Verified adoption remains 0/10 reproducible external builds and 0/2 independent comparisons. These gates, rather than clone counts, are the current constraint.
 
 ## Positioning
 
@@ -32,6 +39,8 @@ The supportable difference is the governed loop across discovery, art direction,
 One experiment should create several channel-native artifacts. Identical cross-posted copy is not a content system.
 
 The Monday workflow now operationalizes this loop. `npm run growth:propagate` reads the private weekly evidence review, the controlled strategy, verified performance observations, and reviewed local case seeds. It creates a private channel-native propagation plan and JSON decision record. It does not publish anything; approved URLs and metrics must be recorded in `marketing/growth-experiments.json` before they influence a later decision.
+
+Verified external use is tracked separately in `marketing/adoption-evidence.json`. Only unique records with `status: "verified"` and an HTTPS evidence URL count; external builds must also use `type: "external_build"` and `reproducible: true`. Independent comparisons use `type: "independent_comparison"`. Pending, duplicate, invalid, or self-asserted records remain visible as review work but do not advance the stage gate.
 
 ## Five growth stages
 
