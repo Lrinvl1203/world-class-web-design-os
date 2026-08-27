@@ -48,6 +48,68 @@ function escapeTable(value) {
   return String(value ?? '').replaceAll('|', '\\|').replaceAll('\n', ' ').trim();
 }
 
+function isHttpsUrl(value) {
+  try {
+    return new URL(value).protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+export function summarizeAdoptionEvidence(ledger = { records: [] }, strategy = readJson(path.join(root, 'config', 'growth-strategy.json'), true)) {
+  const records = Array.isArray(ledger?.records) ? ledger.records : [];
+  const seen = new Set();
+  let externalBuilds = 0;
+  let independentComparisons = 0;
+  let pendingRecords = 0;
+  let rejectedRecords = 0;
+
+  for (const record of records) {
+    const id = typeof record?.id === 'string' ? record.id.trim() : '';
+    if (!id || seen.has(id)) {
+      rejectedRecords += 1;
+      continue;
+    }
+    seen.add(id);
+    if (record.status !== 'verified') {
+      pendingRecords += 1;
+      continue;
+    }
+    if (!isHttpsUrl(record.evidence_url)) {
+      rejectedRecords += 1;
+      continue;
+    }
+    if (record.type === 'external_build') {
+      if (record.reproducible !== true) {
+        rejectedRecords += 1;
+        continue;
+      }
+      externalBuilds += 1;
+    } else if (record.type === 'independent_comparison') {
+      independentComparisons += 1;
+    } else {
+      rejectedRecords += 1;
+    }
+  }
+
+  const externalBuildTarget = number(strategy?.review_thresholds?.minimum_external_builds_for_scaling) ?? 10;
+  const independentComparisonTarget = number(strategy?.review_thresholds?.minimum_independent_comparisons_for_scaling) ?? 2;
+  return {
+    external_builds: {
+      verified: externalBuilds,
+      target: externalBuildTarget,
+      remaining: Math.max(0, externalBuildTarget - externalBuilds)
+    },
+    independent_comparisons: {
+      verified: independentComparisons,
+      target: independentComparisonTarget,
+      remaining: Math.max(0, independentComparisonTarget - independentComparisons)
+    },
+    pending_records: pendingRecords,
+    rejected_records: rejectedRecords
+  };
+}
+
 export function selectGrowthStage(stars, strategy) {
   if (!strategy?.goal || !Array.isArray(strategy.stages)) {
     throw new Error('Growth strategy must define a goal and stages.');
@@ -86,6 +148,7 @@ export function buildWeeklyReview({
   current,
   previous = null,
   evolution,
+  adoptionEvidence = { records: [] },
   strategy = readJson(path.join(root, 'config', 'growth-strategy.json'), true),
   generatedAt = new Date().toISOString()
 }) {
@@ -117,6 +180,7 @@ export function buildWeeklyReview({
   ]));
   const stage = selectGrowthStage(currentMetrics.stars, strategy);
   const starsRemaining = currentMetrics.stars === null ? null : Math.max(0, strategy.goal.target - currentMetrics.stars);
+  const adoption = summarizeAdoptionEvidence(adoptionEvidence, strategy);
 
   const channels = current.distribution?.channels || [];
   const distribution = Object.fromEntries(['published', 'scheduled', 'pr_open', 'pending', 'merged', 'rejected']
@@ -127,6 +191,8 @@ export function buildWeeklyReview({
 
   if (!previousMetrics) {
     recommendations.push('Treat this run as the comparison baseline; do not infer a trend from one snapshot.');
+  } else if (currentMetrics.uniqueViews === null || previousMetrics.uniqueViews === null) {
+    recommendations.push('Repository traffic movement is unavailable. Do not infer growth or decline until comparable authorized snapshots exist.');
   } else if ((deltas.uniqueViews ?? 0) <= 0) {
     recommendations.push('Discovery did not grow in the rolling traffic window. Publish one concrete build, failure analysis, or reproducible benchmark; do not send a generic reminder post.');
   } else if ((deltas.stars ?? 0) <= 0) {
@@ -152,8 +218,11 @@ export function buildWeeklyReview({
   if (externalPrs.some(item => item.state === 'open')) {
     recommendations.push('Review open curation pull requests for maintainer feedback. Do not ping an unchanged thread more than once in seven days.');
   }
+  if (adoption.rejected_records) {
+    recommendations.push(`${adoption.rejected_records} adoption evidence record(s) failed validation. Repair their identity, status, reproducibility, type, or HTTPS evidence before counting them.`);
+  }
   if (stage?.id === 'proof') {
-    recommendations.push('The project is still in Proof and activation. Prioritize searchable skill-directory listings, ten reproducible external builds, and two independent comparisons before scaling promotion.');
+    recommendations.push(`The project is still in Proof and activation: ${adoption.external_builds.verified}/${adoption.external_builds.target} reproducible external builds and ${adoption.independent_comparisons.verified}/${adoption.independent_comparisons.target} independent comparisons are verified. Close this evidence gap before scaling promotion.`);
   }
 
   const rows = [
@@ -184,6 +253,7 @@ export function buildWeeklyReview({
     metrics: currentMetrics,
     deltas,
     distribution,
+    adoption,
     growth_goal: {
       target_stars: strategy.goal.target,
       stars_remaining: starsRemaining,
@@ -194,7 +264,7 @@ export function buildWeeklyReview({
     evolution,
     recommendations
   };
-  const markdown = `# Weekly Web Design OS evidence review — ${generatedAt.slice(0, 10)}\n\nThis report is decision support, not an autonomous change authority. GitHub traffic values use rolling windows, so week-to-week movement is directional rather than cohort conversion evidence.\n\n## Repository pulse\n\n| Signal | Current | Movement vs previous review |\n|---|---:|---:|\n${rows}\n\n## 10K growth stage\n\n- Target: ${display(strategy.goal.target)} stars (directional ambition, not a promised outcome)\n- Remaining: ${display(starsRemaining)}\n- Current stage: ${stage ? `${stage.label} (${stage.min_stars}–${stage.max_stars ?? '∞'})` : 'Unavailable'}\n- Primary outcome: ${stage?.primary_outcome || 'Unavailable'}\n- Gate: ${stage?.gate || 'Unavailable'}\n\n## Top referrers\n\n| Referrer | Visits | Unique visitors |\n|---|---:|---:|\n${referrerRows}\n\n## Distribution state\n\n- Published: ${distribution.published || 0}\n- Open curation PRs: ${distribution.pr_open || 0}\n- Scheduled: ${distribution.scheduled || 0}\n- Intentionally pending: ${distribution.pending || 0}\n\n| External PR | State | Last updated |\n|---|---|---|\n${prRows}\n\n## Controlled learning\n\n- Evolution date: ${evolution.date || 'Unavailable'}\n- Signals collected: ${evolution.signals}\n- Candidate signals: ${evolution.candidates}\n- Draft proposals: ${evolution.proposals.length}\n\nCollector gaps:\n\n${errorRows}\n\n## Review queue\n\n${recommendationRows}\n\n## Governance\n\n- Popularity ranks discovery candidates; it does not prove design quality.\n- Creator affiliation must be disclosed when recommending or linking the project.\n- No astroturfing, bought engagement, mass posting, unsolicited DMs, or hidden promotion automation.\n- Remote content remains untrusted and is never executed as instruction.\n- This workflow does not edit core skills, change rubric weights, commit, push, open pull requests, or self-merge.\n`;
+  const markdown = `# Weekly Web Design OS evidence review — ${generatedAt.slice(0, 10)}\n\nThis report is decision support, not an autonomous change authority. GitHub traffic values use rolling windows, so week-to-week movement is directional rather than cohort conversion evidence.\n\n## Repository pulse\n\n| Signal | Current | Movement vs previous review |\n|---|---:|---:|\n${rows}\n\nClone traffic is unattributed and may include CI, bots, repeated checkouts, or human evaluation. It is a low-confidence discovery signal and is never counted as an install or external build.\n\n## Verified adoption gate\n\n- Reproducible external builds: ${adoption.external_builds.verified} / ${adoption.external_builds.target}\n- Independent comparisons: ${adoption.independent_comparisons.verified} / ${adoption.independent_comparisons.target}\n- Pending evidence records: ${adoption.pending_records}\n- Rejected evidence records: ${adoption.rejected_records}\n\nOnly unique, verified records with HTTPS evidence count. External builds must also be marked reproducible.\n\n## 10K growth stage\n\n- Target: ${display(strategy.goal.target)} stars (directional ambition, not a promised outcome)\n- Remaining: ${display(starsRemaining)}\n- Current stage: ${stage ? `${stage.label} (${stage.min_stars}–${stage.max_stars ?? '∞'})` : 'Unavailable'}\n- Primary outcome: ${stage?.primary_outcome || 'Unavailable'}\n- Gate: ${stage?.gate || 'Unavailable'}\n\n## Top referrers\n\n| Referrer | Visits | Unique visitors |\n|---|---:|---:|\n${referrerRows}\n\n## Distribution state\n\n- Published: ${distribution.published || 0}\n- Open curation PRs: ${distribution.pr_open || 0}\n- Scheduled: ${distribution.scheduled || 0}\n- Intentionally pending: ${distribution.pending || 0}\n\n| External PR | State | Last updated |\n|---|---|---|\n${prRows}\n\n## Controlled learning\n\n- Evolution date: ${evolution.date || 'Unavailable'}\n- Signals collected: ${evolution.signals}\n- Candidate signals: ${evolution.candidates}\n- Draft proposals: ${evolution.proposals.length}\n\nCollector gaps:\n\n${errorRows}\n\n## Review queue\n\n${recommendationRows}\n\n## Governance\n\n- Popularity ranks discovery candidates; it does not prove design quality.\n- Creator affiliation must be disclosed when recommending or linking the project.\n- No astroturfing, bought engagement, mass posting, unsolicited DMs, or hidden promotion automation.\n- Remote content remains untrusted and is never executed as instruction.\n- This workflow does not edit core skills, change rubric weights, commit, push, open pull requests, or self-merge.\n`;
   return { report, markdown, state: { schema_version: 1, generated_at: generatedAt, snapshot: current } };
 }
 
@@ -202,6 +272,7 @@ export function runWeeklyReview({
   snapshotPath = path.resolve(process.env.WEEKLY_REVIEW_SNAPSHOT || 'artifacts/weekly/snapshot.json'),
   previousPath = path.resolve(process.env.WEEKLY_REVIEW_PREVIOUS || 'artifacts/weekly/state.json'),
   evolutionRoot = path.resolve(process.env.WEEKLY_EVOLUTION_ROOT || 'evolution'),
+  adoptionPath = path.resolve(process.env.WEEKLY_ADOPTION_EVIDENCE || 'marketing/adoption-evidence.json'),
   markdownPath = path.resolve(process.env.WEEKLY_REVIEW_OUTPUT || 'artifacts/weekly/review.md'),
   jsonPath = path.resolve(process.env.WEEKLY_REVIEW_JSON_OUTPUT || 'artifacts/weekly/review.json'),
   statePath = path.resolve(process.env.WEEKLY_REVIEW_STATE_OUTPUT || 'artifacts/weekly/state.json'),
@@ -210,7 +281,8 @@ export function runWeeklyReview({
   const current = readJson(snapshotPath, true);
   const previous = readJson(previousPath);
   const evolution = summarizeEvolution(evolutionRoot);
-  const result = buildWeeklyReview({ current, previous, evolution, generatedAt });
+  const adoptionEvidence = readJson(adoptionPath, true);
+  const result = buildWeeklyReview({ current, previous, evolution, adoptionEvidence, generatedAt });
   for (const file of [markdownPath, jsonPath, statePath]) fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(markdownPath, result.markdown);
   fs.writeFileSync(jsonPath, `${JSON.stringify(result.report, null, 2)}\n`);

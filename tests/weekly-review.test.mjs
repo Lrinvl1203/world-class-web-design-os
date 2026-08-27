@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
-import { buildWeeklyReview, selectGrowthStage, summarizeEvolution } from '../scripts/growth/weekly-review.mjs';
+import { buildWeeklyReview, selectGrowthStage, summarizeAdoptionEvidence, summarizeEvolution } from '../scripts/growth/weekly-review.mjs';
 
 const projectRoot = path.resolve(import.meta.dirname, '..');
 
@@ -60,16 +60,53 @@ test('traffic growth without star growth recommends proof and successful-use imp
   assert.ok(result.report.recommendations.some(item => item.includes('do not weaken the threshold')));
 });
 
+test('verified adoption evidence is unique, reproducible, and independently inspectable', () => {
+  const result = summarizeAdoptionEvidence({
+    records: [
+      { id: 'build-1', type: 'external_build', status: 'verified', reproducible: true, evidence_url: 'https://example.com/build-1' },
+      { id: 'build-1', type: 'external_build', status: 'verified', reproducible: true, evidence_url: 'https://example.com/duplicate' },
+      { id: 'build-2', type: 'external_build', status: 'pending', reproducible: true, evidence_url: 'https://example.com/build-2' },
+      { id: 'build-3', type: 'external_build', status: 'verified', reproducible: false, evidence_url: 'https://example.com/build-3' },
+      { id: 'comparison-1', type: 'independent_comparison', status: 'verified', evidence_url: 'https://example.com/comparison-1' },
+      { id: 'comparison-2', type: 'independent_comparison', status: 'verified', evidence_url: 'http://example.com/comparison-2' }
+    ]
+  });
+  assert.equal(result.external_builds.verified, 1);
+  assert.equal(result.external_builds.target, 10);
+  assert.equal(result.independent_comparisons.verified, 1);
+  assert.equal(result.independent_comparisons.target, 2);
+  assert.equal(result.pending_records, 1);
+  assert.equal(result.rejected_records, 3);
+});
+
+test('weekly review separates noisy clone traffic from the verified adoption gate', () => {
+  const result = buildWeeklyReview({
+    current: snapshot({ stars: 7, clones: 436, uniqueCloners: 130 }),
+    evolution,
+    adoptionEvidence: { records: [] },
+    generatedAt: '2026-08-24T01:29:05.329Z'
+  });
+  assert.deepEqual(result.report.adoption.external_builds, { verified: 0, target: 10, remaining: 10 });
+  assert.deepEqual(result.report.adoption.independent_comparisons, { verified: 0, target: 2, remaining: 2 });
+  assert.match(result.markdown, /Reproducible external builds: 0 \/ 10/);
+  assert.match(result.markdown, /Independent comparisons: 0 \/ 2/);
+  assert.match(result.markdown, /Clone traffic is unattributed/);
+  assert.match(result.markdown, /never counted as an install or external build/);
+  assert.doesNotMatch(result.markdown, /conversion rate/i);
+});
+
 test('unavailable GitHub metrics remain unavailable instead of becoming zero', () => {
   const current = snapshot();
   current.repository_signals = { unavailable: true, status: 403 };
   current.traffic.views = { unavailable: true, status: 403 };
   current.traffic_access = { status: 'unavailable' };
-  const result = buildWeeklyReview({ current, evolution, generatedAt: '2026-08-11T00:10:00.000Z' });
+  const result = buildWeeklyReview({ current, previous: snapshot(), evolution, generatedAt: '2026-08-11T00:10:00.000Z' });
   assert.equal(result.report.metrics.stars, null);
   assert.equal(result.report.metrics.views, null);
   assert.match(result.markdown, /Unavailable/);
   assert.match(result.markdown, /GROWTH_TRAFFIC_TOKEN/);
+  assert.match(result.markdown, /Do not infer growth or decline/);
+  assert.doesNotMatch(result.markdown, /Discovery did not grow/);
 });
 
 test('evolution summary uses only the latest dated inbox and matching proposal files', () => {
