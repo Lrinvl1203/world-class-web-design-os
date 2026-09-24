@@ -1,5 +1,20 @@
 # Continuous-learning records
 
+## Component guidance must connect source choice to observable state behavior
+
+- **Date / project:** 2026-09-24 / component-practice review
+- **Observation/evidence:** The existing OS named semantic tokens, interactive states, accessible primitives, and rendered QA separately, but had no compact component contract joining them. The Sequence Desk suite exercised the main decision path while its command dialog's open-state accessibility and focus return had no browser assertion. Independent primary evidence from [WAI-ARIA APG](https://www.w3.org/WAI/ARIA/apg/patterns/), [Base UI's recent fixes](https://github.com/mui/base-ui/releases/tag/v1.8.0), [React Aria's async states](https://react-aria.adobe.com/releases/v1-21-0), and [MDN's native overlay guidance](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) shows the same class of state and composition risk. Reddit/X posts were discovery signals only; Threads produced no verifiable case.
+- **Severity/impact:** moderate repeatability gap; a component could look finished and pass a closed-state audit while a user still encounters focus, dismissal, or async-state failures.
+- **Classification:** missing rule and QA blind spot.
+- **Root cause:** Source selection and state verification were described in separate skills without a small shared acceptance artifact.
+- **Generalizable principle:** For repeated, composite, async, or task-critical components, choose semantics and behavior before source code and verify the exposed states after composition. Keep simple native controls lightweight.
+- **Proposed file/section change:** Add `component-source-router/references/component-contract.md`; link it from that router, make cross-tool DTCG token exchange conditional in `design-system`, and specify exposed-state checks in `visual-qa`. Record evidence in `docs/component-practice-review-2026-09.md`.
+- **Positive regression scenario (prior case):** Sequence Desk's native command dialog should open with focus inside, expose an accessible dialog, close with Escape, and return focus to its trigger at edge-mobile and desktop widths. The new browser assertion checks that full cycle and runs axe while open.
+- **Positive forward scenario (new case):** An async searchable choice should select an APG combobox model, state pending/empty/error/aborted and stale responses, keep stable option IDs after item removal, and specify keyboard/touch/focus assertions before choosing a primitive. A manual contract dry run covered those decisions; no new product UI was built.
+- **Negative/regression-risk scenario:** A plain native button or static card should not require a full contract, new component package, Storybook installation, or token pipeline. The router explicitly scopes the artifact to higher-risk components.
+- **Validation performed:** `npm run validate` passed 17 skills and Design Quality 92/100; `npm run eval:skills` passed routing 10/10 and evolution tests 15/15. Sequence Desk's existing and new browser tests passed 12/12 across the repository's six viewports after correcting the preview URL. These are repository/Chromium checks, not production-device or field outcome evidence.
+- **Decision:** adopted as a narrowly scoped skill and QA improvement; the new async scenario remains a future implementation test, not a shipped claim.
+
 ## Deployment QA must preserve the configured base path
 
 - **Date / project:** 2026-08-15 / GitHub Pages post-deploy verification
