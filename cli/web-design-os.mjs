@@ -5,6 +5,7 @@ import { spawnSync } from 'node:child_process';
 import { routeSkills, root } from '../scripts/lib/routing.mjs';
 import { installSkills } from '../scripts/install-global.mjs';
 import { runEvolution } from '../scripts/evolution/run.mjs';
+import { auditQualityFile, formatQualityAudit } from '../scripts/lib/quality-audit.mjs';
 
 const VERSION = '0.2.0';
 
@@ -33,6 +34,8 @@ function printHelp() {
   web-design-os setup [target]                        Create .web-design-os/project-context.md
   web-design-os install --agent codex|all [--overwrite]
   web-design-os doctor [--agent codex]                Verify a global skill installation
+  web-design-os audit [report.json] [--json] [--require-field]
+                                                     Audit a project's actual quality report (read-only)
   web-design-os evolve [--offline] [--date YYYY-MM-DD]
   web-design-os eval                                  Run routing and evolution regression tests
   web-design-os --version                             Print the CLI version`);
@@ -104,6 +107,16 @@ try {
     console.log(`${result.installed}/${result.expected} Web Design OS skills at ${result.destination}`);
     if (result.missing.length > 0) console.log(`Missing: ${result.missing.join(', ')}`);
     if (!result.ready) process.exitCode = 1;
+  } else if (command === 'audit') {
+    const args = process.argv.slice(3);
+    const options = args.filter(arg => arg.startsWith('-'));
+    const unknown = options.filter(arg => !['--json', '--require-field'].includes(arg));
+    if (unknown.length) throw new Error(`Unknown audit option '${unknown[0]}'. Use --json or --require-field.`);
+    const reports = args.filter(arg => !arg.startsWith('-'));
+    if (reports.length > 1) throw new Error('Provide at most one quality report path.');
+    const result = auditQualityFile(reports[0], { requireField: args.includes('--require-field') });
+    console.log(args.includes('--json') ? JSON.stringify(result, null, 2) : formatQualityAudit(result));
+    if (!result.ok) process.exitCode = 1;
   } else if (command === 'evolve') {
     const result = await runEvolution({ offline: process.argv.includes('--offline'), date: value('--date') });
     console.log(`Collected ${result.signals.length} signals; ${result.proposals.length} proposal(s).`);

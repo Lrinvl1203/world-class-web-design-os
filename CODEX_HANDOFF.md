@@ -12,6 +12,20 @@ Primary remote target:
 
 The user wants all future work on this project to continue in Codex with no loss of context.
 
+### Quality-evidence audit and collector retirement — 2026-10-02
+
+This is the latest continuation state; the older phase descriptions below remain historical context.
+
+- Work continues on `agent/component-practice-2026-09`, the branch of open PR #24. Its existing component contracts and exposed Sequence Desk dialog checks are preserved.
+- `web-design-os audit [report.json] [--json] [--require-field]` now recomputes actual scores and distinguishes report integrity, design thresholds, reported technical diagnostics, and declared field evidence. See `docs/quality-audit.md` for its contract and exit codes. It performs no browser run or remote-source verification.
+- `npm run validate` explicitly labels the sample fixture and audits every public proof report's integrity. `npm run audit:proof` shows individual decisions. Correctly recorded HOLD/PENDING remains visible without failing report-integrity validation; invalid or missing reports fail.
+- The five real reports are unchanged: four meet the design threshold; Linehold stays 91.8 HOLD. Afterimage, Sequence Desk, and Orbital Commons omit local performance metrics and are therefore INCOMPLETE/HOLD in the new audit. Nocturne remains INTERNAL PASS from its historical local declarations. Every case remains FIELD PENDING; no field-ready or universal-best claim is justified.
+- The September 28 weekly artifact exposed Codrops RSS HTTP 410. The publisher endpoint was verified again and states no feed is available. That collector is disabled with its reason still surfaced in every report. Smashing Magazine, web.dev, and MDN remain the three active public feeds; do not replace the retired feed with scraping or reduce the three-source adoption gate.
+- A live local collection produced 71 signals and zero proposals. Optional YouTube/Threads credentials were unavailable locally; this says nothing about repository secrets. The daily artifact date uses UTC.
+- Validation: 57/57 unit tests, routing 10/10, evolution 16/16, 17 valid/discoverable global skills, 15/15 launch browser checks, 4/4 Sequence Desk checks at 320 and 1440 px, and successful packaged CLI smoke with expected failure when field evidence is required.
+- Next quality work: collect reproducible, properly scoped local performance diagnostics for the three incomplete cases; pursue genuine field/user evidence and Linehold buyer validation. Do not copy proxy numbers between cases or raise scores to close these gaps. The new audit is an acceptance guard, not a performance measurement tool.
+- Preserve the four inherited executable-mode-only changes in `scripts/install-into-project.sh`, `scripts/publish-github.sh`, `scripts/validate_design_quality_score.py`, and `scripts/validate_skills.py`. They remain outside this milestone.
+
 ### Controlled growth multiplication — 2026-08-17
 
 - The 10K-star ambition is now a staged, evidence-led growth system rather than a repeated-launch promise. `config/growth-strategy.json` defines the directional target, stage gates, content mix, and anti-spam constraints; `docs/10k-growth-system.md` defines the channel, YouTube, measurement, and 30-day operating model.

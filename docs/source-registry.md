@@ -83,7 +83,7 @@ The DTCG format is a Community Group specification, not a W3C Recommendation. Ve
 - Threads insights help: https://www.facebook.com/help/instagram/3675908612671136/
 - YouTube Data API video list and statistics: https://developers.google.com/youtube/v3/docs/videos/list
 - YouTube video resource statistics: https://developers.google.com/youtube/v3/docs/videos
-- Codrops RSS: https://tympanus.net/codrops/feed/
+- Codrops RSS (retired; HTTP 410 verified 2026-10-02; automated collector disabled, human review remains available): https://tympanus.net/codrops/feed/
 - Smashing Magazine RSS: https://www.smashingmagazine.com/feed/
 - web.dev RSS: https://web.dev/feed.xml
 - MDN Blog RSS: https://developer.mozilla.org/en-US/blog/rss.xml

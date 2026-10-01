@@ -4,6 +4,9 @@ All notable changes to Web Design OS are documented here. The project follows [S
 
 ## [Unreleased]
 
+- Added a read-only `audit` command that recomputes project scores, validates report declarations, and keeps internal diagnostics separate from field evidence.
+- Added public proof-report integrity checks to validation; recorded HOLD cases and unmeasured performance remain visible instead of borrowing the sample fixture's pass.
+- Retired the unavailable Codrops RSS collector after verifying publisher HTTP 410; reports retain the coverage gap while the three other public feeds remain active.
 - Reframed the public onboarding for non-designers who can generate a front end but struggle to judge and repair its UI/UX.
 - Added a three-step 60-second first-use path, explicit orchestrator sentence, FAQ boundaries, and copy/fallback interaction tests.
 - Replaced the legacy 18-second demo with a reproducible 15-second, five-outcome proof reel and poster board.

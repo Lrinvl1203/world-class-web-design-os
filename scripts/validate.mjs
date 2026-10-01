@@ -30,6 +30,10 @@ const validations = [
 ];
 
 for (const [script, args] of validations) {
+  if (args?.[0]?.includes('.sample.json')) console.log('Sample fixture validation only; this does not establish project release readiness.');
   const status = runPython(script, args);
   if (status !== 0) process.exit(status);
 }
+
+const proof = spawnSync(process.execPath, ['scripts/audit-proof.mjs'], { stdio: 'inherit' });
+if ((proof.status ?? 1) !== 0) process.exit(proof.status ?? 1);

@@ -26,7 +26,8 @@
       "name": "Codrops",
       "url": "https://tympanus.net/codrops/feed/",
       "trust": 0.9,
-      "enabled": true
+      "enabled": false,
+      "disabledReason": "Retired on 2026-10-02: publisher returns HTTP 410 and states no feed is available. Codrops remains a human-reviewed reference; automatic coverage is unavailable."
     },
     {
       "id": "smashing-magazine-rss",
