@@ -208,3 +208,31 @@ test('history loader keeps only valid signals in the configured time window', ()
   const history = loadHistory(temp, '2026-08-09', 30, new Date('2026-08-09T00:00:00Z'));
   assert.deepEqual(history.map(item => item.id), ['recent']);
 });
+
+test('retired feed is never fetched and its coverage gap remains in the report', async () => {
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'web-design-os-retired-feed-'));
+  const previousFetch = globalThis.fetch;
+  const credentialNames = ['YOUTUBE_API_KEY', 'THREADS_ACCESS_TOKEN'];
+  const previousCredentials = credentialNames.map(name => process.env[name]);
+  const requests = [];
+  credentialNames.forEach(name => { delete process.env[name]; });
+  globalThis.fetch = async url => {
+    requests.push(String(url));
+    return { ok: true, text: async () => '<rss><channel></channel></rss>' };
+  };
+  try {
+    const result = await runEvolution({ outputRoot: temp, now: new Date('2026-10-02T00:00:00Z') });
+    assert.equal(requests.length, 3, 'the three active public feeds are still collected');
+    assert.equal(requests.some(url => url.includes('tympanus.net')), false);
+    assert.ok(result.errors.some(note => /codrops-rss: disabled;.*HTTP 410/.test(note)));
+    assert.match(fs.readFileSync(result.reportPath, 'utf8'), /automatic coverage is unavailable/);
+    assert.equal(result.proposals.length, 0, 'retirement must not manufacture replacement evidence');
+  } finally {
+    globalThis.fetch = previousFetch;
+    credentialNames.forEach((name, index) => {
+      if (previousCredentials[index] === undefined) delete process.env[name];
+      else process.env[name] = previousCredentials[index];
+    });
+    fs.rmSync(temp, { recursive: true, force: true });
+  }
+});

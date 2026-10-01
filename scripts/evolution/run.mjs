@@ -342,7 +342,8 @@ export async function runEvolution({ offline = false, date, outputRoot = project
   const runDate = date || now.toISOString().slice(0, 10);
   const config = JSON.parse(fs.readFileSync(path.join(projectRoot, 'config', 'evolution-sources.json'), 'utf8'));
   const signals = [];
-  const errors = [];
+  const errors = config.sources.filter(source => !source.enabled && source.disabledReason)
+    .map(source => `${source.id}: disabled; ${sanitizeText(source.disabledReason, 300)}`);
   for (const source of config.sources.filter(item => item.enabled)) {
     if (offline && source.type !== 'manual-json') continue;
     if (source.requiresEnv && !process.env[source.requiresEnv]) {

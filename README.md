@@ -168,6 +168,8 @@ web-design-os search "typography motion" --limit 8
 web-design-os setup .
 web-design-os install --agent codex
 web-design-os doctor --agent codex
+web-design-os audit ./design-quality-review.json
+web-design-os audit ./design-quality-review.json --require-field --json
 web-design-os evolve --offline
 web-design-os eval
 ```
@@ -175,6 +177,7 @@ web-design-os eval
 - `route` returns at most three active specialists in addition to the orchestrator.
 - `search` queries the 100-reference evidence atlas.
 - `setup` creates `.web-design-os/project-context.md` without overwriting an existing brief.
+- `audit` recomputes a real report's scores and separates design thresholds, declared technical checks, and field evidence. Missing measurements remain incomplete; local response proxies cannot establish a field pass. See the [audit contract and exit codes](docs/quality-audit.md).
 - `evolve` runs the controlled learning pipeline; `--offline` uses cached and manual sources.
 
 ## Daily evolution without silent drift
@@ -192,10 +195,13 @@ Requirements: Node.js 20+ and Python 3 for the full validation suite.
 ```bash
 npm install
 npm run validate
+npm run audit:proof
 npm run eval:skills
 npm run qa:install
 npm run qa:launch
 ```
+
+`validate` checks the sample fixture and the integrity of every public proof report. Its success does not mean that every case is release-ready. `audit:proof` displays each case's current recorded decision, including HOLD and missing performance evidence. Browser QA remains a separate rendered check.
 
 Preview the launch site:
 

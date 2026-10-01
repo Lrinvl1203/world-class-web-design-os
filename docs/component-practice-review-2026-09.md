@@ -1,0 +1,31 @@
+# Component practice review — 2026-09-24
+
+## Question and decision
+
+Which recent public UI/UX component techniques improve this Web Design OS without turning it into a trend or library collection?
+
+The strongest recurring practice is to specify a component's **user job, semantic model, state transitions, focus behavior, fallback, and observable checks before choosing a source**. The OS already names tokens, states, accessible primitives, and rendered QA, but it did not give agents one compact contract connecting those decisions. This pass adds that contract and tightens the component-source and visual-QA instructions. It does not add a runtime dependency or alter the Design Quality weights.
+
+Evidence labels: **A** = shipped code/release or official technical guidance; **B** = public demonstration with inspectable code or docs but no independent outcome study; **C** = community report, visual post, or secondary quote. Attention counts only helped discover candidates.
+
+| Channel and direct case | Evidence | Reusable finding | Decision here |
+|---|---|---|---|
+| GitHub: [Base UI v1.8.0 release](https://github.com/mui/base-ui/releases/tag/v1.8.0) and [composition guide](https://base-ui.com/react/handbook/composition) | A, release/maintainer docs | Recent fixes cover dynamic focus, control IDs, ref composition, async validation, and popup dismissal. A primitive still needs QA after wrapping and in changing states. | Added composed DOM/ref/ID/event checks and dynamic-state rows to the component contract. |
+| Official implementation: [React Aria v1.21.0](https://react-aria.adobe.com/releases/v1-21-0) and [async list](https://react-aria.adobe.com/useAsyncList) | A, release/docs | Menus and lists now explicitly cover loading, empty, error, pagination, and request cancellation. | Added pending/empty/error/abort/stale-result decisions for async components. |
+| GitHub: [Harness Canary agent guide](https://github.com/harness/canary/blob/main/AGENTS.md) | B, public repository guide | Package purpose and constraints are discoverable in short local guidance. | Kept the new guidance short, task-led, and within the installed component skill. |
+| Reddit: [Harness design-system discussion](https://www.reddit.com/r/UXDesign/comments/1w0nazz/we_made_aireadability_a_requirement_for_our/) | C, practitioner self-report; public repo confirms a system exists but not claimed agent outcomes | Agents reportedly choose better when docs lead with purpose, when to use a component versus neighbors, and a working example. | Contract starts with purpose/source choice and includes two contrasting routes. No improvement claim is adopted from the self-report alone. |
+| Reddit: [LiftKit launch](https://www.reddit.com/r/webdev/comments/1m41arx/i_spent_18_months_building_a_design_system_that/) and [public code](https://github.com/Chainlift/liftkit) | B, shipped source; outcome unmeasured | Coherent spacing/typography systems and theme controls can make components feel related. | Existing semantic-token guidance remains; a universal golden-ratio rule was rejected. |
+| X: [Jhey's table focus demonstration](https://x.com/jh3yy/status/1918510262140752021) | C, indexed CSS snippet; runtime unverified | `:focus-within` can express active editing context. Blurring all other rows can also damage scanning and readability. | Treat as an optional contextual technique; no default blur effect was added. |
+| X: [HeroUI v3 discussion](https://x.com/PrajwalTomar_/status/2035689418435207630), checked against [official v3 release](https://heroui.com/en/docs/react/releases/v3-0-0) and [GitHub releases](https://github.com/heroui-inc/heroui/releases) | C post / A official implementation | Separating behavior from style and using CSS for ordinary transitions is a credible implementation route. Vendor speed claims lack independent measurement. | Existing native-first motion routing stands; no library switch or performance claim. |
+| Threads | Unavailable | Public search did not yield a directly inspectable, relevant 2025–26 component example. The project's [official Threads connection path](threads-connection.md) is for authorized discovery, not unrestricted scraping. | No Threads-derived design rule or invented citation. Revisit when a direct post and implementation can be verified. |
+
+## Cross-check against platform and testing guidance
+
+- [WAI-ARIA APG patterns](https://www.w3.org/WAI/ARIA/apg/patterns/) distinguish navigation links, dialogs, menus, and combobox keyboard models. [MDN dialog](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog) and [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) distinguish modal from non-modal behavior. A styled popup is not automatically a menu or combobox.
+- [CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries) support layout driven by component space. [CSS anchor positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Anchor_positioning) is a layout capability with individual browser-support constraints; it does not solve focus or keyboard behavior.
+- [DTCG 2025.10](https://www.designtokens.org/tr/2025.10/format/) is the first stable Community Group token exchange format. It matters when tokens cross tools or themes; a single-page project need not install a token pipeline.
+- [Storybook interaction tests](https://storybook.js.org/docs/writing-tests/interaction-testing) and [Playwright ARIA snapshots](https://playwright.dev/docs/aria-snapshots) show how to assert behavior and accessible structure in an exposed state. The OS can use its existing Playwright/axe harness without mandating Storybook.
+
+## Applied scope and limits
+
+Applied: component-source routing, a portable contract inside the installed skill, conditional DTCG guidance, exposed-state visual QA, and the source registry. Sequence Desk now has a browser assertion for its command dialog's open-state accessibility and focus return; its decision feedback was already tested. This review does not prove that a new UI has been shipped or that any cited library is universally best. A real product component still needs rendered/device verification and, when applicable, field usability and Core Web Vitals evidence.

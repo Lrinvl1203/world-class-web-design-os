@@ -18,7 +18,7 @@ Do not critique only source code. Render the real interface.
 3. assert that critical content is visible before accepting a baseline, including in reduced-motion or JavaScript-failure states;
 4. capture all configured viewports;
 5. inspect full-page composition and first viewport separately;
-6. test critical interactive states;
+6. test critical interactive states; for reused/composite/async components, assert relevant transitions, focus return, dynamic-item and failure states against the component contract, with accessibility checks while the surface is exposed;
 7. inspect keyboard focus and sticky/fixed overlays;
 8. inspect utility/micro text at native screenshot scale—technically present text can still be functionally illegible;
 9. test reduced-motion mode;

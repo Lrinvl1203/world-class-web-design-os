@@ -38,6 +38,7 @@
     "cli",
     "config",
     "docs/threads-connection.md",
+    "docs/quality-audit.md",
     "evolution/README.md",
     "evolution/manual-signals.json",
     "evolution/manual-threads.json",
@@ -59,6 +60,7 @@
   },
   "scripts": {
     "validate": "node scripts/validate.mjs",
+    "audit:proof": "node scripts/audit-proof.mjs",
     "web-design-os": "node cli/web-design-os.mjs",
     "eval:skills": "node cli/web-design-os.mjs eval",
     "evolve:daily": "node cli/web-design-os.mjs evolve",

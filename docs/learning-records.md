@@ -1,5 +1,43 @@
 # Continuous-learning records
 
+## Sample validation must not stand in for project quality evidence
+
+- **Date / project:** 2026-10-02 / quality-evidence audit.
+- **Observation/evidence:** `npm run validate` checked only the 92-point sample fixture. The five real reviews include Linehold's valid 91.8 HOLD, three reports without local performance metrics, and five pending field records. The old success output did not assess those differences.
+- **Severity/impact:** major QA blind spot; fixture success could be mistaken for release evidence across unrelated artifacts.
+- **Root cause:** Repository integrity, a schema example, project design decisions, local diagnostics, and field performance were not separately evaluated by the default command.
+- **Generalizable principle:** Recompute each real report against unchanged thresholds; separate integrity from readiness, retain missing evidence, and label all declared checks as declarations. A local response proxy cannot prove field INP. Review actual sources and rendered states independently.
+- **Proposed change:** Add `scripts/lib/quality-audit.mjs`, the CLI `audit` command, and `scripts/audit-proof.mjs`; integrate proof integrity into `scripts/validate.mjs`, explicitly label the sample fixture, and document the field evidence contract. No rubric, historical score, or core skill change.
+- **Prior regression:** Nocturne remains an internal 92.8 pass with local/proxy scope and FIELD PENDING; Linehold remains a valid 91.8 HOLD. Three newer cases retain their design scores while missing diagnostics produce INCOMPLETE.
+- **New regression:** Synthetic structured field evidence must include scope, percentile, provenance, measured target, date, and finite nonnegative metrics; incomplete metadata stays pending, wrong types invalidate the report, and threshold failures remain failures. A fabricated status string or lab proxy never satisfies `--require-field`. These are test fixtures, not newly collected field evidence.
+- **Negative/regression-risk scenario:** A correctly recorded HOLD must not make report-integrity validation fail. Deleting a seeded report, malformed metrics, or mismatched totals must fail integrity. A read-only audit must neither mutate reports nor claim a fresh browser/source verification.
+- **Validation:** 57/57 unit tests; routing 10/10 and evolution 16/16; 17 valid skills; 15/15 launch browser checks and 4/4 Sequence Desk checks at 320 and 1440 px. The packaged CLI passes Nocturne's internal audit and exits 1 when field evidence is required. Proof integrity is valid for all five cases; field evidence remains pending for all five.
+- **Decision:** adopted as a report-verification capability. Actual performance measurement and external user validation remain separate work.
+
+## Retired collection endpoints must remain visible as coverage gaps
+
+- **Date / project:** 2026-10-02 / daily design evidence collection.
+- **Observation/evidence:** The successful September 28 weekly workflow reported Codrops RSS HTTP 410. The [publisher endpoint](https://tympanus.net/codrops/feed/) was checked again and explicitly stated that no feed is available.
+- **Root cause:** Workflow success meant a resilient partial run, but the unchanged configuration kept requesting a retired endpoint.
+- **Countermeasure:** Disable that collector with a reviewed reason and retain its unavailable coverage in every daily report; keep Codrops available for human reference review. Do not substitute scraping or weaken the three-independent-source adoption gate.
+- **Regression/validation:** A stubbed live-mode run proves exactly three active feeds are requested, the retired feed is never fetched, the report retains its gap, and no replacement evidence is fabricated. A real local run collected 71 signals and zero proposals from the active no-secret sources; optional YouTube/Threads credentials were unavailable locally.
+- **Decision:** adopted as a narrowly scoped source retirement. The scheduled default branch receives it only after the reviewed change is merged.
+
+## Component guidance must connect source choice to observable state behavior
+
+- **Date / project:** 2026-09-24 / component-practice review
+- **Observation/evidence:** The existing OS named semantic tokens, interactive states, accessible primitives, and rendered QA separately, but had no compact component contract joining them. The Sequence Desk suite exercised the main decision path while its command dialog's open-state accessibility and focus return had no browser assertion. Independent primary evidence from [WAI-ARIA APG](https://www.w3.org/WAI/ARIA/apg/patterns/), [Base UI's recent fixes](https://github.com/mui/base-ui/releases/tag/v1.8.0), [React Aria's async states](https://react-aria.adobe.com/releases/v1-21-0), and [MDN's native overlay guidance](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) shows the same class of state and composition risk. Reddit/X posts were discovery signals only; Threads produced no verifiable case.
+- **Severity/impact:** moderate repeatability gap; a component could look finished and pass a closed-state audit while a user still encounters focus, dismissal, or async-state failures.
+- **Classification:** missing rule and QA blind spot.
+- **Root cause:** Source selection and state verification were described in separate skills without a small shared acceptance artifact.
+- **Generalizable principle:** For repeated, composite, async, or task-critical components, choose semantics and behavior before source code and verify the exposed states after composition. Keep simple native controls lightweight.
+- **Proposed file/section change:** Add `component-source-router/references/component-contract.md`; link it from that router, make cross-tool DTCG token exchange conditional in `design-system`, and specify exposed-state checks in `visual-qa`. Record evidence in `docs/component-practice-review-2026-09.md`.
+- **Positive regression scenario (prior case):** Sequence Desk's native command dialog should open with focus inside, expose an accessible dialog, close with Escape, and return focus to its trigger at edge-mobile and desktop widths. The new browser assertion checks that full cycle and runs axe while open.
+- **Positive forward scenario (new case):** An async searchable choice should select an APG combobox model, state pending/empty/error/aborted and stale responses, keep stable option IDs after item removal, and specify keyboard/touch/focus assertions before choosing a primitive. A manual contract dry run covered those decisions; no new product UI was built.
+- **Negative/regression-risk scenario:** A plain native button or static card should not require a full contract, new component package, Storybook installation, or token pipeline. The router explicitly scopes the artifact to higher-risk components.
+- **Validation performed:** `npm run validate` passed 17 skills and Design Quality 92/100; `npm run eval:skills` passed routing 10/10 and evolution tests 15/15. Sequence Desk's existing and new browser tests passed 12/12 across the repository's six viewports after correcting the preview URL. These are repository/Chromium checks, not production-device or field outcome evidence.
+- **Decision:** adopted as a narrowly scoped skill and QA improvement; the new async scenario remains a future implementation test, not a shipped claim.
+
 ## Deployment QA must preserve the configured base path
 
 - **Date / project:** 2026-08-15 / GitHub Pages post-deploy verification

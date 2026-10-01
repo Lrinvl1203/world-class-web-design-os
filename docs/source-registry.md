@@ -1,6 +1,6 @@
 # Verified Source Registry
 
-Last reviewed: **2026-08-17**. This repository distills public documentation and public course descriptions; it does not reproduce proprietary course content.
+Original registry reviewed: **2026-08-17**. Component-practice sources added and checked: **2026-09-24**. This repository distills public documentation and public course descriptions; it does not reproduce proprietary course content.
 
 ## Codex / skill architecture
 
@@ -48,6 +48,21 @@ Last reviewed: **2026-08-17**. This repository distills public documentation and
 - Magic UI: https://magicui.design/
 - Animate UI: https://animate-ui.com/
 
+## Component behavior, platform features, and verification
+
+- WAI-ARIA APG patterns and keyboard models: https://www.w3.org/WAI/ARIA/apg/patterns/
+- HTML dialog semantics and focus behavior: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog
+- Popover API (non-modal; Baseline 2025 with older-browser caveat): https://developer.mozilla.org/en-US/docs/Web/API/Popover_API
+- CSS container queries for component-local layout: https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries
+- CSS anchor positioning and per-feature support: https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Anchor_positioning
+- Base UI composition contract: https://base-ui.com/react/handbook/composition
+- React Aria async list behavior: https://react-aria.adobe.com/useAsyncList
+- Storybook interaction and accessibility testing: https://storybook.js.org/docs/writing-tests/interaction-testing and https://storybook.js.org/docs/writing-tests/accessibility-testing
+- Playwright ARIA snapshots: https://playwright.dev/docs/aria-snapshots
+- DTCG Design Tokens Format 2025.10: https://www.designtokens.org/tr/2025.10/format/
+
+The DTCG format is a Community Group specification, not a W3C Recommendation. Verify actual target browsers and mobile behavior before relying on a newly available platform feature. A primitive's documentation is capability evidence, not proof that a composed product component passes accessibility or usability checks.
+
 ## Quality standards
 
 - WCAG 2.2: https://www.w3.org/TR/WCAG22/
@@ -68,7 +83,7 @@ Last reviewed: **2026-08-17**. This repository distills public documentation and
 - Threads insights help: https://www.facebook.com/help/instagram/3675908612671136/
 - YouTube Data API video list and statistics: https://developers.google.com/youtube/v3/docs/videos/list
 - YouTube video resource statistics: https://developers.google.com/youtube/v3/docs/videos
-- Codrops RSS: https://tympanus.net/codrops/feed/
+- Codrops RSS (retired; HTTP 410 verified 2026-10-02; automated collector disabled, human review remains available): https://tympanus.net/codrops/feed/
 - Smashing Magazine RSS: https://www.smashingmagazine.com/feed/
 - web.dev RSS: https://web.dev/feed.xml
 - MDN Blog RSS: https://developer.mozilla.org/en-US/blog/rss.xml

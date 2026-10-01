@@ -21,6 +21,8 @@ Define only tokens that have meaning in the project.
 - imagery aspect/crop treatment;
 - motion duration/easing/distance tokens.
 
+When tokens must cross tools, platforms, brands, or themes, consider the DTCG 2025.10 exchange format and verify type/value and alias resolution in the actual pipeline. Do not add a token build pipeline to a small single-surface project merely for format compliance.
+
 ### Components
 For each recurring component specify:
 - anatomy;

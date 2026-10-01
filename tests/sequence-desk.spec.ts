@@ -6,7 +6,7 @@ test('Sequence Desk resolves a launch decision with accountable feedback', async
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
   page.on('pageerror', error => errors.push(error.message));
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/', { waitUntil: 'networkidle' });
+  await page.goto('./', { waitUntil: 'networkidle' });
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Resolve the decision');
   expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1), 'horizontal overflow').toBeFalsy();
   await page.getByRole('tab', { name: /Onboarding/ }).click();
@@ -18,4 +18,20 @@ test('Sequence Desk resolves a launch decision with accountable feedback', async
   expect(serious, serious.map(v => `${v.id}: ${v.help}`).join('\n')).toEqual([]);
   if (!process.env.CI) await expect(page).toHaveScreenshot('sequence-desk-home.webp', { fullPage: true });
   expect(errors).toEqual([]);
+});
+
+test('Sequence Desk command dialog exposes a usable open state and returns focus', async ({ page }) => {
+  await page.goto('./', { waitUntil: 'networkidle' });
+  const trigger = page.getByRole('button', { name: /Find action/ });
+  const dialog = page.getByRole('dialog', { name: 'Where do you want to go?' });
+
+  await trigger.click();
+  await expect(dialog).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Close command palette' })).toBeFocused();
+  const serious = (await new AxeBuilder({ page }).analyze()).violations.filter(v => ['serious', 'critical'].includes(v.impact || ''));
+  expect(serious, serious.map(v => `${v.id}: ${v.help}`).join('\n')).toEqual([]);
+
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+  await expect(trigger).toBeFocused();
 });
