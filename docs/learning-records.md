@@ -1,5 +1,18 @@
 # Continuous-learning records
 
+## Phase routing must enforce its budget and reach existing modules
+
+- **Date/project:** 2026-10-02 / portable installation and phase routing.
+- **Observation/evidence:** route --limit 99 selected more than the documented three specialists. Post-project learning and component-source queries could not select their existing modules because their entries were missing from skill-routes.json.
+- **Severity/impact:** Reproducible context-budget and module-routing defects; these do not establish measured design quality or user outcomes.
+- **Classification/root cause:** Routing error; the requested limit was trusted and two existing modules were absent from the keyword table.
+- **Countermeasure:** Cap positive integer limits at three, reject invalid limits, add precise keyword entries for the existing modules, and link relevant adopted records/versions in project-context.md. Keep ordinary UI feedback routed to interaction-design.
+- **Prior positive regression:** The original ten route cases and default three-specialist behavior remain covered.
+- **New/negative regression:** Limit 99 stays at three; invalid/zero/negative/noninteger limits fail; post-project/evolution selects continuous-learning; generic form feedback does not. Component primitive selection reaches component-source-router.
+- **Validation/evidence:** Eight routing unit tests, thirteen routing evaluation cases and the full sixty-nine-test suite. Installation checks verify actual file loading; draft-proposal counts and evolution unit tests do not measure design-effectiveness improvement.
+- **Decision:** Adopt the bounded tooling and documentation fix based on regression evidence. No autonomous core rewrite or rubric/threshold change.
+- **Rollback:** Select a clean installation of a pinned known-good source version, verify its manifest and behavior, and restart the host. In-place --overwrite can leave stale additional files and is not a complete version rollback.
+
 ## Sample validation must not stand in for project quality evidence
 
 - **Date / project:** 2026-10-02 / quality-evidence audit.

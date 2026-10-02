@@ -6,7 +6,6 @@ if [[ -z "$TARGET" ]]; then
   exit 2
 fi
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-mkdir -p "$TARGET/.codex"
-cp -R "$ROOT/.codex/skills" "$TARGET/.codex/"
-echo "Installed Codex skills into: $TARGET/.codex/skills"
+node "$ROOT/cli/web-design-os.mjs" install --agent codex --root "$TARGET" "${@:2}"
+echo "Installed Codex skills and shared runtime into: $TARGET"
 echo "Merge $ROOT/templates/AGENTS.snippet.md into the target AGENTS.md intentionally; it was not overwritten."

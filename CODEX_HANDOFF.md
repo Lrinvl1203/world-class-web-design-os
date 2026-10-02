@@ -12,9 +12,23 @@ Primary remote target:
 
 The user wants all future work on this project to continue in Codex with no loss of context.
 
+### Portable installation and bounded routing - 2026-10-02
+
+These are the current implementation notes; earlier milestones below remain historical context.
+
+- The complete installer copies 17 skills and their companion resources to `<root>/.web-design-os/runtime`. All six declared skill-directory layouts share this runtime. The four skills that need repository-root resources resolve them from their own installed directories.
+- Doctor checks required companion files, the runtime manifest and recorded SHA-256 values for runtime and installed reference files. READY establishes package integrity only; browser dependencies, host discovery and agent effectiveness are separate checks.
+- Routing accepts positive integer limits and caps active specialists at three. Precise keyword routes reach the existing continuous-learning and component-source-router modules. The project-context template links relevant adopted learning records and versions; no automatic core rewriting or adoption is added.
+- The package remains one free starter with MIT and provenance notices. Installation, local example reproduction, filesystem compatibility and limitations are documented in docs/free-starter.md. The single-bundle builder is scripts/build-free-bundle.py, and docs/agensi-free-listing-draft.md is an unsubmitted listing draft.
+- Regression validation: 69 unit tests, 13 routing cases, 16 evolution tests, 17 valid skills and five valid report records. Existing HOLD, INCOMPLETE and FIELD PENDING states are preserved; report integrity is not release readiness.
+- Local installation verification covers six declared layouts and access to the installed companion resources without source-checkout reads through public Node filesystem APIs. This is not VM isolation or six-host behavior certification.
+- The existing Sequence Desk example passed six mobile/desktop browser checks at 320 and 1440 px. Six viewport captures had no overflow or console errors. CI mode skips inherited pixel comparisons. These checks do not establish a new agent-generated design, independent-user effect or field performance result.
+- Read docs/modular-workflow.md for selective phase reads and the existing browser correction path, and docs/evolution-lifecycle.md for draft/adoption boundaries and clean-version rollback. Preserve the existing rubric and thresholds.
+
+
 ### Quality-evidence audit and collector retirement — 2026-10-02
 
-This is the latest continuation state; the older phase descriptions below remain historical context.
+This prior continuation state is retained as historical context.
 
 - Work continues on `agent/component-practice-2026-09`, the branch of open PR #24. Its existing component contracts and exposed Sequence Desk dialog checks are preserved.
 - `web-design-os audit [report.json] [--json] [--require-field]` now recomputes actual scores and distinguishes report integrity, design thresholds, reported technical diagnostics, and declared field evidence. See `docs/quality-audit.md` for its contract and exit codes. It performs no browser run or remote-source verification.

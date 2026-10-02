@@ -20,6 +20,10 @@
       "keywords": ["design system", "token", "component rules", "typography", "color system", "디자인시스템", "토큰", "타이포", "색상"]
     },
     {
+      "skill": "component-source-router",
+      "keywords": ["component-source-router", "component source", "component registry", "primitive", "radix", "headless", "shadcn"]
+    },
+    {
       "skill": "interaction-design",
       "keywords": ["interaction", "state", "feedback", "gesture", "hover", "focus", "loading", "error", "empty", "form", "인터랙션", "상태", "피드백", "폼", "로딩", "오류"]
     },
@@ -54,6 +58,10 @@
     {
       "skill": "ai-smell-detector",
       "keywords": ["generic", "ai smell", "slop", "template", "제네릭", "AI티", "템플릿"]
+    },
+    {
+      "skill": "continuous-learning",
+      "keywords": ["continuous-learning", "continuous learning", "post-project", "repeated defect", "root cause", "learning record", "evolution", "회고", "반복 결함"]
     },
     {
       "skill": "visual-polish",

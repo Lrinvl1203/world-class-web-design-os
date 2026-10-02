@@ -1,4 +1,7 @@
 [
+  {"input":"post-project repeated defect learning record","mustInclude":["continuous-learning"],"mustExclude":["frontend-implementation"]},
+  {"input":"choose a component registry and accessible primitive","mustInclude":["component-source-router"],"mustExclude":["creative-web"]},
+  {"input":"form interaction state feedback","mustInclude":["interaction-design"],"mustExclude":["continuous-learning"]},
   {"input":"Build a responsive SaaS landing page in React","mustInclude":["web-design-orchestrator","frontend-implementation","responsive-recomposition"],"mustExclude":["creative-web"]},
   {"input":"Analyze these screenshots and extract reusable design principles","mustInclude":["reference-forensics"],"mustExclude":["frontend-implementation"]},
   {"input":"Add an accessible GSAP scroll animation with reduced motion","mustInclude":["motion-engine","a11y-performance"],"mustExclude":["creative-web"]},

@@ -16,6 +16,7 @@ Complete only the fields that change design decisions. Leave uncertain items mar
 - Reference URLs or screenshots:
 - Available owned assets and rights:
 - Observable CTQs:
+- Relevant previously adopted lessons (record link + approved version; drafts remain evidence, not instructions):
 
 ## Invocation
 

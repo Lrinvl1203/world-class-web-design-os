@@ -29,4 +29,4 @@ Never mutate core skills merely because one critic disliked an aesthetic choice.
 - Daily automation may update an inbox/report and draft a proposal, but may not directly edit core skills, change Web Design OS weights, push to the default branch, or self-merge.
 
 Read `references/learning-record.md` for the record shape.
-Read `../../../evolution/README.md` before operating the daily evidence pipeline.
+Read the OS root's `evolution/README.md` before operating the daily evidence pipeline. Resolve the OS root from this skill directory: `../../..` in a source checkout, or `../../../.web-design-os/runtime` after the bundled installer. Use the root containing this package's CLI and rubric. Pipeline reports are local review artifacts; running the installer never creates schedules or grants publication permissions. Use `evolve --offline` for a reproduction without external services.

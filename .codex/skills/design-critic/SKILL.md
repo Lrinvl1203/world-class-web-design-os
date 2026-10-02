@@ -39,7 +39,7 @@ Review the rendered result as if you did not build it. Begin from screenshots an
 
 ## Design Quality scoring
 
-Use `config/design-quality-rubric.json`; read `references/design-quality.md` for interpretation. Do not inflate scores to match effort spent.
+Use the OS root's `config/design-quality-rubric.json`; read this skill's `references/design-quality.md` for interpretation. Resolve the OS root from this skill directory: `../../..` in a source checkout, or `../../../.web-design-os/runtime` after the bundled installer. Choose the root containing this package's CLI and rubric, never a rubric inferred from the website project's working directory. Do not inflate scores to match effort spent.
 
 ## Correction priority
 

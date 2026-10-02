@@ -4,6 +4,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { routeSkills, root } from '../scripts/lib/routing.mjs';
 import { installSkills } from '../scripts/install-global.mjs';
+import { doctorInstallation } from '../scripts/lib/installation.mjs';
 import { runEvolution } from '../scripts/evolution/run.mjs';
 import { auditQualityFile, formatQualityAudit } from '../scripts/lib/quality-audit.mjs';
 
@@ -32,29 +33,14 @@ function printHelp() {
   web-design-os route "task description"             Route to at most three active specialists
   web-design-os search "editorial motion" [--limit 8] Search the evidence atlas
   web-design-os setup [target]                        Create .web-design-os/project-context.md
-  web-design-os install --agent codex|all [--overwrite]
-  web-design-os doctor [--agent codex]                Verify a global skill installation
+  web-design-os install --agent codex|all [--root path] [--overwrite]
+  web-design-os doctor [--agent codex] [--root path] [--json]
+                                                     Check installed skills and bundled resource integrity
   web-design-os audit [report.json] [--json] [--require-field]
                                                      Audit a project's actual quality report (read-only)
   web-design-os evolve [--offline] [--date YYYY-MM-DD]
   web-design-os eval                                  Run routing and evolution regression tests
   web-design-os --version                             Print the CLI version`);
-}
-
-function doctor({ agent = 'codex', targetRoot } = {}) {
-  const targets = JSON.parse(fs.readFileSync(path.join(root, 'config', 'agent-targets.json'), 'utf8'));
-  if (!targets[agent]) throw new Error(`Unknown agent '${agent}'. Choose: ${Object.keys(targets).join(', ')}`);
-  const base = path.resolve(targetRoot || process.env.USERPROFILE || process.env.HOME || '.');
-  const destination = path.join(base, ...targets[agent].split('/'));
-  const expectedNames = fs.readdirSync(path.join(root, '.codex', 'skills'), { withFileTypes: true })
-    .filter(entry => entry.isDirectory())
-    .map(entry => entry.name);
-  const installedNames = expectedNames.filter(name => fs.existsSync(path.join(destination, name, 'SKILL.md')));
-  const missing = expectedNames.filter(name => !installedNames.includes(name));
-  const expected = expectedNames.length;
-  const installed = installedNames.length;
-  const orchestrator = path.join(destination, 'web-design-orchestrator', 'SKILL.md');
-  return { agent, destination, expected, installed, missing, ready: missing.length === 0 && fs.existsSync(orchestrator) };
 }
 
 function searchAtlas(query, limit = 8) {
@@ -99,13 +85,19 @@ try {
       targetRoot: value('--root'),
       overwrite: process.argv.includes('--overwrite')
     });
-    installed.forEach(item => console.log(`${item.agent}: ${item.destination}`));
-    console.log('Run `web-design-os doctor` to verify the installation.');
+    installed.forEach(item => console.log(`${item.agent}: ${item.destination}\nShared runtime: ${item.runtime}`));
+    console.log('Run doctor with the same --agent and --root to check bundled files. Restart your agent session.');
   } else if (command === 'doctor') {
-    const result = doctor({ agent: value('--agent', 'codex'), targetRoot: value('--root') });
-    console.log(`${result.ready ? 'READY' : 'NOT READY'}  ${result.agent}`);
-    console.log(`${result.installed}/${result.expected} Web Design OS skills at ${result.destination}`);
-    if (result.missing.length > 0) console.log(`Missing: ${result.missing.join(', ')}`);
+    const result = doctorInstallation({ agent: value('--agent', 'codex'), targetRoot: value('--root') });
+    if (process.argv.includes('--json')) console.log(JSON.stringify(result, null, 2));
+    else {
+      console.log(`${result.ready ? 'READY' : 'NOT READY'}  ${result.agent}`);
+      console.log(`${result.installed}/${result.expected} Web Design OS skills at ${result.destination}`);
+      console.log(`Shared runtime: ${result.runtime} (${result.checkedRuntimeFiles} files checked)`);
+      if (result.missing.length > 0) console.log(`Missing skills: ${result.missing.join(', ')}`);
+      result.problems.forEach(problem => console.log(problem));
+      console.log(result.basis);
+    }
     if (!result.ready) process.exitCode = 1;
   } else if (command === 'audit') {
     const args = process.argv.slice(3);

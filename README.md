@@ -31,16 +31,18 @@ It is not a component library or a list of style prompts. The output can look co
 
 ## Start in 60 seconds
 
+For the portable starter, use the [ZIP guide](docs/free-starter.md). To test a checked-out source version, run `node cli/web-design-os.mjs install --agent codex`. The GitHub commands below follow the remote default branch, which can differ from a review branch.
+
 1. Install the skills:
 
 ```bash
 npx --yes github:Lrinvl1203/world-class-web-design-os install --agent codex
 ```
 
-Or use the [universal Agent Skills CLI](https://github.com/vercel-labs/skills) for another compatible agent:
+Choose another declared layout with the same complete installer, for example:
 
 ```bash
-npx --yes skills add Lrinvl1203/world-class-web-design-os -g
+npx --yes github:Lrinvl1203/world-class-web-design-os install --agent claude
 ```
 
 2. Start a new agent session so skill discovery refreshes.
@@ -55,7 +57,7 @@ Broad website work routes through `web-design-orchestrator`; specialist skills l
 npx --yes github:Lrinvl1203/world-class-web-design-os doctor --agent codex
 ```
 
-The doctor command confirms the expected 17 skills are discoverable. Both installers read this public GitHub repository directly; the universal CLI currently discovers all 17 skills without a duplicate `skills/` tree.
+The bundled installer copies the 17 skills and a shared runtime into `.web-design-os/runtime` under the installation root. Doctor checks the installed skills, companion files, and recorded SHA-256 integrity. READY describes package integrity; it does not certify browser dependencies, design quality, or agent performance. Use the same `--root` for install and doctor when installing outside your home directory. A universal CLI skills-only copy omits shared resources; use this package's installer for the complete workflow. See [the portable starter guide](docs/free-starter.md).
 
 ## What is actually in the repository
 

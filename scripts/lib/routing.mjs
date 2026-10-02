@@ -18,8 +18,12 @@ export function routeSkills(input, options = {}) {
     .sort((a, b) => b.score - a.score || a.index - b.index);
 
   const fullBuild = /\b(build|design|redesign|website|landing page|web app)\b|웹사이트|웹페이지|랜딩|리디자인|디자인해/.test(normalized);
-  const limit = Number(options.limit || config.maxActiveSpecialists || 3);
-  const selected = scored.slice(0, Math.max(1, limit));
+  const requestedLimit = Number(options.limit ?? config.maxActiveSpecialists ?? 3);
+  if (!Number.isInteger(requestedLimit) || requestedLimit < 1) {
+    throw new Error('Specialist limit must be a positive integer.');
+  }
+  const limit = Math.min(requestedLimit, config.maxActiveSpecialists || 3, 3);
+  const selected = scored.slice(0, limit);
 
   return {
     orchestrator: fullBuild ? config.alwaysStartForFullBuild : null,

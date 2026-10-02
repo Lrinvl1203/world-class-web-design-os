@@ -40,4 +40,4 @@ For each issue record:
 
 Visual baselines are environment-sensitive. Keep the comparison environment consistent and only update baselines after reviewing the diff. A passing pixel comparison is not evidence when its baseline recorded hidden critical content or media that had not finished decoding.
 
-Use `scripts/capture-screenshots.mjs` and `tests/visual.spec.ts` as starters.
+Use the OS root's `scripts/capture-screenshots.mjs` and `tests/visual.spec.ts` as starters. Resolve the OS root from this skill directory: `../../..` in a source checkout, or `../../../.web-design-os/runtime` after the bundled installer. Use absolute tool paths when running from the website project. Browser QA additionally requires the package's Playwright dependencies and Chromium; doctor checks bundled files only. Adapt the starter assertions and baselines to the target interface; the supplied tests describe the bundled examples.

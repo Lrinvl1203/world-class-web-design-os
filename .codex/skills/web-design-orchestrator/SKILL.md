@@ -7,6 +7,10 @@ metadata:
 
 # Web Design Orchestrator
 
+## Bundled resource paths
+
+Resolve paths from this `SKILL.md`, never from the website project's working directory. In a source checkout, the OS root is `../../..`. After the bundled installer, it is `../../../.web-design-os/runtime` (relative to this skill directory). Use the root containing this package's `cli/web-design-os.mjs` and `config/design-quality-rubric.json`; pass an absolute CLI path when working in another project. Run that CLI's `doctor` with the installation's `--root` before using shared resources. A skills-only copy is incomplete.
+
 ## Goal
 
 Route a web-design task through the minimum set of specialist skills required to achieve a distinctive, validated result.
